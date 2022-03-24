@@ -185,6 +185,14 @@
             }
           }
         }
+      },
+      {
+        "key": "followup_status",
+        "type": "hidden",
+        "openmrs_entity_id": "followup_status",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "value": "continuing_with_services"
       }
     ]
   }
