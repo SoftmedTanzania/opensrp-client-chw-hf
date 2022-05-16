@@ -48,6 +48,7 @@ public class LDStage4ActivityInteractor extends BaseLDVisitInteractor {
             }
 
             try {
+                evaluateMotherStatus();
                 evaluateNewBorn();
             } catch (BaseLDVisitAction.ValidationException e) {
                 Timber.e(e);
@@ -73,6 +74,19 @@ public class LDStage4ActivityInteractor extends BaseLDVisitInteractor {
         } catch (Exception e) {
             Timber.e(e);
         }
+    }
+
+    private void evaluateMotherStatus() throws BaseLDVisitAction.ValidationException {
+
+        String title = context.getString(R.string.mother_status);
+        MotherStatusActionHelper actionHelper = new MotherStatusActionHelper();
+        BaseLDVisitAction action = getBuilder(title)
+                .withOptional(false)
+                .withHelper(actionHelper)
+                .withBaseEntityID(memberObject.getBaseEntityId())
+                .withFormName(Constants.JsonForm.LDStage4.getLdMotherStatus())
+                .build();
+        actionList.put(title, action);
     }
 
     private void evaluateNewBorn() throws BaseLDVisitAction.ValidationException {
@@ -137,6 +151,61 @@ public class LDStage4ActivityInteractor extends BaseLDVisitInteractor {
         @Override
         public BaseLDVisitAction.Status evaluateStatusOnPayload() {
             if (StringUtils.isNotBlank(newbornStatus)) {
+                return BaseLDVisitAction.Status.COMPLETED;
+            } else {
+                return BaseLDVisitAction.Status.PENDING;
+            }
+        }
+
+        @Override
+        public void onPayloadReceived(BaseLDVisitAction ldVisitAction) {
+            //implement
+        }
+    }
+
+    private static class MotherStatusActionHelper implements BaseLDVisitAction.LDVisitActionHelper {
+
+        private String status;
+        private Context context;
+
+        @Override
+        public void onJsonFormLoaded(String jsonString, Context context, Map<String, List<VisitDetail>> details) {
+            this.context = context;
+        }
+
+        @Override
+        public String getPreProcessed() {
+            return null;
+        }
+
+        @Override
+        public void onPayloadReceived(String jsonPayload) {
+            status = JsonFormUtils.getFieldValue(jsonPayload, "status");
+        }
+
+        @Override
+        public BaseLDVisitAction.ScheduleStatus getPreProcessedStatus() {
+            return null;
+        }
+
+        @Override
+        public String getPreProcessedSubTitle() {
+            return null;
+        }
+
+        @Override
+        public String postProcess(String jsonPayload) {
+            return null;
+        }
+
+        @Override
+        public String evaluateSubTitle() {
+            return null;
+        }
+
+        @Override
+        public BaseLDVisitAction.Status evaluateStatusOnPayload() {
+            if (StringUtils.isNotBlank(status)) {
                 return BaseLDVisitAction.Status.COMPLETED;
             } else {
                 return BaseLDVisitAction.Status.PENDING;

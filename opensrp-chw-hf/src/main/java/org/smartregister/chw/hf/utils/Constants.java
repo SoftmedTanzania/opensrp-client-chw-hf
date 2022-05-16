@@ -480,9 +480,14 @@ public class Constants extends CoreConstants {
 
         public static class LDStage4 {
             public static final String LD_NEW_BORN = "labour_and_delivery_newborn";
+            public static final String LD_MOTHER_STATUS = "labour_and_delivery_mother_status";
 
             public static String getLdNewBorn() {
                 return Utils.getLocalForm(LD_NEW_BORN);
+            }
+
+            public static String getLdMotherStatus() {
+                return Utils.getLocalForm(LD_MOTHER_STATUS);
             }
         }
 
