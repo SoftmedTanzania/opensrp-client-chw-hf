@@ -1,9 +1,5 @@
 package org.smartregister.chw.hf.activity;
 
-import static org.smartregister.chw.hf.utils.Constants.JsonForm.LabourAndDeliveryRegistration.getLabourAndDeliveryCervixDilationMonitoring;
-import static org.smartregister.chw.hf.utils.Constants.JsonForm.LabourAndDeliveryRegistration.getLabourAndDeliveryLabourStage;
-import static org.smartregister.chw.hf.utils.Constants.JsonForm.LabourAndDeliveryRegistration.getLabourAndDeliveryModeOfDelivery;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,12 +17,24 @@ import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.domain.Visit;
 import org.smartregister.chw.ld.util.Constants;
 
+import static org.smartregister.chw.hf.utils.Constants.JsonForm.LabourAndDeliveryRegistration.getLabourAndDeliveryCervixDilationMonitoring;
+import static org.smartregister.chw.hf.utils.Constants.JsonForm.LabourAndDeliveryRegistration.getLabourAndDeliveryLabourStage;
+import static org.smartregister.chw.hf.utils.Constants.JsonForm.LabourAndDeliveryRegistration.getLabourAndDeliveryModeOfDelivery;
+
 public class LDProfileActivity extends BaseLDProfileActivity {
     public static final String LD_PROFILE_ACTION = "LD_PROFILE_ACTION";
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, LDProfileActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
+        activity.startActivity(intent);
+    }
+
+    public static void startLDForm(Activity activity, String baseEntityID, String formName) {
+        Intent intent = new Intent(activity, LDRegisterActivity.class);
+        intent.putExtra(org.smartregister.chw.ld.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityID);
+        intent.putExtra(Constants.ACTIVITY_PAYLOAD.LD_FORM_NAME, formName);
+        intent.putExtra(org.smartregister.chw.ld.util.Constants.ACTIVITY_PAYLOAD.ACTION, LD_PROFILE_ACTION);
         activity.startActivity(intent);
     }
 
@@ -100,6 +108,8 @@ public class LDProfileActivity extends BaseLDProfileActivity {
                 startLDForm(this, memberObject.getBaseEntityId(), getLabourAndDeliveryModeOfDelivery());
             } else if (((TextView) view).getText().equals(getString(R.string.ld_active_management_3rd_stage))) {
                 openActiveManagementStage();
+            } else if (((TextView) view).getText().equals(getString(R.string.ld_stage_4))) {
+                openNewBornCare();
             }
         } else {
             super.onClick(view);
@@ -129,15 +139,9 @@ public class LDProfileActivity extends BaseLDProfileActivity {
             textViewRecordLD.setText(R.string.lb_mode_of_delivery);
         } else if (LDDao.getLabourStage(memberObject.getBaseEntityId()).equals("3")) {
             textViewRecordLD.setText(R.string.ld_active_management_3rd_stage);
+        } else if (LDDao.getLabourStage(memberObject.getBaseEntityId()).equals("4")) {
+            textViewRecordLD.setText(R.string.ld_stage_4);
         }
-    }
-
-    public static void startLDForm(Activity activity, String baseEntityID, String formName) {
-        Intent intent = new Intent(activity, LDRegisterActivity.class);
-        intent.putExtra(org.smartregister.chw.ld.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityID);
-        intent.putExtra(Constants.ACTIVITY_PAYLOAD.LD_FORM_NAME, formName);
-        intent.putExtra(org.smartregister.chw.ld.util.Constants.ACTIVITY_PAYLOAD.ACTION, LD_PROFILE_ACTION);
-        activity.startActivity(intent);
     }
 
     private void openExaminationConsultation() {
@@ -154,6 +158,10 @@ public class LDProfileActivity extends BaseLDProfileActivity {
 
     private void openActiveManagementStage() {
         LDActiveManagementStageActivity.startActiveManagementActivity(this, memberObject.getBaseEntityId(), false);
+    }
+
+    private void openNewBornCare() {
+        LDStage4Activity.startStage4Activity(this, memberObject.getBaseEntityId(), false);
     }
 
 }

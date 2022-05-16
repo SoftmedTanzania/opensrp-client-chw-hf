@@ -287,7 +287,8 @@
     <string name="ld_expulsion_of_placenta">Expulsion of the placenta and membranes</string>
     <string name="ld_placent_retained_message">Placenta Retained</string>
     <string name="ld_no_uterus_massage">The woman did not receive uterus massage</string>
-
+    <string name="ld_stage_4">Record LD Stage 4</string>
+    <string name="new_born">New Born</string>
 
 
 </resources>
