@@ -478,6 +478,14 @@ public class Constants extends CoreConstants {
 
         }
 
+        public static class LDStage4 {
+            public static final String LD_NEW_BORN = "labour_and_delivery_newborn";
+
+            public static String getLdNewBorn() {
+                return Utils.getLocalForm(LD_NEW_BORN);
+            }
+        }
+
         public static class LDActiveManagement {
             public static final String LD_ACTIVE_MANAGEMENT_UTERONICS = "labour_and_delivery_uterotonic";
             public static final String LD_ACTIVE_MANAGEMENT_EXPULSION_PLACENTA = "labour_and_delivery_placenta_and_membrane";
