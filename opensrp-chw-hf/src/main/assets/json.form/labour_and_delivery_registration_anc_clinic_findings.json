@@ -208,6 +208,13 @@
         "text_color": "#C0C0C0",
         "options": [
           {
+            "key": "unknown",
+            "text": "0",
+            "value": false,
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown"
+          },
+          {
             "key": "positive",
             "text": "1",
             "value": false,
@@ -272,6 +279,13 @@
         "v_required": {
           "value": "true",
           "err": "Please enter the last PMTCT test date"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_triage_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -455,7 +469,7 @@
       {
         "key": "prompt_for_rh_negative",
         "type": "toaster_notes",
-        "text": "Provide management according to standard guideline",
+        "text": "Provide management according to SOP and Standard Guideline",
         "openmrs_entity_id": "",
         "openmrs_entity": "",
         "openmrs_entity_parent": "",

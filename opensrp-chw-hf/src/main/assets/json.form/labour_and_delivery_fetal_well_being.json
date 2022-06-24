@@ -72,48 +72,20 @@
         "v_max": {
           "value": "300",
           "err": "Fetal heart rate must be equal or less than 300"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please input the fetal heart rate"
         }
       },
       {
         "key": "prompt_for_fetal_distress",
         "type": "toaster_notes",
-        "text": "Take action or refer for further management",
+        "text": "Provide management according to SOP and Standard Guideline",
         "openmrs_entity_id": "prompt_for_fetal_distress",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
         "toaster_type": "problem",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "labour_and_delivery_fetal_wellbeing_relevance.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "moulding",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "moulding",
-        "label": "Moulding",
-        "text_color": "#000000",
-        "type": "native_radio",
-        "options": [
-          {
-            "key": "yes",
-            "text": "Yes",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
-          },
-          {
-            "key": "no",
-            "text": "No",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
-          }
-        ],
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -132,31 +104,98 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "sutures_apposed",
-            "text": "Sutures apposed (+)",
+            "key": "Ø",
+            "text": "Ø",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sutures_apposed"
+            "openmrs_entity_id": "Ø"
           },
           {
-            "key": "sutures_overlapped_reducible",
-            "text": "Sutures overlapped but reducible (++)",
+            "key": "+",
+            "text": "+",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sutures_overlapped_reducible"
+            "openmrs_entity_id": "+"
           },
           {
-            "key": "sutures_overlapped_not_reducible",
-            "text": "Sutures overlapped not reducible (+++)",
+            "key": "++",
+            "text": "++",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sutures_overlapped_not_reducible"
+            "openmrs_entity_id": "++"
+          },
+          {
+            "key": "+++",
+            "text": "+++",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "+++"
           }
-        ],
-        "v_required": {
-          "value": true,
-          "err": "Please select an option"
-        },
+        ]
+      },
+      {
+        "key": "prompt_for_moulding",
+        "type": "toaster_notes",
+        "text": "Provide management according to SOP and Standard Guideline",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_fetal_wellbeing_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "caput",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "caput",
+        "label": "Caput",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "Ø",
+            "text": "Ø",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "Ø"
+          },
+          {
+            "key": "+",
+            "text": "+",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "+"
+          },
+          {
+            "key": "++",
+            "text": "++",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "++"
+          },
+          {
+            "key": "+++",
+            "text": "+++",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "+++"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_caput",
+        "type": "toaster_notes",
+        "text": "Provide management according to SOP and Standard Guideline",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -207,7 +246,7 @@
       {
         "key": "prompt_for_amniotic_fluid",
         "type": "toaster_notes",
-        "text": "Take action per National guideline",
+        "text": "Provide management according to SOP and Standard Guideline",
         "openmrs_entity_id": "",
         "openmrs_entity": "",
         "openmrs_entity_parent": "",
