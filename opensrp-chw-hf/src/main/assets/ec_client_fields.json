@@ -1794,6 +1794,14 @@
           }
         },
         {
+          "column_name": "gest_age",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "gest_age"
+          }
+        },
+        {
           "column_name": "hb_level",
           "type": "Event",
           "json_mapping": {
@@ -1911,6 +1919,14 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "mRDT_for_malaria"
+          }
+        },
+        {
+          "column_name": "llin_provision",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "llin_provision"
           }
         },
         {
