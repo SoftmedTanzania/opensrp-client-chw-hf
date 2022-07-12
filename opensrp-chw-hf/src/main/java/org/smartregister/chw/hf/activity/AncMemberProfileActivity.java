@@ -196,7 +196,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
                     displayToast(R.string.recorded_partner_testing_results);
                     setupViews();
                 } else if (form.getString(JsonFormUtils.ENCOUNTER_TYPE).equals(org.smartregister.chw.core.utils.Utils.metadata().familyRegister.updateEventType)) {
-                    FamilyEventClient familyEventClient = new CoreAllClientsMemberModel().processJsonForm(jsonString,UpdateDetailsUtil.getFamilyBaseEntityId(getCommonPersonObjectClient()));
+                    FamilyEventClient familyEventClient = new CoreAllClientsMemberModel().processJsonForm(jsonString, UpdateDetailsUtil.getFamilyBaseEntityId(getCommonPersonObjectClient()));
                     JSONObject syncLocationField = CoreJsonFormUtils.getJsonField(new JSONObject(jsonString), STEP1, SYNC_LOCATION_ID);
                     familyEventClient.getEvent().setLocationId(CoreJsonFormUtils.getSyncLocationUUIDFromDropdown(syncLocationField));
                     familyEventClient.getEvent().setEntityType(CoreConstants.TABLE_NAME.INDEPENDENT_CLIENT);
@@ -352,9 +352,10 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
             int obsSize = obs.length();
             for (int i = 0; i < obsSize; i++) {
                 JSONObject checkObj = obs.getJSONObject(i);
-                if (checkObj.getString("fieldCode").equalsIgnoreCase("known_on_art")) {
+                if (checkObj.getString("fieldCode").equalsIgnoreCase("known_on_art") && !checkObj.getJSONArray("values").getString(0).equalsIgnoreCase("0")) {
                     hivPositive = true;
                     isKnownOnArt = true;
+
                 } else if (checkObj.getString("fieldCode").equalsIgnoreCase("hiv")) {
                     JSONArray values = checkObj.getJSONArray("values");
                     if (values.getString(0).equalsIgnoreCase("positive")) {
@@ -612,8 +613,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
         } else if (itemId == R.id.action_ld_registration) {
             startLDRegistration();
             return true;
-        }
-        else if(itemId == org.smartregister.chw.core.R.id.action_location_info){
+        } else if (itemId == org.smartregister.chw.core.R.id.action_location_info) {
 
             JSONObject preFilledForm = getAutoPopulatedJsonEditFormString(
                     CoreConstants.JSON_FORM.getFamilyDetailsRegister(), this,
