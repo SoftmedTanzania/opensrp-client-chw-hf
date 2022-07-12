@@ -281,17 +281,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "known_on_art",
         "openmrs_entity_parent": "",
-        "relevance": {
-          "step1:medical_surgical_history": {
-            "ex-checkbox": [
-              {
-                "or": [
-                  "known_on_art"
-                ]
-              }
-            ]
-          }
-        },
         "calculation": {
           "rules-engine": {
             "ex-rules": {
