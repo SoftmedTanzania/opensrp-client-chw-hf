@@ -1,0 +1,14 @@
+---
+name: step1_prompt_for_gravida
+description: prompt_for_gravida relevance
+priority: 1
+condition: "step1_gravida > 5"
+actions:
+  - "isRelevant = true"
+---
+name: step1_past_medical_surgical_history
+description: past_medical_surgical_history relevance
+priority: 1
+condition: "step1_para > 0"
+actions:
+  - "isRelevant = true"

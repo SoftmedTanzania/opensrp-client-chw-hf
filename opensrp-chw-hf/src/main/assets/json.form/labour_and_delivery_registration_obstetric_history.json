@@ -63,9 +63,10 @@
         "openmrs_entity_parent": "",
         "toaster_type": "problem",
         "relevance": {
-          "step1:gravida": {
-            "type": "numeric",
-            "ex": "greaterThan(.,\"5\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_obstetric_history_relevance.yml"
+            }
           }
         }
       },
@@ -205,9 +206,10 @@
         "type": "edit_text",
         "hint": "Past Medical/Surgical History",
         "relevance": {
-          "step1:para": {
-            "type": "numeric",
-            "ex": "greaterThan(.,\"0\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_obstetric_history_relevance.yml"
+            }
           }
         }
       }
