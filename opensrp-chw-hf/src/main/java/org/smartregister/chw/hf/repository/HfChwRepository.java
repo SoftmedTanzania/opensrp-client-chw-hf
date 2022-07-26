@@ -183,9 +183,10 @@ public class HfChwRepository extends CoreChwRepository {
                 String pncIndicatorConfigFile = "config/pnc-reporting-indicator-definitions.yml";
                 String cbhsReportingIndicatorConfigFile = "config/cbhs-reporting-indicator-definitions.yml";
                 String ldReportingIndicatorConfigFile = "config/ld-reporting-indicator-definitions.yml";
+                String ltfuSummaryReportingIndicatorConfigFile = "config/community-ltfu-summary.yml";
 
                 for (String configFile : Collections.unmodifiableList(
-                        Arrays.asList(indicatorsConfigFile, ancIndicatorConfigFile, pmtctIndicatorConfigFile, pncIndicatorConfigFile, cbhsReportingIndicatorConfigFile, ldReportingIndicatorConfigFile))) {
+                        Arrays.asList(indicatorsConfigFile, ancIndicatorConfigFile, pmtctIndicatorConfigFile, pncIndicatorConfigFile, cbhsReportingIndicatorConfigFile, ldReportingIndicatorConfigFile,ltfuSummaryReportingIndicatorConfigFile))) {
                     reportingLibraryInstance.readConfigFile(configFile, db);
                 }
 
