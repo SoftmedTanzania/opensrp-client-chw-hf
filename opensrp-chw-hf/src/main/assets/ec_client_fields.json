@@ -6435,6 +6435,33 @@
       ]
     },
     {
+      "name": "ec_cbhs_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "services_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_services_provided"
+          }
+        }
+      ]
+    },
+    {
       "name": "ec_mother_champion_followup",
       "columns": [
         {
