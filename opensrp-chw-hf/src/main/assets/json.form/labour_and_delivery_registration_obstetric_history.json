@@ -55,21 +55,6 @@
         "hint": "Gravida"
       },
       {
-        "key": "prompt_for_gravida",
-        "type": "toaster_notes",
-        "text": "Counsel on the risk of uterine rupture and closely monitor the client",
-        "openmrs_entity_id": "",
-        "openmrs_entity": "",
-        "openmrs_entity_parent": "",
-        "toaster_type": "problem",
-        "relevance": {
-          "step1:gravida": {
-            "type": "numeric",
-            "ex": "greaterThan(.,\"5\")"
-          }
-        }
-      },
-      {
         "key": "para",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -82,6 +67,38 @@
             "type": "numeric",
             "ex": "lessThanEqualTo(., step1:gravida)",
             "err": "Parity must be equal to or less than gravida"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_grand_multiparity",
+        "type": "toaster_notes",
+        "text": "Counsel on the risk of uterine rupture and closely monitor the client",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_registration_obstetric_history_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "number_of_abortion",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_abortion",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Number of abortions",
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThanEqualTo(., step1:gravida_minus_para)",
+            "err": "Sum of Para and Abortions should not exceed the Gravida"
           }
         ]
       },
@@ -107,22 +124,6 @@
             }
           }
         }
-      },
-      {
-        "key": "number_of_abortion",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "number_of_abortion",
-        "type": "edit_text",
-        "edit_type": "number",
-        "hint": "Number of abortions",
-        "constraints": [
-          {
-            "type": "numeric",
-            "ex": "lessThanEqualTo(., step1:gravida_minus_para)",
-            "err": "Sum of Para and Abortions should not exceed the Gravida"
-          }
-        ]
       },
       {
         "key": "last_menstrual_period",

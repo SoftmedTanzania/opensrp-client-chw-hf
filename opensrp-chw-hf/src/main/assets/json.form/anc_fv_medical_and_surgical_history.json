@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -55,8 +50,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "medical_surgical_history",
         "type": "check_box",
-        "label_info_image_src": "img/chw.png",
-        "label_info_has_image": true,
         "label": "Any Medical and surgical History of the Patient?",
         "combine_checkbox_option_values": "true",
         "label_text_style": "normal",
@@ -150,13 +143,6 @@
             "openmrs_entity_id": "female_genital_mutilation"
           },
           {
-            "key": "parity_chk",
-            "text": "Parity",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "parity_chk"
-          },
-          {
             "key": "closely_spaced_pregnancy",
             "text": "Closely spaced pregnancy (within 2 years)",
             "value": false,
@@ -205,11 +191,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hx_abortions"
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please pick at least one"
-        }
+        ]
       },
       {
         "key": "ctc_number",
@@ -229,7 +211,7 @@
         "v_max_length": {
           "value": "17",
           "is_fixed_size": "true",
-          "err":"Please enter a valid CTC Number"
+          "err": "Please enter a valid CTC Number"
         },
         "v_required": {
           "value": true,
@@ -248,6 +230,18 @@
         }
       },
       {
+        "key": "gravida",
+        "type": "edit_text",
+        "hint": "Gravida",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the gravida number"
+        }
+      },
+      {
         "key": "parity",
         "type": "edit_text",
         "hint": "Parity",
@@ -258,21 +252,41 @@
           "value": "true",
           "err": "Please enter parity number"
         },
-        "v_required": {
-          "value": true,
-          "err": "Please enter the parity number"
-        },
-        "relevance": {
-          "step1:medical_surgical_history": {
-            "type": "string",
-            "ex-checkbox": [
-              {
-                "or": [
-                  "parity_chk"
-                ]
-              }
-            ]
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:gravida)",
+            "err": "Parity must be less than gravida"
           }
+        ]
+      },
+      {
+        "key": "prompt_for_grand_multiparity",
+        "type": "toaster_notes",
+        "text": "Counsel on the risk of uterine rupture and closely monitor the client",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Number of living children",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the number of living children"
         }
       },
       {
@@ -307,6 +321,14 @@
         "openmrs_entity_id": "visit_number",
         "openmrs_entity_parent": "",
         "value": 1
+      },
+      {
+        "key": "medical_surgical_history_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "medical_surgical_history_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
       }
     ]
   }

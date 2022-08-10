@@ -3,14 +3,20 @@ package org.smartregister.chw.hf.actionhelper;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.core.utils.CoreJsonFormUtils;
+import org.smartregister.chw.core.utils.FormUtils;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.hf.utils.Constants;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.domain.VisitDetail;
 import org.smartregister.chw.ld.model.BaseLDVisitAction;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +38,7 @@ public class LDRegistrationAncClinicFindingsAction implements BaseLDVisitAction.
     private String syphilis;
     private String bloodGroup;
     private String rhFactor;
+    private String hbTestConducted;
     private Context context;
 
     public LDRegistrationAncClinicFindingsAction(MemberObject memberObject) {
@@ -56,6 +63,7 @@ public class LDRegistrationAncClinicFindingsAction implements BaseLDVisitAction.
             iptDoses = CoreJsonFormUtils.getValue(jsonObject, "ipt_doses");
             ttDoses = CoreJsonFormUtils.getValue(jsonObject, "tt_doses");
             llinUsed = CoreJsonFormUtils.getValue(jsonObject, "llin_used");
+            hbTestConducted = CoreJsonFormUtils.getValue(jsonObject, "hb_test");
             hbLevel = CoreJsonFormUtils.getValue(jsonObject, "hb_level");
             hbTestDate = CoreJsonFormUtils.getValue(jsonObject, "hb_test_date");
             pmtct = CoreJsonFormUtils.getValue(jsonObject, "anc_hiv_status");
@@ -114,8 +122,8 @@ public class LDRegistrationAncClinicFindingsAction implements BaseLDVisitAction.
                 !StringUtils.isBlank(iptDoses) &&
                 !StringUtils.isBlank(ttDoses) &&
                 !StringUtils.isBlank(llinUsed) &&
-                !StringUtils.isBlank(hbLevel) &&
-                !StringUtils.isBlank(hbTestDate) &&
+                (!hbTestConducted.equals("yes") || (!StringUtils.isBlank(hbLevel) &&
+                        !StringUtils.isBlank(hbTestDate))) &&
                 !StringUtils.isBlank(pmtct) &&
                 !StringUtils.isBlank(syphilis) &&
                 !StringUtils.isBlank(bloodGroup) &&

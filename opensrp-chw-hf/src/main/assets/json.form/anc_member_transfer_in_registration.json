@@ -16,11 +16,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -87,8 +82,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "medical_surgical_history",
         "type": "check_box",
-        "label_info_image_src": "img/chw.png",
-        "label_info_has_image": true,
         "label": "Any Medical and surgical History of the Client?",
         "combine_checkbox_option_values": "true",
         "label_text_style": "normal",
@@ -180,13 +173,6 @@
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "female_genital_mutilation"
-          },
-          {
-            "key": "parity",
-            "text": "Parity",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "parity"
           },
           {
             "key": "closely_spaced_pregnancy",
@@ -325,11 +311,27 @@
         }
       },
       {
-        "key": "parity_value",
+        "key": "gravida",
+        "type": "edit_text",
+        "hint": "Gravida",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the gravida number"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the gravida number"
+        }
+      },
+      {
+        "key": "parity",
         "type": "edit_text",
         "hint": "Parity",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "parity_value",
+        "openmrs_entity_id": "parity",
         "openmrs_entity_parent": "",
         "v_numeric": {
           "value": "true",
@@ -339,17 +341,45 @@
           "value": true,
           "err": "Please enter the parity number"
         },
-        "relevance": {
-          "step1:medical_surgical_history": {
-            "type": "string",
-            "ex-checkbox": [
-              {
-                "or": [
-                  "parity"
-                ]
-              }
-            ]
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:gravida)",
+            "err": "Parity must be less than gravida"
           }
+        ]
+      },
+      {
+        "key": "prompt_for_grand_multiparity",
+        "type": "toaster_notes",
+        "text": "Counsel on the risk of uterine rupture and closely monitor the client",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Number of living children",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the number of living children"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the number of living children"
         }
       },
       {

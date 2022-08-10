@@ -1,8 +1,11 @@
 package org.smartregister.chw.hf.dao;
 
+import static org.smartregister.chw.hf.utils.Constants.FOCUS.LD_EMERGENCY;
+
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.dao.AbstractDao;
+import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.util.Utils;
 
 import java.text.SimpleDateFormat;
@@ -95,10 +98,10 @@ public class LDDao extends org.smartregister.chw.ld.dao.LDDao {
         return res.get(0);
     }
 
-    public static String getAdmissionDate(String baseEntityId) {
-        String sql = "SELECT admission_date FROM " + org.smartregister.chw.ld.util.Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+    public static String getPmtctTestDate(String baseEntityId) {
+        String sql = "SELECT pmtct_test_date FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "admission_date");
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "pmtct_test_date");
 
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() > 0)
@@ -106,10 +109,84 @@ public class LDDao extends org.smartregister.chw.ld.dao.LDDao {
         return null;
     }
 
-    public static String getAdmissionTime(String baseEntityId) {
-        String sql = "SELECT admission_time FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+    public static String getHbTestDate(String baseEntityId) {
+        String sql = "SELECT hb_test_date FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "admission_time");
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "hb_test_date");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getHealthcareProviderNameWhoConductedLastPartographSession(String baseEntityId) {
+        String sql = "SELECT name_of_the_health_care_provider FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "name_of_the_health_care_provider");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static Boolean isTheClientReferred(String baseEntityId) {
+        AllSharedPreferences allSharedPreferences = org.smartregister.chw.core.utils.Utils.getAllSharedPreferences();
+        String anm = allSharedPreferences.fetchRegisteredANM();
+        String currentLoaction = allSharedPreferences.fetchUserLocalityId(anm);
+
+        String sql = "SELECT base_entity_id FROM " + Constants.TABLES.LD_CONFIRMATION + " elc " +
+                " INNER JOIN task t on elc.base_entity_id = t.for " +
+                " WHERE base_entity_id = '" + baseEntityId + "' " +
+                " AND t.location = '" + currentLoaction + "' COLLATE NOCASE " +
+                " AND t.focus = '" + LD_EMERGENCY + "' COLLATE NOCASE ";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "base_entity_id");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return true;
+        return null;
+    }
+
+    public static String getSyphilisTest(String baseEntityId) {
+        String sql = "SELECT syphilis FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "syphilis");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getMalariaTest(String baseEntityId) {
+        String sql = "SELECT malaria FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "malaria");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getFundalHeight(String baseEntityId) {
+        String sql = "SELECT fundal_height FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "fundal_height");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getFetalLie(String baseEntityId) {
+        String sql = "SELECT lie FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "lie");
 
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() > 0)

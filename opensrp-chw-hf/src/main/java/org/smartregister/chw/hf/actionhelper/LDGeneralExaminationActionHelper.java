@@ -3,13 +3,22 @@ package org.smartregister.chw.hf.actionhelper;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.smartregister.chw.core.utils.FormUtils;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.hf.dao.LDDao;
+import org.smartregister.chw.hf.utils.Constants;
 import org.smartregister.chw.ld.domain.VisitDetail;
 import org.smartregister.chw.ld.model.BaseLDVisitAction;
+import org.smartregister.chw.referral.util.JsonFormConstants;
 import org.smartregister.util.JsonFormUtils;
+import org.smartregister.chw.ld.domain.MemberObject;
 
 import java.util.List;
 import java.util.Map;
+
+import timber.log.Timber;
 
 /**
  * Created by Kassim Sheghembe on 2022-05-09
@@ -29,9 +38,11 @@ public class LDGeneralExaminationActionHelper implements BaseLDVisitAction.LDVis
     private String contraction_in_ten_minutes;
     private String fetal_heart_rate;
     private final Context context;
+    private final MemberObject memberObject;
 
-    public LDGeneralExaminationActionHelper(Context context) {
+    public LDGeneralExaminationActionHelper(Context context, MemberObject memberObject) {
         this.context = context;
+        this.memberObject = memberObject;
     }
 
     @Override
@@ -40,7 +51,27 @@ public class LDGeneralExaminationActionHelper implements BaseLDVisitAction.LDVis
 
     @Override
     public String getPreProcessed() {
-        return null;
+        JSONObject generalExaminationForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.LDVisit.getLdGeneralExamination());
+        try{
+            if(generalExaminationForm != null){
+
+                JSONArray fields = generalExaminationForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
+                JSONObject fundalHeight = JsonFormUtils.getFieldJSONObject(fields, "fundal_height");
+                JSONObject lie = JsonFormUtils.getFieldJSONObject(fields, "lie");
+
+                if (fundalHeightCaptured() && fundalHeight != null) {
+                    fundalHeight.put("hidden", true);
+                }
+
+                if (featalLieCaptured() && lie != null) {
+                    lie.put("hidden", true);
+                }
+
+            }
+        }catch (Exception e){
+            Timber.e(e);
+        }
+        return generalExaminationForm.toString();
     }
 
     @Override
@@ -110,7 +141,7 @@ public class LDGeneralExaminationActionHelper implements BaseLDVisitAction.LDVis
                 StringUtils.isNotBlank(diastolic) &&
                 StringUtils.isNotBlank(urineAcetone) &&
                 StringUtils.isNotBlank(urineProtein) &&
-                StringUtils.isNotBlank(fundal_height) &&
+                fundalHeightCaptured() || StringUtils.isNotBlank(fundal_height) &&
                 StringUtils.isNotBlank(contraction_frequency) &&
                 StringUtils.isNotBlank(contraction_in_ten_minutes) &&
                 StringUtils.isNotBlank(fetal_heart_rate)
@@ -132,4 +163,13 @@ public class LDGeneralExaminationActionHelper implements BaseLDVisitAction.LDVis
                 StringUtils.isNotBlank(fetal_heart_rate)
         );
     }
+
+    private boolean fundalHeightCaptured() {
+        return LDDao.getFundalHeight(memberObject.getBaseEntityId()) != null;
+    }
+
+    private boolean featalLieCaptured(){
+        return LDDao.getFetalLie(memberObject.getBaseEntityId()) != null;
+    }
+
 }

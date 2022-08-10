@@ -26,7 +26,6 @@ import java.util.Locale;
 import timber.log.Timber;
 
 public class LtfuSummaryActivity extends PncReportsActivity {
-    private String reportPeriod = ReportUtils.getDefaultReportPeriod();
 
     @Override
     public void onClick(View v) {

@@ -47,7 +47,7 @@
     <string name="anc_first_visit_medical_and_surgical_history">Historia ya Matibabu na Upasuaji</string>
     <string name="anc_first_visit_obstetric_examination">Uchunguzi wa Uzazi</string>
     <string name="anc_first_visit_baseline_investigation">Uchunguzi wa Vipimo vya Awali</string>
-    <string name="anc_first_visit_tt_vaccination">Chanjo ya Pepopunda (Tetenasi)</string>
+    <string name="anc_first_visit_tt_vaccination">Chanjo ya Pepopunda-Diphtheria</string>
     <string name="anc_first_and_recurring_visit_counselling">Ushauri</string>
     <string name="partner_registration_action_title">Usajili wa Mwenza</string>
     <string name="partner_testing_action_title">Upimaji kwa Mwenza</string>
@@ -76,7 +76,7 @@
     <string name="medical_and_surgical_filled">Historia ya Matibabu na Upasuaji Umekamilika</string>
     <string name="obstetric_exam_complete">Uchunguzi wa Uzazi Umefanyika</string>
     <string name="baseline_investigation_conducted">Uchunguzi wa Vipimo vya Awali Umekamilika</string>
-    <string name="tt_vaccination_filled">Chanjo ya Pepopunda (Tetenasi) Imejazwa</string>
+    <string name="tt_vaccination_filled">Chanjo ya Pepopunda-Diphtheria Imejazwa</string>
     <string name="counselling_given">Mteja Ameshauriwa</string>
     <string name="partner_registered">Mwenza Amesajiliwa</string>
     <string name="partner_tested">Mwenza Amepimwa</string>
@@ -278,6 +278,7 @@
     <string name="missed_hei_clients">Waliokosa</string>
     <string name="anc_fundal_height_min_err">Kimo cha mimba lazima kiwe sawa au zaidi ya</string>
 
+    <string name="lb_visit_hb_test_action_title"> Kipimo cha HB </string>
 
     <string name="ltfu_clinic_ctc">CTC</string>
     <string name="ltfu_clinic_pwid">KLINIKI YA WAJIDUNGA</string>
@@ -310,6 +311,7 @@
     <string name="ltfu_reason_client_not_found_address_incorrect">Anwani sio sahihi</string>
     <string name="ltfu_reason_client_not_found_client_relocated">Amehama makazi</string>
     <string name="ltfu_reason_client_not_found_seasonal_work">Kilimo\/kazi za msimu</string>
+    <string name="process_visit">Chakata Hudhurio</string>
 
 
 </resources>
