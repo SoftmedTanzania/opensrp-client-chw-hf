@@ -1,0 +1,626 @@
+{
+  "validate_on_submit": true,
+  "show_errors_on_submit": false,
+  "count": "1",
+  "encounter_type": "Mother Observation",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Mother - Observation",
+    "fields": [
+      {
+        "key": "vagina_observation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "vagina_observation",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Uke",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "exclusive": [
+          "chk_intact"
+        ],
+        "options": [
+          {
+            "key": "chk_intact",
+            "text": "Intact",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_intact"
+          },
+          {
+            "key": "chk_bleeding",
+            "text": "Unavuja damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_bleeding"
+          },
+          {
+            "key": "chk_tear",
+            "text": "Umechanika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_tear"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_vagina_observation",
+        "type": "toaster_notes",
+        "text": "Chukua hatua kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:vagina_observation": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "chk_tear"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "vaginal_bleeding_observation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "vaginal_bleeding_observation",
+        "label": "Uchunguzi wa uke kuvuja",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "normal",
+            "text": "Wa kawaida",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "normal"
+          },
+          {
+            "key": "abnormal",
+            "text": "Usio wa kawaida",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "abnormal"
+          }
+        ],
+        "relevance": {
+          "step1:vagina_observation": {
+            "ex-checkbox": [
+              {
+                "or": ["chk_bleeding"]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "prompt_for_abnormal_bleeding",
+        "type": "toaster_notes",
+        "text": "Kuvuja kwa damu kusiko kwa kawaida, Chukua hatua kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:vaginal_bleeding_observation": {
+            "type": "string",
+            "ex": "equalTo(.,\"abnormal\")"
+          }
+        }
+      },
+      {
+        "key": "perineum_observation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "perineum_observation",
+        "label": "Msamba",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "intact",
+            "text": "Intact",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "intact"
+          },
+          {
+            "key": "bruised_laceration",
+            "text": "Una michubuko",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bruised_laceration"
+          },
+          {
+            "key": "tear",
+            "text": "Umechanika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tear"
+          }
+        ]
+      },
+      {
+        "key": "degree_of_perineum_tear",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "degree_of_perineum_tear",
+        "label": "Kiwango cha kuchanika Msamba",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "first_degree",
+            "text": "Shahada ya Kwanza",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "first_degree"
+          },
+          {
+            "key": "second_degree",
+            "text": "Shahada ya Pili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "second_degree"
+          },
+          {
+            "key": "third_degree",
+            "text": "Shahada ya Tatu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "third_degree"
+          },
+          {
+            "key": "fourth_degree",
+            "text": "Shahada ya Nne",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fourth_degree"
+          }
+        ],
+        "relevance": {
+          "step1:perineum_observation": {
+            "type": "string",
+            "ex": "equalTo(.,\"tear\")"
+          }
+        }
+      },
+      {
+        "key": "perineum_repair_person_name",
+        "type": "edit_text",
+        "hint": "Jina la daktari/muuguzi aliyeshona msamba",
+        "openmrs_entity_id": "perineum_repair_person_name",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "v_required": {
+          "value": true,
+          "err": "Jaza jina la daktari/muuguzi aliyeshona msamba"
+        },
+        "relevance": {
+          "step1:perineum_observation": {
+            "type": "string",
+            "ex": "equalTo(., \"tear\")"
+          }
+        }
+      },
+      {
+        "key": "perineum_repair_occupation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "perineum_repair_occupation",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "Msamba umeshonwa na ",
+        "values": [
+          "Daktari",
+          "Muuguzi"
+        ],
+        "keys": [
+          "doctor",
+          "nurse"
+        ],
+        "openmrs_choice_ids": {
+          "doctor": "A Doctor",
+          "nurse": "A Nurse"
+        },
+        "relevance": {
+          "step1:perineum_observation": {
+            "type": "string",
+            "ex": "equalTo(., \"tear\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_perineum_observation",
+        "type": "toaster_notes",
+        "text": "Chukua hatua kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:perineum_observation": {
+            "type": "string",
+            "ex": "equalTo(.,\"tear\")"
+          }
+        }
+      },
+      {
+        "key": "cervix_observation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cervix_observation",
+        "label": "Uchunguzi wa shingo ya kizazi",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "normal",
+            "text": "Ya kawaida",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "normal"
+          },
+          {
+            "key": "tear",
+            "text": "Imechanika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tear"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_cervix_observation",
+        "type": "toaster_notes",
+        "text": "Chukua hatua kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:cervix_observation": {
+            "type": "string",
+            "ex": "equalTo(.,\"tear\")"
+          }
+        }
+      },
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Shinikizo la Damu (Systolic)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Jaza kiwango cha Systolic"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha Systolic kiwe sawa na au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Kiwango cha Systolic kiwe sawa na au pungufu ya 320"
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Shinikizo la Damu (Diastolic)",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Jaza kiwango cha Diastolic"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha Diastolic kiwe sawa na au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Kiwango cha Diastolic kiwe sawa na au pungufu ya 200"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "The diastolic value must be less than the systolic value"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali ya shinikizo la damu kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_mother_observation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za shinikizo la damu ya chini kisha dhibiti kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_mother_observation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pulse_rate",
+        "type": "edit_text",
+        "hint": "Kiwango cha mapigo ya moyo kwa Dakika",
+        "openmrs_entity_id": "pulse_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Jaza kiwango cha mapigo ya moyo"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Mapigo ya moyo yawe sawa na au zaidi ya 0 (bpm)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Mapigo ya moyo yawe sawa na au pungufu ya 200 (bpm)"
+        }
+      },
+      {
+        "key": "prompt_for_Bradycardia",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu ya mapigo hafifu ya moyo kisha tibu kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "prompt_for_Bradycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"60\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_Tachycardia",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu ya tachycardia na udhibiti kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "prompt_for_Tachycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"100\")"
+          }
+        }
+      },
+      {
+        "key": "temperature",
+        "type": "edit_text",
+        "hint": "Kiwango cha joto (C)",
+        "openmrs_entity_id": "temperature",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Jaza kiwango cha joto"
+        },
+        "v_min": {
+          "value": "10",
+          "err": "Kiwango cha joto kiwe sawa na au zaidi ya 10"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Kiwango cha joto kiwe sawa na au pungufu ya 50"
+        }
+      },
+      {
+        "key": "notify_client_has_fever",
+        "type": "toaster_notes",
+        "text": "Mfanyie mama vipimo kwa ajili ya kubainisha sababu ya homa na udhibit kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "notify_client_has_fever",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"37.8\")"
+          }
+        }
+      },
+      {
+        "key": "notify_client_has_hypothermia",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali ya jotoridi la chini la mwili kuliko kawaida kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "notify_client_has_hypothermia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"36.5\")"
+          }
+        }
+      },
+      {
+        "key": "uterus_contraction",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uterus_contraction",
+        "label": "Je Mfuko wa uzazi umesinyaa?",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_uterus_contraction",
+        "type": "toaster_notes",
+        "text": "Chukua hatua kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:uterus_contraction": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "urination",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "urination",
+        "label": "Hali ya Kukojoa",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_urination",
+        "type": "toaster_notes",
+        "text": "Chukua hatua kulingana na muongozo wa tiba uliopo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:urination": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "observation_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "observation_date",
+        "type": "date_picker",
+        "hint": "Tarehe ya Uchunguzi",
+        "expanded": false,
+        "min_date": "today-2y",
+        "max_date": "today"
+      },
+      {
+        "key": "observation_time",
+        "type": "time_picker",
+        "hint": "Muda wa kufanyiwa Uchunguzi",
+        "openmrs_entity_id": "observation_time",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "mother_observation_module_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mother_observation_module_status",
+        "type": "hidden",
+        "value": "PENDING"
+      }
+    ]
+  }
+}
