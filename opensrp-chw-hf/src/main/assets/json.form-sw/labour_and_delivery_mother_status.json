@@ -49,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "Mother - Status",
+    "title": "Hali ya Mama",
     "fields": [
       {
         "key": "status",
@@ -106,6 +106,42 @@
             "type": "string",
             "ex": "equalTo(., \"died\")"
           }
+        }
+      },
+      {
+        "key": "mode_of_delivery",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mode_of_delivery",
+        "label": "Mode of delivery",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "spontaneous_vaginal_delivery",
+            "text": "Spontaneous vaginal delivery",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "spontaneous_vaginal_delivery"
+          },
+          {
+            "key": "vacuum_extraction",
+            "text": "Vacuum Extraction",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vacuum_extraction"
+          },
+          {
+            "key": "breech_delivery",
+            "text": "Breech Delivery",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "breech_delivery"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
         }
       },
       {
@@ -306,6 +342,14 @@
         "openmrs_entity_id": "labour_duration",
         "label": "Labour information/conditions",
         "type": "hidden"
+      },
+      {
+        "key": "labour_stage",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "labour_stage",
+        "type": "hidden",
+        "value": "complete"
       }
     ]
   }

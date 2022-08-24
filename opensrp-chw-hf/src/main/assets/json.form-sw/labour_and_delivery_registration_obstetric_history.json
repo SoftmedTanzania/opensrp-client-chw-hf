@@ -203,14 +203,136 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "past_medical_surgical_history",
-        "type": "edit_text",
-        "hint": "Historia ya Matibabu na Upasuaji",
-        "relevance": {
-          "step1:para": {
-            "type": "numeric",
-            "ex": "greaterThan(.,\"0\")"
+        "type": "check_box",
+        "label": "Any Medical and surgical History of the Patient?",
+        "combine_checkbox_option_values": "true",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "diabetes_mellitus",
+            "text": "Kisukari",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "diabetes_mellitus"
+          },
+          {
+            "key": "sickle_cell_disease",
+            "text": "Ugonjwa wa Seli mundu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sickle_cell_disease"
+          },
+          {
+            "key": "heart_diseases",
+            "text": "Magonjwa ya moyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heart_diseases"
+          },
+          {
+            "key": "thyroid_diseases",
+            "text": "Magonjwa ya tezi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "thyroid_diseases"
+          },
+          {
+            "key": "blood_transfusion",
+            "text": "Kuongezewa damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "blood_transfusion"
+          },
+          {
+            "key": "known_on_art",
+            "text": "Mteja yupo kwenye ART tayari",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "known_on_art"
+          },
+          {
+            "key": "epilepsy",
+            "text": "Kifafa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "epilepsy"
+          },
+          {
+            "key": "previous_c_s",
+            "text": "Kujifungua kwa upasuaji",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "previous_c_s"
+          },
+          {
+            "key": "myomectomy",
+            "text": "Myomectomy",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "myomectomy"
+          },
+          {
+            "key": "third_degree_tear",
+            "text": "Kuchanika msamba hatua ya tatu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "third_degree_tear"
+          },
+          {
+            "key": "repaired_fistula",
+            "text": "Fistula iliyotibiwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "repaired_fistula"
+          },
+          {
+            "key": "female_genital_mutilation",
+            "text": "Tohara kwa wanawake",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "female_genital_mutilation"
+          },
+          {
+            "key": "closely_spaced_pregnancy",
+            "text": "Mimba zilizokaribiana (chini ya miaka miwili)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "closely_spaced_pregnancy"
+          },
+          {
+            "key": "pregnant_more_than_four",
+            "text": "Kuwa mjamzito mara nne au zaidi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pregnant_more_than_four"
+          },
+          {
+            "key": "hx_hemorrhage",
+            "text": "Historia ya kutokwa damu nyingi baada ya kujifungua",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hx_hemorrhage"
+          },
+          {
+            "key": "history_of_high_blood_pressure",
+            "text": "Historia ya shinikizo la damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "history_of_high_blood_pressure"
+          },
+          {
+            "key": "anaemia",
+            "text": "Ugonjwa wa upungufu wa damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anaemia"
+          },
+          {
+            "key": "difficult_delivery",
+            "text": "Kuzalishwa kwa kuvutwa na kifaa au kuongezewa njia (Vacuum, episiotomy)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "difficult_delivery"
+          },
+          {
+            "key": "hx_abortions",
+            "text": "Historia ya kuharibika kwa mimba",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hx_abortions"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
           }
-        }
+        ]
       }
     ]
   }

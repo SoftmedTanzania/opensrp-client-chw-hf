@@ -43,7 +43,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Admission Information",
+    "title": "Taarifa Wakati wa Kulaza",
     "fields": [
       {
         "key": "admission_date",

@@ -43,7 +43,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "ANC Clinic Findings",
+    "title": "Taarifa za kliniki ya ANC",
     "fields": [
       {
         "key": "number_of_visits",

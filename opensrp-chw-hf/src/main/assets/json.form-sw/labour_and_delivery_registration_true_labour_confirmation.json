@@ -131,7 +131,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "admit_client",
         "type": "native_radio",
-        "label": "Je unataka kumlaza mteja",
+        "label": "Je, unataka kumlaza mteja?",
         "label_text_style": "normal",
         "text_color": "#C0C0C0",
         "options": [
