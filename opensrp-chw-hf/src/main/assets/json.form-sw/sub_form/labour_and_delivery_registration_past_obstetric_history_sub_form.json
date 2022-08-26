@@ -234,7 +234,7 @@
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
       "openmrs_entity_id": "alive",
-      "label": "Was the child born alive?",
+      "label": "Je, Mtoto alizaliwa hai?",
       "text_color": "#000000",
       "type": "native_radio",
       "options": [
@@ -253,7 +253,7 @@
       ],
       "v_required": {
         "value": "true",
-        "err": "Please select if the child was born alive"
+        "err": "Tafadhali chagua kama mtoto alizaliwa hai"
       }
     },
     {
@@ -262,10 +262,10 @@
       "openmrs_entity": "concept",
       "openmrs_entity_id": "reason_for_child_not_born_alive",
       "type": "edit_text",
-      "hint": "Reason as to why the child was not born alive",
+      "hint": "Sababu kwanini mtoto hakuzaliwa hai",
       "v_required": {
         "value": true,
-        "err": "Please specify the reason"
+        "err": "Tafadhali bainisha sababu"
       },
       "relevance": {
         "step1:alive": {

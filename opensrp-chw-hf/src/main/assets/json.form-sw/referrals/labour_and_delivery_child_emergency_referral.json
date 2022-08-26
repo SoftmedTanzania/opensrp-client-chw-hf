@@ -60,11 +60,11 @@
             "openmrs_entity_parent": ""
           },
           "properties": {
-            "text": "Choose referral facility",
-            "searchable": "Choose referral facility"
+            "text": "Chagua kituo cha rufaa",
+            "searchable": "Chagua kituo cha rufaa"
           },
           "options": [],
-          "required_status": "yes:Tafadhali bainisha"
+          "required_status": "yes:Tafadhali chagua"
         },
         {
           "name": "problem",

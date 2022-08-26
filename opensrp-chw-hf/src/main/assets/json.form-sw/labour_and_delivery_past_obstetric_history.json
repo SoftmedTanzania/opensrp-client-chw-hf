@@ -49,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "Past Obstetric History",
+    "title": "Historia ya Uzazi",
     "fields": [
       {
         "key": "para_1_obstetric_history",
