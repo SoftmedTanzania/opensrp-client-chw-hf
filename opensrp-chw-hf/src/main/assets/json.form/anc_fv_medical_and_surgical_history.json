@@ -52,8 +52,6 @@
         "type": "check_box",
         "label": "Any Medical and surgical History of the Patient?",
         "combine_checkbox_option_values": "true",
-        "label_text_style": "normal",
-        "text_color": "#C0C0C0",
         "exclusive": [
           "none"
         ],
@@ -220,6 +218,10 @@
         "v_numeric": {
           "value": "true",
           "err": "Please enter the gravida number"
+        },
+        "v_max": {
+          "value": "35",
+          "err": "Temperature must be equal or less than 50"
         }
       },
       {
@@ -276,17 +278,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "known_on_art",
         "openmrs_entity_parent": "",
-        "relevance": {
-          "step1:medical_surgical_history": {
-            "ex-checkbox": [
-              {
-                "or": [
-                  "known_on_art"
-                ]
-              }
-            ]
-          }
-        },
         "calculation": {
           "rules-engine": {
             "ex-rules": {
