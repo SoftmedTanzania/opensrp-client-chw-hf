@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -62,14 +57,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -269,21 +262,18 @@
           {
             "key": "out_of_medicine",
             "text": "Stock out of medicine",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "out_of_medicine"
           },
           {
             "key": "client_refused_medication",
             "text": "The client refused medication",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_refused_medication"
           },
           {
             "key": "other",
             "text": "Other(Specify)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
@@ -315,6 +305,37 @@
           "step1:reason_for_not_prescribing_arv": {
             "type": "string",
             "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "number_of_arv_regimes_days_dispensed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_arv_regimes_days_dispensed",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Number of days dispensed",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of days dispensed"
+        },
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Please enter a valid number"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Number of dispensed days should be greater than 0"
+        },
+        "v_max": {
+          "value": "180",
+          "err": "Number of dispensed days should be less than or equal to 180"
+        },
+        "relevance": {
+          "step1:prescribed_regimes": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
           }
         }
       }

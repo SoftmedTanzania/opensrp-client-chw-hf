@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -159,7 +154,7 @@
             }
           ],
           "required_status": "yes:Tafadhali chagua jibu",
-          "subjects": "eligibility_for_testing:map"
+          "subjects": "has_the_client_been_reached:map, eligibility_for_testing:map"
         },
         {
           "name": "reasons_conducting_testing_for_index_contact",
@@ -184,7 +179,7 @@
             },
             {
               "name": "the_client_refused_to_be_tested",
-              "text":  "Mteja alikataa kupimwa",
+              "text": "Mteja alikataa kupimwa",
               "meta_data": {
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "the_client_refused_to_be_tested",
@@ -211,7 +206,7 @@
             }
           ],
           "required_status": "yes:Tafadhali ingiza sababu",
-          "subjects": "eligibility_for_testing:map,has_the_contact_client_been_tested:map "
+          "subjects": "eligibility_for_testing:map,has_the_contact_client_been_tested:map,has_the_client_been_reached:map"
         },
         {
           "name": "other_reason_for_not_testing",
@@ -225,7 +220,7 @@
             "openmrs_entity_parent": ""
           },
           "required_status": "yes:Please enter the reason",
-          "subjects": "reasons_conducting_testing_for_index_contact:map,eligibility_for_testing:map,has_the_contact_client_been_tested:map"
+          "subjects": "reasons_conducting_testing_for_index_contact:map,eligibility_for_testing:map,has_the_contact_client_been_tested:map,has_the_client_been_reached:map"
         },
         {
           "name": "test_results",
@@ -259,7 +254,7 @@
             }
           ],
           "required_status": "yes:Tafadhali chagua matokeo ya vipimo vya VVU",
-          "subjects": "has_the_contact_client_been_tested:map, eligibility_for_testing:map"
+          "subjects": "has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map"
         },
         {
           "name": "place_where_test_was_conducted",
@@ -329,7 +324,7 @@
             }
           ],
           "required_status": "yes:Tafadhali chagua jibu sahihi",
-          "subjects": "test_results:map, eligibility_for_testing:map"
+          "subjects": "test_results:map, eligibility_for_testing:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
         },
         {
           "name": "client_test_date",
@@ -346,7 +341,7 @@
             "openmrs_entity_parent": ""
           },
           "required_status": "true:Tafadhali jaza tarehe ya upimaji wa VVU wa mteja",
-          "subjects": "test_results:map, eligibility_for_testing:map"
+          "subjects": "test_results:map, eligibility_for_testing:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
         },
         {
           "name": "toast_enroll_the_client_to_prep",
@@ -359,7 +354,7 @@
             "background_color": "#082455",
             "text_color": "#EBEE2F"
           },
-          "subjects": "relationship:text, test_results:map"
+          "subjects": "relationship:text, test_results:map, has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map"
         },
         {
           "name": "enrolled_to_prep",
@@ -393,7 +388,7 @@
             }
           ],
           "required_status": "yes:Tafadhali chagua jibu",
-          "subjects": "relationship:text, test_results:map"
+          "subjects": "relationship:text, test_results:map, has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map"
         },
         {
           "name": "reason_for_not_being_enrolled_to_prep",
@@ -408,7 +403,7 @@
             "openmrs_entity_parent": ""
           },
           "required_status": "yes:Tafadhali jaza majibu",
-          "subjects": "relationship:text, test_results:map , enrolled_to_prep:map"
+          "subjects": "relationship:text, test_results:map, has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map, enrolled_to_prep:map"
         },
         {
           "name": "enrolled_to_clinic",
@@ -442,7 +437,7 @@
             }
           ],
           "required_status": "yes:Tafadhali jaza jibu",
-          "subjects": "test_results:map, eligibility_for_testing:map"
+          "subjects": "test_results:map, eligibility_for_testing:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
         },
         {
           "name": "reasons_for_ineligibility_for_testing",
@@ -476,7 +471,7 @@
             }
           ],
           "required_status": "yes: Tafadhali Chagua",
-          "subjects": "eligibility_for_testing:map"
+          "subjects": "has_the_client_been_reached:map,eligibility_for_testing:map"
         },
         {
           "name": "other_reason_for_ineligibility",
@@ -490,7 +485,7 @@
             "openmrs_entity_parent": ""
           },
           "required_status": "yes: Tafadhali jaza sababu nyingine",
-          "subjects": "reasons_for_ineligibility_for_testing:map, eligibility_for_testing:map"
+          "subjects": "reasons_for_ineligibility_for_testing:map, eligibility_for_testing:map, has_the_client_been_reached:map"
         },
         {
           "name": "ctc_number",
@@ -515,7 +510,7 @@
             }
           ],
           "required_status": "yes:Tafadhali jaza namba ya CTC ya mteja",
-          "subjects": "enrolled_to_clinic:map, reasons_for_ineligibility_for_testing:map, eligibility_for_testing:map"
+          "subjects": "enrolled_to_clinic:map, reasons_for_ineligibility_for_testing:map, eligibility_for_testing:map, test_results:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
         },
         {
           "name": "comment",

@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -72,7 +67,6 @@
           {
             "key": "alive",
             "text": "Alive",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "alive",
             "openmrs_entity_parent": ""
@@ -80,7 +74,6 @@
           {
             "key": "deceased",
             "text": "Deceased",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "deceased",
             "openmrs_entity_parent": ""
@@ -143,7 +136,6 @@
           {
             "key": "born_alive",
             "text": "Child was born alive",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "born_alive",
             "openmrs_entity_parent": ""
@@ -151,7 +143,6 @@
           {
             "key": "born_alive_died",
             "text": "Child was born alive, but died",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "born_alive_died",
             "openmrs_entity_parent": ""
@@ -159,7 +150,6 @@
           {
             "key": "still_born",
             "text": "Child was stillborn",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "still_born",
             "openmrs_entity_parent": ""
@@ -167,7 +157,6 @@
           {
             "key": "alive_with_problem",
             "text": "Child was born alive, but they have a problem (i.e. disability, respiratory issues, etc.)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "alive_with_problem",
             "openmrs_entity_parent": ""
@@ -175,7 +164,6 @@
           {
             "key": "miscarriage",
             "text": "Miscarriage",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "miscarriage",
             "openmrs_entity_parent": ""
@@ -184,6 +172,21 @@
         "v_required": {
           "value": "true",
           "err": "Please select pregnancy outcome"
+        }
+      },
+      {
+        "key": "prompt_for_child_with_problem",
+        "type": "toaster_notes",
+        "text": "Manage the condition as per standard guidelines",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:preg_outcome": {
+            "type": "string",
+            "ex": "equalTo(., \"alive_with_problem\")"
+          }
         }
       },
       {
@@ -207,8 +210,8 @@
         ],
         "openmrs_choice_ids": {
           "birth_asphyxia": "birth_asphyxia",
-          "neonatal_respiratory_distress":  "neonatal_respiratory_distress",
-          "prematurity":  "prematurity",
+          "neonatal_respiratory_distress": "neonatal_respiratory_distress",
+          "prematurity": "prematurity",
           "early_neonatal_sepsis": "early_neonatal_sepsis"
         },
         "v_required": {
@@ -479,7 +482,6 @@
           {
             "key": "gave_birth_alone",
             "text": "She gave birth alone",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "gave_birth_alone"
@@ -487,7 +489,6 @@
           {
             "key": "gave_birth_with_help",
             "text": "She gave birth with the help of a family member/friend/neighbor",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "gave_birth_with_help"
@@ -495,7 +496,6 @@
           {
             "key": "midwife_help",
             "text": "She gave birth with the help of a traditional midwife",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "midwife_help"
@@ -526,7 +526,6 @@
           {
             "key": "facility_family_member",
             "text": "She was accompanied by family member(s)",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "facility_family_member"
@@ -534,7 +533,6 @@
           {
             "key": "facility_midwife",
             "text": "She was accompanied by a traditional midwife",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "facility_midwife"
@@ -542,7 +540,6 @@
           {
             "key": "alone",
             "text": "She came by herself",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "alone"
@@ -550,7 +547,6 @@
           {
             "key": "other_pple",
             "text": "She was accompanied by other people",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other_pple"
@@ -558,7 +554,6 @@
           {
             "key": "other_chw",
             "text": "She was accompanied by the CHW",
-            "value": false,
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other_chw"
@@ -655,6 +650,21 @@
             }
           },
           {
+            "key": "apgar_score_calculated",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "apgar_score_calculated",
+            "type": "edit_text",
+            "hidden": true,
+            "calculation": {
+              "rules-engine": {
+                "ex-rules": {
+                  "rules-dynamic": "anc_pregnancy_outcome_relevance.yml"
+                }
+              }
+            }
+          },
+          {
             "key": "prompt_for_normal_apgar_score",
             "type": "toaster_notes",
             "text": "APGAR score, Normal: {apgar_score}",
@@ -663,7 +673,7 @@
             "openmrs_entity_parent": "",
             "toaster_type": "positive",
             "relevance": {
-              "step1:apgar_score": {
+              "step1:apgar_score_calculated": {
                 "type": "numeric",
                 "ex": "greaterThanEqualTo(.,\"7\")"
               }
@@ -685,7 +695,7 @@
             "openmrs_entity_parent": "",
             "toaster_type": "problem",
             "relevance": {
-              "step1:apgar_score": {
+              "step1:apgar_score_calculated": {
                 "type": "numeric",
                 "ex": "lessThanEqualTo(.,\"6\")"
               }
@@ -1029,7 +1039,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "child_bcg_vaccination",
             "type": "native_radio",
-            "label": "Was BCG vaccination given?",
+            "label": "Was BCG vaccination administered?",
             "label_text_style": "normal",
             "text_color": "#C0C0C0",
             "options": [
@@ -1102,7 +1112,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "child_opv0_vaccination",
             "type": "native_radio",
-            "label": "Was OPV 0 vaccination given?",
+            "label": "Was OPV 0 vaccination administered?",
             "label_text_style": "normal",
             "text_color": "#C0C0C0",
             "options": [
@@ -1482,7 +1492,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "child_bcg_vaccination",
             "type": "native_radio",
-            "label": "Was BCG vaccination given?",
+            "label": "Was BCG vaccination administered?",
             "label_text_style": "normal",
             "text_color": "#C0C0C0",
             "options": [
@@ -1555,7 +1565,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "child_opv0_vaccination",
             "type": "native_radio",
-            "label": "Was OPV 0 vaccination given?",
+            "label": "Was OPV 0 vaccination administered?",
             "label_text_style": "normal",
             "text_color": "#C0C0C0",
             "options": [

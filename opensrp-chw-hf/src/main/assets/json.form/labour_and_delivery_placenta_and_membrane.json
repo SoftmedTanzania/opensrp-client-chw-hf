@@ -149,7 +149,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "placenta_removed_by_hand",
-        "label": "Was the placenta removed by hand?",
+        "label": "Was the placenta/product removed by hand?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -173,24 +173,9 @@
           "err": "Please select an option"
         },
         "relevance": {
-          "step1:type_of_incomplete_placenta": {
+          "step1:placenta_and_membrane_expulsion": {
             "type": "string",
-            "ex": "equalTo(., \"retained_placenta\")"
-          }
-        }
-      },
-      {
-        "key": "prompt_for_placenta_and_membrane_expulsion",
-        "type": "toaster_notes",
-        "text": "Manage according to SOP and National guideline",
-        "openmrs_entity_id": "",
-        "openmrs_entity": "",
-        "openmrs_entity_parent": "",
-        "toaster_type": "problem",
-        "relevance": {
-          "step1:placenta_removed_by_hand": {
-            "type": "string",
-            "ex": "equalTo(., \"no\")"
+            "ex": "equalTo(., \"incomplete_placenta\")"
           }
         }
       },
@@ -223,9 +208,24 @@
           "err": "Please select an option"
         },
         "relevance": {
-          "step1:type_of_incomplete_placenta": {
+          "step1:placenta_removed_by_hand": {
             "type": "string",
-            "ex": "equalTo(., \"retained_placenta\")"
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_placenta_and_membrane_expulsion",
+        "type": "toaster_notes",
+        "text": "Manage according to SOP and National guideline",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:conducted_mva": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
           }
         }
       },
@@ -258,44 +258,24 @@
           "err": "Please select an option"
         },
         "relevance": {
-          "step1:type_of_incomplete_placenta": {
+          "step1:placenta_and_membrane_expulsion": {
             "type": "string",
-            "ex": "equalTo(., \"retained_placenta\")"
+            "ex": "equalTo(., \"incomplete_placenta\")"
           }
         }
       },
       {
-        "key": "administered_magnesium_sulphate",
+        "key": "prompt_for_provision_of_antibiotics",
+        "type": "toaster_notes",
+        "text": "Provide the client with  antibiotic",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "administered_magnesium_sulphate",
-        "label": "Was the client administered Magnesium Sulphate?",
-        "text_color": "#000000",
-        "type": "native_radio",
-        "options": [
-          {
-            "key": "yes",
-            "text": "Yes",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
-          },
-          {
-            "key": "no",
-            "text": "No",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
-          }
-        ],
-        "v_required": {
-          "value": true,
-          "err": "Please select an option"
-        },
+        "toaster_type": "problem",
         "relevance": {
-          "step1:type_of_incomplete_placenta": {
+          "step1:administered_antibiotics": {
             "type": "string",
-            "ex": "equalTo(., \"retained_placenta\")"
+            "ex": "equalTo(., \"no\")"
           }
         }
       },
@@ -317,7 +297,7 @@
       {
         "key": "removal_duration",
         "type": "edit_text",
-        "hint": "How lond did it take to remove the placenta? (In minutes)",
+        "hint": "How long did it take to remove the placenta? (In minutes)",
         "openmrs_entity_id": "removal_duration",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
@@ -388,9 +368,9 @@
           "err": "Please select an option"
         },
         "relevance": {
-          "step1:type_of_incomplete_placenta": {
-            "type": "string",
-            "ex": "equalTo(., \"retained_placenta\")"
+          "step1:estimated_blood_loss": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"500\")"
           }
         }
       },

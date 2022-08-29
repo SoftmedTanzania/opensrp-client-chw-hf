@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -62,14 +57,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -269,21 +262,18 @@
           {
             "key": "out_of_medicine",
             "text": "Dawa zimeisha",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "out_of_medicine"
           },
           {
             "key": "client_refused_medication",
             "text": "Mteja amekataa kuchukua dawa",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_refused_medication"
           },
           {
             "key": "other",
             "text": "Nyingine",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
@@ -315,6 +305,37 @@
           "step1:reason_for_not_prescribing_arv": {
             "type": "string",
             "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "number_of_arv_regimes_days_dispensed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_arv_regimes_days_dispensed",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya Siku Iliyotolewa",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya siku iliyotolewa"
+        },
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Tafadhali ingiza namba halali"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Idadi ya siku iliyotolewa inatakiwa iwe zaidi ya 0"
+        },
+        "v_max": {
+          "value": "180",
+          "err": "Idadi ya siku iliyotolewa inatakiwa iwe sawa na au chini ya 180"
+        },
+        "relevance": {
+          "step1:prescribed_regimes": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
           }
         }
       }

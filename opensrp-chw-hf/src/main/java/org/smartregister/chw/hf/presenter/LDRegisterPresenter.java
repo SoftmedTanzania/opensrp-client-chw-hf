@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.hf.utils.Constants;
-import org.smartregister.chw.hf.utils.LDDao;
+import org.smartregister.chw.hf.dao.LDDao;
 import org.smartregister.chw.ld.contract.LDRegisterContract;
 import org.smartregister.chw.ld.presenter.BaseLDRegisterPresenter;
 import org.smartregister.chw.referral.util.JsonFormConstants;
@@ -54,6 +54,7 @@ public class LDRegisterPresenter extends BaseLDRegisterPresenter {
                 JSONArray fields = form.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
                 JSONObject modeOfDelivery = JsonFormUtils.getFieldJSONObject(fields, "mode_of_delivery");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && modeOfDelivery != null) {
+                    modeOfDelivery.getJSONArray(OPTIONS).remove(3);
                     modeOfDelivery.getJSONArray(OPTIONS).remove(2);
                     modeOfDelivery.getJSONArray(OPTIONS).remove(0);
                 }

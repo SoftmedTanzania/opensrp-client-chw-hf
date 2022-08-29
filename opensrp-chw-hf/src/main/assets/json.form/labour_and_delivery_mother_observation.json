@@ -68,21 +68,18 @@
           {
             "key": "chk_intact",
             "text": "Intact",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_intact"
           },
           {
             "key": "chk_bleeding",
             "text": "Bleeding",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_bleeding"
           },
           {
             "key": "chk_tear",
             "text": "Tear",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_tear"
           }
@@ -140,7 +137,9 @@
           "step1:vagina_observation": {
             "ex-checkbox": [
               {
-                "or": ["chk_bleeding"]
+                "or": [
+                  "chk_bleeding"
+                ]
               }
             ]
           }
@@ -470,7 +469,7 @@
       {
         "key": "temperature",
         "type": "edit_text",
-        "hint": "Temperature (C)",
+        "hint": "Temperature (\u2103)",
         "openmrs_entity_id": "temperature",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -522,7 +521,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "uterus_contraction",
-        "label": "Uterus Contraction",
+        "label": "Has Uterus Contracted?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [

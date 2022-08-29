@@ -16,11 +16,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -87,8 +82,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "medical_surgical_history",
         "type": "check_box",
-        "label_info_image_src": "img/chw.png",
-        "label_info_has_image": true,
         "label": "Historia yoyote ya Matibabu na upasuaji ya Mgonjwa?",
         "combine_checkbox_option_values": "true",
         "label_text_style": "normal",
@@ -100,147 +93,120 @@
           {
             "key": "known_on_art",
             "text": "Mtumiaji wa dawa za kufubaza maambukizi ya virusi vya Ukimwi (ART) kabla ya mimba hii",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "known_on_art"
           },
           {
             "key": "diabetes_mellitus",
             "text": "Kisukari",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "diabetes_mellitus"
           },
           {
             "key": "sickle_cell_disease",
             "text": "Ugonjwa wa Seli mundu",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sickle_cell_disease"
           },
           {
             "key": "heart_diseases",
             "text": "Magonjwa ya moyo",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heart_diseases"
           },
           {
             "key": "thyroid_diseases",
             "text": "Magonjwa ya tezi",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "thyroid_diseases"
           },
           {
             "key": "blood_transfusion",
             "text": "Kuongezewa damu",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "blood_transfusion"
           },
           {
             "key": "epilepsy",
             "text": "Kifafa",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "epilepsy"
           },
           {
             "key": "previous_c_s",
             "text": "Kujifungua kwa upasuaji",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "previous_c_s"
           },
           {
             "key": "myomectomy",
             "text": "Myomectomy",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "myomectomy"
           },
           {
             "key": "third_degree_tear",
             "text": "Kuchanika msamba hatua ya tatu",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "third_degree_tear"
           },
           {
             "key": "repaired_fistula",
             "text": "Fistula iliyotibiwa",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "repaired_fistula"
           },
           {
             "key": "female_genital_mutilation",
             "text": "Tohara kwa wanawake",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "female_genital_mutilation"
           },
           {
-            "key": "parity",
-            "text": "Idadi ya mimba zilizofikia wiki 24 au zaidi",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "parity"
-          },
-          {
             "key": "closely_spaced_pregnancy",
             "text": "Mimba zilizokaribiana (chini ya miaka miwili)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "closely_spaced_pregnancy"
           },
           {
             "key": "pregnant_more_than_four",
             "text": "Kuwa mjamzito mara nne au zaidi",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "pregnant_more_than_four"
           },
           {
             "key": "hx_hemorrhage",
             "text": "Historia ya kutokwa damu nyingi baada ya kujifungua",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hx_hemorrhage"
           },
           {
             "key": "history_of_high_blood_pressure",
             "text": "Historia ya shinikizo la damu",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "history_of_high_blood_pressure"
           },
           {
             "key": "anaemia",
             "text": "Ugonjwa wa upungufu wa damu",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "anaemia"
           },
           {
             "key": "difficult_delivery",
             "text": "Kuzalishwa kwa kuvutwa na kifaa au kuongezewa njia (Vacuum, episiotomy)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "difficult_delivery"
           },
           {
             "key": "hx_abortions",
             "text": "Historia ya kuharibika kwa mimba",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hx_abortions"
           },
           {
             "key": "none",
             "text": "Hakuna",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "none"
           }
@@ -291,7 +257,7 @@
         "type": "hidden",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv",
-        "value" : "positive",
+        "value": "positive",
         "openmrs_entity_parent": "",
         "relevance": {
           "step1:medical_surgical_history": {
@@ -325,11 +291,31 @@
         }
       },
       {
-        "key": "parity_value",
+        "key": "gravida",
+        "type": "edit_text",
+        "hint": "Idadi ya ujauzito (Gravida)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya ujauzito"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza idadi ya ujauzito"
+        },
+        "v_max": {
+          "value": "35",
+          "err": "Idadi ya ujauzito lazima iwe sawa au chini ya 35"
+        }
+      },
+      {
+        "key": "parity",
         "type": "edit_text",
         "hint": "Idadi ya mimba zilizofikia wiki 24 au zaidi",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "parity_value",
+        "openmrs_entity_id": "parity",
         "openmrs_entity_parent": "",
         "v_numeric": {
           "value": "true",
@@ -339,16 +325,51 @@
           "value": true,
           "err": "Tafadhali jaza namba halali"
         },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:gravida)",
+            "err": "Namba lazima iwe chini ya idadi ya ujauzito"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_grand_multiparity",
+        "type": "toaster_notes",
+        "text": "Toa ushauri juu ya hatari ya kuchanika mfuko wa uzazi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
         "relevance": {
-          "step1:medical_surgical_history": {
-            "type": "string",
-            "ex-checkbox": [
-              {
-                "or": [
-                  "parity"
-                ]
-              }
-            ]
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya watoto walio hai",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya watoto walio hai"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya watoto walio hai"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_relevance.yml"
+            }
           }
         }
       },

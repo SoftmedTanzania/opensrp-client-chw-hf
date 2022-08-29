@@ -254,7 +254,7 @@ public class HfAncDao extends AbstractDao {
         );
 
         List<String> res = readData(sql, dataMap);
-        if (res.get(0) != null) {
+        if (res != null && res.size() > 0 && res.get(0) != null) {
             return res.get(0);
         }
         return "null";
@@ -371,7 +371,7 @@ public class HfAncDao extends AbstractDao {
         );
 
         List<String> res = readData(sql, dataMap);
-        if (res.get(0) != null) {
+        if (res != null && res.size() > 0 && res.get(0) != null) {
             return res.get(0);
         }
         return "null";
@@ -390,7 +390,7 @@ public class HfAncDao extends AbstractDao {
         );
 
         List<String> res = readData(sql, dataMap);
-        return res.size() > 0;
+        return res.size() > 0 && !res.get(0).equalsIgnoreCase("null") && !res.get(0).equalsIgnoreCase("0");
     }
 
     public static String getClientCtcNumber(String baseEntityId) {
@@ -456,7 +456,7 @@ public class HfAncDao extends AbstractDao {
         );
 
         List<String> res = readData(sql, dataMap);
-        if (res.get(0) != null) {
+        if (res != null && res.size() > 0 && res.get(0) != null) {
             return res.get(0);
         }
         return "12";
@@ -513,13 +513,24 @@ public class HfAncDao extends AbstractDao {
     public static String getIptDoses(String baseEntityId) {
         int iptDoses = 0;
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "malaria_preventive_therapy");
-        String sql = "SELECT malaria_preventive_therapy FROM ec_anc_register WHERE base_entity_id = '" + baseEntityId + "' AND malaria_preventive_therapy IS NOT NULL";
+        String sql = "SELECT malaria_preventive_therapy FROM ec_anc_register WHERE base_entity_id = '" + baseEntityId + "' AND malaria_preventive_therapy IS NOT NULL AND malaria_preventive_therapy <> '0' ";
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() > 0) {
             return res.get(0).split("ipt")[1];
         }
 
         return String.valueOf(iptDoses);
+    }
+
+    public static String getMalariaTestResults(String baseEntityId) {
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "mRDT_for_malaria");
+        String sql = "SELECT mRDT_for_malaria FROM ec_anc_register WHERE base_entity_id = '" + baseEntityId + "' AND mRDT_for_malaria IS NOT NULL";
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0) {
+            return res.get(0);
+        }
+
+        return "test_not_conducted";
     }
 
     public static String getTTDoses(String baseEntityId) {
@@ -647,12 +658,12 @@ public class HfAncDao extends AbstractDao {
         return "";
     }
 
-    public static String getNumberOfSurvivingChildren(String baseEntityId) {
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "number_of_surv_children");
+    public static String getMedicalAndSurgicalHistory(String baseEntityId) {
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "medical_surgical_history");
         String sql = String.format(
-                "SELECT number_of_surv_children FROM %s WHERE base_entity_id = '%s' " +
+                "SELECT medical_surgical_history FROM %s WHERE base_entity_id = '%s' " +
                         "AND is_closed = 0 " +
-                        "AND number_of_surv_children IS NOT NULL ",
+                        "AND medical_surgical_history IS NOT NULL ",
                 "ec_anc_register",
                 baseEntityId);
         List<String> res = readData(sql, dataMap);
@@ -662,7 +673,22 @@ public class HfAncDao extends AbstractDao {
         return "";
     }
 
-    public static boolean hasNoFollowups(String baseEntityId){
+    public static String getNumberOfSurvivingChildren(String baseEntityId) {
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "no_surv_children");
+        String sql = String.format(
+                "SELECT no_surv_children FROM %s WHERE base_entity_id = '%s' " +
+                        "AND is_closed = 0 " +
+                        "AND no_surv_children IS NOT NULL ",
+                "ec_anc_register",
+                baseEntityId);
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0) {
+            return res.get(0);
+        }
+        return "";
+    }
+
+    public static boolean hasNoFollowups(String baseEntityId) {
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
         String sql = String.format(
                 "SELECT count(*) as count FROM %s WHERE entity_id = '%s' " +

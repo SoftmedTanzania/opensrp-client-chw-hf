@@ -16,11 +16,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -63,14 +58,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -78,6 +71,24 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        }
+      },
+      {
+        "key": "tb_registration_number",
+        "type": "edit_text",
+        "openmrs_entity_id": "tb_registration_number",
+        "hint": "TB Clinic Number",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:on_tb_treatment": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the clients TB Clinic Number"
         }
       },
       {
@@ -94,50 +105,43 @@
         "options": [
           {
             "key": "chk_cough",
-            "text": "Cough for two or more weeks",
-            "value": false,
+            "text": "Cough of any duration",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_cough"
           },
           {
             "key": "chk_sputum",
             "text": "Coughing up blood-stained sputum (hemoptysis)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_sputum"
           },
           {
             "key": "chk_fevers",
             "text": "Fevers for two or more weeks?",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_fevers"
           },
           {
             "key": "chk_weight_loss",
             "text": "Noticeable weight loss for new patients or 3 kgs",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_weight_loss"
           },
           {
             "key": "chk_weight_loss_subsequent_visit",
             "text": "Weight loss in a month (subsequent visit)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_weight_loss_subsequent_visit"
           },
           {
             "key": "chk_excessive_sweating",
             "text": "Excessive sweating at night for two or more weeks",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_excessive_sweating"
           },
           {
             "key": "chk_none",
             "text": "None",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_none"
           }
@@ -166,16 +170,20 @@
           {
             "key": "positive",
             "text": "Positive",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "positive"
           },
           {
             "key": "negative",
             "text": "Negative",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Test not conducted",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
           }
         ],
         "v_required": {
@@ -227,14 +235,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -244,12 +250,12 @@
           "err": "Please select an option"
         },
         "relevance": {
-        "rules-engine": {
-          "ex-rules": {
-            "rules-file": "pmtct_tb_screening_relevance.yml"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_tb_screening_relevance.yml"
+            }
           }
         }
-      }
       },
       {
         "key": "prompt_for_tpt_eligibility",
@@ -296,14 +302,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -333,14 +337,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -370,21 +372,18 @@
           {
             "key": "out_of_medicine",
             "text": "Stock out of medicine",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "out_of_medicine"
           },
           {
             "key": "client_refused_medication",
             "text": "The client refused medication",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_refused_medication"
           },
           {
             "key": "client_allergic_to_tpt",
             "text": "Client is allergic to TPT",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_allergic_to_tpt"
           }
@@ -430,7 +429,6 @@
             "ex": "equalTo(., \"yes\")"
           }
         }
-
       }
     ]
   }

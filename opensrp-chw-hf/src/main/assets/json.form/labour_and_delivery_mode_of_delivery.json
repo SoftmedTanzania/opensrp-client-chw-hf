@@ -62,14 +62,14 @@
         "options": [
           {
             "key": "spontaneous_vaginal_delivery",
-            "text": "Spontaneous vaginal delivery",
+            "text": "Spontaneous vertex delivery",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "spontaneous_vaginal_delivery"
           },
           {
             "key": "cesarean",
-            "text": "Cesarean",
+            "text": "Caesarian",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cesarean"
@@ -103,11 +103,11 @@
         "value": 3
       },
       {
-        "key": "delivery_mode_cesarean_reason",
+        "key": "delivery_mode_caesarian_reason",
         "type": "check_box",
-        "label": "Reason for cesarean",
+        "label": "Reason for caesarian",
         "combine_checkbox_option_values": "true",
-        "openmrs_entity_id": "delivery_mode_cesarean_reason",
+        "openmrs_entity_id": "delivery_mode_caesarian_reason",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
         "exclusive": [
@@ -117,70 +117,61 @@
           {
             "key": "fetal_distress",
             "text": "Fetal distress",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "fetal_distress"
           },
           {
             "key": "previous_scare",
             "text": "Previous Scare",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "previous_scare"
           },
           {
             "key": "maternal_request",
             "text": "Maternal request",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "maternal_request"
           },
           {
             "key": "failed_induction",
             "text": "Failed induction",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "failed_induction"
           },
           {
             "key": "malpresentation",
             "text": "Malpresentation",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "malpresentation"
           },
           {
             "key": "prolonged_labor",
             "text": "Prolonged labor",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "prolonged_labor"
           },
           {
             "key": "obstructed_labor",
             "text": "Obstructed labor",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "obstructed_labor"
           },
           {
             "key": "multiple_gastation",
             "text": "Multiple gastation",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "multiple_gastation"
           },
           {
             "key": "others",
             "text": "Others",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "others"
           }
         ],
         "v_required": {
           "value": "true",
-          "err": "Please select the reason for cesarean"
+          "err": "Please select the reason for caesarian"
         },
         "relevance": {
           "rules-engine": {
@@ -191,12 +182,12 @@
         }
       },
       {
-        "key": "delivery_mode_cesarean_reason_other",
+        "key": "delivery_mode_caesarian_reason_other",
         "type": "edit_text",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
         "openmrs_entity_id": "delivery_mode_reason",
-        "hint": "Specify other reason for cesarean delivery mode",
+        "hint": "Specify other reason for caesarian delivery mode",
         "v_required": {
           "value": true,
           "err": "Value is required"

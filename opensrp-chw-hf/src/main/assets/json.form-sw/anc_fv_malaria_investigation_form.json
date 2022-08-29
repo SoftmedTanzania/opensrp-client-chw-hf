@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -47,6 +42,7 @@
     "encounter_location": ""
   },
   "global": {
+    "llin_provided": false
   },
   "step1": {
     "title": "Uchunguzi wa Malaria",
@@ -63,15 +59,13 @@
             "key": "yes",
             "text": "Ndio",
             "openmrs_entity_id": "yes",
-            "openmrs_entity": "concept",
-            "value": false
+            "openmrs_entity": "concept"
           },
           {
             "key": "no",
             "text": "Hapana",
             "openmrs_entity_id": "no",
-            "openmrs_entity": "concept",
-            "value": false
+            "openmrs_entity": "concept"
           }
         ]
       },
@@ -212,15 +206,13 @@
             "key": "ipt1",
             "text": "IPT1",
             "openmrs_entity_id": "ipt1",
-            "openmrs_entity": "concept",
-            "value": false
+            "openmrs_entity": "concept"
           },
           {
             "key": "medication_not_given",
             "text": "Hajapewa dawa za Malaria",
             "openmrs_entity_id": "medication_not_given",
-            "openmrs_entity": "concept",
-            "value": false
+            "openmrs_entity": "concept"
           }
         ],
         "v_required": {
@@ -304,21 +296,15 @@
             "key": "yes",
             "text": "Ndio",
             "openmrs_entity_id": "yes",
-            "openmrs_entity": "concept",
-            "value": false
+            "openmrs_entity": "concept"
           },
           {
             "key": "no",
             "text": "Hapana",
             "openmrs_entity_id": "no",
-            "openmrs_entity": "concept",
-            "value": false
+            "openmrs_entity": "concept"
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua kama Mteja amepewa chandarua cha muda mrefu"
-        }
+        ]
       },
       {
         "key": "reason_for_not_providing_llin",
@@ -327,7 +313,6 @@
         "openmrs_entity_id": "reason_for_not_providing_llin",
         "type": "spinner",
         "hint": "Sababu ya mteja kutokupewa chandarua cha muda mrefu (LLINs)",
-
         "values": [
           "Bidhaa zimeisha",
           "Mteja alikataa",
@@ -372,6 +357,14 @@
             "ex": "equalTo(., \"other\")"
           }
         }
+      },
+      {
+        "key": "malaria_investigation_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "malaria_investigation_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
       }
     ]
   }

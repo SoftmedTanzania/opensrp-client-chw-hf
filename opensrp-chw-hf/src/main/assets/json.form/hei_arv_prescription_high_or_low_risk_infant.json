@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -71,14 +66,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -132,28 +125,24 @@
           {
             "key": "out_of_stock",
             "text": "Out of stock",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "out_of_stock"
           },
           {
             "key": "medication_expired",
             "text": "Medication expired",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "medication_expired"
           },
           {
             "key": "home_delivery",
             "text": "Home delivery",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "home_delivery"
           },
           {
             "key": "other",
             "text": "Other (Specify)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }

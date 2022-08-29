@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -49,6 +44,13 @@
   "step1": {
     "title": "Majibu ya CD4",
     "fields": [
+      {
+        "key": "cd4_sample_id",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cd4_sample_id",
+        "openmrs_entity_parent": ""
+      },
       {
         "key": "cd4_result",
         "type": "edit_text",
@@ -93,14 +95,12 @@
           {
             "key": "yes",
             "text": "Ndiyo",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -129,28 +129,24 @@
           {
             "key": "out_of_medicine",
             "text": "CTX zimekwisha",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "out_of_medicine"
           },
           {
             "key": "client_refused_medication",
             "text": "Mteja amekataa dawa za CTX",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_refused_medication"
           },
           {
             "key": "client_allergic_to_ctx",
             "text": "Mteja ana mzio na dawa hizi za CTXja ana ",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_allergic_to_ctx"
           },
           {
             "key": "drug_interaction",
             "text": "Drug interaction",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "drug_interaction"
           }

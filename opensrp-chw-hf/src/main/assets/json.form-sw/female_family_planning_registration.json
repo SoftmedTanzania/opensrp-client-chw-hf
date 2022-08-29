@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -128,8 +123,7 @@
         "options": [
           {
             "key": "pregnant_option",
-            "text": "Hakikisha kwamba yeye siyo mjamzito",
-            "value": false
+            "text": "Hakikisha kwamba yeye siyo mjamzito"
           }
         ]
       },
@@ -265,8 +259,7 @@
         "openmrs_entity_parent": "190AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fp_start_condom",
-        "type": "edit_text",
-        "hidden": true,
+        "type": "hidden",
         "calculation": {
           "rules-engine": {
             "ex-rules": {
@@ -329,7 +322,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "counselling_use",
         "type": "spinner",
-         "hint": "Je, mteja ameshauri jinsi ya kutumia njia za uzazi wa mpango aliyochagua?",
+        "hint": "Je, mteja ameshauri jinsi ya kutumia njia za uzazi wa mpango aliyochagua?",
         "values": [
           "Ndiyo",
           "Hapana"
@@ -360,7 +353,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "162881AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "date_picker",
-       "hint": "Tarehe ya sindano iliyopita",
+        "hint": "Tarehe ya sindano iliyopita",
         "max_date": "today",
         "relevance": {
           "rules-engine": {
@@ -428,7 +421,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fp_start_implant_nxt",
         "type": "date_picker",
-       "hint": "Tarehe ya kuweka kipandikizi cha miaka 3",
+        "hint": "Tarehe ya kuweka kipandikizi cha miaka 3",
         "max_date": "today",
         "relevance": {
           "rules-engine": {
@@ -462,7 +455,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fp_start_implant_jad",
         "type": "date_picker",
-         "hint": "Tarehe ya kuweka vipandikizi vya miaka 5",
+        "hint": "Tarehe ya kuweka vipandikizi vya miaka 5",
         "max_date": "today",
         "relevance": {
           "rules-engine": {
@@ -516,7 +509,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fp_start_male_ster",
         "type": "date_picker",
-         "hint": "Tarehe ya kufunga kizazi mwanamume",
+        "hint": "Tarehe ya kufunga kizazi mwanamume",
         "max_date": "today",
         "relevance": {
           "rules-engine": {

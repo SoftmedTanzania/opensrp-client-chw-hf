@@ -161,11 +161,11 @@
         },
         "v_min": {
           "value": "0",
-          "err": "The pulse rate must be equal or greater than 0 (Breaths per minute)"
+          "err": "The respiratory rate must be equal or greater than 0 (Breaths per minute)"
         },
         "v_max": {
           "value": "100",
-          "err": "The pulse rate must be equal or less than 100 (Breaths per minute)"
+          "err": "The respiratory rate must be equal or less than 100 (Breaths per minute)"
         }
       },
       {
@@ -187,7 +187,7 @@
       {
         "key": "temperature",
         "type": "edit_text",
-        "hint": "Temperature (C)",
+        "hint": "Temperature (\u2103)",
         "openmrs_entity_id": "temperature",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

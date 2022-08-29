@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.joda.time.DateTime;
 import org.smartregister.chw.core.dao.AncDao;
 import org.smartregister.chw.core.utils.ChildDBConstants;
 import org.smartregister.chw.core.utils.CoreConstants;
@@ -35,7 +36,9 @@ import org.smartregister.family.util.DBConstants;
 import org.smartregister.family.util.Utils;
 import org.smartregister.helper.ImageRenderHelper;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class FamilyMemberAdapter extends ArrayAdapter<Entity> {
@@ -60,8 +63,7 @@ public class FamilyMemberAdapter extends ArrayAdapter<Entity> {
         TextView tvGender = convertView.findViewById(R.id.gender);
         ImageView profile = convertView.findViewById(org.smartregister.family.R.id.profile);
         // Populate the data into the template view using the data object
-
-        String fullName = String.format("%s %s %s", isNull(member.getFirstName()), isNull(member.getMiddleName()), isNull(member.getLastName()));
+        String fullName = String.format(Locale.getDefault(),"%s %s %s, %s", isNull(member.getFirstName()), isNull(member.getMiddleName()), isNull(member.getLastName()), getAge(member.getBirthdate()));
         tvName.setText(fullName);
 
         tvGender.setText(PmtctUtil.getGenderTranslated(getContext(), member.getGender()));
@@ -122,11 +124,22 @@ public class FamilyMemberAdapter extends ArrayAdapter<Entity> {
         }
     }
 
+    private String getAge(Date birthDate){
+        DateTime birthDateTime = new DateTime(birthDate.getTime());
+        DateTime now = new DateTime(new Date().getTime());
+        int age =  now.getYear() - birthDateTime.getYear();
+        if(age == 0){
+            return now.getMonthOfYear() - birthDateTime.getMonthOfYear() + " M";
+        }
+        return String.valueOf(age);
+
+    }
+
     public void goToProfileActivity(View view, Bundle fragmentArguments) {
         if (view.getTag() instanceof CommonPersonObjectClient) {
             CommonPersonObjectClient commonPersonObjectClient = (CommonPersonObjectClient) view.getTag();
             String entityType = Utils.getValue(commonPersonObjectClient.getColumnmaps(), ChildDBConstants.KEY.ENTITY_TYPE, false);
-            if (CoreConstants.TABLE_NAME.FAMILY_MEMBER.equals(entityType) || CoreConstants.TABLE_NAME.INDEPENDENT_CLIENT.equals(entityType)) {
+            if (CoreConstants.TABLE_NAME.CHILD.equals(entityType) || CoreConstants.TABLE_NAME.FAMILY_MEMBER.equals(entityType) || CoreConstants.TABLE_NAME.INDEPENDENT_CLIENT.equals(entityType)) {
                 if (!(isAncMember(commonPersonObjectClient.entityId()) && !isPncMember(commonPersonObjectClient.entityId()))) {
                     goToOtherMemberProfileActivity(commonPersonObjectClient, fragmentArguments);
                 }

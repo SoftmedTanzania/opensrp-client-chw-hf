@@ -60,25 +60,23 @@
         "text_color": "#000000",
         "label_text_style": "normal",
         "type": "check_box",
+        "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "oxytocin",
             "text": "Oxytocin (10 IU within 1 minute after delivery)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "oxytocin"
           },
           {
             "key": "misoprostol",
             "text": "Misoprostol (400 mcg orally OR 600 mcg sublingual)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "misoprostol"
           },
           {
             "key": "ergometrine",
-            "text": "Ergometrine",
-            "value": false,
+            "text": "Ergometrine (0.5mg)",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "ergometrine"
           }

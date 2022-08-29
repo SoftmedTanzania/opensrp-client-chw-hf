@@ -17,11 +17,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -304,21 +299,18 @@
           {
             "key": "chk_none",
             "text": "None",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_none"
           },
           {
             "key": "chk_chlorhexidine",
             "text": "Chlorhexidine applied to umbilical stump",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_chlorhexidine"
           },
           {
             "key": "chk_skin_contact",
             "text": "Skin to skin contact for at least 2 hours",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_skin_contact"
           }
@@ -330,7 +322,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "child_bcg_vaccination",
         "type": "native_radio",
-        "label": "Was BCG vaccination given?",
+        "label": "Was BCG vaccination administered?",
         "label_text_style": "normal",
         "text_color": "#C0C0C0",
         "options": [
@@ -358,7 +350,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "child_opv0_vaccination",
         "type": "native_radio",
-        "label": "Was OPV 0 vaccination given?",
+        "label": "Was OPV 0 vaccination administered?",
         "label_text_style": "normal",
         "text_color": "#C0C0C0",
         "options": [

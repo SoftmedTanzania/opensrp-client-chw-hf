@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -53,6 +48,7 @@
       "value": ""
     }
   },
+  "global": {},
   "step1": {
     "title": "Location details",
     "next": "step2",
@@ -439,14 +435,12 @@
           {
             "key": "biological_child_under_15",
             "text": "Biological child Under 15",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "biological_child_under_15"
           },
           {
             "key": "siblings_under_15",
             "text": "Siblings Under 15",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "siblings_under_15"
           }
@@ -476,23 +470,14 @@
           {
             "key": "sexual_partner",
             "text": "Sexual partner",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sexual_partner"
           },
           {
             "key": "needle_sharing_partner",
             "text": "Needle Sharing partner",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needle_sharing_partner"
-          },
-          {
-            "key": "biological_father",
-            "text": "Biological Father",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "biological_father"
           }
         ],
         "v_required": {
@@ -520,21 +505,94 @@
           {
             "key": "sexual_partner",
             "text": "Sexual partner",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sexual_partner"
           },
           {
             "key": "needle_sharing_partner",
             "text": "Needle Sharing partner",
-            "value": false,
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needle_sharing_partner"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Relationship is required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hiv_index_contacts_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "relationship_above_15_male_for_possible_parents",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "relationship",
+        "type": "native_radio",
+        "label": "Relationship",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "sexual_partner",
+            "text": "Sexual partner",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual_partner"
+          },
+          {
+            "key": "needle_sharing_partner",
+            "text": "Needle Sharing partner",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needle_sharing_partner"
+          },
+          {
+            "key": "biological_father",
+            "text": "Biological Father (If the mother is deceased)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "biological_father"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Relationship is required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hiv_index_contacts_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "relationship_above_15_female_for_possible_parents",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "relationship",
+        "type": "native_radio",
+        "label": "Relationship",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "sexual_partner",
+            "text": "Sexual partner",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual_partner"
+          },
+          {
+            "key": "needle_sharing_partner",
+            "text": "Needle Sharing partner",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needle_sharing_partner"
           },
           {
             "key": "biological_mother",
             "text": "Biological Mother",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "biological_mother"
           }
@@ -592,14 +650,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -629,14 +685,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -666,14 +720,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -703,14 +755,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -740,14 +790,12 @@
           {
             "key": "yes",
             "text": "Yes",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "No",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -773,28 +821,24 @@
           {
             "key": "client_referral",
             "text": "Client Referral",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_referral"
           },
           {
             "key": "provider_referral",
             "text": "Provider Referral ",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "provider_referral"
           },
           {
             "key": "contract_referral",
             "text": "Contract Referral",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "contract_referral"
           },
           {
             "key": "dual_referral",
             "text": "Dual Referral",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "dual_referral"
           }

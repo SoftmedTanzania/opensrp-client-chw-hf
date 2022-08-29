@@ -47,7 +47,7 @@
     <string name="anc_first_visit_medical_and_surgical_history">Historia ya Matibabu na Upasuaji</string>
     <string name="anc_first_visit_obstetric_examination">Uchunguzi wa Uzazi</string>
     <string name="anc_first_visit_baseline_investigation">Uchunguzi wa Vipimo vya Awali</string>
-    <string name="anc_first_visit_tt_vaccination">Chanjo ya Pepopunda (Tetenasi)</string>
+    <string name="anc_first_visit_tt_vaccination">Chanjo ya Pepopunda-Diphtheria</string>
     <string name="anc_first_and_recurring_visit_counselling">Ushauri</string>
     <string name="partner_registration_action_title">Usajili wa Mwenza</string>
     <string name="partner_testing_action_title">Upimaji kwa Mwenza</string>
@@ -57,7 +57,7 @@
     <string name="anc_recuring_visit_cunsultation">Mashauriano ya ANC</string>
     <string name="anc_recuring_visit_lab_tests">Vipimo Vya Maabara</string>
     <string name="anc_recuring_visit_pharmacy">Duka la Dawa</string>
-    <string name="anc_visit_malaria_investigation">Uchunguzi wa Malaria</string>
+    <string name="anc_visit_malaria_investigation">Uchunguzi na Matibabu ya Malaria</string>
     <string name="first_pregnancy_option">Mimba ya kwanza</string>
     <string name="none_option_for_medical_surgical_history">Hakuna</string>
     <string name="record_ctc_number">Rekodi namba ya CTC</string>
@@ -67,7 +67,8 @@
     <string name="record_anc_followup_visit">Rekodi Hudhurio la Ufuatiliaji la ANC</string>
     <string name="anc_first_visit">Hudhurio la Kwanza la ANC</string>
     <string name="anc_followup_visit">Hudhurio la Ufuatiliaji la ANC</string>
-    <string name="record_eac_first_visit">Hudhurio la Kwanza la EAC</string>
+    <string name="record_eac_first_visit">Hudhurio la EAC, Kipindi: %d</string>
+    <string name="eac_visit_done">Hudhurio la EAC, Kipindi: %d limekamilika</string>
     <string name="record_eac_second_visit">Hudhurio la Pili la EAC</string>
     <string name="pmtct_followup_form_title">Ufuatiliaji wa PMTCT</string>
     <string name="record_first_pmtct">Rekodi Hudhurio la Awali la PMTCT</string>
@@ -76,7 +77,7 @@
     <string name="medical_and_surgical_filled">Historia ya Matibabu na Upasuaji Umekamilika</string>
     <string name="obstetric_exam_complete">Uchunguzi wa Uzazi Umefanyika</string>
     <string name="baseline_investigation_conducted">Uchunguzi wa Vipimo vya Awali Umekamilika</string>
-    <string name="tt_vaccination_filled">Chanjo ya Pepopunda (Tetenasi) Imejazwa</string>
+    <string name="tt_vaccination_filled">Chanjo ya Pepopunda-Diphtheria Imejazwa</string>
     <string name="counselling_given">Mteja Ameshauriwa</string>
     <string name="partner_registered">Mwenza Amesajiliwa</string>
     <string name="partner_tested">Mwenza Amepimwa</string>
@@ -91,8 +92,8 @@
     <string name="pmtct_counselling">Ameshauriwa</string>
     <string name="pmtct_tb_screening">Uchunguzi wa Kifua Kikuu Umekamilika</string>
     <string name="pmtct_clinical_disease_staging">Hatua ya Ugonjwa Umekamilika</string>
-    <string name="given_arv_prescription">Dawa za ARV alizopewa</string>
-    <string name="not_given_arv_prescription">Hakupewa Dawa za ARV</string>
+    <string name="given_arv_prescription">Amepatiwa Dawa za ARV</string>
+    <string name="not_given_arv_prescription">Hajapatiwa Dawa za ARV</string>
     <string name="cd4_sample_collected">Sampuli ya CD4 Imechukuliwa</string>
     <string name="pmtct_counselling_not_given">Mteja Hajashauriwa</string>
     <string name="pmtct_baseline_investigation_complete">Uchunguzi wa Vipimo vya Awali Umekamilika</string>
@@ -111,7 +112,9 @@
     <string name="mother_general_examination">Uchunguzi wa Afya ya Mama</string>
     <string name="child_general_examination_complete">Uchunguzi wa Afya ya Mtoto %s Umekamilika</string>
     <string name="child_general_examination">Uchunguzi wa Afya ya Mtoto %s</string>
+    <string name="child_general_examination_for_children_without_names">Uchunguzi wa Afya ya %s</string>
     <string name="children_general_examination">Uchunguzi wa Afya ya Mtoto %s - %d</string>
+    <string name="children_general_examination_for_children_without_names">Uchunguzi wa Afya ya %s - %d</string>
     <string name="immunization_complete">Chanjo zimekamilika</string>
     <string name="immunization_title">Chanjo</string>
     <string name="nutritional_supplements_complete">Virutubisho vya Lishe Umekamilika</string>
@@ -209,7 +212,6 @@
     <string name="remove">THIBITISHA</string>
     <string name="month">Mwezi</string>
     <string name="print_report">Chapa</string>
-    <string name="record">Rekodi</string>
     <string name="child_followup">Fuatilio la %s</string>
     <string name="record_child_followup">Rekodi fuatilio la Mtoto</string>
     <string name="saved_child_followup">Umefanikiwa kuhifadhi taarifa za udhurio la Mtoto</string>
@@ -261,12 +263,14 @@
     <string name="received_referrals">Rufaa Zilizopokelewa</string>
     <string name="successful_referrals">Rufaa Zilizofanikiwa</string>
     <string name="lost_to_followup_referral">Rufaa za mteja aliepotea</string>
+    <string name="referral_village">Eneo La WAJA</string>
+    <string name="referral_clinic">Kitengo</string>
 
     <!-- Labour and Delivery String Resources-->
     <string name="menu_ld">L&amp;D</string>
     <string name="lb_fully_completed_action">Imemalizika kabisa</string>
     <string name="lb_partially_completed_action">Haijamalizika</string>
-    <string name="lb_visit_vaginal_examination">Vaginal examination</string>
+    <string name="lb_visit_vaginal_assessment">Vaginal examination</string>
     <string name="lb_visit_general_examination">General examination</string>
     <string name="height_in_cm">Urefu: {0} cm</string>
     <string name="fundal_height">Kimo cha mimba: {0} cm</string>
@@ -275,6 +279,51 @@
     <string name="tomorrow_hei_clients">Hudhurio la Kesho</string>
     <string name="missed_hei_clients">Waliokosa</string>
     <string name="anc_fundal_height_min_err">Kimo cha mimba lazima kiwe sawa au zaidi ya</string>
+
+    <string name="lb_visit_hb_test_action_title"> Kipimo cha HB </string>
+
+    <string name="ltfu_clinic_ctc">CTC</string>
+    <string name="ltfu_clinic_pwid">KLINIKI YA WAJIDUNGA</string>
+    <string name="ltfu_clinic_prep">CTC(Dawa Kinga)</string>
+    <string name="ltfu_clinic_pmtct">PMTCT</string>
+    <string name="ltfu_clinic_tb">TB</string>
+    <string name="promised_return_date">Tarehe aliyoahidi kurudi</string>
+    <string name="date_of_death">Tarehe ya kifo</string>
+    <string name="reasons">Sababu</string>
+    <string name="followup_status">Matokeo ya Ufuatiliaji</string>
+    <string name="feedback_date">Tarehe ya ufuatiliaji</string>
+    <string name="feedback_details">Taarifa za mteja baada ya ufuatiliaji</string>
+    <string name="ltfu_followup_status_continuing_with_services">Mteja anahudhuria kliniki</string>
+    <string name="ltfu_followup_status_client_found_ready_to_return">Amepatikana na yupo tayari kurudi kliniki</string>
+    <string name="ltfu_followup_status_client_has_moved_to_another_facility">Amehamia kituo kingine bila taarifa</string>
+    <string name="ltfu_followup_status_client_has_relocated">Amehama makazi</string>
+    <string name="ltfu_followup_status_client_does_not_want_to_return">Amepatikana lakini hayuko tayari kurudi kliniki</string>
+    <string name="ltfu_followup_status_deceased">Amefariki</string>
+    <string name="ltfu_followup_status_client_not_found">Hajapatikana</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_has_forgotten">Alisahau</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_was_ill">Alikuwa mgonjwa sana</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_failed_to_disclose_his_status">Ameshindwa kujiweka wazi</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_did_not_have_fare">Amekosa Nauli</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_lives_far_away_from_the_health_facility">Umbali\/Usafiri Mgumu</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_feels_well">Amepata Nafuu</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_was_busy_at_work">Hakupata ruhusa kazini</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_traveled">Alisafiri</string>
+    <string name="ltfu_reasons_for_missed_appointment_client_uses_alternative_medicine">Anatumia tiba mbadala</string>
+    <string name="ltfu_reasons_for_missed_appointment_poor_services_at_health_facility">Huduma haziridhishi</string>
+    <string name="ltfu_reason_client_not_found_address_incorrect">Anwani sio sahihi</string>
+    <string name="ltfu_reason_client_not_found_client_relocated">Amehama makazi</string>
+    <string name="ltfu_reason_client_not_found_seasonal_work">Kilimo\/kazi za msimu</string>
+    <string name="process_visit">Chakata Hudhurio</string>
+    <string name="edit_child_form_title">Hariri taarifa za mtoto %1$s</string>
+    <string name="edit_child_form_title_for_child_without_names">Hariri taarifa za %1$s</string>
+    <string name="record">Badili</string>
+    <string name="undo">Futa</string>
+    <string name="undo_test_result">Unauhakika unataka kufuta majibu ya %1$s?</string>
+    <string name="callPhonePermissionRequestDenyButton">Hapana</string>
+    <string name="callPhonePermissionRequestGrantButton">Ruhusu</string>
+    <string name="callPhoneRequestTitle">Ruhusu Ukusanyaji wa Nambari ya Simu</string>
+    <string name="callPhoneRequestMessage">Mtoa Huduma wa Afya ngazi ya kituoni hukusanya nambari za simu za wateja zitakazotumika kwa ufuatiliaji, tathmini na uchambuzi wa ziara zinazofanywa na wateja kwenye kituo cha afya.</string>
+
 
 
 </resources>

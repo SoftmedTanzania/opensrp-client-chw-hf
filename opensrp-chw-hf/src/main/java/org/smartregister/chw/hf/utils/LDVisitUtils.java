@@ -1,10 +1,18 @@
 package org.smartregister.chw.hf.utils;
 
+import static org.smartregister.chw.hf.interactor.LDPostDeliveryManagementMotherActivityInteractor.ordinal;
+import static org.smartregister.chw.hf.interactor.LDVisitInteractor.hbTestMoreThanTwoWeeksAgo;
+import static org.smartregister.chw.hf.interactor.LDVisitInteractor.malariaTestConductedDuringRegistration;
+import static org.smartregister.chw.hf.interactor.LDVisitInteractor.syphilisTestConductedDuringRegistration;
+import static org.smartregister.chw.hf.utils.Constants.Events.LD_POST_DELIVERY_MOTHER_MANAGEMENT;
+import static org.smartregister.chw.hf.utils.Constants.HIV_STATUS.POSITIVE;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.smartregister.chw.hf.interactor.LDPostDeliveryManagementMotherActivityInteractor;
+import org.smartregister.chw.hf.actionhelper.LDGeneralExaminationActionHelper;
+import org.smartregister.chw.hf.interactor.LDVisitInteractor;
 import org.smartregister.chw.hf.utils.Constants.Events;
 import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.ld.dao.LDDao;
@@ -50,40 +58,72 @@ public class LDVisitUtils extends VisitUtils {
                 boolean isDiastolicDone = computeCompletionStatus(obs, "diastolic");
                 boolean isUrineProteinDone = computeCompletionStatus(obs, "urine_protein");
                 boolean isUrineAcetoneDone = computeCompletionStatus(obs, "urine_acetone");
-                boolean isFundalHeightDone = computeCompletionStatus(obs, "fundal_height");
-                boolean isPresentationDone = computeCompletionStatus(obs, "presentation");
+
+                boolean isFundalHeightDone = true;
+                if (!LDGeneralExaminationActionHelper.fundalHeightCaptured(baseEntityId))
+                    isFundalHeightDone = computeCompletionStatus(obs, "fundal_height");
+
+                boolean isPresentationDone = true;
+                if (!LDGeneralExaminationActionHelper.featalLieCaptured(baseEntityId))
+                    isPresentationDone = getFieldValue(obs, "lie").equalsIgnoreCase("transverse") || computeCompletionStatus(obs, "presentation");
+
                 boolean isContractionInTenMinutesDone = computeCompletionStatus(obs, "contraction_in_ten_minutes");
                 boolean isFetalHeartRateDone = computeCompletionStatus(obs, "fetal_heart_rate");
-
                 boolean isVaginalExamDateDone = computeCompletionStatus(obs, "vaginal_exam_date");
                 boolean isVaginalExamTimeDone = computeCompletionStatus(obs, "vaginal_exam_time");
                 boolean isCervixStateDone = computeCompletionStatus(obs, "cervix_state");
                 boolean isCervixDilationDone = computeCompletionStatus(obs, "cervix_dilation");
-                boolean isPresentingPartDone = computeCompletionStatus(obs, "presenting_part");
-                boolean isOcciputPositionDone = computeCompletionStatus(obs, "occiput_position");
-                boolean isMouldingDone = computeCompletionStatus(obs, "moulding");
+                boolean isPresentingPartDone = true;
+                if (LDDao.getPresentingPart(baseEntityId) == null)
+                    isPresentingPartDone = computeCompletionStatus(obs, "presenting_part");
+
+                boolean isMouldingDone;
+                String presentingPart = getFieldValue(obs, "presenting_part");
+                if (presentingPart != null && !presentingPart.equalsIgnoreCase("breech") && !presentingPart.equalsIgnoreCase("shoulder")) {
+                    isMouldingDone = computeCompletionStatus(obs, "moulding");
+                } else {
+                    isMouldingDone = true;
+                }
                 boolean isStationDone = computeCompletionStatus(obs, "station");
                 boolean isDecisionDone = computeCompletionStatus(obs, "decision");
 
                 boolean hivActionDone = false;
 
-                if (LDDao.getHivStatus(baseEntityId) == null || !Objects.equals(LDDao.getHivStatus(baseEntityId), org.smartregister.chw.hf.utils.Constants.HIV_STATUS.POSITIVE)) {
-                    boolean isHivStatusDone = computeCompletionStatus(obs, "hiv_status");
-                    String hivStatus = getFieldValue(obs, "hiv_status");
+                if (LDDao.getHivStatus(baseEntityId) == null || (!Objects.equals(LDDao.getHivStatus(baseEntityId), POSITIVE) && LDVisitInteractor.testDateIsThreeMonthsAgo(baseEntityId))) {
+                    String hivStatus = getFieldValue(obs, "hiv");
                     String hivTestConducted = getFieldValue(obs, "hiv_test_conducted");
-                    if (isHivStatusDone) {
-
-                        if (hivStatus != null && hivStatus.equalsIgnoreCase("known")) {
+                    if (hivTestConducted != null && hivTestConducted.equalsIgnoreCase("no")) {
+                        hivActionDone = true;
+                    } else {
+                        if (StringUtils.isNotBlank(hivStatus) && hivTestConducted.equalsIgnoreCase("yes")) {
                             hivActionDone = true;
-                        } else {
-                            if (StringUtils.isNotBlank(hivTestConducted) && hivTestConducted.equalsIgnoreCase("yes")) {
-                                hivActionDone = true;
-                            }
                         }
                     }
                 } else {
                     hivActionDone = true;
                 }
+
+                boolean malariaActionDone = true;
+                if (!malariaTestConductedDuringRegistration(baseEntityId)) {
+                    String malariaTest = getFieldValue(obs, "malaria");
+                    if (malariaTest == null || malariaTest.isEmpty())
+                        malariaActionDone = false;
+                }
+
+                boolean syphilisActionDone = true;
+                if (!syphilisTestConductedDuringRegistration(baseEntityId)) {
+                    String syphilisTest = getFieldValue(obs, "syphilis");
+                    if (syphilisTest == null || syphilisTest.isEmpty())
+                        syphilisActionDone = false;
+                }
+
+                boolean hbActionDone = true;
+                if (hbTestMoreThanTwoWeeksAgo(baseEntityId)) {
+                    String hbTest = getFieldValue(obs, "hb_test_conducted");
+                    if (hbTest == null || hbTest.isEmpty())
+                        hbActionDone = false;
+                }
+
 
                 if (isGeneralConditionDone &&
                         isPulseRateDone &&
@@ -102,10 +142,12 @@ public class LDVisitUtils extends VisitUtils {
                         isCervixStateDone &&
                         isCervixDilationDone &&
                         isPresentingPartDone &&
-                        isOcciputPositionDone &&
                         isMouldingDone &&
                         isStationDone &&
                         isDecisionDone &&
+                        syphilisActionDone &&
+                        malariaActionDone &&
+                        hbActionDone &&
                         hivActionDone) {
                     ldVisits.add(visit);
                 }
@@ -120,23 +162,65 @@ public class LDVisitUtils extends VisitUtils {
                 boolean hasPlacentaAndMembraneExpelled = computeCompletionStatus(obs, "placenta_and_membrane_expulsion");
                 boolean isUterotonicDone = computeCompletionStatus(obs, "uterotonic");
                 boolean isMassageOfUterusAfterDeliveryDone = computeCompletionStatus(obs, "uterus_massage_after_delivery");
+                boolean isEclampsiaManagementDone = computeCompletionStatus(obs, "has_signs_of_eclampsia");
 
-                if (hasPlacentaAndMembraneExpelled && isUterotonicDone && isMassageOfUterusAfterDeliveryDone) {
+                if (hasPlacentaAndMembraneExpelled && isUterotonicDone && isMassageOfUterusAfterDeliveryDone && isEclampsiaManagementDone) {
                     ldVisits.add(visit);
                 }
-            } else if (visit.getVisitType().equalsIgnoreCase(LDPostDeliveryManagementMotherActivityInteractor.EVENT_TYPE)) {
+            } else if (visit.getVisitType().equalsIgnoreCase(LD_POST_DELIVERY_MOTHER_MANAGEMENT)) {
                 JSONObject visitJson = new JSONObject(visit.getJson());
                 JSONArray obs = visitJson.getJSONArray("obs");
                 String motherStatusCompletionStatus = getFieldValue(obs, "mother_status_module_status");
                 String motherObservationModuleStatus = getFieldValue(obs, "mother_observation_module_status");
                 String maternalComplicationsModuleStatus = getFieldValue(obs, "maternal_complications_module_status");
+                String familyPlanningModuleStatus = getFieldValue(obs, "family_planning_module_status");
+                boolean childVisitsCompletionStatus = true;
 
-                if (motherObservationModuleStatus != null && motherStatusCompletionStatus != null && maternalComplicationsModuleStatus != null) {
-                    if (motherStatusCompletionStatus.equalsIgnoreCase("Fully Completed") &&
-                            motherObservationModuleStatus.equalsIgnoreCase("Fully Completed") &&
-                            maternalComplicationsModuleStatus.equalsIgnoreCase("Fully Completed")) {
-                        ldVisits.add(visit);
+                String number_children_string = getFieldValue(obs, "number_of_children_born");
+                int numberOfChildrenBorn = 0;
+
+                if (number_children_string != null) {
+                    numberOfChildrenBorn = Integer.parseInt(number_children_string);
+                }
+                for (int i = 0; i < numberOfChildrenBorn; i++) {
+                    // Get visit details for each individual child
+                    Visit immediateNewBornCareVisit = LDLibrary.getInstance().visitRepository().getVisitsByParentVisitId(visit.getVisitId(), "LND " + ordinal(i + 1) + " Newborn").get(0);
+
+                    if (immediateNewBornCareVisit.getVisitType().contains("LND") &&
+                            immediateNewBornCareVisit.getVisitType().contains("Newborn") &&
+                            (immediateNewBornCareVisit.getVisitType().contains("1st") || immediateNewBornCareVisit.getVisitType().contains("2nd") || immediateNewBornCareVisit.getVisitType().contains("3rd") || immediateNewBornCareVisit.getVisitType().contains("th"))) {
+
+                        JSONObject immediateNewBornCareVisitJson = new JSONObject(immediateNewBornCareVisit.getJson());
+                        JSONArray immediateNewBornCareObs = immediateNewBornCareVisitJson.getJSONArray("obs");
+                        String newbornStageFourModuleStatus = getFieldValue(immediateNewBornCareObs, "newborn_stage_four_module_status");
+
+                        if (newbornStageFourModuleStatus != null) {
+                            if (newbornStageFourModuleStatus.equalsIgnoreCase("Fully Completed")) {
+                                ldVisits.add(immediateNewBornCareVisit);
+                            } else {
+                                childVisitsCompletionStatus = false;
+                            }
+                        }
                     }
+
+                }
+
+                if (isDeceased(obs) &&
+                        motherStatusCompletionStatus != null &&
+                        maternalComplicationsModuleStatus != null &&
+                        motherStatusCompletionStatus.equalsIgnoreCase("Fully Completed") &&
+                        maternalComplicationsModuleStatus.equalsIgnoreCase("Fully Completed") &&
+                        childVisitsCompletionStatus) {
+                    ldVisits.add(visit);
+                } else if (motherStatusCompletionStatus != null &&
+                        maternalComplicationsModuleStatus != null &&
+                        motherObservationModuleStatus != null &&
+                        familyPlanningModuleStatus != null &&
+                        motherStatusCompletionStatus.equalsIgnoreCase("Fully Completed") &&
+                        motherObservationModuleStatus.equalsIgnoreCase("Fully Completed") &&
+                        maternalComplicationsModuleStatus.equalsIgnoreCase("Fully Completed") &&
+                        familyPlanningModuleStatus.equalsIgnoreCase("Fully Completed") && childVisitsCompletionStatus) {
+                    ldVisits.add(visit);
                 }
 
             } else {
@@ -196,6 +280,18 @@ public class LDVisitUtils extends VisitUtils {
         boolean hasContractionEveryHalfAnHour = computeCompletionStatus(obs, "contraction_every_half_hour_time");
 
         return hasPartographDate && hasPartographTime && (hasRespiratoryRate || hasPulseRate || hasAmnioticFluid || hasFetalHeartRate || hasTemperature || hasSystolic || hasDiastolic || hasUrineProtein || hasUrineAcetone || hasUrineVolume || hasCervixDilation || hasDescentPresentingPart || hasContractionEveryHalfHourFrequency || hasContractionEveryHalfAnHour || hasMolding);
+    }
+
+    public static boolean isDeceased(JSONArray obs) throws JSONException {
+        int size = obs.length();
+        for (int i = 0; i < size; i++) {
+            JSONObject checkObj = obs.getJSONObject(i);
+            if (checkObj.getString("fieldCode").equalsIgnoreCase("status")) {
+                JSONArray values = checkObj.getJSONArray("values");
+                return values.get(0).equals("deceased") || values.get(0).equals("died");
+            }
+        }
+        return false;
     }
 
 }

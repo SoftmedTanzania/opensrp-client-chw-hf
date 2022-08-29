@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -55,12 +50,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "medical_surgical_history",
         "type": "check_box",
-        "label_info_image_src": "img/chw.png",
-        "label_info_has_image": true,
         "label": "Any Medical and surgical History of the Patient?",
         "combine_checkbox_option_values": "true",
-        "label_text_style": "normal",
-        "text_color": "#C0C0C0",
         "exclusive": [
           "none"
         ],
@@ -68,148 +59,118 @@
           {
             "key": "diabetes_mellitus",
             "text": "Diabetes Mellitus",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "diabetes_mellitus"
           },
           {
             "key": "sickle_cell_disease",
             "text": "Sickle Cell Disease",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sickle_cell_disease"
           },
           {
             "key": "heart_diseases",
             "text": "Heart Diseases",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heart_diseases"
           },
           {
             "key": "thyroid_diseases",
             "text": "Thyroid Diseases",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "thyroid_diseases"
           },
           {
             "key": "blood_transfusion",
             "text": "Blood transfusion",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "blood_transfusion"
           },
           {
             "key": "known_on_art",
             "text": "On ART",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "known_on_art"
           },
           {
             "key": "epilepsy",
             "text": "Epilepsy",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "epilepsy"
           },
           {
             "key": "previous_c_s",
             "text": "Previous C/S",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "previous_c_s"
           },
           {
             "key": "myomectomy",
             "text": "Myomectomy",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "myomectomy"
           },
           {
             "key": "third_degree_tear",
             "text": "Third Degree Tear",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "third_degree_tear"
           },
           {
             "key": "repaired_fistula",
             "text": "Repaired Fistula",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "repaired_fistula"
           },
           {
             "key": "female_genital_mutilation",
             "text": "Female Genital Mutilation",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "female_genital_mutilation"
           },
           {
-            "key": "parity_chk",
-            "text": "Parity",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "parity_chk"
-          },
-          {
             "key": "closely_spaced_pregnancy",
             "text": "Closely spaced pregnancy (within 2 years)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "closely_spaced_pregnancy"
           },
           {
             "key": "pregnant_more_than_four",
             "text": "Pregnant four or more times",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "pregnant_more_than_four"
           },
           {
             "key": "hx_hemorrhage",
             "text": "History of Hemorrhage",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hx_hemorrhage"
           },
           {
             "key": "history_of_high_blood_pressure",
             "text": "History of high blood pressure",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "history_of_high_blood_pressure"
           },
           {
             "key": "anaemia",
             "text": "Anaemia",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "anaemia"
           },
           {
             "key": "difficult_delivery",
             "text": "Difficult delivery (Vacuum, episiotomy)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "difficult_delivery"
           },
           {
             "key": "hx_abortions",
             "text": "History of Abortions",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hx_abortions"
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please pick at least one"
-        }
+        ]
       },
       {
         "key": "ctc_number",
@@ -229,7 +190,7 @@
         "v_max_length": {
           "value": "17",
           "is_fixed_size": "true",
-          "err":"Please enter a valid CTC Number"
+          "err": "Please enter a valid CTC Number"
         },
         "v_required": {
           "value": true,
@@ -248,30 +209,206 @@
         }
       },
       {
+        "key": "gravida",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_calculation.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "parity",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "parity",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "gravida_read_only",
+        "type": "edit_text",
+        "read_only": "true",
+        "hint": "Gravida",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida_read_only",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "parity_read_only",
+        "type": "edit_text",
+        "read_only": "true",
+        "hint": "Parity",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "parity_read_only",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children_read_only",
+        "type": "edit_text",
+        "read_only": "true",
+        "hint": "Number of living children",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children_read_only",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "gravida_text",
+        "type": "edit_text",
+        "hint": "Gravida",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida_text",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the gravida number"
+        },
+        "v_max": {
+          "value": "35",
+          "err": "Gravida must be equal to or less than 35"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please answer"
+        }
+      },
+      {
+        "key": "parity_text",
         "type": "edit_text",
         "hint": "Parity",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "parity",
+        "openmrs_entity_id": "parity_text",
         "openmrs_entity_parent": "",
         "v_numeric": {
           "value": "true",
           "err": "Please enter parity number"
         },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:gravida_text)",
+            "err": "Parity must be less than gravida"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        },
         "v_required": {
           "value": true,
-          "err": "Please enter the parity number"
+          "err": "Please answer"
+        }
+      },
+      {
+        "key": "prompt_for_grand_multiparity",
+        "type": "toaster_notes",
+        "text": "Counsel on the risk of uterine rupture and closely monitor the client",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children_text",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children_text",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Number of living children",
+        "v_required": {
+          "value": true,
+          "err": "Please answer"
         },
         "relevance": {
-          "step1:medical_surgical_history": {
-            "type": "string",
-            "ex-checkbox": [
-              {
-                "or": [
-                  "parity_chk"
-                ]
-              }
-            ]
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_medical_and_surgical_history_relevance.yml"
+            }
           }
         }
       },
@@ -281,17 +418,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "known_on_art",
         "openmrs_entity_parent": "",
-        "relevance": {
-          "step1:medical_surgical_history": {
-            "ex-checkbox": [
-              {
-                "or": [
-                  "known_on_art"
-                ]
-              }
-            ]
-          }
-        },
         "calculation": {
           "rules-engine": {
             "ex-rules": {
@@ -307,6 +433,14 @@
         "openmrs_entity_id": "visit_number",
         "openmrs_entity_parent": "",
         "value": 1
+      },
+      {
+        "key": "medical_surgical_history_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "medical_surgical_history_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
       }
     ]
   }

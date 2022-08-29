@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -53,6 +48,7 @@
       "value": ""
     }
   },
+  "global": {},
   "step1": {
     "title": "Taarifa za Mteja",
     "next": "step2",
@@ -439,14 +435,12 @@
           {
             "key": "biological_child_under_15",
             "text": "Mtoto wa chini ya miaka 15",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "biological_child_under_15"
           },
           {
             "key": "siblings_under_15",
             "text": "Ndugu wa kuzaliwa chini ya miaka 15",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "siblings_under_15"
           }
@@ -476,23 +470,14 @@
           {
             "key": "sexual_partner",
             "text": "Mwenzi wa kingono",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sexual_partner"
           },
           {
             "key": "needle_sharing_partner",
             "text": "Mshirika wa kujidunga",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needle_sharing_partner"
-          },
-          {
-            "key": "biological_father",
-            "text": "Baba Mzazi",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "biological_father"
           }
         ],
         "v_required": {
@@ -520,21 +505,94 @@
           {
             "key": "sexual_partner",
             "text": "Mshiriki wa kingono",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sexual_partner"
           },
           {
             "key": "needle_sharing_partner",
             "text": "Mshiriki wa kujidunga",
-            "value": false,
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needle_sharing_partner"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Uhusiano unahitajika"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hiv_index_contacts_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "relationship_above_15_male_for_possible_parents",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "relationship",
+        "type": "native_radio",
+        "label": "Uhusiano",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "sexual_partner",
+            "text": "Mwenzi wa kingono",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual_partner"
+          },
+          {
+            "key": "needle_sharing_partner",
+            "text": "Mshirika wa kujidunga",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needle_sharing_partner"
+          },
+          {
+            "key": "biological_father",
+            "text": "Baba Mzazi (Kama mama amefariki)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "biological_father"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Uhusiano unahitajika"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hiv_index_contacts_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "relationship_above_15_female_for_possible_parents",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "relationship",
+        "type": "native_radio",
+        "label": "Relationship",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "sexual_partner",
+            "text": "Mshiriki wa kingono",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sexual_partner"
+          },
+          {
+            "key": "needle_sharing_partner",
+            "text": "Mshiriki wa kujidunga",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needle_sharing_partner"
           },
           {
             "key": "biological_mother",
             "text": "Mama Mzazi",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "biological_mother"
           }
@@ -592,14 +650,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -629,14 +685,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -666,14 +720,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -703,14 +755,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -740,14 +790,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -773,28 +821,24 @@
           {
             "key": "client_referral",
             "text": "Rufaa ya Mteja",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "client_referral"
           },
           {
             "key": "provider_referral",
             "text": "Rufaa ya Mtoa huduma",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "provider_referral"
           },
           {
             "key": "contract_referral",
             "text": "Rufaa ya Mkataba",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "contract_referral"
           },
           {
             "key": "dual_referral",
             "text": "Ufuatiliaji kwa njia mbili",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "dual_referral"
           }

@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -98,7 +93,6 @@
           "name": "place_where_test_was_conducted",
           "type": "text_input_edit_text",
           "properties": {
-
           },
           "meta_data": {
             "openmrs_entity": "concept",
@@ -111,7 +105,6 @@
           "name": "test_results",
           "type": "text_input_edit_text",
           "properties": {
-
           },
           "meta_data": {
             "openmrs_entity": "concept",

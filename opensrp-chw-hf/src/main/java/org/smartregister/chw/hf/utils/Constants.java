@@ -7,6 +7,7 @@ import static org.smartregister.chw.core.utils.CoreConstants.JSON_FORM.assetMana
 import static org.smartregister.chw.core.utils.CoreConstants.JSON_FORM.locale;
 
 public class Constants extends CoreConstants {
+    public static String DEFAULT_LOCATION_NAME = "default_location_name";
     public static String pregnancyOutcome = "preg_outcome";
     public static String LOST_TO_FOLLOWUP = "lost_to_followup";
     public static String REFERRAL_TASK_FOCUS = "referral_task_focus";
@@ -30,6 +31,8 @@ public class Constants extends CoreConstants {
 
     public static final class FOCUS {
         public static final String LOST_TO_FOLLOWUP_FOCUS = "LTFU";
+        public static final String LD_EMERGENCY = "Labour and Delivery Emergency";
+        public static final String LD_CHILD_EMERGENCY = "Labour and Delivery Child Emergency";
     }
 
     public static final class Events {
@@ -61,7 +64,10 @@ public class Constants extends CoreConstants {
         public static final String ANC_FOLLOWUP_CLIENT_FOLLOWUP = "ANC Followup Client Registration";
         public static final String LD_REGISTRATION = "LD Registration";
         public static final String LD_PARTOGRAPHY = "LD Partograph";
+        public static final String LD_GENERAL_EXAMINATION = "LD General Examination";
         public static final String LD_ACTIVE_MANAGEMENT_OF_3RD_STAGE_OF_LABOUR = "LD Active Management of 3rd Stage Of Labour";
+        public static final String LD_POST_DELIVERY_MOTHER_MANAGEMENT = "Post Delivery Mother Management";
+        public static final String CLOSE_LD = "Close LD";
     }
 
     public static final class TableName {
@@ -139,6 +145,8 @@ public class Constants extends CoreConstants {
         private static final String LD_CHILD_REGISTRATION = "ld_child_registration";
         private static final String LD_HEI_FIRST_VISIT = "ld_hei_first_visit";
         private static final String LTFU_REFERRAL_FORM = "referrals/ltfu_referral_form";
+        private static final String LD_EMERGENCY_REFERRAL_FORM = "referrals/labour_and_delivery_emergency_referral";
+        private static final String LD_CHILD_EMERGENCY_REFERRAL_FORM = "referrals/labour_and_delivery_child_emergency_referral";
 
         public static String getNextFacilityVisitForm() {
             return NEXT_FACILITY_VISIT_FORM;
@@ -150,6 +158,14 @@ public class Constants extends CoreConstants {
 
         public static String getLtfuReferralForm() {
             return LTFU_REFERRAL_FORM;
+        }
+
+        public static String getLdEmergencyReferralForm() {
+            return LD_EMERGENCY_REFERRAL_FORM;
+        }
+
+        public static String getLdChildEmergencyReferralForm() {
+            return LD_CHILD_EMERGENCY_REFERRAL_FORM;
         }
 
         public static String getHeiNumberRegistration() {
@@ -502,6 +518,9 @@ public class Constants extends CoreConstants {
             public static final String LD_GENERAL_EXAMINATION = "labour_and_delivery_general_examination";
             public static final String LD_VAGINAL_EXAMINATION = "labour_and_delivery_vaginal_examination";
             public static final String LD_HIV_TEST = "labour_and_delivery_hiv_test";
+            public static final String LD_HB_TEST_FORM = "labour_and_delivery_hb_test_form";
+            public static final String LD_SYPHILIS_TEST_FORM = "labour_and_delivery_syphilis_test";
+            public static final String LD_MALARIA_TEST_FORM = "labour_and_delivery_malaria_test";
 
             public static String getLdGeneralExamination() {
                 return Utils.getLocalForm(LD_GENERAL_EXAMINATION);
@@ -515,12 +534,25 @@ public class Constants extends CoreConstants {
                 return Utils.getLocalForm(LD_HIV_TEST);
             }
 
+            public static String getLdHBTestForm() {
+                return Utils.getLocalForm(LD_HB_TEST_FORM);
+            }
+
+            public static String getSyphilisTestForm() {
+                return Utils.getLocalForm(LD_SYPHILIS_TEST_FORM);
+            }
+
+            public static String getLdMalariaTestForm() {
+                return Utils.getLocalForm(LD_MALARIA_TEST_FORM);
+            }
+
         }
 
         public static class LDActiveManagement {
             public static final String LD_ACTIVE_MANAGEMENT_UTERONICS = "labour_and_delivery_uterotonic";
             public static final String LD_ACTIVE_MANAGEMENT_EXPULSION_PLACENTA = "labour_and_delivery_placenta_and_membrane";
             public static final String LD_ACTIVE_MANAGEMENT_MASSAGE_UTERUS = "labour_and_delivery_uterus";
+            public static final String LD_ACTIVE_ECLAMPSIA_MANAGEMENT= "labour_and_delivery_eclampsia_management_form";
 
             public static String getLDActiveManagementUteronics() {
                 return Utils.getLocalForm(LD_ACTIVE_MANAGEMENT_UTERONICS);
@@ -534,6 +566,10 @@ public class Constants extends CoreConstants {
                 return Utils.getLocalForm(LD_ACTIVE_MANAGEMENT_MASSAGE_UTERUS);
             }
 
+            public static String getLdActiveEclampsiaManagement() {
+                return Utils.getLocalForm(LD_ACTIVE_ECLAMPSIA_MANAGEMENT);
+            }
+
         }
 
         public static class LDPostDeliveryMotherManagement {
@@ -542,6 +578,7 @@ public class Constants extends CoreConstants {
             public static final String LD_POST_DELIVERY_MOTHER_OBSERVATION = "labour_and_delivery_mother_observation";
             public static final String LD_POST_DELIVERY_MATERNAL_COMPLICATIONS = "labour_and_delivery_maternal_complications";
             public static final String LD_NEW_BORN_STATUS = "labour_and_delivery_stage4_newborn";
+            public static final String LD_POST_DELIVERY_FAMILY_PLANNING = "labour_and_delivery_stage4_family_planning";
 
             public static String getLdPostDeliveryManagementMotherStatus() {
                 return Utils.getLocalForm(LD_POST_DELIVERY_MANAGEMENT_MOTHER_STATUS);
@@ -557,6 +594,10 @@ public class Constants extends CoreConstants {
 
             public static String getLdNewBornStatus() {
                 return Utils.getLocalForm(LD_NEW_BORN_STATUS);
+            }
+
+            public static String getLdPostDeliveryFamilyPlanning() {
+                return Utils.getLocalForm(LD_POST_DELIVERY_FAMILY_PLANNING);
             }
 
         }
@@ -610,11 +651,28 @@ public class Constants extends CoreConstants {
     }
 
     public static final class FormConstants {
+
         public interface FormSubmissionFields {
             String VISIT_NUMBER = "visit_number";
             String FOLLOWUP_VISIT_DATE = "followup_visit_date";
             String FOLLOWUP_STATUS = "followup_status";
         }
+
+        public interface ClinicFindings{
+
+            interface Syphilis {
+                String SYPHILIS_RESULT_POSITIVE = "positive";
+                String SYPHILIS_RESULT_NEGATIVE = "negative";
+                String SYPHILIS_TEST_NOT_DONE = "test_not_conducted";
+            }
+
+            interface Malaria {
+                String MALARIA_RESULT_POSITIVE = "positive";
+                String MALARIA_RESULT_NEGATIVE = "negative";
+                String MALARIA_TEST_NOT_DONE = "test_not_conducted";
+            }
+        }
+
     }
 
     public static final class ReportConstants {
@@ -632,6 +690,7 @@ public class Constants extends CoreConstants {
             String CBHS_REPORT = "cbhs_report";
             String LTFU_SUMMARY = "ltfu_report";
             String LD_REPORT = "ld_report";
+            String MOTHER_CHAMPION_REPORT = "mother_champion_report";
         }
 
         public interface ReportPaths {
@@ -644,6 +703,7 @@ public class Constants extends CoreConstants {
             String CBHS_REPORT_PATH = "cbhs-taarifa-ya-mwezi";
             String LTFU_REPORT_PATH = "ltfu-summary-report";
             String LD_REPORT_PATH = "labour-delivery-taarifa-ya-mwezi";
+            String MOTHER_CHAMPION_REPORT_PATH = "mother-champion-report";
         }
     }
 
@@ -651,4 +711,21 @@ public class Constants extends CoreConstants {
         public static final String FIRST_NAME = "firstName";
         public static final String LAST_NAME = "lastName";
     }
+
+    public static final class LDFormFields {
+        public interface GeneralExamination {
+
+        }
+        public interface VaginalExamination {
+            String VAGINAL_EXAMINATION_DATE = "vaginal_exam_date";
+            String VAGINAL_EXAMINATION_TIME = "vaginal_exam_time";
+            String PRESENTING_PART = "presenting_part";
+            String OCCIPUT_POSITION = "occiput_position";
+            String MENTO_POSITION = "mento_position";
+            String SACRO_POSITION = "sacro_position";
+            String DORSO_POSITION = "dorso_position";
+            String MOULDING = "moulding";
+        }
+    }
+
 }

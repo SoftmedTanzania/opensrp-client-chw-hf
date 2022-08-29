@@ -109,6 +109,42 @@
         }
       },
       {
+        "key": "mode_of_delivery",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mode_of_delivery",
+        "label": "Mode of delivery",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "spontaneous_vaginal_delivery",
+            "text": "Spontaneous vertex delivery",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "spontaneous_vaginal_delivery"
+          },
+          {
+            "key": "vacuum_extraction",
+            "text": "Vacuum Extraction",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vacuum_extraction"
+          },
+          {
+            "key": "breech_delivery",
+            "text": "Breech Delivery",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "breech_delivery"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        }
+      },
+      {
         "key": "delivery_place",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -123,16 +159,16 @@
           "Traditional birth attendant (TBA)"
         ],
         "keys": [
-          "At a health facility",
-          "Birth before Arrival (BBA)",
-          "At home",
-          "Traditional birth attendant"
+          "at_a_health_facility",
+          "bba",
+          "at_home",
+          "tba"
         ],
         "openmrs_choice_ids": {
-          "At a health facility": "At a health facility",
-          "Birth before Arrival (BBA)": "Birth before Arrival (BBA)",
-          "At home": "At home",
-          "Traditional birth attendant": "Traditional birth attendant"
+          "at_a_health_facility": "at_a_health_facility",
+          "bba": "bba",
+          "at_home": "at_home",
+          "tba": "tba"
         }
       },
       {
@@ -142,7 +178,7 @@
         "openmrs_entity_id": "designation_of_delivery_personnel",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Designation",
+        "hint": "Designation of Delivery Person",
         "values": [
           "Medical doctor",
           "Obstetrician",
@@ -150,7 +186,8 @@
           "Clinical officer",
           "Midwife officer",
           "Gynecologist",
-          "Nurse"
+          "Nurse",
+          "Student"
         ],
         "keys": [
           "medical_doctor",
@@ -159,7 +196,8 @@
           "clinical_officer",
           "midwife_officer",
           "gynecologist",
-          "nurse"
+          "nurse",
+          "student"
         ],
         "openmrs_choice_ids": {
           "medical_doctor": "medical_doctor",
@@ -168,12 +206,13 @@
           "clinical_officer": "clinical_officer",
           "midwife_officer": "midwife_officer",
           "gynecologist": "gynecologist",
-          "nurse": "nurse"
+          "nurse": "nurse",
+          "student": "student"
         },
         "relevance": {
           "step1:delivery_place": {
             "type": "string",
-            "ex": "equalTo(., \"At a health facility\")"
+            "ex": "equalTo(., \"at_a_health_facility\")"
           }
         }
       },
@@ -187,7 +226,7 @@
         "relevance": {
           "step1:delivery_place": {
             "type": "string",
-            "ex": "equalTo(., \"At a health facility\")"
+            "ex": "equalTo(., \"at_a_health_facility\")"
           }
         }
       },
@@ -227,9 +266,10 @@
           "nurse": "nurse"
         },
         "relevance": {
-          "step1:delivery_place": {
-            "type": "string",
-            "ex": "equalTo(., \"At a health facility\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_mother_status_relevance.yml"
+            }
           }
         }
       },
@@ -241,9 +281,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
         "relevance": {
-          "step1:delivery_place": {
-            "type": "string",
-            "ex": "equalTo(., \"At a health facility\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_mother_status_relevance.yml"
+            }
           }
         }
       },
@@ -301,6 +342,14 @@
         "openmrs_entity_id": "labour_duration",
         "label": "Labour information/conditions",
         "type": "hidden"
+      },
+      {
+        "key": "labour_stage",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "labour_stage",
+        "type": "hidden",
+        "value": "complete"
       }
     ]
   }

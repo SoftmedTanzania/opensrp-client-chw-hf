@@ -57,6 +57,29 @@ public class LDVaginalExaminationActionHelper implements BaseLDVisitAction.LDVis
                 JSONArray fields = vaginalExaminationForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
                 populateVaginalExaminationForm(fields, baseEntityId);
 
+                String presentingPart = LDDao.getPresentingPart(baseEntityId);
+                //Check if presenting part field has been filled out, if true do not show it again
+                if (presentingPart != null) {
+                    JSONObject presentingPartField = org.smartregister.chw.hf.utils.JsonFormUtils.getFieldJSONObject(fields, Constants.LDFormFields.VaginalExamination.PRESENTING_PART);
+                    if (presentingPartField != null) presentingPartField.put("hidden", true);
+
+                    JSONObject occiputPosition = org.smartregister.chw.hf.utils.JsonFormUtils.getFieldJSONObject(fields, Constants.LDFormFields.VaginalExamination.OCCIPUT_POSITION);
+                    if (occiputPosition != null) occiputPosition.put("hidden", true);
+
+                    JSONObject mentoPosition = org.smartregister.chw.hf.utils.JsonFormUtils.getFieldJSONObject(fields, Constants.LDFormFields.VaginalExamination.MENTO_POSITION);
+                    if (mentoPosition != null) mentoPosition.put("hidden", true);
+
+                    JSONObject sacroPosition = org.smartregister.chw.hf.utils.JsonFormUtils.getFieldJSONObject(fields, Constants.LDFormFields.VaginalExamination.SACRO_POSITION);
+                    if (sacroPosition != null) sacroPosition.put("hidden", true);
+
+                    JSONObject dorsoPosition = org.smartregister.chw.hf.utils.JsonFormUtils.getFieldJSONObject(fields, Constants.LDFormFields.VaginalExamination.DORSO_POSITION);
+                    if (dorsoPosition != null) dorsoPosition.put("hidden", true);
+
+                    JSONObject moldingField = org.smartregister.chw.hf.utils.JsonFormUtils.getFieldJSONObject(fields, Constants.LDFormFields.VaginalExamination.MOULDING);
+                    if (presentingPart.equalsIgnoreCase("shoulder") || presentingPart.equalsIgnoreCase("breech"))
+                        moldingField.put("hidden", true);
+                }
+
                 if (LDDao.getLabourOnsetDate(baseEntityId) != null) {
                     vaginalExaminationForm.getJSONObject("global").put("labour_onset_date", LDDao.getLabourOnsetDate(baseEntityId));
                 }
@@ -75,7 +98,7 @@ public class LDVaginalExaminationActionHelper implements BaseLDVisitAction.LDVis
 
             JSONObject amnioticFluid = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "amniotic_fluid");
 
-            if (org.smartregister.chw.hf.utils.LDDao.getMembraneState(baseEntityId) != null && org.smartregister.chw.hf.utils.LDDao.getMembraneState(baseEntityId).equalsIgnoreCase("ruptured")) {
+            if (org.smartregister.chw.hf.dao.LDDao.getMembraneState(baseEntityId) != null && org.smartregister.chw.hf.dao.LDDao.getMembraneState(baseEntityId).equalsIgnoreCase("ruptured")) {
                 amnioticFluid.getJSONArray("options").remove(0);
             }
         } catch (JSONException e) {
@@ -92,9 +115,13 @@ public class LDVaginalExaminationActionHelper implements BaseLDVisitAction.LDVis
         cervix_dilation = JsonFormUtils.getFieldValue(jsonPayload, "cervix_dilation");
         presenting_part = JsonFormUtils.getFieldValue(jsonPayload, "presenting_part");
 
-        if (LDDao.getMoulding(baseEntityId) != null && !LDDao.getMoulding(baseEntityId).equalsIgnoreCase("yes"))
+        //If the presenting part is null, trying to make sure that it was not previously filled.
+        if(presenting_part == null)
+            presenting_part = LDDao.getPresentingPart(baseEntityId);
+
+        if (LDDao.getMoulding(baseEntityId) != null && !LDDao.getMoulding(baseEntityId).equalsIgnoreCase("yes") && !StringUtils.isNotBlank(presenting_part) && !presenting_part.equalsIgnoreCase("breech") && !presenting_part.equalsIgnoreCase("shoulder")) {
             moulding = JsonFormUtils.getFieldValue(jsonPayload, "moulding");
-        else
+        } else
             moulding = "no";
         station = JsonFormUtils.getFieldValue(jsonPayload, "station");
         decision = JsonFormUtils.getFieldValue(jsonPayload, "decision");

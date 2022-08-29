@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -62,14 +57,12 @@
           {
             "key": "yes",
             "text": "Ndio",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
             "text": "Hapana",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
@@ -123,21 +116,18 @@
           {
             "key": "out_of_stock",
             "text": "CTX zimeisha",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "out_of_stock"
           },
           {
             "key": "medication_expired",
             "text": "Muda wa matumizi ya CTX umeisha",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "medication_expired"
           },
           {
             "key": "other",
             "text": "Nyingine (Bainisha)",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }

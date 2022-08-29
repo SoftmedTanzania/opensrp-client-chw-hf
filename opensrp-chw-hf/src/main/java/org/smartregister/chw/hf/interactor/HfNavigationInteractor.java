@@ -3,6 +3,9 @@ package org.smartregister.chw.hf.interactor;
 import org.smartregister.chw.core.dao.NavigationDao;
 import org.smartregister.chw.core.interactor.NavigationInteractor;
 import org.smartregister.chw.core.utils.CoreConstants;
+import org.smartregister.chw.core.utils.Utils;
+import org.smartregister.chw.referral.util.Constants;
+import org.smartregister.repository.AllSharedPreferences;
 
 public class HfNavigationInteractor extends NavigationInteractor {
     protected HfNavigationInteractor() {
@@ -310,7 +313,7 @@ public class HfNavigationInteractor extends NavigationInteractor {
                     "  AND ec_family_member.base_entity_id IN (%s)\n" +
                     "  AND ec_family_member.base_entity_id NOT IN (\n" +
                     "    SELECT ec_anc_register.base_entity_id AS base_entity_id\n" +
-                    "    FROM ec_anc_register\n" +
+                    "    FROM ec_anc_register where ec_anc_register.is_closed is 0\n" +
                     "    UNION ALL\n" +
                     "    SELECT ec_pregnancy_outcome.base_entity_id AS base_entity_id\n" +
                     "    FROM ec_pregnancy_outcome\n" +
@@ -323,14 +326,24 @@ public class HfNavigationInteractor extends NavigationInteractor {
                     "    UNION ALL\n" +
                     "    SELECT ec_tb_register.base_entity_id AS base_entity_id\n" +
                     "    FROM ec_tb_register\n" +
-                    "    WHERE ec_tb_register.tb_case_closure_date is null\n" +
-                    "    UNION ALL\n" +
-                    "    SELECT ec_hiv_register.base_entity_id AS base_entity_id\n" +
-                    "    FROM ec_hiv_register)\n" +
+                    "    WHERE ec_tb_register.tb_case_closure_date is null)\n" +
                     ")\n" +
                     "ORDER BY last_interacted_with DESC)";
 
             return NavigationDao.getQueryCount(allClients);
+        } else if (CoreConstants.TABLE_NAME.REFERRAL.equals(tableName.toLowerCase().trim())) {
+            AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
+            String anm = allSharedPreferences.fetchRegisteredANM();
+            String currentLoaction = allSharedPreferences.fetchUserLocalityId(anm);
+            String sqlReferral = "select count(*) " +
+                    "from " + Constants.Tables.REFERRAL + " p " +
+                    "inner join ec_family_member m on p.entity_id = m.base_entity_id COLLATE NOCASE " +
+                    "inner join ec_family f on f.base_entity_id = m.relational_id COLLATE NOCASE " +
+                    "inner join task t on p.id = t.reason_reference COLLATE NOCASE " +
+                    "where m.date_removed is null and t.business_status = '" + CoreConstants.BUSINESS_STATUS.REFERRED + "' " +
+                    "AND t.location <> '" + currentLoaction + "' COLLATE NOCASE " +
+                    "AND p.chw_referral_service <> 'LTFU' COLLATE NOCASE ";
+            return NavigationDao.getQueryCount(sqlReferral);
         }
         return super.getCount(tableName);
 
