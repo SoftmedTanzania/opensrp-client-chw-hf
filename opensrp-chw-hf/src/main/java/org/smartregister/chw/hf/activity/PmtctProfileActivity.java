@@ -135,7 +135,8 @@ public class PmtctProfileActivity extends CorePmtctProfileActivity {
         super.onCreateOptionsMenu(menu);
         menu.findItem(R.id.action_remove_member).setVisible(false);
         if(HealthFacilityApplication.getApplicationFlavor().hasHivst()) {
-            menu.findItem(R.id.action_hivst_registration).setVisible(HivstDao.isRegisteredForHivst(baseEntityId));
+            int age = memberObject.getAge();
+            menu.findItem(R.id.action_hivst_registration).setVisible(HivstDao.isRegisteredForHivst(baseEntityId) && age >= 18);
         }
         return true;
     }

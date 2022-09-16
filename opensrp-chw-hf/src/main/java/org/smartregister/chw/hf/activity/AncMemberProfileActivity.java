@@ -159,7 +159,8 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
         menu.findItem(R.id.action_malaria_diagnosis).setVisible(false);
 
         if(HealthFacilityApplication.getApplicationFlavor().hasHivst()){
-            menu.findItem(R.id.action_hivst_registration).setVisible(!HivstDao.isRegisteredForHivst(baseEntityID));
+            int age = memberObject.getAge();
+            menu.findItem(R.id.action_hivst_registration).setVisible(!HivstDao.isRegisteredForHivst(baseEntityID) && age>= 18);
         }
 
         if (memberObject.getGestationAge() >= 28)
