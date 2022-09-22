@@ -623,10 +623,10 @@
         }
       },
       {
-        "key": "other_groups_at_risk",
+        "key": "client_group",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "other_groups_at_risk",
+        "openmrs_entity_id": "client_group",
         "label": "Select the client group as screened by the health care provider",
         "text_color": "#000000",
         "type": "native_radio",
