@@ -1,0 +1,42 @@
+---
+name: step2_drug_injection
+description: drug_injection relevance
+priority: 1
+condition: "step1_drug_use.equals('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step3_risk_of_having_sexual_intercourse
+description: risk_of_having_sexual_intercourse relevance
+priority: 1
+condition: "step3_sexual_intercourse.equals('no') && step3_sexual_intercourse.equals('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step4_hiv_status
+description: hiv_status relevance
+priority: 1
+condition: "step3_sexual_intercourse.equals('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step4_hiv_positive_partner
+description: hiv_positive_partner relevance
+priority: 1
+condition: "step4_hiv_status.equals('negative')"
+actions:
+  - "isRelevant = true"
+---
+name: step5_sex_for_money
+description: sex_for_money relevance
+priority: 1
+condition: "!step4_hiv_status.isEmpty()"
+actions:
+  - "isRelevant = true"
+---
+name: step6_client_in_school
+description: client_in_school relevance
+priority: 1
+condition: "step3_risk_of_having_sexual_intercourse.equals('yes') || (step5_main_income_source_is_sex.equals('no'))"
+actions:
+  - "isRelevant = true"
