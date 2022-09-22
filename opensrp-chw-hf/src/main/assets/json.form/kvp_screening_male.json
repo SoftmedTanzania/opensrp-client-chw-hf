@@ -1,7 +1,7 @@
 {
   "count": "8",
   "skip_blank_steps": true,
-  "encounter_type": "KVP Screening",
+  "encounter_type": "KVP Registration",
   "entity_id": "",
   "metadata": {
     "start": {
