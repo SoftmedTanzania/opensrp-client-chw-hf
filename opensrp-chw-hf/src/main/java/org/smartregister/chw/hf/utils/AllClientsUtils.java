@@ -40,7 +40,9 @@ import org.smartregister.chw.hiv.dao.HivDao;
 import org.smartregister.chw.pmtct.dao.PmtctDao;
 import org.smartregister.chw.tb.dao.TbDao;
 import org.smartregister.clientandeventmodel.Client;
+import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.commonregistry.CommonRepository;
 import org.smartregister.family.domain.FamilyEventClient;
 import org.smartregister.family.util.Constants;
 import org.smartregister.family.util.DBConstants;
@@ -243,5 +245,14 @@ public class AllClientsUtils {
 
     public static void updatePmtctMenuItems(String baseEntityId, Menu menu) {
         menu.findItem(R.id.action_pmtct_register).setVisible(!PmtctDao.isRegisteredForPmtct(baseEntityId));
+    }
+
+    public static  String getClientGender(String baseEntityId){
+        CommonRepository commonRepository = org.smartregister.family.util.Utils.context().commonrepository(org.smartregister.family.util.Utils.metadata().familyMemberRegister.tableName);
+
+        final CommonPersonObject commonPersonObject = commonRepository.findByBaseEntityId(baseEntityId);
+        final CommonPersonObjectClient client = new CommonPersonObjectClient(commonPersonObject.getCaseId(), commonPersonObject.getDetails(), "");
+        client.setColumnmaps(commonPersonObject.getColumnmaps());
+        return org.smartregister.family.util.Utils.getValue(commonPersonObject.getColumnmaps(), org.smartregister.family.util.DBConstants.KEY.GENDER, false);
     }
 }

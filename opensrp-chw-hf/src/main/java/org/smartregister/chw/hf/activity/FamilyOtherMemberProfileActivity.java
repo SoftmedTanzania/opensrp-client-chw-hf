@@ -1,8 +1,5 @@
 package org.smartregister.chw.hf.activity;
 
-import static org.smartregister.chw.core.utils.Utils.updateToolbarTitle;
-import static org.smartregister.chw.hf.utils.Constants.JsonForm.HIV_REGISTRATION;
-
 import android.content.Context;
 import android.os.Build;
 import android.view.Menu;
@@ -32,6 +29,7 @@ import org.smartregister.chw.hf.custom_view.FamilyMemberFloatingMenu;
 import org.smartregister.chw.hf.dao.HfHivDao;
 import org.smartregister.chw.hf.fragment.FamilyOtherMemberProfileFragment;
 import org.smartregister.chw.hf.presenter.FamilyOtherMemberActivityPresenter;
+import org.smartregister.chw.hf.utils.AllClientsUtils;
 import org.smartregister.chw.hf.utils.Constants;
 import org.smartregister.chw.hf.utils.LFTUFormUtils;
 import org.smartregister.chw.hiv.dao.HivIndexDao;
@@ -44,6 +42,9 @@ import org.smartregister.family.util.DBConstants;
 import org.smartregister.view.contract.BaseProfileContract;
 
 import timber.log.Timber;
+
+import static org.smartregister.chw.core.utils.Utils.updateToolbarTitle;
+import static org.smartregister.chw.hf.utils.Constants.JsonForm.HIV_REGISTRATION;
 
 public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfileActivity {
     private FamilyMemberFloatingMenu familyFloatingMenu;
@@ -151,8 +152,15 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
 
     @Override
     protected void startKvpPrEPRegistration() {
-        //String gender = Utils.getValue(commonPersonObject.getColumnmaps(), org.smartregister.family.util.DBConstants.KEY.GENDER, false);
-       // KvpRegisterActivity.startRegistration(FamilyOtherMemberProfileActivity.this, baseEntityId, gender, age);
+        String gender = AllClientsUtils.getClientGender(baseEntityId);
+        String dob = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
+        int age = Utils.getAgeFromDate(dob);
+        if (gender.equalsIgnoreCase(Constants.GENDER.MALE)) {
+            KvpRegisterActivity.startKvpScreeningMale(FamilyOtherMemberProfileActivity.this, baseEntityId, gender, age);
+        }
+        if (gender.equalsIgnoreCase(Constants.GENDER.FEMALE)) {
+            KvpRegisterActivity.startKvpScreeningFemale(FamilyOtherMemberProfileActivity.this, baseEntityId, gender, age);
+        }
     }
 
     @Override
@@ -271,10 +279,14 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
             menu.findItem(R.id.action_fp_initiation).setVisible(false);
         }
 
-        if(HealthFacilityApplication.getApplicationFlavor().hasHivst()){
+        if (HealthFacilityApplication.getApplicationFlavor().hasHivst()) {
             String dob = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
             int age = Utils.getAgeFromDate(dob);
             menu.findItem(R.id.action_hivst_registration).setVisible(!HivstDao.isRegisteredForHivst(baseEntityId) && age >= 18);
+        }
+
+        if (HealthFacilityApplication.getApplicationFlavor().hasKvpPrEP()) {
+            menu.findItem(R.id.action_kvp_prep_registration).setVisible(true);
         }
 
         if (BuildConfig.BUILD_FOR_BORESHA_AFYA_SOUTH) {
