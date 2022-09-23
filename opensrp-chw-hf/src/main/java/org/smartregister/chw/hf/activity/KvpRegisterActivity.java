@@ -2,9 +2,7 @@ package org.smartregister.chw.hf.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.widget.Toast;
 
-import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 
 import org.smartregister.chw.core.activity.CoreKvpRegisterActivity;
@@ -17,7 +15,7 @@ import org.smartregister.view.fragment.BaseRegisterFragment;
 
 public class KvpRegisterActivity extends CoreKvpRegisterActivity {
 
-    public static void startKvpScreeningMale(Activity activity, String memberBaseEntityId, String gender, int age){
+    public static void startKvpScreeningMale(Activity activity, String memberBaseEntityId, String gender, int age) {
         Intent intent = new Intent(activity, KvpRegisterActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, memberBaseEntityId);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.ACTION, Constants.ACTIVITY_PAYLOAD_TYPE.REGISTRATION);
@@ -28,7 +26,7 @@ public class KvpRegisterActivity extends CoreKvpRegisterActivity {
         activity.startActivity(intent);
     }
 
-    public static void startKvpScreeningFemale(Activity activity, String memberBaseEntityId, String gender, int age){
+    public static void startKvpScreeningFemale(Activity activity, String memberBaseEntityId, String gender, int age) {
 
         Intent intent = new Intent(activity, KvpRegisterActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, memberBaseEntityId);
@@ -56,6 +54,7 @@ public class KvpRegisterActivity extends CoreKvpRegisterActivity {
     protected BaseRegisterFragment getRegisterFragment() {
         return new KvpRegisterFragment();
     }
+
     @Override
     protected void onResumption() {
         super.onResumption();
