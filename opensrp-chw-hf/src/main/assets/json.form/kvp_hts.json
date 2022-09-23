@@ -122,6 +122,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select one"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_hts_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -158,6 +165,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select one"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_hts_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -244,6 +258,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select one"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_hts_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -280,6 +301,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select one"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_hts_relevance.yml"
+            }
+          }
         }
       },
       {
