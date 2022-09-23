@@ -2,6 +2,7 @@ package org.smartregister.chw.hf.fragment;
 
 import org.smartregister.chw.core.fragment.CoreKvpRegisterFragment;
 import org.smartregister.chw.core.model.CoreKvpRegisterFragmentModel;
+import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.presenter.PrEPRegisterFragmentPresenter;
 
 public class PrEPRegisterFragment extends CoreKvpRegisterFragment {
@@ -14,4 +15,8 @@ public class PrEPRegisterFragment extends CoreKvpRegisterFragment {
         presenter = new PrEPRegisterFragmentPresenter(this, new CoreKvpRegisterFragmentModel(), null);
     }
 
+    @Override
+    protected int getTitleString() {
+        return R.string.menu_prep;
+    }
 }
