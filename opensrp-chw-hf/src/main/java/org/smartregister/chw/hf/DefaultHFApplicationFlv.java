@@ -10,4 +10,9 @@ public class DefaultHFApplicationFlv implements HealthFacilityApplication.Flavor
     public boolean hasHivst() {
         return true;
     }
+
+    @Override
+    public boolean hasKvpPrEP() {
+        return true;
+    }
 }
