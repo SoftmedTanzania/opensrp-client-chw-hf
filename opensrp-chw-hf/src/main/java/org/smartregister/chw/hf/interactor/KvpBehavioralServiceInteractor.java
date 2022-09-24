@@ -51,7 +51,7 @@ public class KvpBehavioralServiceInteractor extends BaseKvpVisitInteractor {
 
         KvpIecSbccActionHelper actionHelper = new KvpIecSbccActionHelper();
         BaseKvpVisitAction action = getBuilder(context.getString(R.string.kvp_iec_sbcc))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withFormName(Constants.KVP_BEHAVIORAL_SERVICE_FORMS.KVP_IEC_SBCC)
@@ -64,7 +64,7 @@ public class KvpBehavioralServiceInteractor extends BaseKvpVisitInteractor {
 
         KvpHealthEducationHelper actionHelper = new KvpHealthEducationHelper();
         BaseKvpVisitAction action = getBuilder(context.getString(R.string.kvp_health_education))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withFormName(Constants.KVP_BEHAVIORAL_SERVICE_FORMS.KVP_HEALTH_EDUCATION)
