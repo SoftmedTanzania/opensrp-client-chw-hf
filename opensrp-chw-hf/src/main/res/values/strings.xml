@@ -446,7 +446,17 @@
     <string name="referral_for_mother_champion_services_sent">Linked to Mother Champion Community Services</string>
     <string name="linked_to_mother_champion">Linked to Mother Champion in {0}</string>
     <string name="kvp_screening">KVP Screening</string>
-    <string name="client_status">Client Status</string>
+    <string name="kvp_client_status">Client Status</string>
+    <string name="kvp_hts">HTS</string>
+    <string name="kvp_prep_and_pep">PrEP and PEP</string>
+    <string name="kvp_condom_provision">Condom Provision</string>
+    <string name="kvp_family_planning">Family Planning</string>
+    <string name="kvp_tb_screening">TB Screening</string>
+    <string name="kvp_sti_screening">STI Screening</string>
+    <string name="kvp_heptitis_screening">Hepatitis Screening</string>
+    <string name="kvp_vmmc">VMMC</string>
+    <string name="kvp_cervical_screening">Cervical Screening</string>
+    <string name="kvp_mat">MAT</string>
 
 
 </resources>

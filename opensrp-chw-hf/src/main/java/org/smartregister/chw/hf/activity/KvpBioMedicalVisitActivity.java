@@ -34,7 +34,7 @@ public class KvpBioMedicalVisitActivity extends BaseKvpVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseKvpVisitPresenter(memberObject, this, new KvpBioMedicalVisitInteractor());
+        presenter = new BaseKvpVisitPresenter(memberObject, this, new KvpBioMedicalVisitInteractor(Constants.EVENT_TYPE.KVP_BIO_MEDICAL_SERVICE_VISIT));
     }
 
     @Override
