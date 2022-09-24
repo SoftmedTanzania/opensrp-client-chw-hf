@@ -9,9 +9,11 @@ import com.vijay.jsonwizard.domain.Form;
 
 import org.json.JSONObject;
 import org.smartregister.chw.core.task.RunnableTask;
+import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.interactor.KvpBioMedicalVisitInteractor;
 import org.smartregister.chw.hf.schedulers.HfScheduleTaskExecutor;
 import org.smartregister.chw.kvp.activity.BaseKvpVisitActivity;
+import org.smartregister.chw.kvp.domain.MemberObject;
 import org.smartregister.chw.kvp.presenter.BaseKvpVisitPresenter;
 import org.smartregister.chw.kvp.util.Constants;
 import org.smartregister.family.util.JsonFormUtils;
@@ -50,7 +52,7 @@ public class KvpBioMedicalVisitActivity extends BaseKvpVisitActivity {
 
     @Override
     public void submittedAndClose() {
-        Runnable runnable = () -> HfScheduleTaskExecutor.getInstance().execute(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.KVP_BEHAVIORAL_SERVICE_VISIT,  new Date());
+        Runnable runnable = () -> HfScheduleTaskExecutor.getInstance().execute(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.KVP_BEHAVIORAL_SERVICE_VISIT, new Date());
         Utils.startAsyncTask(new RunnableTask(runnable), null);
         super.submittedAndClose();
     }
@@ -60,5 +62,10 @@ public class KvpBioMedicalVisitActivity extends BaseKvpVisitActivity {
         // get language from prefs
         String lang = LangUtils.getLanguage(base.getApplicationContext());
         super.attachBaseContext(LangUtils.setAppLocale(base, lang));
+    }
+
+    @Override
+    public void redrawHeader(MemberObject memberObject) {
+        tvTitle.setText(R.string.bio_medical_services);
     }
 }
