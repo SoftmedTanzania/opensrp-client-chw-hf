@@ -457,6 +457,8 @@
     <string name="kvp_vmmc">VMMC</string>
     <string name="kvp_cervical_screening">Cervical Screening</string>
     <string name="kvp_mat">MAT</string>
+    <string name="kvp_iec_sbcc">IEC/SBCC</string>
+    <string name="kvp_health_education">Health Education</string>
 
 
 </resources>
