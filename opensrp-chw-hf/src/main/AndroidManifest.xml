@@ -37,7 +37,7 @@
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.KvpServiceActivity"
             android:theme="@style/HFTheme.NoActionBar"/>
-        <activity android:name=".activity.KvpBioMedicalVisitActivity"
+        <activity android:name=".activity.KvpBioMedicalServiceActivity"
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.PrEPRegisterActivity"
             android:theme="@style/HFTheme.NoActionBar"/>

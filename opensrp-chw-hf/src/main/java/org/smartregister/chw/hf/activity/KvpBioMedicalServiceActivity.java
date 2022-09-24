@@ -22,10 +22,10 @@ import org.smartregister.util.LangUtils;
 
 import java.util.Date;
 
-public class KvpBioMedicalVisitActivity extends BaseKvpVisitActivity {
+public class KvpBioMedicalServiceActivity extends BaseKvpVisitActivity {
 
-    public static void startKvpBioMedicalVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
-        Intent intent = new Intent(activity, KvpBioMedicalVisitActivity.class);
+    public static void startKvpBioMedicalServiceActivity(Activity activity, String baseEntityId, Boolean editMode) {
+        Intent intent = new Intent(activity, KvpBioMedicalServiceActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.KVP_PROFILE);
