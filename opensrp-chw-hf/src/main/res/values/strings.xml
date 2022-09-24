@@ -446,6 +446,7 @@
     <string name="referral_for_mother_champion_services_sent">Linked to Mother Champion Community Services</string>
     <string name="linked_to_mother_champion">Linked to Mother Champion in {0}</string>
     <string name="kvp_screening">KVP Screening</string>
+    <string name="client_status">Client Status</string>
 
 
 </resources>
