@@ -52,7 +52,7 @@ public class KvpBioMedicalVisitActivity extends BaseKvpVisitActivity {
 
     @Override
     public void submittedAndClose() {
-        Runnable runnable = () -> HfScheduleTaskExecutor.getInstance().execute(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.KVP_BEHAVIORAL_SERVICE_VISIT, new Date());
+        Runnable runnable = () -> HfScheduleTaskExecutor.getInstance().execute(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.KVP_BIO_MEDICAL_SERVICE_VISIT, new Date());
         Utils.startAsyncTask(new RunnableTask(runnable), null);
         super.submittedAndClose();
     }
