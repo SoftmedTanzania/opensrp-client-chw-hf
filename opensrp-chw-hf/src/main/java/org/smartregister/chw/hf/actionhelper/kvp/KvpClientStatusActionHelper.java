@@ -18,7 +18,7 @@ public class KvpClientStatusActionHelper implements BaseKvpVisitAction.KvpVisitA
     private String jsonPayload;
 
     @Override
-    public void onJsonFormLoaded(String s, Context context, Map<String, List<VisitDetail>> map) {
+    public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> map) {
         this.jsonPayload = jsonPayload;
     }
 
@@ -35,7 +35,7 @@ public class KvpClientStatusActionHelper implements BaseKvpVisitAction.KvpVisitA
     }
 
     @Override
-    public void onPayloadReceived(String s) {
+    public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
             client_status = CoreJsonFormUtils.getValue(jsonObject, "client_status");
