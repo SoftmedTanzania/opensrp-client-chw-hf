@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import org.smartregister.chw.hf.activity.KvpBehavioralServiceActivity;
 import org.smartregister.chw.hf.activity.KvpBioMedicalServiceActivity;
+import org.smartregister.chw.hf.activity.KvpOtherServiceActivity;
 import org.smartregister.chw.hf.activity.KvpStructuralServiceActivity;
 import org.smartregister.chw.kvp.domain.ServiceCard;
 import org.smartregister.chw.kvp.handlers.BaseServiceActionHandler;
@@ -25,6 +26,10 @@ public class KvpServiceActionHandler extends BaseServiceActionHandler {
         }
         else if (serviceCard.getServiceId().equals(Constants.SERVICES.KVP_STRUCTURAL)) {
             KvpStructuralServiceActivity.startKvpStructuralServiceActivity((Activity) context, baseEntityId, isEditMode);
+            return;
+        }
+        else if (serviceCard.getServiceId().equals(Constants.SERVICES.KVP_OTHERS)) {
+            KvpOtherServiceActivity.startKvpOtherServiceActivity((Activity) context, baseEntityId, isEditMode);
             return;
         }
         Toast.makeText(context, serviceCard.getServiceName() + "Loading activity... ", Toast.LENGTH_SHORT).show();
