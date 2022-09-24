@@ -10,7 +10,7 @@ import com.vijay.jsonwizard.domain.Form;
 import org.json.JSONObject;
 import org.smartregister.chw.core.task.RunnableTask;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.interactor.KvpBioMedicalVisitInteractor;
+import org.smartregister.chw.hf.interactor.KvpBioMedicalServiceInteractor;
 import org.smartregister.chw.hf.schedulers.HfScheduleTaskExecutor;
 import org.smartregister.chw.kvp.activity.BaseKvpVisitActivity;
 import org.smartregister.chw.kvp.domain.MemberObject;
@@ -34,7 +34,7 @@ public class KvpBioMedicalServiceActivity extends BaseKvpVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseKvpVisitPresenter(memberObject, this, new KvpBioMedicalVisitInteractor(Constants.EVENT_TYPE.KVP_BIO_MEDICAL_SERVICE_VISIT));
+        presenter = new BaseKvpVisitPresenter(memberObject, this, new KvpBioMedicalServiceInteractor(Constants.EVENT_TYPE.KVP_BIO_MEDICAL_SERVICE_VISIT));
     }
 
     @Override

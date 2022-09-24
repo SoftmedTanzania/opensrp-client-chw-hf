@@ -24,11 +24,11 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class KvpBioMedicalVisitInteractor extends BaseKvpVisitInteractor {
+public class KvpBioMedicalServiceInteractor extends BaseKvpVisitInteractor {
 
     private String visitType;
 
-    public KvpBioMedicalVisitInteractor(String visitType) {
+    public KvpBioMedicalServiceInteractor(String visitType) {
         this.visitType = visitType;
     }
 
