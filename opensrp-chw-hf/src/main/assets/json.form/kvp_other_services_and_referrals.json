@@ -46,10 +46,10 @@
     "title": "Other Services and Referral",
     "fields": [
       {
-        "key": "health_education_provided",
+        "key": "other_services_referrals_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "health_education_provided",
+        "openmrs_entity_id": "other_services_referrals_provided",
         "type": "check_box",
         "label": "Other services/referrals provided to the client",
         "combine_checkbox_option_values": "true",
