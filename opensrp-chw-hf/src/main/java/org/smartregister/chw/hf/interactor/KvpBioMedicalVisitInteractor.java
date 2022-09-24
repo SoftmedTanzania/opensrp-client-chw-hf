@@ -42,4 +42,14 @@ public class KvpBioMedicalVisitInteractor extends BaseKvpVisitInteractor {
 
         actionList.put(context.getString(R.string.client_status), action);
     }
+
+    @Override
+    protected String getEncounterType() {
+        return Constants.EVENT_TYPE.KVP_BIO_MEDICAL_SERVICE_VISIT;
+    }
+
+    @Override
+    protected String getTableName() {
+        return Constants.TABLES.KVP_FOLLOW_UP;
+    }
 }
