@@ -41,6 +41,8 @@
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.KvpBehavioralServiceActivity"
             android:theme="@style/HFTheme.NoActionBar"/>
+        <activity android:name=".activity.KvpStructuralServiceActivity"
+            android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.PrEPRegisterActivity"
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.CdpRegisterActivity"
