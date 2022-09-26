@@ -49,6 +49,8 @@
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.PrEPProfileActivity"
             android:theme="@style/HFTheme.NoActionBar"/>
+        <activity android:name=".activity.PrEPVisitActivity"
+            android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.CdpRegisterActivity"
             android:theme="@style/HFTheme.NoActionBar"/>
         <activity android:name=".activity.OrderDetailsActivity"

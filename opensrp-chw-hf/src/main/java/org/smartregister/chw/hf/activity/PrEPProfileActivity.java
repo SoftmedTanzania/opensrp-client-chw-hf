@@ -18,6 +18,6 @@ public class PrEPProfileActivity extends CoreKvpProfileActivity {
 
     @Override
     public void openFollowupVisit() {
-      //override
+      PrEPVisitActivity.startPrEPVisitActivity(this,memberObject.getBaseEntityId(), false);
     }
 }
