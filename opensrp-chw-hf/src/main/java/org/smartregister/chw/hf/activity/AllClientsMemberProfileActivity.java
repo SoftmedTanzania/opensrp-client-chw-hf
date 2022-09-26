@@ -39,6 +39,7 @@ import org.smartregister.chw.hf.utils.AllClientsUtils;
 import org.smartregister.chw.hf.utils.Constants;
 import org.smartregister.chw.hf.utils.LFTUFormUtils;
 import org.smartregister.chw.hivst.dao.HivstDao;
+import org.smartregister.chw.kvp.dao.KvpDao;
 import org.smartregister.chw.ld.dao.LDDao;
 import org.smartregister.chw.malaria.dao.MalariaDao;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
@@ -88,7 +89,7 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
             menu.findItem(R.id.action_hivst_registration).setVisible(!HivstDao.isRegisteredForHivst(baseEntityId) && age >= 18);
         }
         if(HealthFacilityApplication.getApplicationFlavor().hasKvpPrEP()){
-            menu.findItem(R.id.action_kvp_prep_registration).setVisible(true);
+            menu.findItem(R.id.action_kvp_prep_registration).setVisible(!KvpDao.isRegisteredForKvp(baseEntityId));
         }
         return true;
     }

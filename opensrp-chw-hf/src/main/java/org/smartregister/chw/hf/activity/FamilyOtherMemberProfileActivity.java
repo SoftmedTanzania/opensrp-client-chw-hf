@@ -34,6 +34,7 @@ import org.smartregister.chw.hf.utils.Constants;
 import org.smartregister.chw.hf.utils.LFTUFormUtils;
 import org.smartregister.chw.hiv.dao.HivIndexDao;
 import org.smartregister.chw.hivst.dao.HivstDao;
+import org.smartregister.chw.kvp.dao.KvpDao;
 import org.smartregister.chw.malaria.dao.MalariaDao;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.family.fragment.BaseFamilyOtherMemberProfileFragment;
@@ -286,7 +287,7 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
         }
 
         if (HealthFacilityApplication.getApplicationFlavor().hasKvpPrEP()) {
-            menu.findItem(R.id.action_kvp_prep_registration).setVisible(true);
+            menu.findItem(R.id.action_kvp_prep_registration).setVisible(!KvpDao.isRegisteredForKvp(baseEntityId));
         }
 
         if (BuildConfig.BUILD_FOR_BORESHA_AFYA_SOUTH) {
