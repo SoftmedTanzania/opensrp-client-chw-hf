@@ -98,11 +98,11 @@
             "openmrs_entity_id": "returning_client"
           },
           {
-            "key": "moved",
+            "key": "transfer_in",
             "text": "Amehamia",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "moved"
+            "openmrs_entity_id": "transfer_in"
           },
           {
             "key": "visited_another_facility",

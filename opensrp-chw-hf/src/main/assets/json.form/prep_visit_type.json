@@ -92,17 +92,17 @@
           },
           {
             "key": "returning_client",
-            "text": "Returning client",
+            "text": "Return",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "returning_client"
           },
           {
-            "key": "moved",
-            "text": "Client has moved",
+            "key": "transfer_in",
+            "text": "Transfer in",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "moved"
+            "openmrs_entity_id": "transfer_in"
           },
           {
             "key": "visited_another_facility",
