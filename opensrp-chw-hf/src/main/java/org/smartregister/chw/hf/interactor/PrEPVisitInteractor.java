@@ -2,7 +2,7 @@ package org.smartregister.chw.hf.interactor;
 
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.actionhelper.PrEP.PrEPVisitTypeActionHelper;
+import org.smartregister.chw.hf.actionhelper.prep.PrEPVisitTypeActionHelper;
 import org.smartregister.chw.kvp.contract.BaseKvpVisitContract;
 import org.smartregister.chw.kvp.domain.VisitDetail;
 import org.smartregister.chw.kvp.interactor.BaseKvpVisitInteractor;

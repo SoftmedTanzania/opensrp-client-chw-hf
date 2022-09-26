@@ -1,4 +1,4 @@
-package org.smartregister.chw.hf.actionhelper.PrEP;
+package org.smartregister.chw.hf.actionhelper.prep;
 
 import android.content.Context;
 
