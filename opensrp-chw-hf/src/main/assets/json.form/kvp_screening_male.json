@@ -482,9 +482,9 @@
     "next": "step8",
     "fields": [
       {
-        "key": "prompt_for_msm_sdc_kvp",
+        "key": "prompt_for_sdc_kvp",
         "type": "toaster_notes",
-        "text": "The client falls in MSM, SDC KVP group\nThe client should be enrolled to KVP friendly services",
+        "text": "The client falls in SDC KVP group\nThe client should be enrolled to KVP friendly services",
         "openmrs_entity_id": "",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
@@ -501,6 +501,54 @@
         "key": "prompt_for_msm_kvp",
         "type": "toaster_notes",
         "text": "The client falls in MSM KVP group\nThe client should be enrolled to KVP friendly services",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_screening_male_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_pwud_kvp",
+        "type": "toaster_notes",
+        "text": "The client falls in PWUD KVP group\nThe client should be enrolled to KVP friendly services",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_screening_male_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_pwid_kvp",
+        "type": "toaster_notes",
+        "text": "The client falls in PWID KVP group\nThe client should be enrolled to KVP friendly services",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "kvp_screening_male_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_ovp_kvp",
+        "type": "toaster_notes",
+        "text": "The client falls in Other vulnerable population KVP group\nThe client should be enrolled to KVP friendly services",
         "openmrs_entity_id": "",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
