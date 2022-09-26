@@ -20,4 +20,8 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
         KvpServiceActivity.startMe(this, memberObject.getBaseEntityId());
     }
 
+    @Override
+    protected void startPrEPRegistration() {
+        PrEPRegisterActivity.startMe(this, memberObject.getBaseEntityId(), memberObject.getGender(), memberObject.getAge());
+    }
 }
