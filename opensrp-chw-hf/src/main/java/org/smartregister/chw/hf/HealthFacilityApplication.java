@@ -375,5 +375,9 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         boolean hasHivst();
 
         boolean hasKvpPrEP();
+
+        boolean hasMalaria();
+
+        boolean hasLD();
     }
 }
