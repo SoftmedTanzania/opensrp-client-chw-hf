@@ -48,11 +48,11 @@ public class NavigationModel implements org.smartregister.chw.core.model.Navigat
                     navigationOptions.add(2, op17);
                 }
                 if (HealthFacilityApplication.getApplicationFlavor().hasCdp()) {
-                    navigationOptions.add(5, op18);
+                    navigationOptions.add(4, op18);
                 }
                 if (HealthFacilityApplication.getApplicationFlavor().hasKvpPrEP()) {
-                    navigationOptions.add(6, op20);
-                    navigationOptions.add(6, op19);
+                    navigationOptions.add(4, op20);
+                    navigationOptions.add(4, op19);
                 }
                 if (HealthFacilityApplication.getApplicationFlavor().hasLD()) {
                     if(BuildConfig.BUILD_FOR_PMTCT_CASE_BASED_MANAGEMENT) {
