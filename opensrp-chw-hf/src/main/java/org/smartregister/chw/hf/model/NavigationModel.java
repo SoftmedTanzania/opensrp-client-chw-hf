@@ -42,7 +42,7 @@ public class NavigationModel implements org.smartregister.chw.core.model.Navigat
                 if (BuildConfig.BUILD_FOR_PMTCT_CASE_BASED_MANAGEMENT) {
                     navigationOptions.addAll(Arrays.asList(op1, op3, op4, op13, op14, op12));
                 } else {
-                    navigationOptions.addAll(Arrays.asList(op1, op9, op8, op10, op3, op4, op5, op13, op14, op12, op16));
+                    navigationOptions.addAll(Arrays.asList(op1, op9, op8, op10, op3, op4, op13, op14, op12, op16));
                 }
                 if (HealthFacilityApplication.getApplicationFlavor().hasHivst()) {
                     navigationOptions.add(2, op17);
@@ -54,16 +54,20 @@ public class NavigationModel implements org.smartregister.chw.core.model.Navigat
                     navigationOptions.add(6, op20);
                     navigationOptions.add(6, op19);
                 }
-                if (HealthFacilityApplication.getApplicationFlavor().hasMalaria()) {
-                    navigationOptions.add(13, op7);
-                }
                 if (HealthFacilityApplication.getApplicationFlavor().hasLD()) {
                     if(BuildConfig.BUILD_FOR_PMTCT_CASE_BASED_MANAGEMENT) {
                         navigationOptions.add(2, op15);
                     }
                     else{
-                        navigationOptions.add(10, op15);
+                        navigationOptions.add(9, op15);
                     }
+                }
+                if(HealthFacilityApplication.getApplicationFlavor().hasChildModule()) {
+                    navigationOptions.add(11, op5);
+                }
+
+                if (HealthFacilityApplication.getApplicationFlavor().hasMalaria()) {
+                    navigationOptions.add(14, op7);
                 }
             } else {
                 navigationOptions.addAll(Arrays.asList(op1, op2, op3, op4, op5, op6, op7, op12));

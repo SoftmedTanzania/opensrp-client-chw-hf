@@ -25,4 +25,9 @@ public class DefaultHFApplicationFlv implements HealthFacilityApplication.Flavor
     public boolean hasLD() {
         return true;
     }
+
+    @Override
+    public boolean hasChildModule() {
+        return true;
+    }
 }

@@ -387,5 +387,7 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         boolean hasMalaria();
 
         boolean hasLD();
+
+        boolean hasChildModule();
     }
 }
