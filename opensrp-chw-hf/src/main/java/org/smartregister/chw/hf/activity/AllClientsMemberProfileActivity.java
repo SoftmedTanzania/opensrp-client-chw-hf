@@ -80,7 +80,7 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
             menu.findItem(R.id.action_ld_registration).setVisible(false);
         }
         menu.findItem(R.id.action_sick_child_follow_up).setVisible(false);
-        if (BuildConfig.ENABLED_MALARIA_MODULE)
+        if (HealthFacilityApplication.getApplicationFlavor().hasMalaria())
             menu.findItem(R.id.action_malaria_diagnosis).setVisible(!MalariaDao.isRegisteredForMalaria(baseEntityId));
 
         if(HealthFacilityApplication.getApplicationFlavor().hasHivst()){

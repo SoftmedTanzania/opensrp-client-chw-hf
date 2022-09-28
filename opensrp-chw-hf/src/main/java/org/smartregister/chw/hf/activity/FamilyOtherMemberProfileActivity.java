@@ -268,7 +268,7 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
         menu.findItem(R.id.action_tb_registration).setVisible(false);
         menu.findItem(R.id.action_pregnancy_out_come).setVisible(false);
 
-        if (BuildConfig.ENABLED_MALARIA_MODULE)
+        if (HealthFacilityApplication.getApplicationFlavor().hasMalaria())
             menu.findItem(R.id.action_malaria_diagnosis).setVisible(!MalariaDao.isRegisteredForMalaria(baseEntityId));
 
         if (isOfReproductiveAge(commonPersonObject, gender)) {
