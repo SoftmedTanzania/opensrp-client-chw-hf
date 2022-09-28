@@ -9,6 +9,7 @@ import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.hf.dao.HeiDao;
 import org.smartregister.chw.hiv.util.DBConstants;
 import org.smartregister.chw.pmtct.PmtctLibrary;
+import org.smartregister.chw.pmtct.domain.MemberObject;
 import org.smartregister.chw.pmtct.domain.Visit;
 import org.smartregister.chw.pmtct.repository.VisitDetailsRepository;
 import org.smartregister.chw.pmtct.repository.VisitRepository;
@@ -18,7 +19,6 @@ import org.smartregister.clientandeventmodel.Obs;
 import org.smartregister.repository.AllSharedPreferences;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -36,10 +36,9 @@ public class HeiVisitUtils extends VisitUtils {
 
 
         for (Visit v : visits) {
-            Date truncatedUpdatedDate = new Date(v.getUpdatedAt().getTime() - v.getUpdatedAt().getTime() % (24 * 60 * 60 * 1000));
-            Date today = new Date(Calendar.getInstance().getTimeInMillis() - Calendar.getInstance().getTimeInMillis() % (24 * 60 * 60 * 1000));
-
-            if (truncatedUpdatedDate.before(today) && v.getVisitType().equalsIgnoreCase(Constants.Events.HEI_FOLLOWUP)) {
+            Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
+            int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
+            if (daysDiff > 1 && v.getVisitType().equalsIgnoreCase(Constants.Events.HEI_FOLLOWUP)) {
                 try {
                     heiFollowupVisits.add(v);
                 } catch (Exception e) {
@@ -196,7 +195,31 @@ public class HeiVisitUtils extends VisitUtils {
         closePmtctEvent.setEntityType(org.smartregister.chw.pmtct.util.Constants.TABLES.PMTCT_REGISTRATION);
         closePmtctEvent.setEventType(Constants.Events.PMTCT_CLOSE_VISITS);
         closePmtctEvent.setBaseEntityId(HeiDao.getMotherBaseEntityId(baseEntityId));
+        closePmtctEvent.setFormSubmissionId(JsonFormUtils.generateRandomUUIDString());
+        closePmtctEvent.setEventDate(new Date());
         return closePmtctEvent;
     }
 
+
+    public static void closePmtctForDeceasedHei(String heiBaseEntityId) {
+        String motherBaseEntityId = HeiDao.getMotherBaseEntityId(heiBaseEntityId);
+        List<MemberObject> heiChildren = HeiDao.getMembersByMotherBaseEntityId(motherBaseEntityId);
+        boolean hasOtherHeiChildren = false;
+        for (MemberObject memberObject : heiChildren) {
+            if (!heiBaseEntityId.equals(memberObject.getBaseEntityId())) {
+                hasOtherHeiChildren = true;
+            }
+        }
+        if (!hasOtherHeiChildren) {
+            AllSharedPreferences allSharedPreferences = AncLibrary.getInstance().context().allSharedPreferences();
+            Event closePmtctEvent = getClosePmtctEvent(new JSONObject().toString(), heiBaseEntityId);
+            try {
+                NCUtils.addEvent(allSharedPreferences, closePmtctEvent);
+                NCUtils.startClientProcessing();
+            } catch (Exception e) {
+                Timber.e(e);
+            }
+        }
+
+    }
 }

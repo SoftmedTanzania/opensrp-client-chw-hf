@@ -1,6 +1,4 @@
 {
-  "validate_on_submit": true,
-  "show_errors_on_submit": false,
   "count": "2",
   "encounter_type": "Family Registration",
   "entity_id": "",
@@ -157,11 +155,7 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "sync_location_id",
         "type": "spinner",
-        "hint": "Select CHW Location",
-        "v_required": {
-          "value": "true",
-          "err": "Please select CHW Location"
-        }
+        "hint": "Select CHW Location"
       }
     ]
   },
