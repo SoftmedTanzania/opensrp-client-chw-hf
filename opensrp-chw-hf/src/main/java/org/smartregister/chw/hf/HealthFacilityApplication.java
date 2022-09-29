@@ -95,11 +95,10 @@ import io.ona.kujaku.KujakuLibrary;
 import timber.log.Timber;
 
 public class HealthFacilityApplication extends CoreChwApplication implements CoreApplication {
+    private static final Flavor flavor = new DefaultHFApplicationFlv();
     private CommonFtsObject commonFtsObject;
 
-    private static final Flavor flavor = new DefaultHFApplicationFlv();
-
-    public static Flavor getApplicationFlavor(){
+    public static Flavor getApplicationFlavor() {
         return flavor;
     }
 
@@ -247,9 +246,14 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         ReportingLibrary.init(context, getRepository(), null, BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         AncLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         PncLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
-        MalariaLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        if (flavor.hasMalaria()) {
+            MalariaLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
         FpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
-        CdpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+
+        if (flavor.hasCdp()) {
+            CdpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
 
         //setup referral library
         ReferralLibrary.init(this);
@@ -262,11 +266,13 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         HivLibrary.getInstance().setDatabaseVersion(BuildConfig.DATABASE_VERSION);
 
         //Setup hivst library
-        HivstLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        if (flavor.hasHivst()) {
+            HivstLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
 
-       if (flavor.hasKvpPrEP()){
-           KvpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
-       }
+        if (flavor.hasKvpPrEP()) {
+            KvpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
 
         //Setup tb library
         TbLibrary.init(this);
@@ -277,7 +283,9 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         PmtctLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
 
         //Setup L&D library
-        LDLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        if (flavor.hasLD()) {
+            LDLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
 
         //Needed for all clients register
         OpdLibrary.init(context, getRepository(),
@@ -375,5 +383,11 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         boolean hasHivst();
 
         boolean hasKvpPrEP();
+
+        boolean hasMalaria();
+
+        boolean hasLD();
+
+        boolean hasChildModule();
     }
 }
