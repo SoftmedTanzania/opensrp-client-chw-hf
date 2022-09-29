@@ -645,6 +645,9 @@
     <string name="pnc_key_other_reason_for_not_conducting_hiv_test">Other reason for not conducting HIV Test</string>
     <string name="pnc_key_hiv_test_result_date">HIV Test Results Date</string>
     <string name="pnc_key_abscess">Has Abscess</string>
+    <string name="pnc_key_child_bcg_vaccination">BCG vaccination Provided</string>
+    <string name="pnc_key_child_opv0_vaccination">OPV0 vaccination Provided</string>
+    <string name="pnc_key_blood_pressure">Blood Pressure (mmHg)</string>
     <string name="chk_normal_involution">Normal/involution has taken place</string>
     <string name="chk_pain">Pain</string>
     <string name="chk_distended">Distended</string>
@@ -659,7 +662,7 @@
     <string name="pnc_visit_8_to_28_days">8–28 Days</string>
     <string name="pnc_visit_29_to_42_days">29–42 Days</string>
     <string name="pnc_medical_history_child_general_examination_title">Child General Examination On Visit </string>
-    <string name="pnc_key_height">Height</string>
+    <string name="pnc_key_height">Length</string>
     <string name="pnc_key_head_circumference">Head Circumference</string>
     <string name="pnc_key_upper_arm_circumference">Arm Circumference</string>
     <string name="pnc_key_feeding_options">Feeding Options</string>
@@ -675,5 +678,13 @@
     <string name="chk_descended">Distended</string>
     <string name="chk_delayed_off">Delayed off</string>
     <string name="chk_no_abnormalities">No Abnormalities</string>
+    <string name="chk_condom">Condoms</string>
+    <string name="chk_pills">Pills (Progestogen-only pill)</string>
+    <string name="chk_injectable">Injectable (After 42 days)</string>
+    <string name="chk_jadelle">Jadelle</string>
+    <string name="chk_implants">Implanon/NXT</string>
+    <string name="chk_iucd">PPIUCD (Within 48 hours after delivery or after 42 days of PNC)</string>
+    <string name="chk_tubal_ligation">Bilateral Tubal Ligation (BTL)</string>
+    <string name="chk_referred_fp_services">Referred for other FP services</string>
 
 </resources>
