@@ -36,7 +36,7 @@ public class RequestOrdersRegisterFragment extends CoreOrdersRegisterFragment {
             syncProgressBar.setVisibility(View.GONE);
         }
         if (syncButton != null) {
-            syncButton.setVisibility(android.view.View.VISIBLE);
+            syncButton.setVisibility(View.VISIBLE);
             syncButton.setPadding(0, 0, 10, 0);
             syncButton.setImageDrawable(context().getDrawable(org.smartregister.cdp.R.drawable.ic_add_white_24));
             syncButton.setOnClickListener(view -> {
