@@ -2,6 +2,8 @@ package org.smartregister.chw.hf.utils;
 
 import com.google.gson.Gson;
 
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +13,7 @@ import org.smartregister.chw.anc.repository.VisitDetailsRepository;
 import org.smartregister.chw.anc.repository.VisitRepository;
 import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.core.model.ChildModel;
+import org.smartregister.chw.hf.dao.HeiDao;
 import org.smartregister.chw.hf.dao.HfPncDao;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.clientandeventmodel.Obs;
@@ -18,6 +21,7 @@ import org.smartregister.repository.AllSharedPreferences;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -39,10 +43,9 @@ public class PncVisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
 
 
         for (Visit v : visits) {
-            Date truncatedUpdatedDate = new Date(v.getUpdatedAt().getTime() - v.getUpdatedAt().getTime() % (24 * 60 * 60 * 1000));
-
-            Date today = new Date(Calendar.getInstance().getTimeInMillis() - Calendar.getInstance().getTimeInMillis() % (24 * 60 * 60 * 1000));
-            if (truncatedUpdatedDate.before(today)) {
+            Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
+            int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
+            if (daysDiff > 1) {
                 if (v.getVisitType().equalsIgnoreCase(Constants.Events.PNC_VISIT)) {
                     try {
                         JSONObject jsonObject = new JSONObject(v.getJson());
@@ -54,7 +57,7 @@ public class PncVisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
                         boolean isMotherGeneralExaminationDone = computeCompletionStatus(obs, "systolic");
                         boolean isFamilyPlanningServicesDone = computeCompletionStatus(obs, "education_counselling_given");
                         boolean isImmunizationDone = computeCompletionStatus(obs, "tetanus_vaccination") || computeCompletionStatus(obs, "hepatitis_b_vaccination");
-                        boolean isHivTestingDone = computeCompletionStatus(obs, "hiv_status");
+                        boolean isHivTestingDone = computeCompletionStatus(obs, "hiv");
                         boolean isNutritionSupplementsDone = computeCompletionStatus(obs, "iron_and_folic_acid");
 
                         if (HfPncDao.isMotherEligibleForHivTest(baseEntityId)) {
@@ -102,9 +105,8 @@ public class PncVisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
                     }
                     processVisits(completedMotherVisit, visitRepository, visitDetailsRepository);
                     processVisits(completedChildVisit, visitRepository, visitDetailsRepository);
-                    if (isMotherFoundPositive(v)) {
-                        createHeiRegistrationEvent(v.getJson());
-                    }
+                } else {
+                    processVisits(Collections.singletonList(v), visitRepository, visitDetailsRepository);
                 }
             }
         }
@@ -122,39 +124,38 @@ public class PncVisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
         return false;
     }
 
-    private static void createHeiRegistrationEvent(String json) throws Exception {
-        JSONObject jsonObject = new JSONObject(json);
-        String motherBaseEntityId = jsonObject.getString("baseEntityId");
+    public static void createHeiRegistrationEvent(String motherBaseEntityId) throws Exception {
         List<ChildModel> childModels = HfPncDao.childrenForPncWoman(motherBaseEntityId);
         for (ChildModel childModel : childModels) {
-            String jsonForChild = json;
-            JSONObject jsonObjectForChild = new JSONObject(jsonForChild);
-            jsonObjectForChild.put("baseEntityId", childModel.getBaseEntityId());
-            jsonObjectForChild.put("mother_entity_id", motherBaseEntityId);
-            jsonObjectForChild.put("relational_id", motherBaseEntityId);
-            jsonObjectForChild.put("birthdate", childModel.getDateOfBirth());
+            if (HeiDao.getMember(childModel.getBaseEntityId()) == null) {
+                JSONObject jsonObjectForChild = new JSONObject();
+                jsonObjectForChild.put("baseEntityId", childModel.getBaseEntityId());
+                jsonObjectForChild.put("mother_entity_id", motherBaseEntityId);
+                jsonObjectForChild.put("relational_id", motherBaseEntityId);
+                jsonObjectForChild.put("birthdate", childModel.getDateOfBirth());
 
-            String childBaseEntityId = childModel.getBaseEntityId();
-            Event baseEvent = new Gson().fromJson(jsonForChild, Event.class);
-            baseEvent.setFormSubmissionId(UUID.randomUUID().toString());
-            baseEvent.setEventType("HEI Registration");
+                String childBaseEntityId = childModel.getBaseEntityId();
+                Event baseEvent = new Gson().fromJson(jsonObjectForChild.toString(), Event.class);
+                baseEvent.setFormSubmissionId(UUID.randomUUID().toString());
+                baseEvent.setEventType(Constants.Events.HEI_REGISTRATION);
+                baseEvent.setEventDate(new Date());
+
+                baseEvent.addObs(
+                        (new Obs())
+                                .withFormSubmissionField("risk_category")
+                                .withValue("high")
+                                .withFieldCode("risk_category")
+                                .withFieldType("formsubmissionField")
+                                .withFieldDataType("text")
+                                .withParentCode("")
+                                .withHumanReadableValues(new ArrayList<>()));
 
 
-            baseEvent.addObs(
-                    (new Obs())
-                            .withFormSubmissionField("risk_category")
-                            .withValue("high")
-                            .withFieldCode("risk_category")
-                            .withFieldType("formsubmissionField")
-                            .withFieldDataType("text")
-                            .withParentCode("")
-                            .withHumanReadableValues(new ArrayList<>()));
-
-
-            baseEvent.setBaseEntityId(childBaseEntityId);
-            AllSharedPreferences allSharedPreferences = AncLibrary.getInstance().context().allSharedPreferences();
-            NCUtils.addEvent(allSharedPreferences, baseEvent);
-            NCUtils.startClientProcessing();
+                baseEvent.setBaseEntityId(childBaseEntityId);
+                AllSharedPreferences allSharedPreferences = AncLibrary.getInstance().context().allSharedPreferences();
+                NCUtils.addEvent(allSharedPreferences, baseEvent);
+                NCUtils.startClientProcessing();
+            }
         }
 
     }
@@ -179,6 +180,23 @@ public class PncVisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
             Timber.e(e);
         }
         return isPositive;
+    }
+
+    public static int getElapsedTimeDays(Date startDate, Date endDate) {
+        if (startDate == null || endDate == null)
+            return 0;
+
+        Calendar startDateCal = Calendar.getInstance();
+        startDateCal.setTimeInMillis(startDate.getTime());
+
+        Calendar endDateCal = Calendar.getInstance();
+        endDateCal.setTimeInMillis(endDate.getTime());
+
+        LocalDate startLocalDate = new LocalDate(startDateCal.get(Calendar.YEAR), startDateCal.get(Calendar.MONTH) + 1, startDateCal.get(Calendar.DAY_OF_MONTH));
+        LocalDate endLocalDate = new LocalDate(endDateCal.get(Calendar.YEAR), endDateCal.get(Calendar.MONTH) + 1, endDateCal.get(Calendar.DAY_OF_MONTH));
+
+
+        return Days.daysBetween(startLocalDate, endLocalDate).getDays();
     }
 
 }

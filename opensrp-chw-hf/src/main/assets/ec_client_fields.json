@@ -1914,6 +1914,46 @@
           }
         },
         {
+          "column_name": "tb_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tb_status"
+          }
+        },
+        {
+          "column_name": "other_stds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_stds"
+          }
+        },
+        {
+          "column_name": "other_stds_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_stds_treatment"
+          }
+        },
+        {
+          "column_name": "partner_other_stds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_other_stds"
+          }
+        },
+        {
+          "column_name": "partner_other_stds_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_other_stds_treatment"
+          }
+        },
+        {
           "column_name": "protein_in_urine",
           "type": "Event",
           "json_mapping": {
@@ -2701,6 +2741,14 @@
           }
         },
         {
+          "column_name": "hiv_status_question",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status_question"
+          }
+        },
+        {
           "column_name": "hepatitis_b_vaccination",
           "type": "Event",
           "json_mapping": {
@@ -2714,6 +2762,14 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "tetanus_vaccination"
+          }
+        },
+        {
+          "column_name": "sex_of_the_deceased_child",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sex_of_the_deceased_child"
           }
         },
         {
@@ -2897,11 +2953,11 @@
           }
         },
         {
-          "column_name": "hiv_status",
+          "column_name": "hiv",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "hiv_status"
+            "concept": "hiv"
           }
         }
       ]
@@ -2977,6 +3033,14 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "child_bcg_vaccination"
+          }
+        },
+        {
+          "column_name": "child_opv0_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "child_opv0_vaccination"
           }
         },
         {
@@ -7054,6 +7118,65 @@
       ]
     },
     {
+      "name": "ec_cdp_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "outlet_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "outlet_visit_date"
+          }
+        },
+        {
+          "column_name": "male_condoms_count",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "number_of_male_condoms"
+          }
+        },
+        {
+          "column_name": "female_condoms_count",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "number_of_female_condoms"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
       "name": "ec_cdp_orders",
       "columns": [
         {
@@ -7307,6 +7430,76 @@
           "type": "Event",
           "json_mapping": {
             "field": "condom_restock_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_kvp_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "prep_qualified",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_qualified"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    } ,
+    {
+      "name": "ec_prep_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
           }
         }
       ]
