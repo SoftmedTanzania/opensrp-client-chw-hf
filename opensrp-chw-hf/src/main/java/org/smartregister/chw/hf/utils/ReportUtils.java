@@ -11,6 +11,7 @@ import android.os.Build;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
+import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -30,6 +31,7 @@ import org.smartregister.chw.hf.domain.pmtct_reports.Pmtct24MonthsReportObject;
 import org.smartregister.chw.hf.domain.pmtct_reports.Pmtct3MonthsReportObject;
 import org.smartregister.chw.hf.domain.pmtct_reports.PmtctEIDMonthlyReportObject;
 import org.smartregister.chw.hf.domain.pnc_reports.PncMonthlyReportObject;
+import org.smartregister.chw.hf.domain.self_testing_reports.SelfTestingMonthlyReportObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -279,5 +281,18 @@ public class ReportUtils {
         }
     }
 
+    public static class SELFTESTINGReport {
+        public static String computeReport(Date now) {
+            String report = "";
+            SelfTestingMonthlyReportObject selfTestingMonthlyReportObject = new SelfTestingMonthlyReportObject(now);
+            try {
+                report = selfTestingMonthlyReportObject.getIndicatorDataAsGson(selfTestingMonthlyReportObject.getIndicatorData());
+            } catch (Exception e) {
+                Timber.e(e);
+            }
+            Log.d("angaaaa_now",report);
+            return report;
+        }
+    }
 
 }

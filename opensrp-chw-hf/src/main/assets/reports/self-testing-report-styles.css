@@ -1,0 +1,49 @@
+  *{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px;
+    margin-right: 10px;
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: normal;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    padding: 5px;
+}
+
+
+ul {
+    width: 100%;
+}
+ul li {
+    width: 49%;
+    display: inline-block;
+}
+
+ul li > * {
+    width: 30%;
+    margin-bottom: 5px;
+}
