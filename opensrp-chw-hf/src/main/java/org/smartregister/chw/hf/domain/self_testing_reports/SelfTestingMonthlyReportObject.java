@@ -1,7 +1,5 @@
 package org.smartregister.chw.hf.domain.self_testing_reports;
 
-import android.util.Log;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.hf.dao.ReportDao;
