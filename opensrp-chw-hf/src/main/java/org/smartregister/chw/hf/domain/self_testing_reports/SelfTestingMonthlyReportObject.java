@@ -40,7 +40,6 @@ public class SelfTestingMonthlyReportObject extends ReportObject {
         for (String questionGroup : questionsGroups) {   //rows
             for (String ageGroup : ageGroups) {  //columns
                 for (String genderGroup : genderGroups) {  //concstenate rows columns and gendergroup
-                    Log.d("anga_all_1","hivst"+"-"+questionGroup+"-"+ageGroup+"-"+genderGroup);
                         jsonObject.put("hivst"+"-"+questionGroup+"-"+ageGroup+"-"+genderGroup,
                                 ReportDao.getReportPerIndicatorCode("hivst"+"-"+questionGroup+"-"+ageGroup+"-"+genderGroup, reportDate));
                 }
@@ -68,7 +67,6 @@ public class SelfTestingMonthlyReportObject extends ReportObject {
         for (String question: questionsGroups) {   //rows
             int totalOfBothMaleAndFemale = getTotalPerEachIndicator("hivst"+"-"+question,question,"ME")
                             + getTotalPerEachIndicator("hivst"+"-"+question,question,"KE");
-            Log.d("total_of_both",""+totalOfBothMaleAndFemale);
             jsonObject.put("hivst"+"-"+question+"-jumla-both-ME",totalOfBothMaleAndFemale);
             jsonObject.put("hivst"+"-"+question+"-jumla-both-KE",totalOfBothMaleAndFemale);
         }

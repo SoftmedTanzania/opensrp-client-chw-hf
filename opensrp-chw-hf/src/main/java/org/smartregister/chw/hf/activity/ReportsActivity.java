@@ -27,7 +27,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
     protected ConstraintLayout ltfuSummaryLayout;
     protected ConstraintLayout ldReportsLayout;
     protected ConstraintLayout motherChampionReportsLayout;
-    protected ConstraintLayout self_testing_reports;
+    protected ConstraintLayout selfTestingReports;
 
     @Override
     protected void onCreation() {
@@ -45,7 +45,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         ltfuSummaryLayout = findViewById(R.id.ltfu_summary);
         ldReportsLayout = findViewById(R.id.ld_reports);
         motherChampionReportsLayout = findViewById(R.id.mother_champion_reports);
-        self_testing_reports = findViewById(R.id.self_testing_reports);
+        selfTestingReports = findViewById(R.id.self_testing_reports);
 
 
         pmtctReportsLayout.setOnClickListener(this);
@@ -55,7 +55,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         ltfuSummaryLayout.setOnClickListener(this);
         ldReportsLayout.setOnClickListener(this);
         motherChampionReportsLayout.setOnClickListener(this);
-        self_testing_reports.setOnClickListener(this);
+        selfTestingReports.setOnClickListener(this);
     }
 
     public void setUpToolbar() {

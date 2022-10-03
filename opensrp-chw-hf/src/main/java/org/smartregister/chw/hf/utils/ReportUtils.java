@@ -281,7 +281,7 @@ public class ReportUtils {
         }
     }
 
-    public static class SELFTESTINGReport {
+    public static class SelfTestingReport {
         public static String computeReport(Date now) {
             String report = "";
             SelfTestingMonthlyReportObject selfTestingMonthlyReportObject = new SelfTestingMonthlyReportObject(now);
@@ -290,7 +290,6 @@ public class ReportUtils {
             } catch (Exception e) {
                 Timber.e(e);
             }
-            Log.d("angaaaa_now",report);
             return report;
         }
     }
