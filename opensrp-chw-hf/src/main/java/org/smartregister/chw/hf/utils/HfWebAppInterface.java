@@ -1,5 +1,7 @@
 package org.smartregister.chw.hf.utils;
 
+import static org.smartregister.chw.hf.utils.Constants.ReportConstants.CDPReportKeys.ISSUING_REPORTS;
+import static org.smartregister.chw.hf.utils.Constants.ReportConstants.CDPReportKeys.RECEIVING_REPORTS;
 import static org.smartregister.chw.hf.utils.Constants.ReportConstants.PMTCTReportKeys.EID_MONTHLY;
 import static org.smartregister.chw.hf.utils.Constants.ReportConstants.PMTCTReportKeys.THREE_MONTHS;
 import static org.smartregister.chw.hf.utils.Constants.ReportConstants.PMTCTReportKeys.TWELVE_MONTHS;
@@ -69,7 +71,18 @@ public class HfWebAppInterface {
             ReportUtils.setPrintJobName("self_testing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
             return ReportUtils.SelfTestingReport.computeReport(ReportUtils.getReportDate());
         }
-
+        if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.CONDOM_DISTRIBUTION_REPORT)){
+              switch (key) {
+                case ISSUING_REPORTS:
+                    ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
+                    return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate());
+                  case RECEIVING_REPORTS:
+                    ReportUtils.setPrintJobName("CDP_receiving_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
+                    return ReportUtils.CDPReports.computeReceivingReports(ReportUtils.getReportDate());
+                default:
+                    return "";
+            }
+        }
         return "";
     }
 

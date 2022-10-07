@@ -310,16 +310,16 @@
     <br />
   </body>
   <script type="text/javascript">
-<!--    function onLoad() {-->
-<!--      const data = JSON.parse(Android.getData("monthly"));-->
-<!--      const keys = Object.keys(data.nameValuePairs);-->
-<!--      keys.forEach((key) => {-->
-<!--        const element = document.getElementById(key);-->
-<!--        if (element !== null && element !== undefined) {-->
-<!--          document.getElementById(key).innerHTML = data.nameValuePairs[key];-->
-<!--        }-->
-<!--      });-->
-<!--    }-->
+    function onLoad() {
+      const data = JSON.parse(Android.getData("monthly"));
+      const keys = Object.keys(data.nameValuePairs);
+      keys.forEach((key) => {
+        const element = document.getElementById(key);
+        if (element !== null && element !== undefined) {
+          document.getElementById(key).innerHTML = data.nameValuePairs[key];
+        }
+      });
+    }
 
 
   const data = JSON.parse(Android.getDataForReport());

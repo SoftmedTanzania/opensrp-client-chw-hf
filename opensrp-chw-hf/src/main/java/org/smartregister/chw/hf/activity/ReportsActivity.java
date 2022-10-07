@@ -28,6 +28,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
     protected ConstraintLayout ldReportsLayout;
     protected ConstraintLayout motherChampionReportsLayout;
     protected ConstraintLayout selfTestingReports;
+    protected ConstraintLayout condomDistributionReports;
 
     @Override
     protected void onCreation() {
@@ -46,6 +47,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         ldReportsLayout = findViewById(R.id.ld_reports);
         motherChampionReportsLayout = findViewById(R.id.mother_champion_reports);
         selfTestingReports = findViewById(R.id.self_testing_reports);
+        condomDistributionReports = findViewById(R.id.cdp_reports);
 
 
         pmtctReportsLayout.setOnClickListener(this);
@@ -56,6 +58,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         ldReportsLayout.setOnClickListener(this);
         motherChampionReportsLayout.setOnClickListener(this);
         selfTestingReports.setOnClickListener(this);
+        condomDistributionReports.setOnClickListener(this);
     }
 
     public void setUpToolbar() {
@@ -109,6 +112,10 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         }
         else if (id==R.id.self_testing_reports){
             Intent intent = new Intent(this, SelfTestingReportsActivity.class);
+            startActivity(intent);
+        }
+        else if (id==R.id.cdp_reports){
+            Intent intent = new Intent(this, CdpReportsActivity.class);
             startActivity(intent);
         }
     }
