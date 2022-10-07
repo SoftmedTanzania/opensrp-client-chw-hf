@@ -7466,6 +7466,89 @@
         }
       ]
     },
+
+    {
+      "name": "ec_cdp_issuing_hf",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "male_condoms",
+          "type": "Event",
+          "json_mapping": {
+            "field": "male_condoms"
+          }
+        },
+        {
+          "column_name": "female_condoms",
+          "type": "Event",
+          "json_mapping": {
+            "field": "female_condoms"
+          }
+        },
+        {
+          "column_name": "condom_restock_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "condom_restock_date"
+          }
+        },
+        {
+          "column_name": "condom_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "condom_type"
+          }
+        },
+        {
+          "column_name": "condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "condom_brand"
+          }
+        },
+        {
+          "column_name": "other_condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "other_condom_brand"
+          }
+        },
+        {
+          "column_name": "point_of_service",
+          "type": "Event",
+          "json_mapping": {
+            "field": "point_of_service"
+          }
+        },
+        {
+          "column_name": "provided_male_condoms",
+          "type": "Event",
+          "json_mapping": {
+            "field": "provided_male_condoms"
+          }
+        },
+        {
+          "column_name": "provided_female_condoms",
+          "type": "Event",
+          "json_mapping": {
+            "field": "provided_female_condoms"
+          }
+        }
+      ]
+    },
     {
       "name": "ec_kvp_register",
       "columns": [
