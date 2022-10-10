@@ -320,6 +320,20 @@
             "openmrs_entity_id": "msd"
           },
           {
+            "key": "psi",
+            "text": "PSI",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psi"
+          },
+          {
+            "key": "tmarc",
+            "text": "T-MARC",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tmarc"
+          },
+          {
             "key": "other",
             "text": "Other",
             "openmrs_entity_parent": "",

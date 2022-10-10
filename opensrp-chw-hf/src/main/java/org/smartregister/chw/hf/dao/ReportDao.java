@@ -69,6 +69,46 @@ public class ReportDao extends AbstractDao {
             return new ArrayList<>();
     }
 
+    public static List<Map<String, String>> getHfCdpStockLog(Date reportDate)
+    {
+        String sql = "SELECT female_condoms_offset,male_condoms_offset,issuing_organization,male_condom_brand,female_condom_brand\n" +
+                " FROM ec_cdp_stock_log\n" +
+                " WHERE issuing_organization=\"msd\" OR issuing_organization='psi' OR issuing_organization='t-marc' AND\n" +
+                " date(substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' ||\n" +
+                "                substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') =\n" +
+                "                date((substr('2022-10-10', 1, 4) || '-' || substr('2022-10-10', 6, 2) || '-' || '01'))\n" +
+                " UNION\n" +
+                " SELECT female_condoms_offset,male_condoms_offset,other_issuing_organization,male_condom_brand,female_condom_brand\n" +
+                " FROM ec_cdp_stock_log\n" +
+                " WHERE issuing_organization=\"other\" AND\n" +
+                " date(substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' ||\n" +
+                " substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') =\n" +
+                " date((substr('2022-10-10', 1, 4) || '-' || substr('2022-10-10', 6, 2) || '-' || '01'))";
+
+        String queryDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(reportDate);
+
+        sql = sql.contains("%s") ? sql.replaceAll("%s", queryDate) : sql;
+
+        DataMap<Map<String, String>> map = cursor -> {
+            Map<String, String> data = new HashMap<>();
+            data.put("female_condoms_offset", cursor.getString(cursor.getColumnIndex("female_condoms_offset")));
+            data.put("male_condoms_offset", cursor.getString(cursor.getColumnIndex("male_condoms_offset")));
+            data.put("issuing_organization", cursor.getString(cursor.getColumnIndex("issuing_organization")));
+            data.put("male_condom_brand", cursor.getString(cursor.getColumnIndex("male_condom_brand")));
+            data.put("female_condom_brand", cursor.getString(cursor.getColumnIndex("female_condom_brand")));
+
+            return data;
+        };
+
+        List<Map<String, String>> res = readData(sql, map);
+
+
+        if (res != null && res.size() > 0) {
+            return res;
+        } else
+            return new ArrayList<>();
+    }
+
     public static int getReportPerIndicatorCode(String indicatorCode, Date reportDate) {
         String reportDateString = simpleDateFormat.format(reportDate);
         String sql = "SELECT indicator_value\n" +
