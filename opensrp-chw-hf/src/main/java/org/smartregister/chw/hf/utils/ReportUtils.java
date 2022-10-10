@@ -11,6 +11,7 @@ import android.os.Build;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
+import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -332,6 +333,7 @@ public class ReportUtils {
             } catch (Exception e) {
                 Timber.e(e);
             }
+            Log.d("holla", report);
             return report;
         }
     }

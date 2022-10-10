@@ -10,6 +10,9 @@ import static org.smartregister.util.Utils.getAllSharedPreferences;
 
 import android.content.Context;
 import android.webkit.JavascriptInterface;
+import android.widget.Toast;
+
+import org.smartregister.util.Log;
 
 public class HfWebAppInterface {
     private static final String DEFAULT_LOCALITY_NAME = "dfltLocName";
@@ -68,6 +71,7 @@ public class HfWebAppInterface {
             return ReportUtils.MotherChampionReports.computeMotherChampionReport(ReportUtils.getReportDate());
         }
         if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.SELF_TESTING_REPORT)){
+            Toast.makeText(mContext, "self testing is working fine", Toast.LENGTH_SHORT).show();
             ReportUtils.setPrintJobName("self_testing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
             return ReportUtils.SelfTestingReport.computeReport(ReportUtils.getReportDate());
         }
@@ -77,6 +81,7 @@ public class HfWebAppInterface {
                     ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
                     return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate());
                   case RECEIVING_REPORTS:
+                      Toast.makeText(mContext, "Data imefika hapa", Toast.LENGTH_SHORT).show();
                       ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
                       return ReportUtils.CBHSReport.computeReport(ReportUtils.getReportDate(), mContext);
 //                    ReportUtils.setPrintJobName("CDP_receiving_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
@@ -99,6 +104,10 @@ public class HfWebAppInterface {
         if(reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.PMTCT_REPORT)){
             return ReportUtils.getReportPeriodForCohortReport(reportKey);
         }
+        if(reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.CONDOM_DISTRIBUTION_REPORT)){
+            return ReportUtils.getReportPeriodForCohortReport(reportKey);
+        }
+
         return ReportUtils.getReportPeriod();
     }
 

@@ -36,6 +36,13 @@ public class CdpReportsActivity extends SecuredActivity implements View.OnClickL
     Menu menu;
     private String reportPeriod = ReportUtils.getDefaultReportPeriod();
 
+    @Override
+    protected void onCreation() {
+        setContentView(R.layout.activity_cdp_reports);
+        setUpToolbar();
+        setupViews();
+    }
+
     public void setupViews() {
         cdpIssuingReport = findViewById(R.id.cdp_issuing_report);
         cdpReceivingReport = findViewById(R.id.cdp_receiving_report);
@@ -74,13 +81,6 @@ public class CdpReportsActivity extends SecuredActivity implements View.OnClickL
         this.menu = menu;
         this.menu.findItem(R.id.action_select_month).setTitle(ReportUtils.displayMonthAndYear());
         return true;
-    }
-
-    @Override
-    protected void onCreation() {
-        setContentView(R.layout.activity_cdp_reports);
-        setUpToolbar();
-        setupViews();
     }
 
     @Override
