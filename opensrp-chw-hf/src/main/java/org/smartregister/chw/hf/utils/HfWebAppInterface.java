@@ -77,8 +77,11 @@ public class HfWebAppInterface {
                     ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
                     return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate());
                   case RECEIVING_REPORTS:
-                    ReportUtils.setPrintJobName("CDP_receiving_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
-                    return ReportUtils.CDPReports.computeReceivingReports(ReportUtils.getReportDate());
+                      ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
+                      return ReportUtils.CBHSReport.computeReport(ReportUtils.getReportDate(), mContext);
+//                    ReportUtils.setPrintJobName("CDP_receiving_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
+//                    return ReportUtils.CDPReports.computeReceivingReports(ReportUtils.getReportDate(),mContext);
+
                 default:
                     return "";
             }
