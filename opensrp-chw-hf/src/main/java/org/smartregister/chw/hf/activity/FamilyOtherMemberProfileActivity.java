@@ -165,6 +165,11 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
     }
 
     @Override
+    protected void startAgywScreening() {
+        // na hii pia italeta merge conlicts badae ikishawekwa github
+    }
+
+    @Override
     protected void setIndependentClient(boolean b) {
         this.isIndependent = false;
     }

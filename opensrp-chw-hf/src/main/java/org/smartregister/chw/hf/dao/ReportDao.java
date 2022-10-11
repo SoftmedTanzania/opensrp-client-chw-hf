@@ -69,6 +69,38 @@ public class ReportDao extends AbstractDao {
             return new ArrayList<>();
     }
 
+    public static List<Map<String, String>> getHfIssuingCdpStockLog(Date reportDate)
+    {
+        String sql = "SELECT female_condoms,male_condoms,point_of_service,other_pos\n" +
+                " FROM ec_cdp_issuing_hf\n" +
+                " WHERE point_of_service='CTC' OR point_of_service='RCH Clinic' OR point_of_service='OPD' OR point_of_service='RCH Clinic' " +
+                " OR point_of_service='TB Clinic' OR point_of_service='Outreach'  OR point_of_service='Other (Specify)' AND\n" +
+                " date(substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' ||\n" +
+                "                substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') =\n" +
+                "                date((substr('2022-10-10', 1, 4) || '-' || substr('2022-10-10', 6, 2) || '-' || '01'))";
+
+        String queryDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(reportDate);
+
+        sql = sql.contains("%s") ? sql.replaceAll("%s", queryDate) : sql;
+
+        DataMap<Map<String, String>> map = cursor -> {
+            Map<String, String> data = new HashMap<>();
+            data.put("issuing_organization", cursor.getString(cursor.getColumnIndex("issuing_organization")));
+            data.put("male_condom_brand", cursor.getString(cursor.getColumnIndex("male_condom_brand")));
+            data.put("female_condom_brand", cursor.getString(cursor.getColumnIndex("female_condom_brand")));
+
+            return data;
+        };
+
+        List<Map<String, String>> res = readData(sql, map);
+
+
+        if (res != null && res.size() > 0) {
+            return res;
+        } else
+            return new ArrayList<>();
+    }
+
     public static List<Map<String, String>> getHfCdpStockLog(Date reportDate)
     {
         String sql = "SELECT female_condoms_offset,male_condoms_offset,issuing_organization,male_condom_brand,female_condom_brand\n" +
