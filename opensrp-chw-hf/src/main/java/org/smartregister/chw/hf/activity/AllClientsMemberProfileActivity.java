@@ -318,7 +318,7 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
 
     @Override
     protected void startAgywScreening() {
-        // italeta merge conlicts badae ikishawekwa github
+        //do nothing
     }
 
     @Override
