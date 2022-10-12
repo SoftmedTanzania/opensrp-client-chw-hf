@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.google.android.material.appbar.AppBarLayout;
 
 import org.smartregister.chw.core.job.ChwIndicatorGeneratingJob;
+import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.R;
 import org.smartregister.view.activity.SecuredActivity;
 import org.smartregister.view.customcontrols.CustomFontTextView;
@@ -48,6 +49,12 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         motherChampionReportsLayout = findViewById(R.id.mother_champion_reports);
         selfTestingReports = findViewById(R.id.self_testing_reports);
         condomDistributionReports = findViewById(R.id.cdp_reports);
+
+        if (HealthFacilityApplication.getApplicationFlavor().hasLD())
+            ldReportsLayout.setVisibility(View.VISIBLE);
+
+        if (HealthFacilityApplication.getApplicationFlavor().hasHivst())
+            selfTestingReports.setVisibility(View.VISIBLE);
 
 
         pmtctReportsLayout.setOnClickListener(this);
@@ -107,10 +114,9 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
             startActivity(new Intent(this, LtfuSummaryActivity.class));
         } else if (id == R.id.ld_reports) {
             startActivity(new Intent(this, LdReportsActivity.class));
-        }else if (id == R.id.mother_champion_reports) {
+        } else if (id == R.id.mother_champion_reports) {
             startActivity(new Intent(this, MotherChampionReportsActivity.class));
-        }
-        else if (id==R.id.self_testing_reports){
+        } else if (id == R.id.self_testing_reports) {
             Intent intent = new Intent(this, SelfTestingReportsActivity.class);
             startActivity(intent);
         }
