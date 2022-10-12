@@ -7770,6 +7770,14 @@
           }
         },
         {
+          "column_name": "other_pos",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_pos"
+          }
+        },
+        {
           "column_name": "provided_male_condoms",
           "type": "Event",
           "json_mapping": {

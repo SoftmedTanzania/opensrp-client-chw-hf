@@ -303,8 +303,8 @@ public class ReportUtils {
     }
 
     public static class CDPReports {
-        public static String computeIssuingReports(Date startDate) {
-            CdpIssuingReportObject cdpIssuingReportObject = new CdpIssuingReportObject(startDate);
+        public static String computeIssuingReports(Date startDate,Context context) {
+            CdpIssuingReportObject cdpIssuingReportObject = new CdpIssuingReportObject(startDate, context);
             try {
                 return cdpIssuingReportObject.getIndicatorDataAsGson(cdpIssuingReportObject.getIndicatorData());
             } catch (JSONException e) {

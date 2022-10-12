@@ -79,7 +79,7 @@ public class HfWebAppInterface {
               switch (key) {
                 case ISSUING_REPORTS:
                     ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
-                    return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate());
+                    return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate(),mContext);
                   case RECEIVING_REPORTS:
                       Toast.makeText(mContext, "Data imefika hapa", Toast.LENGTH_SHORT).show();
                       ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
