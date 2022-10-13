@@ -333,7 +333,6 @@ public class ReportUtils {
             } catch (Exception e) {
                 Timber.e(e);
             }
-            Log.d("holla", report);
             return report;
         }
     }
