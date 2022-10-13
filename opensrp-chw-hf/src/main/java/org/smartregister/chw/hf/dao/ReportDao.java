@@ -69,33 +69,66 @@ public class ReportDao extends AbstractDao {
             return new ArrayList<>();
     }
 
-    public static List<Map<String, String>> getHfIssuingCdpStockLog(Date reportDate)
-    {
-        String sql = "SELECT female_condoms,male_condoms,point_of_service,other_pos\n" +
-                " FROM ec_cdp_issuing_hf\n" +
-                " WHERE point_of_service='CTC' OR point_of_service='RCH Clinic' OR point_of_service='OPD' OR point_of_service='RCH Clinic' " +
-                " OR point_of_service='TB Clinic' OR point_of_service='Outreach'  OR point_of_service='Other (Specify)' AND\n" +
-                " date(substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' ||\n" +
-                "                substr(strftime('%Y-%m-%d', datetime(date_updated / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') =\n" +
-                "                date((substr('2022-10-10', 1, 4) || '-' || substr('2022-10-10', 6, 2) || '-' || '01'))";
+    public static List<Map<String, String>> getHfIssuingCdpStockLog(Date reportDate) {
+
+        String query1 = " SELECT point_of_service,other_pos ,female_condoms_offset,male_condoms_offset\n" +
+                "        FROM ec_cdp_issuing_hf\n" +
+                "        WHERE point_of_service='rch_clinic' \n" +
+                " OR point_of_service='ctc' OR point_of_service='opd' OR point_of_service='other'\n" +
+                " OR point_of_service='tb_clinic' OR point_of_service='outreach'  \n" +
+                "        AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =\n" +
+                "        date(substr(condom_restock_date, 7, 4) || '-' || substr(condom_restock_date, 4, 2) || '-' || '01')";
+
+
+        String query2 =
+                "SELECT  requester,cof.condom_type as condom_type,quantity_response\n" +
+                        "                       FROM ec_cdp_order_feedback cof\n" +
+                        "      INNER JOIN ec_cdp_orders eco ON eco.form_submission_id = cof.request_reference\n" +
+                        "  INNER JOIN task t ON t.for = eco.base_entity_id\n" +
+                        "        WHERE (t.status='IN_PROGRESS'OR t.status='COMPLETED') \n" +
+                        "  AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =\n" +
+                        "      date(substr(strftime('%Y-%m-%d', datetime(response_at / 1000, 'unixepoch', 'localtime')),\n" +
+                        "                  1, 4) ||\n" +
+                        "           '-' ||\n" +
+                        "           substr(strftime('%Y-%m-%d', datetime(response_at / 1000, 'unixepoch', 'localtime')),\n" +
+                        "                  6, 2) ||\n" +
+                        "           '-' || '01')\n";
+
+
+//                        "  AND date(substr(strftime('%Y-%m-%d', datetime(response_at / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' || +\n" +
+//                        "                       substr(strftime('%Y-%m-%d', datetime(response_at / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') +\n" +
+//                        "                       date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01'))";
+
 
         String queryDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(reportDate);
 
-        sql = sql.contains("%s") ? sql.replaceAll("%s", queryDate) : sql;
+        query1 = query1.contains("%s") ? query1.replaceAll("%s", queryDate) : query1;
+        query2 = query2.contains("%s") ? query2.replaceAll("%s", queryDate) : query2;
 
-        DataMap<Map<String, String>> map = cursor -> {
-            Map<String, String> data = new HashMap<>();
-            data.put("issuing_organization", cursor.getString(cursor.getColumnIndex("issuing_organization")));
-            data.put("male_condom_brand", cursor.getString(cursor.getColumnIndex("male_condom_brand")));
-            data.put("female_condom_brand", cursor.getString(cursor.getColumnIndex("female_condom_brand")));
-
-            return data;
+        DataMap<Map<String, String>> map1 = cursor -> {
+            Map<String, String> data1 = new HashMap<>();
+            data1.put("point_of_service", cursor.getString(cursor.getColumnIndex("point_of_service")));
+            data1.put("other_point_of_service", cursor.getString(cursor.getColumnIndex("other_pos")));
+            data1.put("female_condoms_offset", cursor.getString(cursor.getColumnIndex("female_condoms_offset")));
+            data1.put("male_condoms_offset", cursor.getString(cursor.getColumnIndex("male_condoms_offset")));
+            return data1;
         };
 
-        List<Map<String, String>> res = readData(sql, map);
+        DataMap<Map<String, String>> map2= cursor2 -> {
+            Map<String, String> data2 = new HashMap<>();
+            data2.put("requester", cursor2.getString(cursor2.getColumnIndex("requester")));
+            data2.put("quantity_response", cursor2.getString(cursor2.getColumnIndex("quantity_response")));
+            data2.put("condom_type", cursor2.getString(cursor2.getColumnIndex("condom_type")));
+            return data2;
+        };
 
+        List<Map<String, String>> res1 = readData(query1, map1);
+        List<Map<String, String>> res2 = readData(query2, map2);
+        List<Map<String, String>> res = new ArrayList<>();
+        res.addAll(res1);
+        res.addAll(res2);
 
-        if (res != null && res.size() > 0) {
+        if (res.size() > 0) {
             return res;
         } else
             return new ArrayList<>();

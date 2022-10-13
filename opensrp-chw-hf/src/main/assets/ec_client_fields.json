@@ -7773,22 +7773,21 @@
           "column_name": "other_pos",
           "type": "Event",
           "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "other_pos"
+            "field": "other_pos"
           }
         },
         {
-          "column_name": "provided_male_condoms",
+          "column_name": "male_condoms_offset",
           "type": "Event",
           "json_mapping": {
-            "field": "provided_male_condoms"
+            "field": "male_condoms_offset"
           }
         },
         {
-          "column_name": "provided_female_condoms",
+          "column_name": "female_condoms_offset",
           "type": "Event",
           "json_mapping": {
-            "field": "provided_female_condoms"
+            "field": "female_condoms_offset"
           }
         }
       ]
