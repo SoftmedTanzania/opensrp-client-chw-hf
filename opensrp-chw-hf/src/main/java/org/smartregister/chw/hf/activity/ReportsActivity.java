@@ -30,6 +30,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
     protected ConstraintLayout motherChampionReportsLayout;
     protected ConstraintLayout selfTestingReports;
     protected ConstraintLayout condomDistributionReports;
+    protected ConstraintLayout kvpReports;
 
     @Override
     protected void onCreation() {
@@ -49,6 +50,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         motherChampionReportsLayout = findViewById(R.id.mother_champion_reports);
         selfTestingReports = findViewById(R.id.self_testing_reports);
         condomDistributionReports = findViewById(R.id.cdp_reports);
+        kvpReports = findViewById(R.id.kvp_reports);
 
         if (HealthFacilityApplication.getApplicationFlavor().hasLD())
             ldReportsLayout.setVisibility(View.VISIBLE);
@@ -66,6 +68,7 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         motherChampionReportsLayout.setOnClickListener(this);
         selfTestingReports.setOnClickListener(this);
         condomDistributionReports.setOnClickListener(this);
+        kvpReports.setOnClickListener(this);
     }
 
     public void setUpToolbar() {
@@ -122,6 +125,10 @@ public class ReportsActivity extends SecuredActivity implements View.OnClickList
         }
         else if (id==R.id.cdp_reports){
             Intent intent = new Intent(this, CdpReportsActivity.class);
+            startActivity(intent);
+        }
+        else if (id==R.id.kvp_reports){
+            Intent intent = new Intent(this, KvpReportsActivity.class);
             startActivity(intent);
         }
     }

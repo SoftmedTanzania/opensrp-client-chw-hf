@@ -7670,6 +7670,13 @@
           }
         },
         {
+          "column_name": "other_issuing_organization",
+          "type": "Event",
+          "json_mapping": {
+            "field": "other_issuing_organization"
+          }
+        },
+        {
           "column_name": "male_condom_brand",
           "type": "Event",
           "json_mapping": {
@@ -7683,14 +7690,6 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "female_condom_brand"
-          }
-        },
-        {
-          "column_name": "other_issuing_organization",
-          "type": "Event",
-          "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "other_issuing_organization"
           }
         },
         {

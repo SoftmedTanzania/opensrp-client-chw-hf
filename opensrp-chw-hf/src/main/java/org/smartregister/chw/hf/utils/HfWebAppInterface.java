@@ -71,9 +71,12 @@ public class HfWebAppInterface {
             return ReportUtils.MotherChampionReports.computeMotherChampionReport(ReportUtils.getReportDate());
         }
         if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.SELF_TESTING_REPORT)){
-            Toast.makeText(mContext, "self testing is working fine", Toast.LENGTH_SHORT).show();
             ReportUtils.setPrintJobName("self_testing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
             return ReportUtils.SelfTestingReport.computeReport(ReportUtils.getReportDate());
+        }
+        if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.KVP_REPORT)){
+            ReportUtils.setPrintJobName("kvp_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
+            return ReportUtils.KvpReport.computeReport(ReportUtils.getReportDate());
         }
         if (reportType.equalsIgnoreCase(Constants.ReportConstants.ReportTypes.CONDOM_DISTRIBUTION_REPORT)){
               switch (key) {
