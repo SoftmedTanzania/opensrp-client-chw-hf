@@ -43,6 +43,13 @@ public class SelfTestingMonthlyReportObject extends ReportObject {
                 }
             }
         }
+        jsonObject.put("hivst-4-a", ReportDao.getReportPerIndicatorCode("hivst-4-a", reportDate));
+        jsonObject.put("hivst-5-a", ReportDao.getReportPerIndicatorCode("hivst-5-a", reportDate));
+        jsonObject.put("hivst-6-a", ReportDao.getReportPerIndicatorCode("hivst-6-a", reportDate));
+        jsonObject.put("hivst-4-b", ReportDao.getReportPerIndicatorCode("hivst-4-b", reportDate));
+        jsonObject.put("hivst-5-b", ReportDao.getReportPerIndicatorCode("hivst-5-b", reportDate));
+        jsonObject.put("hivst-6-b", ReportDao.getReportPerIndicatorCode("hivst-6-b", reportDate));
+
         // get total of all Male & Female in Qn 2 & 7
         //and the whole total for both of them
         funcGetTotal();
