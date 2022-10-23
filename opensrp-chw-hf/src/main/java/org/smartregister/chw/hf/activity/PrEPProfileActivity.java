@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import org.smartregister.chw.core.activity.CoreKvpProfileActivity;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.kvp.KvpLibrary;
+import org.smartregister.chw.kvp.domain.Visit;
 import org.smartregister.chw.kvp.util.Constants;
-import org.smartregister.chw.pmtct.PmtctLibrary;
-import org.smartregister.chw.pmtct.domain.Visit;
 
 public class PrEPProfileActivity extends CoreKvpProfileActivity {
 

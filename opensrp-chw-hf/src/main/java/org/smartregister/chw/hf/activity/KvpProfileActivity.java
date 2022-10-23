@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import org.smartregister.chw.core.activity.CoreKvpProfileActivity;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.kvp.KvpLibrary;
+import org.smartregister.chw.kvp.domain.Visit;
 import org.smartregister.chw.kvp.util.Constants;
-import org.smartregister.chw.pmtct.PmtctLibrary;
-import org.smartregister.chw.pmtct.domain.Visit;
 
 public class KvpProfileActivity extends CoreKvpProfileActivity {
 
@@ -39,7 +39,7 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
         Visit kvpOtherServicesVisit = getVisit(org.smartregister.chw.kvp.util.Constants.EVENT_TYPE.KVP_OTHER_SERVICE_VISIT);
 
 
-        if (kvpBehavioralServices != null || kvpBioMedicalServices != null ||  kvpOtherServicesVisit != null || kvpStructuralServices != null) {
+        if (kvpBehavioralServices != null || kvpBioMedicalServices != null || kvpOtherServicesVisit != null || kvpStructuralServices != null) {
             rlLastVisit.setVisibility(View.VISIBLE);
             findViewById(R.id.view_notification_and_referral_row).setVisibility(View.VISIBLE);
             ((TextView) findViewById(R.id.vViewHistory)).setText(R.string.visits_history);
