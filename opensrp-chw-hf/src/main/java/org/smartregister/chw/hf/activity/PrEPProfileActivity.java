@@ -55,6 +55,6 @@ public class PrEPProfileActivity extends CoreKvpProfileActivity {
     }
 
     private Visit getVisit(String eventType) {
-        return PmtctLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), eventType);
+        return KvpLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), eventType);
     }
 }
