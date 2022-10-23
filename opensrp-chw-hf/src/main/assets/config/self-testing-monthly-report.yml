@@ -6484,12 +6484,13 @@ indicators:
   - key: "hivst-5-b"
     description: "B- Jumla ya vitendanishi vya kujipima VVU vilivyosambazwa (Binafsi, Washrika wa Ngono, Rafiki rika)"
     indicatorQuery: " SELECT count(id) as count FROM ec_hivst_results
-                      WHERE date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
+                      WHERE kit_for IS NOT NULL
+                      AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
                       date(substr(result_date, 7, 4) || '-' || substr(result_date, 4, 2) || '-' || '01')"
   - key: "hivst-6-b"
     description: "B- Jumla ya wateja (Washrika wa ngono, Rafiki rika) waliotumia vitendanishi vya kujipima VVU na kurudisha majibu"
     indicatorQuery: "SELECT count(id) as count FROM ec_hivst_results
-                  WHERE (kit_for!='client')
+                  WHERE kit_for!='client'
                   AND (hivst_result !='not_returned')
                   AND date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01')) =
                   date(substr(result_date, 7, 4) || '-' || substr(result_date, 4, 2) || '-' || '01')"

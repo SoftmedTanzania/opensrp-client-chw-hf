@@ -7963,19 +7963,19 @@
           }
         },
         {
-          "column_name": "provided_male_condoms",
+          "column_name": "number_of_male_condoms_issued",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "provided_male_condoms"
+            "concept": "number_of_male_condoms_issued"
           }
         },
         {
-          "column_name": "provided_female_condoms",
+          "column_name": "number_of_female_condoms_issued",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "provided_female_condoms"
+            "concept": "number_of_female_condoms_issued"
           }
         },
         {
