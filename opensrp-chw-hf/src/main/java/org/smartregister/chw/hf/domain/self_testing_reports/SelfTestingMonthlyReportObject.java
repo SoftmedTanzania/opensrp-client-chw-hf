@@ -18,7 +18,7 @@ public class SelfTestingMonthlyReportObject extends ReportObject {
             "9","9-i","9-ii","9-iii","9-iv","9-v","9-vi"
     };
     private final String[] ageGroups = new String[]{
-            "15-19","20-24","25-29","30-34","35-39","40-44","45-49",">50"
+            "18-19","20-24","25-29","30-34","35-39","40-44","45-49",">50"
     };
     private final String[] genderGroups = new String[]{
             "ME","KE"
