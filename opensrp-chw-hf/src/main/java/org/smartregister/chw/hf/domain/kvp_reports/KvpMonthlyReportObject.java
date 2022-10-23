@@ -62,11 +62,21 @@ public class KvpMonthlyReportObject extends ReportObject {
 
 
     private void funcGetTotal() throws JSONException {
-        for (String question: kvpQuestionsGroups) {   //rows
-            int totalOfBothMaleAndFemale = getTotalPerEachIndicator("kvp"+"-"+question,question,"ME")
-                            + getTotalPerEachIndicator("kvp"+"-"+question,question,"KE");
-            jsonObject.put("kvp"+"-"+question+"-jumla-both-ME",totalOfBothMaleAndFemale);
-            jsonObject.put("kvp"+"-"+question+"-jumla-both-KE",totalOfBothMaleAndFemale);
+        int flag=0;
+        for (String question: kvpQuestionsGroups) {
+            flag = flag +1;
+            for (String ageGroup : kvpAgeGroups) {  //columns
+                for (String kvpGroup : kvpGroups) {
+                    for (String genderGroup : kvpGenderGroups) {
+                        if (flag == kvpQuestionsGroups.length){
+                            int totalOfBothMaleAndFemale = getTotalPerEachIndicator("kvp"+"-"+question,question,"ME")
+                                    + getTotalPerEachIndicator("kvp"+"-"+question,question,"KE");
+                            jsonObject.put("kvp"+"-"+question+"-jumla-both-ME",totalOfBothMaleAndFemale);
+                        }
+                    }
+                }
+            }
+
         }
     }
 
