@@ -84,7 +84,6 @@ public class HfWebAppInterface {
                     ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
                     return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate(),mContext);
                   case RECEIVING_REPORTS:
-                      Toast.makeText(mContext, "Data imefika hapa", Toast.LENGTH_SHORT).show();
                       ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
                       return ReportUtils.CBHSReport.computeReport(ReportUtils.getReportDate(), mContext);
 //                    ReportUtils.setPrintJobName("CDP_receiving_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");

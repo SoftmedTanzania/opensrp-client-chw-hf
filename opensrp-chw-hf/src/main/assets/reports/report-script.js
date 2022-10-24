@@ -31,10 +31,6 @@ function loadData(reportKey, reportType) {
           tableBody.appendChild(row);
       });
     }
-    console.log("1. "+reportKey);
-    console.log("2. "+Android.getDataPeriod(reportKey));
-    console.log("3. "+data);
-    console.log("4. "+reportData);
   reportPeriod.innerHTML = Android.getDataPeriod(reportKey);
   reportingFacility.innerHTML = Android.getReportingFacility();
 }
