@@ -9,9 +9,6 @@ import org.json.JSONObject;
 import org.smartregister.chw.hf.dao.ReportDao;
 import org.smartregister.chw.hf.domain.ReportObject;
 
-
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
