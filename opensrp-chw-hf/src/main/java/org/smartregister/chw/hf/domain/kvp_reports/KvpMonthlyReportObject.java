@@ -51,32 +51,29 @@ public class KvpMonthlyReportObject extends ReportObject {
         return jsonObject;
     }
 
-    private int getTotalPerEachIndicator(String total_indicatorCode, String question, String gender) throws JSONException {
-        int totalOfGenderGiven = 0;
-        for (String agegroup: kvpAgeGroups){
-                totalOfGenderGiven += ReportDao.getReportPerIndicatorCode(total_indicatorCode+"-"+agegroup+"-"+gender, reportDate);
-            jsonObject.put("kvp"+"-"+question+"-jumla-"+gender,totalOfGenderGiven);  //display the total for specified gender
+    private int getTotalPerEachIndicator(String question,String kvpgroup) throws JSONException {
+        int  totalOfGenderGiven = 0;
+        int returnedValue = 0;
+        for (String age: kvpAgeGroups){
+                totalOfGenderGiven += (ReportDao.getReportPerIndicatorCode("kvp" + "-"
+                        + question + "-" + age + "-" + kvpgroup + "-" + "ME", reportDate)
+                +ReportDao.getReportPerIndicatorCode("kvp" + "-"
+                        + question + "-" + age + "-" + kvpgroup + "-" + "KE", reportDate));
+            jsonObject.put("kvp"+"-"+question+"-"+kvpgroup+"-jumla-both-ME-KE",totalOfGenderGiven);  //display the total for both gender
+            returnedValue = totalOfGenderGiven;
         }
-        return totalOfGenderGiven;
+        return returnedValue;
     }
 
 
     private void funcGetTotal() throws JSONException {
-        int flag=0;
+        int totalofthewholekvpgroup = 0;
         for (String question: kvpQuestionsGroups) {
-            flag = flag +1;
-            for (String ageGroup : kvpAgeGroups) {  //columns
                 for (String kvpGroup : kvpGroups) {
-                    for (String genderGroup : kvpGenderGroups) {
-                        if (flag == kvpQuestionsGroups.length){
-                            int totalOfBothMaleAndFemale = getTotalPerEachIndicator("kvp"+"-"+question,question,"ME")
-                                    + getTotalPerEachIndicator("kvp"+"-"+question,question,"KE");
-                            jsonObject.put("kvp"+"-"+question+"-jumla-both-ME",totalOfBothMaleAndFemale);
-                        }
-                    }
+                    totalofthewholekvpgroup+=getTotalPerEachIndicator(question,kvpGroup);
+                    jsonObject.put("kvp"+"-"+question+"-"+kvpGroup+"-jumla-kuu",totalofthewholekvpgroup); //total for all kvp groups
                 }
-            }
-
+            totalofthewholekvpgroup = 0;
         }
     }
 
