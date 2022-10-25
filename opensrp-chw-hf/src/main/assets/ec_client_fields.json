@@ -7738,70 +7738,80 @@
           "column_name": "male_condoms",
           "type": "Event",
           "json_mapping": {
-            "field": "male_condoms"
+            "field": "obs.fieldCode",
+            "concept": "male_condoms"
           }
         },
         {
           "column_name": "female_condoms",
           "type": "Event",
           "json_mapping": {
-            "field": "female_condoms"
+            "field": "obs.fieldCode",
+            "concept": "female_condoms"
           }
         },
         {
           "column_name": "condom_restock_date",
           "type": "Event",
           "json_mapping": {
-            "field": "condom_restock_date"
+            "field": "obs.fieldCode",
+            "concept": "condom_restock_date"
           }
         },
         {
           "column_name": "condom_type",
           "type": "Event",
           "json_mapping": {
-            "field": "condom_type"
+            "field": "obs.fieldCode",
+            "concept": "condom_type"
           }
         },
         {
           "column_name": "condom_brand",
           "type": "Event",
           "json_mapping": {
-            "field": "condom_brand"
+            "field": "obs.fieldCode",
+            "concept": "condom_brand"
           }
         },
         {
           "column_name": "other_condom_brand",
           "type": "Event",
           "json_mapping": {
-            "field": "other_condom_brand"
+            "field": "obs.fieldCode",
+            "concept": "other_condom_brand"
           }
         },
         {
           "column_name": "point_of_service",
           "type": "Event",
           "json_mapping": {
-            "field": "point_of_service"
+            "field": "obs.fieldCode",
+            "concept": "point_of_service"
           }
         },
         {
           "column_name": "other_pos",
           "type": "Event",
           "json_mapping": {
-            "field": "other_pos"
+            "field": "obs.fieldCode",
+            "concept": "other_pos"
           }
         },
         {
           "column_name": "male_condoms_offset",
           "type": "Event",
           "json_mapping": {
-            "field": "male_condoms_offset"
+            "field": "obs.fieldCode",
+            "concept": "male_condoms_offset"
           }
         },
         {
           "column_name": "female_condoms_offset",
           "type": "Event",
           "json_mapping": {
-            "field": "female_condoms_offset"
+            "field": "obs.fieldCode",
+            "concept": "female_condoms_offset"
           }
         }
       ]
