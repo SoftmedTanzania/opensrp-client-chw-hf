@@ -1,8 +1,6 @@
 package org.smartregister.chw.hf.domain.cdp_reports;
 
 import android.content.Context;
-import android.util.Log;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,9 +33,6 @@ public class CdpIssuingReportObject extends ReportObject {
             JSONObject reportJsonObject = new JSONObject();
             reportJsonObject.put("id", ++i);
 
-//            Log.d("humuuuuuu",""+getHfCdpStockLog);
-
-            // ===> within
             if (getCdpClientDetails(getHfCdpStockLog, "point_of_service").equals("other")){
                 reportJsonObject.put("point-of-service", getCdpClientDetails(getHfCdpStockLog, "other_point_of_service"));
                 reportJsonObject.put("male-condoms-offset", getCdpClientDetails(getHfCdpStockLog, "male_condoms_offset"));

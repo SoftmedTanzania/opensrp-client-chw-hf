@@ -10,9 +10,7 @@ import static org.smartregister.util.Utils.getAllSharedPreferences;
 
 import android.content.Context;
 import android.webkit.JavascriptInterface;
-import android.widget.Toast;
 
-import org.smartregister.util.Log;
 
 public class HfWebAppInterface {
     private static final String DEFAULT_LOCALITY_NAME = "dfltLocName";
