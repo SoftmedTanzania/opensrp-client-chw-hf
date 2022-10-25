@@ -7685,11 +7685,27 @@
           }
         },
         {
+          "column_name": "other_male_condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_male_condom_brand"
+          }
+        },
+        {
           "column_name": "female_condom_brand",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "female_condom_brand"
+          }
+        },
+        {
+          "column_name": "other_female_condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_female_condom_brand"
           }
         },
         {
