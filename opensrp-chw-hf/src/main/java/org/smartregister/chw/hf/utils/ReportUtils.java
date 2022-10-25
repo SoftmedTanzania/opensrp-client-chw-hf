@@ -316,8 +316,8 @@ public class ReportUtils {
     }
 
     public static class CDPReports {
-        public static String computeIssuingReports(Date startDate,Context context) {
-            CdpIssuingReportObject cdpIssuingReportObject = new CdpIssuingReportObject(startDate, context);
+        public static String computeIssuingReports(Date startDate) {
+            CdpIssuingReportObject cdpIssuingReportObject = new CdpIssuingReportObject(startDate);
             try {
                 return cdpIssuingReportObject.getIndicatorDataAsGson(cdpIssuingReportObject.getIndicatorData());
             } catch (JSONException e) {
@@ -338,9 +338,9 @@ public class ReportUtils {
     }
 
     public static class CBHSReport {
-        public static String computeReport(Date now, Context context) {
+        public static String computeReport(Date now) {
             String report = "";
-            CdpReceivingReportObject cdpReceivingReportObject = new CdpReceivingReportObject(now, context);
+            CdpReceivingReportObject cdpReceivingReportObject = new CdpReceivingReportObject(now);
             try {
                 report = cdpReceivingReportObject.getIndicatorDataAsGson(cdpReceivingReportObject.getIndicatorData());
             } catch (Exception e) {

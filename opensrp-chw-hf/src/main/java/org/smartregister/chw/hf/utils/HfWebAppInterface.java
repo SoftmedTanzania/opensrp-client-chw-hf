@@ -80,10 +80,10 @@ public class HfWebAppInterface {
               switch (key) {
                 case ISSUING_REPORTS:
                     ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
-                    return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate(),mContext);
+                    return ReportUtils.CDPReports.computeIssuingReports(ReportUtils.getReportDate());
                   case RECEIVING_REPORTS:
                       ReportUtils.setPrintJobName("CDP_issuing_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
-                      return ReportUtils.CBHSReport.computeReport(ReportUtils.getReportDate(), mContext);
+                      return ReportUtils.CBHSReport.computeReport(ReportUtils.getReportDate());
 //                    ReportUtils.setPrintJobName("CDP_receiving_report_ya_mwezi-" + ReportUtils.getReportPeriod() + ".pdf");
 //                    return ReportUtils.CDPReports.computeReceivingReports(ReportUtils.getReportDate(),mContext);
 

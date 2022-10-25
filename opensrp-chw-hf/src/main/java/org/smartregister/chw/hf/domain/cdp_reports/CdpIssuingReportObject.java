@@ -13,13 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 public class CdpIssuingReportObject extends ReportObject {
-    private final Context context;
     private Date reportDate;
 
-    public CdpIssuingReportObject(Date reportDate, Context context) {
+    public CdpIssuingReportObject(Date reportDate) {
         super(reportDate);
         this.reportDate = reportDate;
-        this.context = context;
     }
 
 

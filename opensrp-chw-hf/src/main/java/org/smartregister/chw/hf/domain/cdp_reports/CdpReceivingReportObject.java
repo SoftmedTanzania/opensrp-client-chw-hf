@@ -15,13 +15,11 @@ import java.util.Map;
 
 public class CdpReceivingReportObject extends ReportObject {
 
-    private final Context context;
     private Date reportDate;
 
-    public CdpReceivingReportObject(Date reportDate, Context context) {
+    public CdpReceivingReportObject(Date reportDate) {
         super(reportDate);
         this.reportDate = reportDate;
-        this.context = context;
     }
 
 
