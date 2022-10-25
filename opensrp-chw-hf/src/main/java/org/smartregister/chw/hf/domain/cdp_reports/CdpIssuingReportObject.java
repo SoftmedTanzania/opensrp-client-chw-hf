@@ -1,6 +1,5 @@
 package org.smartregister.chw.hf.domain.cdp_reports;
 
-import android.content.Context;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,13 +19,14 @@ public class CdpIssuingReportObject extends ReportObject {
         this.reportDate = reportDate;
     }
 
-
     @Override
     public JSONObject getIndicatorData() throws JSONException {
         JSONArray dataArray = new JSONArray();
         List<Map<String, String>> getHfCdpStockissuingLogList = ReportDao.getHfIssuingCdpStockLog(reportDate);
 
-        int i = 0,flag_count_female=0,flag_count_male=0;
+        int i = 0;
+        int flag_count_female=0;
+        int flag_count_male=0;
         for (Map<String, String> getHfCdpStockLog : getHfCdpStockissuingLogList) {
             JSONObject reportJsonObject = new JSONObject();
             reportJsonObject.put("id", ++i);

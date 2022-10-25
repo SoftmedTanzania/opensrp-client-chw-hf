@@ -1,7 +1,5 @@
 package org.smartregister.chw.hf.domain.cdp_reports;
 
-import android.content.Context;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
