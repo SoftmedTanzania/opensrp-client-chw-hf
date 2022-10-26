@@ -513,6 +513,7 @@ public class Constants extends CoreConstants {
             public static final String LD_GENERAL_EXAMINATION = "labour_and_delivery_general_examination";
             public static final String LD_VAGINAL_EXAMINATION = "labour_and_delivery_vaginal_examination";
             public static final String LD_HIV_TEST = "labour_and_delivery_hiv_test";
+            public static final String LD_BLOOD_GROUP_TEST = "labour_and_delivery_blood_group_test";
             public static final String LD_HB_TEST_FORM = "labour_and_delivery_hb_test_form";
             public static final String LD_SYPHILIS_TEST_FORM = "labour_and_delivery_syphilis_test";
             public static final String LD_MALARIA_TEST_FORM = "labour_and_delivery_malaria_test";
@@ -527,6 +528,10 @@ public class Constants extends CoreConstants {
 
             public static String getLdHivTest() {
                 return Utils.getLocalForm(LD_HIV_TEST);
+            }
+
+            public static String getLdBloodGroupTest() {
+                return Utils.getLocalForm(LD_BLOOD_GROUP_TEST);
             }
 
             public static String getLdHBTestForm() {

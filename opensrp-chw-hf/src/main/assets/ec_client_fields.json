@@ -5534,6 +5534,22 @@
           }
         },
         {
+          "column_name": "blood_group",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "blood_group"
+          }
+        },
+        {
+          "column_name": "rh_factor",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "rh_factor"
+          }
+        },
+        {
           "column_name": "last_interacted_with",
           "type": "Event",
           "json_mapping": {
