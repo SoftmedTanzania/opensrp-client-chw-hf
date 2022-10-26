@@ -95,11 +95,6 @@ public class ReportDao extends AbstractDao {
                         "           '-' || '01')\n";
 
 
-//                        "  AND date(substr(strftime('%Y-%m-%d', datetime(response_at / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' || +\n" +
-//                        "                       substr(strftime('%Y-%m-%d', datetime(response_at / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') +\n" +
-//                        "                       date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01'))";
-
-
         String queryDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(reportDate);
 
         query1 = query1.contains("%s") ? query1.replaceAll("%s", queryDate) : query1;
