@@ -64,6 +64,12 @@
             "text": "Negative",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "screening_not_conducted",
+            "text": "Screening Not Conducted",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screening_not_conducted"
           }
         ],
         "v_required": {
