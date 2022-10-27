@@ -65,7 +65,9 @@ public class KvpBioMedicalServiceInteractor extends BaseKvpVisitInteractor {
                 } else {
                     evaluateCervicalScreening(details);
                 }
-                evaluateMat(details);
+                if (KvpDao.getDominantKVPGroup(memberObject.getBaseEntityId()).equalsIgnoreCase("pwud") ||
+                        KvpDao.getDominantKVPGroup(memberObject.getBaseEntityId()).equalsIgnoreCase("pwid"))
+                    evaluateMat(details);
             } catch (Exception e) {
                 Timber.e(e);
             }
@@ -190,14 +192,14 @@ public class KvpBioMedicalServiceInteractor extends BaseKvpVisitInteractor {
     private void evaluateHepatitis(Map<String, List<VisitDetail>> details) throws BaseKvpVisitAction.ValidationException {
 
         KvpHepatitisActionHelper actionHelper = new KvpHepatitisActionHelper();
-        BaseKvpVisitAction action = getBuilder(context.getString(R.string.kvp_heptitis_screening))
+        BaseKvpVisitAction action = getBuilder(context.getString(R.string.kvp_heptitis_test))
                 .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withFormName(Constants.KVP_BIO_MEDICAL_SERVICE_FORMS.KVP_HEPATITIS)
                 .build();
 
-        actionList.put(context.getString(R.string.kvp_heptitis_screening), action);
+        actionList.put(context.getString(R.string.kvp_heptitis_test), action);
     }
 
     private void evaluateVmmc(Map<String, List<VisitDetail>> details) throws BaseKvpVisitAction.ValidationException {
