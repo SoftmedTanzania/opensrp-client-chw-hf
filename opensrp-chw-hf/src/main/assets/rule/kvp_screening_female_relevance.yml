@@ -30,7 +30,7 @@ actions:
 name: step6_client_in_school
 description: client_in_school relevance
 priority: 1
-condition: "(global_age >= 10 && global_age <= 24)"
+condition: "(step5_is_fsw.equals('no') && global_age >= 10 && global_age <= 24)"
 actions:
   - "isRelevant = true"
 ---
