@@ -18,7 +18,7 @@ description: check if client falls in sdc
 priority: 1
 condition: "true"
 actions:
-  - "calculation = (step4_hiv_status.equals('negative') && step4_hiv_positive_partner.equals('yes')) ? 'yes' : 'no' "
+  - "calculation = (step4_hiv_status_on_screening.equals('negative') && step4_hiv_positive_partner.equals('yes')) ? 'yes' : 'no' "
 ---
 name: step5_is_fsw
 description: check if client falls in msm
