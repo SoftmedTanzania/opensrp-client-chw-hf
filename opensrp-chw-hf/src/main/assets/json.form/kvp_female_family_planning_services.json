@@ -90,10 +90,10 @@
             "openmrs_entity_id": "traditional"
           },
           {
-            "key": "tl_vasectomy",
-            "text": "TL/Vasectomy",
+            "key": "tube_ligation",
+            "text": "Tube Ligation",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tl_vasectomy"
+            "openmrs_entity_id": "tube_ligation"
           },
           {
             "key": "referral",

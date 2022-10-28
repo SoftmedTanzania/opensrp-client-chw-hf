@@ -78,6 +78,21 @@
         }
       },
       {
+        "key": "prompt_for_further_management",
+        "type": "toaster_notes",
+        "text": "Refer for Further Management",
+        "openmrs_entity_id": "prompt_for_further_management",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:sti_screening": {
+            "type": "string",
+            "ex": "equalTo(., \"positive\")"
+          }
+        }
+      },
+      {
         "key": "treatment_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
