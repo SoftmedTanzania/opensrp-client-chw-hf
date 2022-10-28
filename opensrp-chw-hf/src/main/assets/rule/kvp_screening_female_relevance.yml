@@ -6,8 +6,15 @@ condition: "step1_drug_use.equals('yes')"
 actions:
   - "isRelevant = true"
 ---
+name: step3_risk_of_having_sexual_intercourse
+description: risk_of_having_sexual_intercourse relevance
+priority: 1
+condition: "step3_sexual_intercourse.equals('no') && (global_age >= 10 && global_age <= 24)"
+actions:
+  - "isRelevant = true"
+---
 name: step4_hiv_status_on_screening
-description: hiv_status relevance
+description: hiv_status_on_screening relevance
 priority: 1
 condition: "step3_sexual_intercourse.equals('yes')"
 actions:
@@ -98,7 +105,7 @@ actions:
   - "isRelevant = true"
 ---
 name: step9_client_group
-description: prompt_no_group
+description: client_group
 priority: 1
 condition: "step8_should_enroll.equals('yes')"
 actions:
