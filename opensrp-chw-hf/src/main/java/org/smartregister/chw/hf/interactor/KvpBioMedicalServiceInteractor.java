@@ -90,6 +90,8 @@ public class KvpBioMedicalServiceInteractor extends BaseKvpVisitInteractor {
         JSONObject client_status_object = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "client_status");
         if (StringUtils.isNotBlank(HfKvpDao.getClientStatus(memberObject.getBaseEntityId()))) {
             KvpJsonFormUtils.removeOptionFromCheckboxListWithKey(client_status_object, "new_client");
+        } else {
+            KvpJsonFormUtils.removeOptionFromCheckboxListWithKey(client_status_object, "return");
         }
 
         //update other_kvp_category
