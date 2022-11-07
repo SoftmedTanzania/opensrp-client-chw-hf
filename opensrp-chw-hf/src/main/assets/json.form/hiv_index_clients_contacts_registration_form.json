@@ -326,6 +326,10 @@
         "v_max": {
           "value": "120",
           "err": "Age must be equal or less than 120"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the age"
         }
       },
       {
