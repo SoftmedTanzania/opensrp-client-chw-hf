@@ -8194,11 +8194,43 @@
           }
         },
         {
-          "column_name": "prep_enrollment_date",
+          "column_name": "prep_initiation_date",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "prep_enrollment_date"
+            "concept": "prep_initiation_date"
+          }
+        },
+        {
+          "column_name": "hbv_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hbv_test_date"
+          }
+        },
+        {
+          "column_name": "hcv_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hcv_test_date"
+          }
+        },
+        {
+          "column_name": "crcl_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "crcl_test_date"
+          }
+        },
+        {
+          "column_name": "crcl_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "crcl_results"
           }
         },
         {
