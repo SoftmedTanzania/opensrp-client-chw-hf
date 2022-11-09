@@ -43,7 +43,7 @@
   },
   "global": {},
   "step1": {
-    "title": "Record Order",
+    "title": "Request Condoms",
     "fields": [
       {
         "key": "condom_type",

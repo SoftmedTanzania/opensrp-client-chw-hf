@@ -20,7 +20,7 @@ public class RequestOrdersRegisterFragment extends CoreOrdersRegisterFragment {
 
     @Override
     protected int getFragmentTitle() {
-        return R.string.menu_cdp;
+        return R.string.menu_issue_condoms;
     }
 
     @Override

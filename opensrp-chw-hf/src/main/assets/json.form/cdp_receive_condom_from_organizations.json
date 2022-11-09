@@ -43,7 +43,7 @@
   },
   "global": {},
   "step1": {
-    "title": "Receive Condom from MSD and Other Organizations",
+    "title": "Receive Condom from Organizations",
     "fields": [
       {
         "key": "condom_receive_date",
