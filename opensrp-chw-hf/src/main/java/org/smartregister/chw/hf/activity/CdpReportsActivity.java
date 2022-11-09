@@ -11,7 +11,6 @@ import android.os.Build;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.whiteelephant.monthpicker.MonthPickerDialog;
@@ -105,7 +104,6 @@ public class CdpReportsActivity extends SecuredActivity implements View.OnClickL
                 CdpReportsViewActivity.startMe(this, Constants.ReportConstants.ReportPaths.CONDOM_DISTRIBUTION_RECEIVING_REPORT_PATH, R.string.cdp_receiving_report, reportPeriod);
                 break;
             default:
-                Toast.makeText(this, "Action Not Defined", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

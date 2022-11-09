@@ -1,8 +1,5 @@
 package org.smartregister.chw.hf.domain.cdp_reports;
 
-import android.content.Context;
-import android.util.Log;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,29 +12,25 @@ import java.util.List;
 import java.util.Map;
 
 public class CdpIssuingReportObject extends ReportObject {
-    private final Context context;
     private Date reportDate;
 
-    public CdpIssuingReportObject(Date reportDate, Context context) {
+    public CdpIssuingReportObject(Date reportDate) {
         super(reportDate);
         this.reportDate = reportDate;
-        this.context = context;
     }
-
 
     @Override
     public JSONObject getIndicatorData() throws JSONException {
         JSONArray dataArray = new JSONArray();
         List<Map<String, String>> getHfCdpStockissuingLogList = ReportDao.getHfIssuingCdpStockLog(reportDate);
 
-        int i = 0,flag_count_female=0,flag_count_male=0;
+        int i = 0;
+        int flag_count_female=0;
+        int flag_count_male=0;
         for (Map<String, String> getHfCdpStockLog : getHfCdpStockissuingLogList) {
             JSONObject reportJsonObject = new JSONObject();
             reportJsonObject.put("id", ++i);
 
-//            Log.d("humuuuuuu",""+getHfCdpStockLog);
-
-            // ===> within
             if (getCdpClientDetails(getHfCdpStockLog, "point_of_service").equals("other")){
                 reportJsonObject.put("point-of-service", getCdpClientDetails(getHfCdpStockLog, "other_point_of_service"));
                 reportJsonObject.put("male-condoms-offset", getCdpClientDetails(getHfCdpStockLog, "male_condoms_offset"));

@@ -7673,8 +7673,7 @@
           "column_name": "other_issuing_organization",
           "type": "Event",
           "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "other_issuing_organization"
+            "field": "other_issuing_organization"
           }
         },
         {
@@ -7686,6 +7685,14 @@
           }
         },
         {
+          "column_name": "other_male_condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_male_condom_brand"
+          }
+        },
+        {
           "column_name": "female_condom_brand",
           "type": "Event",
           "json_mapping": {
@@ -7694,11 +7701,18 @@
           }
         },
         {
-          "column_name": "date_updated",
+          "column_name": "other_female_condom_brand",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "condom_restock_date"
+            "concept": "other_female_condom_brand"
+          }
+        },
+        {
+          "column_name": "date_updated",
+          "type": "Event",
+          "json_mapping": {
+            "field": "condom_restock_date"
           }
         }
       ]
@@ -8023,19 +8037,19 @@
           }
         },
         {
-          "column_name": "hep_b_screening",
+          "column_name": "hep_b_testing",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "hep_b_screening"
+            "concept": "hep_b_testing"
           }
         },
         {
-          "column_name": "hep_c_screening",
+          "column_name": "hep_c_testing",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "hep_c_screening"
+            "concept": "hep_c_testing"
           }
         },
         {
@@ -8201,6 +8215,14 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "prep_status"
+          }
+        },
+        {
+          "column_name": "prep_enrollment_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_enrollment_date"
           }
         },
         {
