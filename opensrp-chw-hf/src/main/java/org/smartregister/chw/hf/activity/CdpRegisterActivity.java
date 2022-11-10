@@ -71,7 +71,7 @@ public class CdpRegisterActivity extends CoreCdpRegisterActivity {
 
             BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
 
-            for (int i = 1; i < menuView.getChildCount(); i++) {
+            for (int i = 2; i < menuView.getChildCount(); i++) {
                 BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
 
                 TextView smallLabel = item.findViewById(R.id.smallLabel);
