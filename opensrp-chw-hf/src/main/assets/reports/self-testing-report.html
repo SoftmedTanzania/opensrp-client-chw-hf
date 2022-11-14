@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script src="./report-script.js"></script>
-
-    <style>
+<style>
 *{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+}
+.show-on-print {
+  display: none;
 }
 body{
     font-family: Helvetica;
@@ -64,25 +65,31 @@ ul li > * {
 #reporting_facility {
   font-weight: 700;
 }
+#report_period {
+  font-weight: 700;
+}
+
+@media print {
+  .show-on-print {
+    display: block;
+  }
+
+  .child-table {
+    width: 50%;
+  }
+}
 </style>
 </head>
 
 <body onload="loadData('monthly', 'anc')">
-
+<div class="show-on-print" style="font-size:12px;">
+    <h1>FOMU YA RIPOTI YA UHAMASISHAJI, UFUATILIAJI WASHIRIKA NA HUDUMA ZA JIPIME
+        VVU NGAZI YA JAMII</h1>
+    <h2>TAARIFA YA [MWEZI/MWAKA]: <span id="report_period"></span></h2>
+    <h2>KITUO: <span id="reporting_facility"></span></h2>
+</div>
 <div class="table-wrapper">
     <table class="fl-table">
-        <thead>
-        <tr>
-            <th colspan="16">
-                <div style="line-height: 0.001;">
-                    <h5>FOMU YA RIPOTI YA UHAMASISHAJI, UFUATILIAJI WASHIRIKA NA HUDUMA ZA JIPIME
-                        VVU NGAZI YA JAMII </h5>
-                        <h2>TAARIFA YA [MWEZI/MWAKA]: <span id="report_period"></span></h2>
-                        <h2>KITUO: <span id="reporting_facility"></span></h2>
-                </div>
-            </th>
-        </tr>
-        </thead>
         <thead>
         <tr>
             <th>B</th>
@@ -1837,7 +1844,26 @@ ul li > * {
         <tbody>
     </table>
 </div>
-
-
 </body>
+<script>
+    function loadData(reportKey, reportType) {
+  const data = JSON.parse(Android.getData(reportKey));
+  const keys = Object.keys(data.nameValuePairs);
+  const reportPeriod = document.getElementById("report_period");
+  const reportingFacility = document.getElementById("reporting_facility");
+  keys.forEach((key) => {
+    let element;
+    if(reportType!== null && reportType === "pnc"){
+      element = document.getElementById(key.replace("pnc-",""));
+    }else{
+      element = document.getElementById(key);
+    }
+    if (element !== null && typeof element !== "undefined") {
+      element.innerHTML = data.nameValuePairs[key];
+    }
+  });
+  reportPeriod.innerHTML = Android.getDataPeriod();
+  reportingFacility.innerHTML = Android.getReportingFacility();
+}
+</script>
 </html>
