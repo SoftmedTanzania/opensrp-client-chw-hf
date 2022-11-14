@@ -7,7 +7,7 @@
     <script src="./report-script.js"></script>
 
     <style>
-    *{
+*{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -61,8 +61,10 @@ ul li > * {
   background: #ccc;
 }
 
-
-    </style>
+#reporting_facility {
+  font-weight: 700;
+}
+</style>
 </head>
 
 <body onload="loadData('monthly', 'anc')">
@@ -75,8 +77,8 @@ ul li > * {
                 <div style="line-height: 0.001;">
                     <h5>FOMU YA RIPOTI YA UHAMASISHAJI, UFUATILIAJI WASHIRIKA NA HUDUMA ZA JIPIME
                         VVU NGAZI YA JAMII </h5>
-                    <h5>TAARIFA YA [MWEZI/MWAKA]: 09-2022 </h5>
-                    <h5>KITUONI: Kitungwa </h5>
+                        <h2>TAARIFA YA [MWEZI/MWAKA]: <span id="report_period"></span></h2>
+                        <h2>KITUO: <span id="reporting_facility"></span></h2>
                 </div>
             </th>
         </tr>
@@ -284,8 +286,8 @@ ul li > * {
             <td align="center" id="hivst-3-jumla-ME"></td>
         </tr>
         <tr>
-            <th>3 i</th>
-            <td>Wajidunga dawa za kulevyatd>
+            <th></th>
+            <td>i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-3-i-jumla-both-ME">0</td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -302,8 +304,8 @@ ul li > * {
             <td align="center" id="hivst-3-i-jumla-ME"></td>
         </tr>
         <tr>
-            <th>3 ii</th>
-            <td>Wafungwa/Mahabusu</td>
+            <th></th>
+            <td>ii) Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-3-ii-jumla-both-ME">0</td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -320,8 +322,8 @@ ul li > * {
             <td align="center" id="hivst-3-ii-jumla-ME"></td>
         </tr>
         <tr>
-            <th>3 iii</th>
-            <td>Wanawake wanaofanya biashara ya ngono</td>
+            <th></th>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-3-iii-jumla-both-ME">0</td>
             <td align="center" class="no-data" ></td>
             <td align="center" class="no-data" ></td>
@@ -338,7 +340,7 @@ ul li > * {
             <td align="center" class="no-data" ></td>
         </tr>
         <tr>
-            <th>3 iv</th>
+            <th></th>
             <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-3-iv-jumla-both-ME">0</td>
             <td align="center" class="no-data" id="hivst-3-iv-<1-ME"></td>
@@ -356,8 +358,8 @@ ul li > * {
             <td align="center" id="hivst-3-iv-jumla-ME"></td>
         </tr>
         <tr>
-            <th>3 v</th>
-            <td>Vijana rika balehe</td>
+            <th></th>
+            <td>v) Vijana rika balehe</td>
             <td align="center" id="hivst-3-v-jumla-both-ME"></td>
             <td align="center" class="no-data" ></td>
             <td align="center" class="no-data" ></td>
@@ -374,8 +376,8 @@ ul li > * {
             <td align="center" class="no-data" ></td>
         </tr>
         <tr>
-            <th>3 vi</th>
-            <td>Makundi Mengine</td>
+            <th></th>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-3-vi-jumla-both-ME">0</td>
             <td align="center" class="no-data" id="hivst-3-vi-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-3-vi-1-4-ME"></td>
@@ -606,8 +608,8 @@ ul li > * {
             <td align="center" id="hivst-8-jumla-ME"></td>
         </tr>
         <tr>
-            <th>8 i</th>
-            <td id="hivst-8-i">Wajidunga dawa za kulevya</td>
+            <th></th>
+            <td id="hivst-8-i">i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-8-i-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-8-i-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-8-i-1-4-ME"></td>
@@ -624,8 +626,8 @@ ul li > * {
             <td align="center" id="hivst-8-i-jumla-ME"></td>
         </tr>
         <tr>
-            <th>8 ii</th>
-            <td id="hivst-8-ii">Wafungwa/Mahabusu</td>
+            <th></th>
+            <td id="hivst-8-ii">ii)Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-8-ii-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-8-ii-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-8-ii-1-4-ME"></td>
@@ -644,8 +646,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>8 iii</th>
-            <td id="hivst-8-iii">Wanawake wanaofanya biashara ya ngono</td>
+            <th></th>
+            <td id="hivst-8-iii">iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-8-iii-jumla-both-ME"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -663,8 +665,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>8 iv</th>
-            <td id="hivst-8-iv">Wanaume wanaofanya ngono na wanaume wenzao</td>
+            <th></th>
+            <td id="hivst-8-iv">iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-8-iv-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-8-iv-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-8-iv-1-4-ME"></td>
@@ -681,8 +683,8 @@ ul li > * {
             <td align="center" id="hivst-8-iv-jumla-ME"></td>
         </tr>
         <tr>
-            <th>8 v</th>
-            <td>Vijana rika balehe</td>
+            <th></th>
+            <td>v) Vijana rika balehe</td>
             <td align="center" id="hivst-8-v-jumla-both-ME"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -697,11 +699,10 @@ ul li > * {
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
-            >
         </tr>
         <tr>
-            <th>8 vi</th>
-            <td>Makundi Mengine</td>
+            <th></th>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-8-vi-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-8-vi-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-8-vi-1-4-ME"></td>
@@ -716,7 +717,6 @@ ul li > * {
             <td align="center" id="hivst-8-vi-45-49-ME"></td>
             <td align="center" id="hivst-8-vi->50-ME"></td>
             <td align="center" id="hivst-8-vi-jumla-ME"></td>
-            >
         </tr>
 
         <tr>
@@ -741,8 +741,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 i</th>
-            <td>Wajidunga dawa za kulevya</td>
+            <th></th>
+            <td>i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-9-i-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-9-i-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-9-i-1-4-ME"></td>
@@ -760,8 +760,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 ii</th>
-            <td>Wafungwa/Mahabusu</td>
+            <th></th>
+            <td>ii) Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-9-ii-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-9-ii-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-9-ii-1-4-ME"></td>
@@ -779,8 +779,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 iii</th>
-            <td>Wanawake wanaofanya biashara ya ngono</td>
+            <th></th>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-9-iii-jumla-both-ME"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -798,8 +798,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 iv</th>
-            <td>Wanaume wanaofanya ngono na wanaume wenzao</td>
+            <th></th>
+            <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-9-iv-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-9-iv-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-9-iv-1-4-ME"></td>
@@ -818,8 +818,8 @@ ul li > * {
 
 
         <tr>
-            <th>9 v</th>
-            <td>Vijana rika balehe<</td>
+            <th></th>
+            <td>v) Vijana rika balehe</td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -837,8 +837,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 vi</th>
-            <td>Makundi Mengine</td>
+            <th></th>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-9-vi-jumla-both-ME"></td>
             <td align="center" class="no-data" id="hivst-9-vi-<1-ME"></td>
             <td align="center" class="no-data" id="hivst-9-vi-1-4-ME"></td>
@@ -1070,7 +1070,7 @@ ul li > * {
 
         <tr>
             <th></th>
-            <td>iii)Wanawake wanaofanya biashara ya ngono</td>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-2-iii-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1088,7 +1088,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>iv)Wanaume wanaofanya ngono na wanaume wenzao</td>
+            <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-2-iv-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1106,7 +1106,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>v)Vijana rika balehe</td>
+            <td>v) Vijana rika balehe</td>
             <td align="center" id="hivst-2-v-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1124,7 +1124,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>vi)Makundi Mengine</td>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-2-vi-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1164,8 +1164,8 @@ ul li > * {
             <td align="center" id="hivst-3-jumla-KE"></td>
         </tr>
         <tr>
-            <th>3 i</th>
-            <td>Wajidunga dawa za kulevyatd>
+            <th></th>
+            <td>i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-3-i-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1182,8 +1182,8 @@ ul li > * {
             <td align="center" id="hivst-3-i-jumla-KE"></td>
         </tr>
         <tr>
-            <th>3 ii</th>
-            <td>Wafungwa/Mahabusu</td>
+            <th></th>
+            <td>ii) Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-3-ii-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1200,8 +1200,8 @@ ul li > * {
             <td align="center" id="hivst-3-ii-jumla-KE"></td>
         </tr>
         <tr>
-            <th>3 iii</th>
-            <td>Wanawake wanaofanya biashara ya ngono</td>
+            <th></th>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-3-iii-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-3-iii-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-3-iii-1-4-KE"></td>
@@ -1218,7 +1218,7 @@ ul li > * {
             <td align="center" id="hivst-3-iii-jumla-KE"></td>
         </tr>
         <tr>
-            <th>3 iv</th>
+            <th></th>
             <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-3-iv-jumla-both-KE"></td>
             <td align="center" class="no-data" ></td>
@@ -1236,8 +1236,8 @@ ul li > * {
             <td align="center" class="no-data" ></td>
         </tr>
         <tr>
-            <th>3 v</th>
-            <td>Vijana rika balehe</td>
+            <th></th>
+            <td>v) Vijana rika balehe</td>
             <td align="center" id="hivst-3-v-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1254,8 +1254,8 @@ ul li > * {
             <td align="center" id="hivst-3-v-jumla-KE"></td>
         </tr>
         <tr>
-            <th>3 vi</th>
-            <td>Makundi Mengine</td>
+            <th></th>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-3-vi-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-3-vi-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-3-vi-1-4-KE"></td>
@@ -1356,7 +1356,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>i)Wajidunga dawa za kulevya</td>
+            <td>i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-7-i-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1374,7 +1374,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>ii)Wafungwa/Mahabusu</td>
+            <td>ii) Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-7-ii-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1393,7 +1393,7 @@ ul li > * {
 
         <tr>
             <th></th>
-            <td>iii)Wanawake wanaofanya biashara ya ngono</td>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-7-iii-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1412,7 +1412,7 @@ ul li > * {
 
         <tr>
             <th></th>
-            <td>iv)Wanaume wanaofanya ngono na wanaume wenzao</td>
+            <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-7-iv-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1430,7 +1430,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>v)Vijana rika balehe</td>
+            <td>v) Vijana rika balehe</td>
             <td align="center" id="hivst-7-v-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1448,7 +1448,7 @@ ul li > * {
         </tr>
         <tr>
             <th></th>
-            <td>vi)Makundi Mengine</td>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-7-vi-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1485,8 +1485,8 @@ ul li > * {
             <td align="center" id="hivst-8-jumla-KE"></td>
         </tr>
         <tr>
-            <th>8 i</th>
-            <td>Wajidunga dawa za kulevya</td>
+            <th></th>
+            <td>i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-8-i-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-8-i-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-8-i-1-4-KE"></td>
@@ -1503,8 +1503,8 @@ ul li > * {
             <td align="center" id="hivst-8-i-jumla-KE"></td>
         </tr>
         <tr>
-            <th>8 ii</th>
-            <td>Wafungwa/Mahabusu</td>
+            <th></th>
+            <td>ii) Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-8-ii-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-8-ii-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-8-ii-1-4-KE"></td>
@@ -1519,12 +1519,11 @@ ul li > * {
             <td align="center" id="hivst-8-ii-45-49-KE"></td>
             <td align="center" id="hivst-8-ii->50-KE"></td>
             <td align="center" id="hivst-8-ii-jumla-KE"></td>
-            </td>
         </tr>
 
         <tr>
-            <th>8 iii</th>
-            <td>Wanawake wanaofanya biashara ya ngono</td>
+            <th></th>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-8-iii-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-8-iii-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-8-iii-1-4-KE"></td>
@@ -1542,8 +1541,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>8 iv</th>
-            <td>Wanaume wanaofanya ngono na wanaume wenzao</td>
+            <th></th>
+            <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-8-iv-jumla-both-KE"></td>
             <td align="center" class="no-data" ></td>
             <td align="center" class="no-data" ></td>
@@ -1560,8 +1559,8 @@ ul li > * {
             <td align="center" class="no-data" ></td>
         </tr>
         <tr>
-            <th>8 v</th>
-            <td>Vijana rika balehe</td>
+            <th></th>
+            <td>v) Vijana rika balehe</td>
             <td align="center" id="hivst-8-v-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1576,11 +1575,10 @@ ul li > * {
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
             <td align="center" id="hivst-8-v-jumla-KE"></td>
-            >
         </tr>
         <tr>
-            <th>8 vi</th>
-            <td>Makundi Mengine</td>
+            <th></th>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-8-vi-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-8-vi-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-8-vi-1-4-KE"></td>
@@ -1595,7 +1593,6 @@ ul li > * {
             <td align="center" id="hivst-8-vi-45-49-KE"></td>
             <td align="center" id="hivst-8-vi->50-KE"></td>
             <td align="center" id="hivst-8-vi-jumla-KE"></td>
-            >
         </tr>
 
         <tr>
@@ -1620,8 +1617,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 i</th>
-            <td>Wajidunga dawa za kulevya</td>
+            <th></th>
+            <td>i) Wajidunga dawa za kulevya</td>
             <td align="center" id="hivst-9-i-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-9-i-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-9-i-1-4-KE"></td>
@@ -1639,8 +1636,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 ii</th>
-            <td>Wafungwa/Mahabusu</td>
+            <th></th>
+            <td>ii) Wafungwa/Mahabusu</td>
             <td align="center" id="hivst-9-ii-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-9-ii-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-9-ii-1-4-KE"></td>
@@ -1658,8 +1655,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 iii</th>
-            <td>Wanawake wanaofanya biashara ya ngono</td>
+            <th></th>
+            <td>iii) Wanawake wanaofanya biashara ya ngono</td>
             <td align="center" id="hivst-9-iii-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-9-iii-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-9-iii-1-4-KE"></td>
@@ -1677,8 +1674,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 iv</th>
-            <td>Wanaume wanaofanya ngono na wanaume wenzao</td>
+            <th></th>
+            <td>iv) Wanaume wanaofanya ngono na wanaume wenzao</td>
             <td align="center" id="hivst-9-iv-jumla-both-KE"></td>
             <td align="center" class="no-data" ></td>
             <td align="center" class="no-data" ></td>
@@ -1697,8 +1694,8 @@ ul li > * {
 
 
         <tr>
-            <th>9 v</th>
-            <td>Vijana rika balehe<</td>
+            <th></th>
+            <td>v) Vijana rika balehe<</td>
             <td align="center" id="hivst-9-v-jumla-both-KE"></td>
             <td align="center" class="no-data"></td>
             <td align="center" class="no-data"></td>
@@ -1716,8 +1713,8 @@ ul li > * {
         </tr>
 
         <tr>
-            <th>9 vi</th>
-            <td>Makundi Mengine</td>
+            <th></th>
+            <td>vi) Makundi Mengine</td>
             <td align="center" id="hivst-9-vi-jumla-both-KE"></td>
             <td align="center" class="no-data" id="hivst-9-vi-<1-KE"></td>
             <td align="center" class="no-data" id="hivst-9-vi-1-4-KE"></td>
