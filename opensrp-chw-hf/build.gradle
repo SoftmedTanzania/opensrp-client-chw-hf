@@ -51,7 +51,7 @@ allprojects {
 
 android {
     useLibrary 'org.apache.http.legacy'
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion androidBuildToolsVersion
 
     compileOptions {
@@ -61,7 +61,7 @@ android {
 
     defaultConfig {
         applicationId "org.smartregister.chw.hf"
-        minSdkVersion 28
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 11
         versionName "1.2.13"
@@ -199,7 +199,7 @@ android {
     productFlavors {
         nacp {
             applicationId "org.smartregister.chw.moh.hf"
-            minSdkVersion 28
+            minSdkVersion 21
             targetSdkVersion 30
             versionCode 9
             versionName "1.1.1"
@@ -226,7 +226,7 @@ android {
         }
         ba {
             applicationId "org.smartregister.chw.hf"
-            minSdkVersion 28
+            minSdkVersion 21
             targetSdkVersion 28
             versionCode 11
             versionName "1.2.13"
