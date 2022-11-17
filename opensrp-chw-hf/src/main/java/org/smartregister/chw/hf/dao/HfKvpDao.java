@@ -93,7 +93,6 @@ public class HfKvpDao extends KvpDao {
     }
 
     public static String getCrclResults(String baseEntityId) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         String sql = "SELECT crcl_results FROM ec_prep_register p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "'";
 

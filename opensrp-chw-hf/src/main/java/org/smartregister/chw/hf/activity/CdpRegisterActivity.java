@@ -1,5 +1,13 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.util.Utils.getAllSharedPreferences;
+
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
@@ -15,16 +23,6 @@ import org.smartregister.chw.hf.listener.CdpBottomNavigationListener;
 import org.smartregister.helper.BottomNavigationHelper;
 import org.smartregister.listener.BottomNavigationListener;
 import org.smartregister.view.fragment.BaseRegisterFragment;
-
-import androidx.fragment.app.Fragment;
-
-import static org.smartregister.util.Utils.getAllSharedPreferences;
-
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class CdpRegisterActivity extends CoreCdpRegisterActivity {
     private final String userLocationTag = getAllSharedPreferences().fetchUserLocationTag();
@@ -77,8 +75,8 @@ public class CdpRegisterActivity extends CoreCdpRegisterActivity {
                 TextView smallLabel = item.findViewById(R.id.smallLabel);
                 TextView largeLabel = item.findViewById(R.id.largeLabel);
 
-                smallLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
-                largeLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
+                smallLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+                largeLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 
                 smallLabel.setGravity(Gravity.CENTER);
                 largeLabel.setGravity(Gravity.CENTER);
