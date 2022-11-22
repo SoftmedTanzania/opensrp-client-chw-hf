@@ -78,6 +78,8 @@ public class HfChwRepository extends CoreChwRepository {
                     upgradeToVersion11(db);
                 case 12:
                     upgradeToVersion12(db);
+                case 13:
+                    upgradeToVersion14(db);
                 default:
                     break;
             }
@@ -262,6 +264,16 @@ public class HfChwRepository extends CoreChwRepository {
             db.execSQL(VisitRepository.ADD_VISIT_GROUP_COLUMN);
         } catch (Exception e) {
             Timber.e(e, "upgradeToVersion12");
+        }
+    }
+
+    private static void upgradeToVersion14(SQLiteDatabase db) {
+        try {
+            // add missing columns
+            db.execSQL("ALTER TABLE ec_ld_confirmation ADD COLUMN blood_group TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_ld_confirmation ADD COLUMN rh_factor TEXT NULL;");
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion14");
         }
     }
 
