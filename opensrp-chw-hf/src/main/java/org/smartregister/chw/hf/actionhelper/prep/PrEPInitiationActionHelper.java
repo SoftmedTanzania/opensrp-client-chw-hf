@@ -45,16 +45,16 @@ public class PrEPInitiationActionHelper implements BaseKvpVisitAction.KvpVisitAc
             JSONObject prepPillsNumber = JsonFormUtils.getFieldJSONObject(fields, "prep_pills_number");
 
 
-            String enrollmentDateString = KvpDao.getPrepInitiationDate(baseEntityId);
-            if (enrollmentDateString != null) {
-                Date enrollmentDate = df.parse(enrollmentDateString);
-                if (enrollmentDate != null) {
-                    Date threeMonthsAgo = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(90));
-                    if (enrollmentDate.before(threeMonthsAgo)) {
-                        prepPillsNumber.remove("v_max");
-                    }
-                }
-            }
+//            String enrollmentDateString = KvpDao.getPrepInitiationDate(baseEntityId);
+//            if (enrollmentDateString != null) {
+//                Date enrollmentDate = df.parse(enrollmentDateString);
+//                if (enrollmentDate != null) {
+//                    Date threeMonthsAgo = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(90));
+//                    if (enrollmentDate.before(threeMonthsAgo)) {
+//                        prepPillsNumber.remove("v_max");
+//                    }
+//                }
+//            }
             return jsonObject.toString();
         } catch (Exception e) {
             Timber.e(e);
