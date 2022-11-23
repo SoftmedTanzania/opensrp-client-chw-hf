@@ -111,7 +111,7 @@
           "err": "Please answer this question"
         },
         "relevance": {
-          "step1:rh_factor": {
+          "step1:blood_group": {
             "type": "string",
             "ex": "notEqualTo(., \"test_not_conducted\")"
           }
