@@ -1,5 +1,14 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.chw.core.utils.Utils.passToolbarTitle;
+import static org.smartregister.chw.core.utils.Utils.updateToolbarTitle;
+import static org.smartregister.chw.hf.utils.Constants.Events.ANC_FIRST_FACILITY_VISIT;
+import static org.smartregister.chw.hf.utils.Constants.Events.ANC_RECURRING_FACILITY_VISIT;
+import static org.smartregister.chw.hf.utils.Constants.PartnerRegistrationConstants.INTENT_BASE_ENTITY_ID;
+import static org.smartregister.chw.hf.utils.JsonFormUtils.SYNC_LOCATION_ID;
+import static org.smartregister.chw.hf.utils.JsonFormUtils.getAutoPopulatedJsonEditFormString;
+import static org.smartregister.util.JsonFormUtils.STEP1;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -11,6 +20,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.rey.material.widget.Button;
@@ -71,17 +82,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Set;
 
-import androidx.recyclerview.widget.RecyclerView;
 import timber.log.Timber;
-
-import static org.smartregister.chw.core.utils.Utils.passToolbarTitle;
-import static org.smartregister.chw.core.utils.Utils.updateToolbarTitle;
-import static org.smartregister.chw.hf.utils.Constants.Events.ANC_FIRST_FACILITY_VISIT;
-import static org.smartregister.chw.hf.utils.Constants.Events.ANC_RECURRING_FACILITY_VISIT;
-import static org.smartregister.chw.hf.utils.Constants.PartnerRegistrationConstants.INTENT_BASE_ENTITY_ID;
-import static org.smartregister.chw.hf.utils.JsonFormUtils.SYNC_LOCATION_ID;
-import static org.smartregister.chw.hf.utils.JsonFormUtils.getAutoPopulatedJsonEditFormString;
-import static org.smartregister.util.JsonFormUtils.STEP1;
 
 public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
     private CommonPersonObjectClient commonPersonObjectClient;
@@ -307,6 +308,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
 
         RelativeLayout partnerView = findViewById(R.id.rlPartnerView);
         RelativeLayout partnerTestingView = findViewById(R.id.rlPartnerTesting);
+        RelativeLayout partnerTestingHistoryView = findViewById(R.id.rlPartnerTestingHistory);
         CustomFontTextView tvPartnerProfileView = findViewById(R.id.text_view_partner_profile);
         CustomFontTextView tvPartnerDetails = findViewById(R.id.partner_details);
         ImageView goToProfileBtn = findViewById(R.id.partner_arrow_image);
@@ -317,8 +319,10 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
 
         partnerView.setVisibility(View.VISIBLE);
         partnerBottomView.setVisibility(View.VISIBLE);
+        partnerTestingHistoryView.setVisibility(View.VISIBLE);
 
         partnerView.setOnClickListener(this);
+        partnerTestingHistoryView.setOnClickListener(this);
         registerBtn.setOnClickListener(this);
         testingBtn.setOnClickListener(this);
         partnerBaseEntityId = HfAncDao.getPartnerBaseEntityId(memberObject.getBaseEntityId());
@@ -344,6 +348,12 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
         } else {
             partnerTestingView.setVisibility(View.GONE);
             partnerTestingBottomView.setVisibility(View.GONE);
+        }
+
+        if (HfAncDao.isPartnerRegistered(memberObject.getBaseEntityId()) && (!HfAncDao.getPartnerOtherStdsStatus(memberObject.getBaseEntityId()).equalsIgnoreCase("null") || HfAncDao.isPartnerTestedForHiv(memberObject.getBaseEntityId()) || HfAncDao.isPartnerTestedForSyphilis(memberObject.getBaseEntityId()) || HfAncDao.isPartnerTestedForHepatitis(memberObject.getBaseEntityId()))) {
+            partnerTestingHistoryView.setVisibility(View.VISIBLE);
+        } else {
+            partnerTestingHistoryView.setVisibility(View.GONE);
         }
 
         this.findViewById(R.id.family_anc_head).setVisibility(View.GONE);
@@ -508,6 +518,8 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
                 startActivity(intent);
                 setupViews();
             }
+        } else if (id == R.id.rlPartnerTestingHistory) {
+            AncPartnerTestingHistoryActivity.startMe(this, memberObject);
         } else if (id == R.id.test_partner_btn) {
             ((AncMemberProfilePresenter) presenter()).startPartnerTestingForm(memberObject);
         }

@@ -1,6 +1,7 @@
 package org.smartregister.chw.hf.sync;
 
 import static org.smartregister.chw.hf.utils.Constants.Events.ANC_FIRST_FACILITY_VISIT;
+import static org.smartregister.chw.hf.utils.Constants.Events.ANC_PARTNER_TESTING;
 import static org.smartregister.chw.hf.utils.Constants.Events.ANC_RECURRING_FACILITY_VISIT;
 import static org.smartregister.chw.hf.utils.Constants.Events.HEI_FOLLOWUP;
 import static org.smartregister.chw.hf.utils.Constants.Events.HEI_NEGATIVE_INFANT;
@@ -71,6 +72,7 @@ public class HfClientProcessor extends CoreClientProcessor {
             case LD_ACTIVE_MANAGEMENT_OF_3RD_STAGE_OF_LABOUR:
             case LD_GENERAL_EXAMINATION:
             case LD_POST_DELIVERY_MOTHER_MANAGEMENT:
+            case ANC_PARTNER_TESTING:
             case org.smartregister.chw.kvp.util.Constants.EVENT_TYPE.KVP_BEHAVIORAL_SERVICE_VISIT:
             case org.smartregister.chw.kvp.util.Constants.EVENT_TYPE.KVP_BIO_MEDICAL_SERVICE_VISIT:
             case org.smartregister.chw.kvp.util.Constants.EVENT_TYPE.KVP_STRUCTURAL_SERVICE_VISIT:

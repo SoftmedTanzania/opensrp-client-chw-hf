@@ -16,14 +16,14 @@ import android.widget.TextView;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
+import org.smartregister.chw.anc.domain.MemberObject;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.presenter.BaseAncMedicalHistoryPresenter;
 import org.smartregister.chw.core.activity.CoreAncMedicalHistoryActivity;
 import org.smartregister.chw.core.activity.DefaultAncMedicalHistoryActivityFlv;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.interactor.LDSummaryDetailsInteractor;
-import org.smartregister.chw.ld.domain.MemberObject;
+import org.smartregister.chw.hf.interactor.AncPartnerTestingHistoryInteractor;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -34,20 +34,20 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
-    private static MemberObject ldMemberObject;
+public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActivity {
+    private static MemberObject ancMemberObject;
     private final Flavor flavor = new LdExaminationDetailsActivityFlv();
     private ProgressBar progressBar;
 
     public static void startMe(Activity activity, MemberObject memberObject) {
-        Intent intent = new Intent(activity, LdSummaryDetailsActivity.class);
-        ldMemberObject = memberObject;
+        Intent intent = new Intent(activity, AncPartnerTestingHistoryActivity.class);
+        ancMemberObject = memberObject;
         activity.startActivity(intent);
     }
 
     @Override
     public void initializePresenter() {
-        presenter = new BaseAncMedicalHistoryPresenter(new LDSummaryDetailsInteractor(), this, ldMemberObject.getBaseEntityId());
+        presenter = new BaseAncMedicalHistoryPresenter(new AncPartnerTestingHistoryInteractor(), this, ancMemberObject.getBaseEntityId());
     }
 
     @Override
@@ -56,9 +56,9 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
         progressBar = findViewById(org.smartregister.chw.opensrp_chw_anc.R.id.progressBarMedicalHistory);
 
         TextView tvTitle = findViewById(org.smartregister.chw.opensrp_chw_anc.R.id.tvTitle);
-        tvTitle.setText(getString(org.smartregister.chw.opensrp_chw_anc.R.string.back_to, ldMemberObject.getFullName()));
+        tvTitle.setText(getString(org.smartregister.chw.opensrp_chw_anc.R.string.back_to, ancMemberObject.getFullName()));
 
-        ((TextView) findViewById(R.id.medical_history)).setText(getString(R.string.ld_details_title));
+        ((TextView) findViewById(R.id.medical_history)).setText(getString(R.string.anc_partner_testing_history_title));
     }
 
     @Override
@@ -108,66 +108,8 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
                         days = Days.daysBetween(new DateTime(visits.get(visits.size() - 1).getDate()), new DateTime()).getDays();
                     }
 
-                    String[] generalExamination = {"general_condition", "pulse_rate", "respiratory_rate", "temperature", "systolic", "diastolic", "urine_protein", "urine_acetone", "fundal_height", "lie", "presentation", "contraction_frequency", "contraction_in_ten_minutes", "fetal_heart_rate", "level"};
-                    extractVisitDetails(visits, generalExamination, visitDetails, x, context);
-
-                    String[] vaginalExamination = {"vaginal_exam_date", "vaginal_exam_time", "cervix_state", "cervix_dilation", "presenting_part", "occiput_position", "mento_position", "sacro_position", "dorso_position", "moulding", "moulding_options", "station", "amniotic_fluid", "decision", "forecasted_svd_time"};
-                    extractVisitDetails(visits, vaginalExamination, visitDetails, x, context);
-
-                    String[] hivTest = {"hiv_test_conducted", "reason_for_no_hiv_test", "hiv_counselling_before_testing", "hiv_counselling_after_testing"};
-                    extractVisitDetails(visits, hivTest, visitDetails, x, context);
-
-                    String[] bloodGroupTest = {"blood_group", "rh_factor", "management_provided_for_rh", "reason_for_not_conducting_blood_group_test"};
-                    extractVisitDetails(visits, bloodGroupTest, visitDetails, x, context);
-
-                    String[] hbTest = {"hb_test_conducted", "reason_for_not_conducting_hb_test", "other_reason_hb_test_not_conducted", "hb_level", "management_provided_for_hb_level"};
-                    extractVisitDetails(visits, hbTest, visitDetails, x, context);
-
-                    String[] syphilisTest = {"syphilis", "management_provided_for_syphilis"};
-                    extractVisitDetails(visits, syphilisTest, visitDetails, x, context);
-
-                    String[] malariaTest = {"malaria", "management_provided_for_malaria", "reason_for_not_conducting_malaria_test", "other_reason_for_not_conducting_malaria_test"};
-                    extractVisitDetails(visits, malariaTest, visitDetails, x, context);
-
-
-                    String[] uterotonic = {"uterotonic"};
-                    extractVisitDetails(visits, uterotonic, visitDetails, x, context);
-
-                    String[] placentaAndMembrane = {"method_used_to_remove_the_placenta", "placenta_and_membrane_expulsion", "type_of_incomplete_placenta", "placenta_removed_by_hand", "conducted_mva", "administered_antibiotics", "removal_date", "removal_duration", "estimated_blood_loss", "provided_blood_transfusion", "name_of_the_provider_who_removed_the_placenta"};
-                    extractVisitDetails(visits, placentaAndMembrane, visitDetails, x, context);
-
-                    String[] uterusMassage = {"uterus_massage_after_delivery", "reason_for_not_massaging_uterus_after_delivery"};
-                    extractVisitDetails(visits, uterusMassage, visitDetails, x, context);
-
-                    String[] eclampsiaManagement = {"has_signs_of_eclampsia", "administered_magnesium_sulphate", "reason_for_not_administering_magnesium_sulphate", "other_reason_for_for_not_administering_magnesium_sulphate"};
-                    extractVisitDetails(visits, eclampsiaManagement, visitDetails, x, context);
-
-                    String[] motherStatus = {"status", "cause_of_death", "time_of_death", "mode_of_delivery", "delivery_place", "designation_of_delivery_personnel", "name_of_delivery_person", "supervised_by_occupation", "name_of_supervising_person", "number_of_children_born", "delivery_date", "delivery_time"};
-                    extractVisitDetails(visits, motherStatus, visitDetails, x, context);
-
-                    String[] motherObservation = {"vagina_observation", "vaginal_bleeding_observation", "perineum_observation", "degree_of_perineum_tear", "perineum_repair_person_name", "perineum_repair_occupation", "cervix_observation", "systolic", "diastolic", "pulse_rate", "temperature", "uterus_contraction", "urination", "observation_date", "observation_time"};
-                    extractVisitDetails(visits, motherObservation, visitDetails, x, context);
-
-                    String[] maternalComplications = {"maternal_complications_before_delivery", "maternal_complications_before_delivery_other", "maternal_complications_during_and_after_delivery", "maternal_complications_during_and_after_delivery_other"};
-                    extractVisitDetails(visits, maternalComplications, visitDetails, x, context);
-
-                    String[] familyPlanning = {"family_planning_counselling_after_delivery", "family_planning_methods_selected", "other_family_planning_methods_selected"};
-                    extractVisitDetails(visits, familyPlanning, visitDetails, x, context);
-
-                    String[] immediateNewBornCare = {"newborn_status", "still_birth_choice", "child_delivery_date", "child_delivery_time", "sex"};
-                    extractVisitDetails(visits, immediateNewBornCare, visitDetails, x, context);
-
-                    String[] immediateNewBornCareAgparScore = {"apgar_activity_score_at_1_minute", "apgar_pulse_score_at_1_minute", "apgar_grimace_on_stimulation_score_at_1_minute", "apgar_appearance_score_at_1_minute", "apgar_respiration_score_at_1_minute", "apgar_score_at_1_minute", "apgar_score_activity_label_at_5_mins", "apgar_activity_score_at_5_minutes", "apgar_pulse_score_at_5_minutes", "apgar_grimace_on_stimulation_score_at_5_minutes", "apgar_appearance_score_at_5_minutes", "apgar_respiration_score_at_5_minutes", "apgar_score_at_5_minutes"};
-                    extractVisitDetails(visits, immediateNewBornCareAgparScore, visitDetails, x, context);
-
-                    String[] newBornCare = {"resuscitation_question", "keep_warm", "cord_bleeding", "early_bf_1hr", "reason_for_not_breast_feeding_within_one_hour", "other_reason_for_not_breast_feeding_within_one_hour", "eye_care", "reason_for_not_giving_eye_care", "other_reason_for_not_giving_eye_care"};
-                    extractVisitDetails(visits, newBornCare, visitDetails, x, context);
-
-                    String[] immediateNewBornCareVaccinations = {"child_bcg_vaccination", "reason_for_not_providing_bcg_vacc", "other_reason_for_not_providing_bcg_vacc", "child_opv0_vaccination", "reason_for_not_providing_opv0_vacc", "other_reason_for_not_providing_opv0_vacc", "child_hepatitis_b_vaccination", "reason_for_not_providing_hepatitis_b_vacc", "other_reason_for_not_providing_hepatitis_b_injection", "child_vitamin_k_injection", "reason_for_not_providing_vitamin_k_injection", "other_reason_for_not_providing_vitamin_k_injection"};
-                    extractVisitDetails(visits, immediateNewBornCareVaccinations, visitDetails, x, context);
-
-                    String[] immediateNewBornCareHei = {"risk_category", "provided_azt_nvp_syrup", "provided_other_combinations", "specify_the_combinations", "number_of_azt_nvp_days_dispensed", "reason_for_not_providing_other_combination", "other_reason_for_not_providing_other_combination", "collect_dbs", "reason_not_collecting_dbs", "sample_collection_date", "dna_pcr_collection_time", "sample_id", "provided_nvp_syrup", "number_of_nvp_days_dispensed", "reason_for_not_providing_nvp_syrup", "other_reason_for_not_providing_nvp_syrup"};
-                    extractVisitDetails(visits, immediateNewBornCareHei, visitDetails, x, context);
+                    String[] ancPartnerTesting = {"partner_hiv", "reason_for_not_conducting_partner_hiv_test", "other_reason_for_not_conducting_partner_hiv_test", "register_for_hiv_services", "partner_ctc_number", "couple_testing", "partner_syphilis", "reason_for_not_conducting_partner_syphilis_test", "other_reason_for_not_conducting_partner_syphilis_test", "partner_syphilis_treatment", "partner_hepatitis", "reason_for_not_conducting_partner_hepatitis_test", "other_reason_for_not_conducting_partner_hepatitis_test", "partner_other_stds", "partner_other_stds_treatment", "partner_reason_for_not_giving_medication_for_other_stds", "partner_other_reason_for_not_giving_medication_for_other_stds"};
+                    extractVisitDetails(visits, ancPartnerTesting, visitDetails, x, context);
 
                     hf_visits.add(visitDetails);
 
@@ -196,7 +138,12 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
 
 
         private void processLastVisit(int days, Context context) {
-            linearLayoutLastVisit.setVisibility(View.GONE);
+            linearLayoutLastVisit.setVisibility(View.VISIBLE);
+            if (days < 1) {
+                customFontTextViewLastVisit.setText(org.smartregister.chw.core.R.string.less_than_twenty_four);
+            } else {
+                customFontTextViewLastVisit.setText(StringUtils.capitalize(MessageFormat.format(context.getString(org.smartregister.chw.core.R.string.days_ago), String.valueOf(days))));
+            }
         }
 
 
@@ -228,7 +175,7 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
 
 
                         try {
-                            int resource = context.getResources().getIdentifier("ld_" + entry.getKey(), "string", context.getPackageName());
+                            int resource = context.getResources().getIdentifier("anc_" + entry.getKey(), "string", context.getPackageName());
                             evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "");
                         } catch (Exception e) {
                             Timber.e(e);
@@ -248,7 +195,7 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
                 tvTitle.setVisibility(View.GONE);
             } else {
                 try {
-                    tvTitle.setText(MessageFormat.format(context.getString(R.string.ld_examination_title), x + 1, visitDate));
+                    tvTitle.setText(MessageFormat.format(context.getString(R.string.anc_partner_testing_title), x + 1, visitDate));
                 } catch (Exception e) {
                     Timber.e(e);
                 }

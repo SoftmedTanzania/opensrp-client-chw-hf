@@ -912,7 +912,7 @@
     <string name="ld_examination_title">Examination/Consultation {0}: {1}</string>
 
     <!--    LD Examination/Consultation-->
-    <string name="lg_details_title">Labour and Delivery Details</string>
+    <string name="ld_details_title">Labour and Delivery Details</string>
     <string name="ld_general_condition">General Condition:</string>
     <string name="ld_pulse_rate">Pulse Rate (Beats per minute):</string>
     <string name="ld_respiratory_rate">Respiratory Rate (Breaths per minute):</string>
@@ -963,7 +963,7 @@
     <string name="ld_management_provided_for_rh">Was management provided for negative RH?:</string>
     <string name="ld_reason_for_not_conducting_blood_group_test">Why was the Blood Group Test not conducted?:</string>
 
-    <!--    LD Active Management of 3rd Stage of Labour-->
+    <!--    LD Active Management of 3rd Stage of Labour  -->
     <string name="ld_has_signs_of_eclampsia">Signs of pre-eclampsia/eclampsia:</string>
     <string name="ld_administered_magnesium_sulphate">Administered Magnesium Sulphate:</string>
     <string name="ld_reason_for_not_administering_magnesium_sulphate">Reasons for not Administering Magnesium Sulphate:</string>
@@ -1068,5 +1068,30 @@
     <string name="ld_reason_for_not_providing_nvp_syrup">Reasons for not providing NVP Syrup:</string>
     <string name="ld_other_reason_for_not_providing_nvp_syrup">Other reasons for not providing NVP Syrup:</string>
 
+
+    <string name="anc_partner_testing_history_title">Partner Testing History</string>
+    <string name="anc_partner_testing_title">Partner Testing {0}: {1}</string>
+
+    <!--    ANC Partner Testing History  -->
+    <string name="anc_partner_hiv">Partner HIV Test Results:</string>
+    <string name="anc_reason_for_not_conducting_partner_hiv_test">Reason as to why the HIV test was not conducted:</string>
+    <string name="anc_other_reason_for_not_conducting_partner_hiv_test">Other reason as to why the HIV test was not conducted:</string>
+    <string name="anc_partner_ctc_number">Partner CTC Number:</string>
+    <string name="anc_couple_testing">Couple Testing:</string>
+    <string name="anc_partner_syphilis">Syphilis Test Results:</string>
+    <string name="anc_reason_for_not_conducting_partner_syphilis_test">Reason as to why the Syphilis test was not conducted:</string>
+    <string name="anc_other_reason_for_not_conducting_partner_syphilis_test">Other reason as to why the Syphilis test was not conducted:</string>
+    <string name="anc_partner_syphilis_treatment">Was syphilis treatment provided?:</string>
+    <string name="anc_partner_hepatitis">Hepatitis B Test Results:</string>
+    <string name="anc_reason_for_not_conducting_partner_hepatitis_test">Reason as to why the Hepatitis B test was not conducted:</string>
+    <string name="anc_other_reason_for_not_conducting_partner_hepatitis_test">Other reason as to why the Hepatitis B test was not conducted:</string>
+    <string name="anc_partner_other_stds">Has the client tested positive for other STIs?:</string>
+    <string name="anc_partner_other_stds_treatment">Was treatment provided for other STIs?:</string>
+    <string name="anc_partner_reason_for_not_giving_medication_for_other_stds">Reason as to why treatment was not given:</string>
+    <string name="anc_partner_other_reason_for_not_giving_medication_for_other_stds">Other reason as to why treatment was not given:</string>
+    <string name="known_on_art">Known positive</string>
+
+    <string name="anc_partner_testing_history">Partner Testing History</string>
+    <string name="view_partner_testing_history">View Partner Testing History</string>
 
 </resources>
