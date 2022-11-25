@@ -40,6 +40,7 @@ import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.adapter.ReferralCardViewAdapter;
 import org.smartregister.chw.hf.contract.HfLDProfileContract;
 import org.smartregister.chw.hf.dao.HfPncDao;
+import org.smartregister.chw.hf.dao.LDDao;
 import org.smartregister.chw.hf.interactor.LDProfileInteractor;
 import org.smartregister.chw.hf.interactor.PncMemberProfileInteractor;
 import org.smartregister.chw.hf.presenter.LDProfilePresenter;
@@ -47,7 +48,6 @@ import org.smartregister.chw.hf.utils.LDReferralFormUtils;
 import org.smartregister.chw.hf.utils.LDVisitUtils;
 import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.ld.activity.BaseLDProfileActivity;
-import org.smartregister.chw.ld.dao.LDDao;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.domain.Visit;
 import org.smartregister.chw.ld.util.Constants;
@@ -115,6 +115,15 @@ public class LDProfileActivity extends BaseLDProfileActivity implements HfLDProf
         refreshMedicalHistory(true);
         invalidateOptionsMenu();
         ((LDProfilePresenter) profilePresenter).fetchTasks();
+
+
+        if (LDDao.isClosed(memberObject.getBaseEntityId())) {
+            textViewRecordLD.setVisibility(View.GONE);
+            TextView forecastSvdTitle = findViewById(R.id.forecast_svd_title);
+            forecastSvdTitle.setText("Discharged Date");
+            vaginalExamDate.setText(LDDao.getLastInteractedWith(memberObject.getBaseEntityId()));
+            forecastSVDTime.setVisibility(View.GONE);
+        }
     }
 
     protected void setupViews() {
@@ -241,6 +250,10 @@ public class LDProfileActivity extends BaseLDProfileActivity implements HfLDProf
             }
         } else if (id == R.id.textview_process_partograph) {
             processPartographEvent();
+        } else if (id == R.id.rlRegistrationDetails) {
+            LDRegistrationDetailsActivity.startMe(this, memberObject);
+        } else if (id == R.id.rlLdDetails) {
+            LdSummaryDetailsActivity.startMe(this, memberObject);
         } else {
             super.onClick(view);
         }

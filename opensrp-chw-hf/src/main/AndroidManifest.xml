@@ -447,6 +447,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
+            android:name=".activity.LDRegistrationDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
+            android:name=".activity.LdSummaryDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
             android:name=".activity.KvpMedicalHistoryActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
