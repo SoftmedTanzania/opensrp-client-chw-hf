@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.smartregister.chw.anc.domain.Visit;
@@ -291,8 +292,10 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
                 return context.getString(resourceId);
             } catch (Exception e) {
                 Timber.e(e);
-                if (resourceName.contains("_"))
+                if (resourceName.contains("_")) {
                     resourceName = resourceName.replace("_", " ");
+                    resourceName = WordUtils.capitalize(resourceName);
+                }
                 return resourceName;
             }
         }

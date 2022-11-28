@@ -24,6 +24,7 @@ import com.gkemon.XMLtoPDF.model.FailureResponse;
 import com.gkemon.XMLtoPDF.model.SuccessResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.presenter.BaseAncMedicalHistoryPresenter;
@@ -438,6 +439,10 @@ public class LDRegistrationDetailsActivity extends CoreAncMedicalHistoryActivity
                 return context.getString(resourceId);
             } catch (Exception e) {
                 Timber.e(e);
+                if (resourceName.contains("_")) {
+                    resourceName = resourceName.replace("_", " ");
+                    resourceName = WordUtils.capitalize(resourceName);
+                }
                 return resourceName;
             }
         }

@@ -157,6 +157,12 @@ public class LDProfileActivity extends BaseLDProfileActivity implements HfLDProf
             referredLabel.setVisibility(View.GONE);
         }
 
+        if (!(LDDao.getLabourStage(memberObject.getBaseEntityId()) == null && (LDDao.getReasonsForAdmission(memberObject.getBaseEntityId()) == null || !LDDao.getReasonsForAdmission(memberObject.getBaseEntityId()).equalsIgnoreCase("elective_cesarean_section")))) {
+            rlLdDetails.setVisibility(View.VISIBLE);
+        } else {
+            rlLdDetails.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
