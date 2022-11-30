@@ -1,7 +1,7 @@
 package org.smartregister.chw.hf.sync;
 
+import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_PARTNER_TESTING;
 import static org.smartregister.chw.hf.utils.Constants.Events.ANC_FIRST_FACILITY_VISIT;
-import static org.smartregister.chw.hf.utils.Constants.Events.ANC_PARTNER_TESTING;
 import static org.smartregister.chw.hf.utils.Constants.Events.ANC_RECURRING_FACILITY_VISIT;
 import static org.smartregister.chw.hf.utils.Constants.Events.HEI_FOLLOWUP;
 import static org.smartregister.chw.hf.utils.Constants.Events.HEI_NEGATIVE_INFANT;

@@ -46,7 +46,6 @@ public class Constants extends CoreConstants {
         public static final String PMTCT_EAC_VISIT = "PMTCT EAC Visit";
         public static final String UPDATE_HIV_INDEX_TESTING_FOLLOWUP = "Update HIV Index Contact Testing Followup";
         public static final String PARTNER_REGISTRATION_EVENT = "Partner Registration";
-        public static final String ANC_PARTNER_TESTING = "Partner Testing";
         public static final String HEI_REGISTRATION = "HEI Registration";
         public static final String HEI_FOLLOWUP = "HEI Followup";
         public static final String HEI_POSITIVE_INFANT = "HEI Positive Infant";
@@ -388,7 +387,6 @@ public class Constants extends CoreConstants {
             public static final String CONSULTATION = "anc_rv_consultation";
             public static final String LAB_TESTS = "anc_rv_lab_test";
             public static final String BIRTH_REVIEW_AND_EMERGENCY_PLAN = "anc_rv_birth_review_and_emergency_plan";
-            public static final String PARTNER_TESTING = "anc_partner_testing";
             private static final String PHARMACY = "anc_rv_pharmacy";
             private static final String PREGNANCY_STATUS = "anc_rv_pregnancy_status";
             private static final String MALARIA_INVESTIGATION = "anc_rv_malaria_investigation_form";
@@ -415,10 +413,6 @@ public class Constants extends CoreConstants {
 
             public static String getBirthReviewAndEmergencyPlan() {
                 return Utils.getLocalForm(BIRTH_REVIEW_AND_EMERGENCY_PLAN, locale, assetManager);
-            }
-
-            public static String getPartnerTesting() {
-                return Utils.getLocalForm(PARTNER_TESTING, locale, assetManager);
             }
 
             public static String getMalariaInvestigation() {

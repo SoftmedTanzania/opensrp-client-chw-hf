@@ -11,7 +11,7 @@ import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.util.VisitUtils;
 import org.smartregister.chw.core.CoreBaseAncMedicalHistoryInteractor;
-import org.smartregister.chw.hf.utils.Constants;
+import org.smartregister.chw.core.utils.CoreConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class AncPartnerTestingHistoryInteractor extends CoreBaseAncMedicalHistor
                 visits.addAll(visit);
             }
         } else {
-            getVisitsOnly(memberID, Constants.Events.ANC_PARTNER_TESTING);
+            getVisitsOnly(memberID, CoreConstants.EventType.ANC_PARTNER_TESTING);
         }
 
         int x = 0;
@@ -45,7 +45,7 @@ public class AncPartnerTestingHistoryInteractor extends CoreBaseAncMedicalHistor
         final Runnable runnable = () -> {
 
             String[] eventTypes = new String[1];
-            eventTypes[0] = Constants.Events.ANC_PARTNER_TESTING;
+            eventTypes[0] = CoreConstants.EventType.ANC_PARTNER_TESTING;
             List<Visit> visits = getVisits(memberID, eventTypes);
             final List<Visit> all_visits = new ArrayList<>(visits);
 

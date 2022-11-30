@@ -1,5 +1,7 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.opd.utils.OpdConstants.JSON_FORM_KEY.VISIT_ID;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,21 +19,37 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
+import org.json.JSONObject;
+import org.smartregister.chw.anc.AncLibrary;
+import org.smartregister.chw.anc.dao.HomeVisitDao;
 import org.smartregister.chw.anc.domain.MemberObject;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.presenter.BaseAncMedicalHistoryPresenter;
+import org.smartregister.chw.anc.util.Constants;
+import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.core.activity.CoreAncMedicalHistoryActivity;
 import org.smartregister.chw.core.activity.DefaultAncMedicalHistoryActivityFlv;
+import org.smartregister.chw.core.utils.CoreConstants;
+import org.smartregister.chw.core.utils.CoreJsonFormUtils;
+import org.smartregister.chw.core.utils.CoreReferralUtils;
 import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.interactor.AncPartnerTestingHistoryInteractor;
+import org.smartregister.clientandeventmodel.Event;
+import org.smartregister.family.util.JsonFormUtils;
+import org.smartregister.immunization.ImmunizationLibrary;
+import org.smartregister.repository.AllSharedPreferences;
 
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 import timber.log.Timber;
 
@@ -77,6 +95,76 @@ public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActiv
     @Override
     public void displayLoadingState(boolean state) {
         progressBar.setVisibility(state ? View.VISIBLE : View.GONE);
+    }
+
+    public static void startFormForEdit(Integer title_resource, String formName, MemberObject memberObject, Context context, String deletedVisitId) {
+        try {
+            JSONObject form = CoreJsonFormUtils.getAncPncForm(title_resource, formName, memberObject, context);
+            form.put(VISIT_ID, deletedVisitId);
+            ((Activity) context).startActivityForResult(CoreJsonFormUtils.getAncPncStartFormIntent(form, context), JsonFormUtils.REQUEST_CODE_GET_JSON);
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == JsonFormUtils.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
+            AllSharedPreferences allSharedPreferences = org.smartregister.util.Utils.getAllSharedPreferences();
+            try {
+                String jsonString = data.getStringExtra(org.smartregister.family.util.Constants.JSON_FORM_EXTRA.JSON);
+                JSONObject form = new JSONObject(jsonString);
+                String encounterType = form.getString(JsonFormUtils.ENCOUNTER_TYPE);
+                if (encounterType.equals(CoreConstants.EventType.ANC_PARTNER_TESTING)) {
+                    String deletedVisitId = form.getString(VISIT_ID);
+                    form.remove(VISIT_ID);
+
+                    deleteProcessedVisit(deletedVisitId, ancMemberObject.getBaseEntityId());
+
+                    Event baseEvent = org.smartregister.chw.anc.util.JsonFormUtils.processJsonForm(allSharedPreferences, CoreReferralUtils.setEntityId(jsonString, ancMemberObject.getBaseEntityId()), CoreConstants.TABLE_NAME.ANC_MEMBER);
+                    org.smartregister.chw.anc.util.JsonFormUtils.tagEvent(allSharedPreferences, baseEvent);
+                    NCUtils.processEvent(baseEvent.getBaseEntityId(), new JSONObject(org.smartregister.chw.anc.util.JsonFormUtils.gson.toJson(baseEvent)));
+                    finish();
+                }
+            } catch (Exception e) {
+                Timber.e(e, "AncPartnerTestingHistoryActivity -- > onActivityResult");
+            }
+        }
+    }
+
+    protected void deleteProcessedVisit(String visitID, String baseEntityId) {
+        // check if the event
+        AllSharedPreferences allSharedPreferences = ImmunizationLibrary.getInstance().context().allSharedPreferences();
+        Visit visit = AncLibrary.getInstance().visitRepository().getVisitByVisitId(visitID);
+        if (visit == null || !visit.getProcessed()) return;
+
+        Event processedEvent = HomeVisitDao.getEventByFormSubmissionId(visit.getFormSubmissionId());
+        if (processedEvent == null) return;
+
+        deleteSavedEvent(allSharedPreferences, baseEntityId, processedEvent.getEventId(), processedEvent.getFormSubmissionId(), "event");
+        AncLibrary.getInstance().visitRepository().deleteVisit(visitID);
+    }
+
+    protected void deleteSavedEvent(AllSharedPreferences allSharedPreferences, String baseEntityId, String eventId, String formSubmissionId, String type) {
+        Event event = (Event) new Event()
+                .withBaseEntityId(baseEntityId)
+                .withEventDate(new Date())
+                .withEventType(Constants.EVENT_TYPE.DELETE_EVENT)
+                .withLocationId(org.smartregister.chw.anc.util.JsonFormUtils.locationId(allSharedPreferences))
+                .withProviderId(allSharedPreferences.fetchRegisteredANM())
+                .withEntityType(type)
+                .withFormSubmissionId(UUID.randomUUID().toString())
+                .withDateCreated(new Date());
+
+        event.addDetails(Constants.JSON_FORM_EXTRA.DELETE_EVENT_ID, eventId);
+        event.addDetails(Constants.JSON_FORM_EXTRA.DELETE_FORM_SUBMISSION_ID, formSubmissionId);
+
+        try {
+            NCUtils.processEvent(event.getBaseEntityId(), new JSONObject(org.smartregister.chw.anc.util.JsonFormUtils.gson.toJson(event)));
+        } catch (Exception e) {
+            Timber.e(e);
+        }
     }
 
     private static class LdExaminationDetailsActivityFlv extends DefaultAncMedicalHistoryActivityFlv {
@@ -156,12 +244,18 @@ public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActiv
                 for (LinkedHashMap<String, String> vals : community_visits) {
                     View view = inflater.inflate(R.layout.medical_history_visit, null);
                     TextView tvTitle = view.findViewById(R.id.title);
-                    TextView tvTypeOfService = view.findViewById(R.id.type_of_service);
+                    TextView tvEdit = view.findViewById(R.id.textview_edit);
                     LinearLayout visitDetailsLayout = view.findViewById(R.id.visit_details_layout);
 
-                    evaluateTitle(context, x, vals, tvTitle);
-                    tvTypeOfService.setText(visits.get(x).getVisitType() + " " + visits.get(x).getDate());
+                    tvEdit.setTag(visits.get(x).getVisitId());
 
+                    // Updating visibility of EDIT button if the visit is the last visit
+                    if (x == visits.size() - 1)
+                        tvEdit.setVisibility(View.VISIBLE);
+                    else
+                        tvEdit.setVisibility(View.GONE);
+
+                    tvTitle.setText(visits.get(x).getVisitType() + " " +  new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(visits.get(x).getDate()));
 
                     for (LinkedHashMap.Entry<String, String> entry : vals.entrySet()) {
                         TextView visitDetailTv = new TextView(context);
@@ -183,22 +277,9 @@ public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActiv
                         }
                     }
                     linearLayoutHealthFacilityVisitDetails.addView(view, 0);
+                    tvEdit.setOnClickListener(view1 -> startFormForEdit(R.string.edit_partner_testing, CoreConstants.JSON_FORM.PARTNER_TESTING, ancMemberObject, context, view1.getTag().toString()));
 
                     x++;
-                }
-            }
-        }
-
-
-        private void evaluateTitle(Context context, int x, Map<String, String> vals, TextView tvTitle) {
-            String visitDate = vals.get("followup_visit_date");
-            if (StringUtils.isBlank(visitDate)) {
-                tvTitle.setVisibility(View.GONE);
-            } else {
-                try {
-                    tvTitle.setText(MessageFormat.format(context.getString(R.string.anc_partner_testing_title), x + 1, visitDate));
-                } catch (Exception e) {
-                    Timber.e(e);
                 }
             }
         }

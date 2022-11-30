@@ -205,7 +205,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
                     ancMemberProfilePresenter().createAncDangerSignsOutcomeEvent(Utils.getAllSharedPreferences(), jsonString, baseEntityID);
                 } else if (encounterType.equals(CoreConstants.EventType.ANC_PARTNER_COMMUNITY_FOLLOWUP_REFERRAL)) {
                     ((AncMemberProfilePresenter) presenter()).createPartnerFollowupReferralEvent(Utils.getAllSharedPreferences(), jsonString, baseEntityID);
-                } else if (encounterType.equals(org.smartregister.chw.hf.utils.Constants.Events.ANC_PARTNER_TESTING)) {
+                } else if (encounterType.equals(CoreConstants.EventType.ANC_PARTNER_TESTING)) {
                     ((AncMemberProfilePresenter) presenter()).savePartnerTestingEvent(Utils.getAllSharedPreferences(), jsonString, baseEntityID);
                     displayToast(R.string.recorded_partner_testing_results);
                     setupViews();
