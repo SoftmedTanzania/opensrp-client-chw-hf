@@ -40,8 +40,8 @@ public class PmtctVisitUtils extends VisitUtils {
 
 
         for (Visit v : visits) {
-            Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
-            int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
+            Date visitDate = new Date(v.getDate().getTime());
+            int daysDiff = TimeUtils.getElapsedDays(visitDate);
             if (daysDiff > 1 && v.getVisitType().equalsIgnoreCase(org.smartregister.chw.pmtct.util.Constants.EVENT_TYPE.PMTCT_FOLLOWUP)) {
                 try {
                     JSONObject jsonObject = new JSONObject(v.getJson());
@@ -58,8 +58,6 @@ public class PmtctVisitUtils extends VisitUtils {
                     boolean isNextVisitSet = computeCompletionStatus(obs, "next_facility_visit_date");
 
                     boolean isBaselineInvestigationComplete = computeCompletionStatus(obs, "liver_function_test_conducted") && computeCompletionStatus(obs, "renal_function_test_conducted");
-                    boolean isHvlSampleCollectionComplete = computeCompletionStatus(obs, "hvl_sample_id");
-                    boolean isCd4SampleCollectionComplete = computeCompletionStatus(obs, "cd4_sample_id");
 
 
                     checks.add(isFollowupStatusDone);
@@ -71,17 +69,9 @@ public class PmtctVisitUtils extends VisitUtils {
                         checks.add(isArvPrescriptionDone);
                         checks.add(isNextVisitSet);
 
-//                        if (HfPmtctDao.isEligibleForHlvTest(baseEntityId)) {
-//                            checks.add(isHvlSampleCollectionComplete);
-//                        }
-
                         if (HfPmtctDao.isEligibleForBaselineInvestigation(baseEntityId) || HfPmtctDao.isEligibleForBaselineInvestigationOnFollowupVisit(baseEntityId)) {
                             checks.add(isBaselineInvestigationComplete);
                         }
-
-//                        if (HfPmtctDao.isEligibleForCD4Retest(baseEntityId) || HfPmtctDao.isEligibleForCD4Test(baseEntityId)) {
-//                            checks.add(isCd4SampleCollectionComplete);
-//                        }
                     }
 
 

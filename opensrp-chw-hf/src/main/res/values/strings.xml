@@ -872,7 +872,7 @@
     <string name="last_measured_hb_level_g_dl">Last Measured HB Level (g/dl) :</string>
     <string name="was_management_provided_for_abnormal_hb_level">Was management provided for abnormal HB Level? :</string>
     <string name="last_measured_hb_date">Last Measured HB Date :</string>
-    <string name="pmtct">PMTCT :</string>
+    <string name="pmtct">PMTCT</string>
     <string name="was_management_provided_for_pmtct">Was management provided for PMTCT? :</string>
     <string name="last_pmtct_test_date">Last PMTCT test Date :</string>
     <string name="art_prescription">ART/Prescription :</string>
