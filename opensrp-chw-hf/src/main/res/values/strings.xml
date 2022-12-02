@@ -864,7 +864,7 @@
     <string name="gestational_age_ga_in_weeks">Gestational Age (GA) in Weeks :</string>
     <string name="expected_date_of_delivery_edd">Expected Date of Delivery (EDD) :</string>
     <string name="past_medical_history">Past Medical History :</string>
-    <string name="gest_age">Gest Age :</string>
+    <string name="gest_age">Gestation Age : %1$s</string>
     <string name="anc_clinic_findings">ANC Clinic Findings</string>
     <string name="number_of_visits">Number of Visits :</string>
     <string name="ipt_doses">IPT Doses :</string>
@@ -1183,5 +1183,10 @@
     <string name="anc_household_support">Prepare A Household Caregiver For Support:</string>
     <string name="anc_blood_donor">Prepare Blood donor standby for blood transfusion:</string>
     <string name="edit_partner_testing">Edit Partner Testing</string>
+
+    <string name="tt1">Td1</string>
+    <string name="tt2">Td2</string>
+    <string name="tt3">Td3</string>
+    <string name="tt4">Td4</string>
 
 </resources>

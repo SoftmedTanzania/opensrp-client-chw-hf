@@ -204,9 +204,6 @@ public class AncMedicalHistoryActivityFlv extends DefaultAncMedicalHistoryActivi
 
     private String getMapValue(Map<String, String> map, String key) {
         if (map.containsKey(key)) {
-            if (map.get(key) != null && map.get(key).length() > 1) {
-                return map.get(key).split(",")[0];
-            }
             return map.get(key);
         }
         return "";

@@ -258,7 +258,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
     @Override
     protected void startLDRegistration() {
         try {
-            LDRegistrationFormActivity.startMe(this, baseEntityID, false, memberObject.getFullName(), String.valueOf(memberObject.getAge()));
+            LDRegistrationFormActivity.startMe(this, baseEntityID, false, memberObject.getFullName(), String.valueOf(memberObject.getGestationAge()));
         } catch (Exception e) {
             Timber.e(e);
         }
@@ -481,6 +481,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
         if (notificationAndReferralRecyclerView != null && notificationAndReferralRecyclerView.getAdapter() != null) {
             notificationAndReferralRecyclerView.getAdapter().notifyDataSetChanged();
         }
+        setMemberGA(memberObject.getGestationAge() + "");
     }
 
     @Override
