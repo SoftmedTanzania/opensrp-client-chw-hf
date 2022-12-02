@@ -351,6 +351,7 @@
     <string name="descent_presenting_part">Descent Presenting Part: {0}</string>
     <string name="contraction">Contraction frequency: {0}, Contraction duration: {1}</string>
     <string name="partograph_details_title">Partograph Details Summary</string>
+    <string name="ld_registration_details_title">Registration Summary</string>
     <string name="anc_fundal_height_min_err">Fundal height must be equal or greater than</string>
 
 

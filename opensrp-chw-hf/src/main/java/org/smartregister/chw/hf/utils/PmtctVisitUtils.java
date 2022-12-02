@@ -5,6 +5,8 @@ import static org.smartregister.util.Utils.getAllSharedPreferences;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.smartregister.chw.anc.AncLibrary;
+import org.smartregister.chw.anc.dao.HomeVisitDao;
 import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.core.model.ChildModel;
 import org.smartregister.chw.hf.dao.HeiDao;
@@ -17,6 +19,7 @@ import org.smartregister.chw.pmtct.repository.VisitRepository;
 import org.smartregister.chw.pmtct.util.VisitUtils;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.clientandeventmodel.Obs;
+import org.smartregister.immunization.ImmunizationLibrary;
 import org.smartregister.repository.AllSharedPreferences;
 
 import java.text.SimpleDateFormat;
@@ -201,6 +204,40 @@ public class PmtctVisitUtils extends VisitUtils {
             }
         }
 
+    }
+
+    public static void deleteSavedEvent(AllSharedPreferences allSharedPreferences, String baseEntityId, String eventId, String formSubmissionId, String type) {
+        Event event = (Event) new Event()
+                .withBaseEntityId(baseEntityId)
+                .withEventDate(new Date())
+                .withEventType(org.smartregister.chw.anc.util.Constants.EVENT_TYPE.DELETE_EVENT)
+                .withLocationId(org.smartregister.chw.anc.util.JsonFormUtils.locationId(allSharedPreferences))
+                .withProviderId(allSharedPreferences.fetchRegisteredANM())
+                .withEntityType(type)
+                .withFormSubmissionId(UUID.randomUUID().toString())
+                .withDateCreated(new Date());
+
+        event.addDetails(org.smartregister.chw.anc.util.Constants.JSON_FORM_EXTRA.DELETE_EVENT_ID, eventId);
+        event.addDetails(org.smartregister.chw.anc.util.Constants.JSON_FORM_EXTRA.DELETE_FORM_SUBMISSION_ID, formSubmissionId);
+
+        try {
+            NCUtils.processEvent(event.getBaseEntityId(), new JSONObject(org.smartregister.chw.anc.util.JsonFormUtils.gson.toJson(event)));
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+    }
+
+    public static void deleteProcessedVisit(String visitID, String baseEntityId) {
+        // check if the event
+        AllSharedPreferences allSharedPreferences = ImmunizationLibrary.getInstance().context().allSharedPreferences();
+        org.smartregister.chw.anc.domain.Visit visit = AncLibrary.getInstance().visitRepository().getVisitByVisitId(visitID);
+        if (visit == null || !visit.getProcessed()) return;
+
+        Event processedEvent = HomeVisitDao.getEventByFormSubmissionId(visit.getFormSubmissionId());
+        if (processedEvent == null) return;
+
+        PmtctVisitUtils.deleteSavedEvent(allSharedPreferences, baseEntityId, processedEvent.getEventId(), processedEvent.getFormSubmissionId(), "event");
+        AncLibrary.getInstance().visitRepository().deleteVisit(visitID);
     }
 
 }

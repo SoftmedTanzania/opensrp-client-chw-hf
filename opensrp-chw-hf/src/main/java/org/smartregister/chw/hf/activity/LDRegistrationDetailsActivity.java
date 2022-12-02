@@ -1,6 +1,7 @@
 package org.smartregister.chw.hf.activity;
 
 import static org.smartregister.AllConstants.DEFAULT_LOCALITY_NAME;
+import static org.smartregister.util.Utils.getName;
 
 import android.app.Activity;
 import android.content.Context;
@@ -111,8 +112,13 @@ public class LDRegistrationDetailsActivity extends CoreAncMedicalHistoryActivity
         displayLoadingState(true);
         flavor.processViewData(visits, this);
         displayLoadingState(false);
-        TextView ldPartographDetailsTitle = view.findViewById(org.smartregister.chw.core.R.id.customFontTextViewHealthFacilityVisitTitle);
-        ldPartographDetailsTitle.setText(getString(R.string.partograph_details_title));
+        TextView title = view.findViewById(org.smartregister.chw.core.R.id.customFontTextViewHealthFacilityVisitTitle);
+        TextView edit = view.findViewById(org.smartregister.chw.core.R.id.textview_edit);
+        title.setText(getString(R.string.ld_registration_details_title));
+
+        edit.setVisibility(View.VISIBLE);
+        edit.setOnClickListener(view1 -> LDRegistrationFormActivity.startMe(LDRegistrationDetailsActivity.this, ldMemberObject.getBaseEntityId(), true, getName(getName(ldMemberObject.getFirstName(), ldMemberObject.getMiddleName()), ldMemberObject.getLastName()), String.valueOf(ldMemberObject.getAge())));
+
         return view;
     }
 

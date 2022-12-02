@@ -613,4 +613,9 @@ public class HfPmtctDao extends CorePmtctDao {
         }
         return null;
     }
+
+    public static void deleteEntryFromTableByFormSubmissionId(String tableName, String submissionId) {
+        String sql = "delete from " + tableName + " where base_entity_id = '" + submissionId + "'";
+        updateDB(sql);
+    }
 }

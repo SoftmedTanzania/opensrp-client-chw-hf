@@ -20,13 +20,10 @@ import org.apache.commons.text.WordUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.json.JSONObject;
-import org.smartregister.chw.anc.AncLibrary;
-import org.smartregister.chw.anc.dao.HomeVisitDao;
 import org.smartregister.chw.anc.domain.MemberObject;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.presenter.BaseAncMedicalHistoryPresenter;
-import org.smartregister.chw.anc.util.Constants;
 import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.chw.core.activity.CoreAncMedicalHistoryActivity;
 import org.smartregister.chw.core.activity.DefaultAncMedicalHistoryActivityFlv;
@@ -35,21 +32,19 @@ import org.smartregister.chw.core.utils.CoreJsonFormUtils;
 import org.smartregister.chw.core.utils.CoreReferralUtils;
 import org.smartregister.chw.hf.R;
 import org.smartregister.chw.hf.interactor.AncPartnerTestingHistoryInteractor;
+import org.smartregister.chw.hf.utils.PmtctVisitUtils;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.family.util.JsonFormUtils;
-import org.smartregister.immunization.ImmunizationLibrary;
 import org.smartregister.repository.AllSharedPreferences;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.UUID;
 
 import timber.log.Timber;
 
@@ -117,10 +112,11 @@ public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActiv
                 JSONObject form = new JSONObject(jsonString);
                 String encounterType = form.getString(JsonFormUtils.ENCOUNTER_TYPE);
                 if (encounterType.equals(CoreConstants.EventType.ANC_PARTNER_TESTING)) {
-                    String deletedVisitId = form.getString(VISIT_ID);
-                    form.remove(VISIT_ID);
-
-                    deleteProcessedVisit(deletedVisitId, ancMemberObject.getBaseEntityId());
+                    if (form.has(VISIT_ID)) {
+                        String deletedVisitId = form.getString(VISIT_ID);
+                        form.remove(VISIT_ID);
+                        PmtctVisitUtils.deleteProcessedVisit(deletedVisitId, ancMemberObject.getBaseEntityId());
+                    }
 
                     Event baseEvent = org.smartregister.chw.anc.util.JsonFormUtils.processJsonForm(allSharedPreferences, CoreReferralUtils.setEntityId(jsonString, ancMemberObject.getBaseEntityId()), CoreConstants.TABLE_NAME.ANC_MEMBER);
                     org.smartregister.chw.anc.util.JsonFormUtils.tagEvent(allSharedPreferences, baseEvent);
@@ -130,40 +126,6 @@ public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActiv
             } catch (Exception e) {
                 Timber.e(e, "AncPartnerTestingHistoryActivity -- > onActivityResult");
             }
-        }
-    }
-
-    protected void deleteProcessedVisit(String visitID, String baseEntityId) {
-        // check if the event
-        AllSharedPreferences allSharedPreferences = ImmunizationLibrary.getInstance().context().allSharedPreferences();
-        Visit visit = AncLibrary.getInstance().visitRepository().getVisitByVisitId(visitID);
-        if (visit == null || !visit.getProcessed()) return;
-
-        Event processedEvent = HomeVisitDao.getEventByFormSubmissionId(visit.getFormSubmissionId());
-        if (processedEvent == null) return;
-
-        deleteSavedEvent(allSharedPreferences, baseEntityId, processedEvent.getEventId(), processedEvent.getFormSubmissionId(), "event");
-        AncLibrary.getInstance().visitRepository().deleteVisit(visitID);
-    }
-
-    protected void deleteSavedEvent(AllSharedPreferences allSharedPreferences, String baseEntityId, String eventId, String formSubmissionId, String type) {
-        Event event = (Event) new Event()
-                .withBaseEntityId(baseEntityId)
-                .withEventDate(new Date())
-                .withEventType(Constants.EVENT_TYPE.DELETE_EVENT)
-                .withLocationId(org.smartregister.chw.anc.util.JsonFormUtils.locationId(allSharedPreferences))
-                .withProviderId(allSharedPreferences.fetchRegisteredANM())
-                .withEntityType(type)
-                .withFormSubmissionId(UUID.randomUUID().toString())
-                .withDateCreated(new Date());
-
-        event.addDetails(Constants.JSON_FORM_EXTRA.DELETE_EVENT_ID, eventId);
-        event.addDetails(Constants.JSON_FORM_EXTRA.DELETE_FORM_SUBMISSION_ID, formSubmissionId);
-
-        try {
-            NCUtils.processEvent(event.getBaseEntityId(), new JSONObject(org.smartregister.chw.anc.util.JsonFormUtils.gson.toJson(event)));
-        } catch (Exception e) {
-            Timber.e(e);
         }
     }
 
@@ -255,7 +217,7 @@ public class AncPartnerTestingHistoryActivity extends CoreAncMedicalHistoryActiv
                     else
                         tvEdit.setVisibility(View.GONE);
 
-                    tvTitle.setText(visits.get(x).getVisitType() + " " +  new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(visits.get(x).getDate()));
+                    tvTitle.setText(visits.get(x).getVisitType() + " " + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(visits.get(x).getDate()));
 
                     for (LinkedHashMap.Entry<String, String> entry : vals.entrySet()) {
                         TextView visitDetailTv = new TextView(context);

@@ -242,4 +242,17 @@ public class LDDao extends org.smartregister.chw.ld.dao.LDDao {
         }
         return null;
     }
+
+    public static String getPreviousPartographTime(String baseEntityId) {
+        String sql = "SELECT partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00') DESC LIMIT 1,1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "partograph_time");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
 }
