@@ -293,6 +293,7 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
             if (gender.equalsIgnoreCase("female") && !AncDao.isANCMember(baseEntityId)) {
                 menu.findItem(R.id.action_pregnancy_confirmation).setVisible(true);
                 menu.findItem(R.id.action_pregnancy_out_come).setVisible(true);
+                menu.findItem(R.id.action_pmtct_register).setVisible(true);
             }
             menu.findItem(R.id.action_fp_change).setVisible(false);
             menu.findItem(R.id.action_fp_initiation).setVisible(false);

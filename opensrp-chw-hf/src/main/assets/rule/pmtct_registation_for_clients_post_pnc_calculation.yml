@@ -6,14 +6,14 @@ condition: "true"
 actions:
   - "calculation = step1_is_transfer_in_client.contains('yes') ? step1_pmtct_register_date_from_originating_facility : step1_pmtct_register_date_at_this_facility "
 ---
-name: step2_next_facility_visit_date
+name: step1_next_facility_visit_date
 description: next facility visit date is date today if the client is transfer in else the next facility visit date is null
 priority: 1
 condition: "step1_is_transfer_in_client.equals('yes')"
 actions:
   - "calculation = step1_is_transfer_in_client.contains('yes') ? helper.getDateToday() : '' "
 ---
-name: step2_followup_status
+name: step1_followup_status
 description: setting followup status to continuing with services if the client is transfer in else the followup status is null
 priority: 1
 condition: "step1_is_transfer_in_client.equals('yes')"
@@ -27,9 +27,16 @@ condition: "true"
 actions:
   - "calculation = helper.getTimeInMillis()"
 ---
-name: step2_test_results
+name: step1_test_results
 description: hiv status of the client
 priority: 1
-condition: "!step2_hiv_status.equals('') || !step1_known_on_art.equals('')"
+condition: "!step1_hiv_status.equals('') || !step1_known_on_art.equals('')"
 actions:
-  - "calculation = (!step1_known_on_art.equals('') && step1_known_on_art.contains('yes')) ? 'positive' : step2_hiv_status"
+  - "calculation = (!step1_known_on_art.equals('') && step1_known_on_art.contains('yes')) ? 'positive' : step1_hiv_status"
+---
+name: step1_hiv
+description: hiv status of the client
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step1_test_results"

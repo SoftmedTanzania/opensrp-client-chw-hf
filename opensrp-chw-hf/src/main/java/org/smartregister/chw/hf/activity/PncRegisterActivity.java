@@ -131,8 +131,15 @@ public class PncRegisterActivity extends CorePncRegisterActivity implements Bott
 
     @Override
     public void onRegistrationSaved(String encounterType, boolean isEdit, boolean hasChildren) {
-        if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.PREGNANCY_OUTCOME)) {
+        if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.PREGNANCY_OUTCOME) || encounterType.equalsIgnoreCase(org.smartregister.chw.hf.utils.Constants.Events.PMTCT_POST_PNC_REGISTRATION)) {
+            hideProgressDialog();
             Timber.d("We are home - PNC Register");
+            if(encounterType.equalsIgnoreCase(org.smartregister.chw.hf.utils.Constants.Events.PMTCT_POST_PNC_REGISTRATION)) {
+                finish();
+                Intent intent = new Intent(this, PmtctRegisterActivity.class);
+                startActivity(intent);
+            }
+
         } else {
             super.onRegistrationSaved(encounterType, isEdit, hasChildren);
         }
@@ -157,6 +164,7 @@ public class PncRegisterActivity extends CorePncRegisterActivity implements Bott
             try {
                 JSONObject form = new JSONObject(data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON));
                 String encounter_type = form.optString(Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE);
+                String table = data.getStringExtra(Constants.ACTIVITY_PAYLOAD.TABLE_NAME);
 
                 if (CoreConstants.EventType.PREGNANCY_OUTCOME.equals(encounter_type)) {
                     JSONArray fields = org.smartregister.util.JsonFormUtils.fields(form);
@@ -166,8 +174,8 @@ public class PncRegisterActivity extends CorePncRegisterActivity implements Bott
                         this.finish();
                         return;
                     }
-
-
+                } else if (encounter_type.equalsIgnoreCase(org.smartregister.chw.hf.utils.Constants.Events.PMTCT_POST_PNC_REGISTRATION)) {
+                    presenter().saveForm(form.toString(), false, table);
                 }
                 SyncServiceJob.scheduleJobImmediately(SyncServiceJob.TAG);
 

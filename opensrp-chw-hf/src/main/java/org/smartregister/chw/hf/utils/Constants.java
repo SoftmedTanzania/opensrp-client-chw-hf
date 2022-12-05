@@ -67,6 +67,7 @@ public class Constants extends CoreConstants {
         public static final String LD_ACTIVE_MANAGEMENT_OF_3RD_STAGE_OF_LABOUR = "LD Active Management of 3rd Stage Of Labour";
         public static final String LD_POST_DELIVERY_MOTHER_MANAGEMENT = "Post Delivery Mother Management";
         public static final String CLOSE_LD = "Close LD";
+        public static final String PMTCT_POST_PNC_REGISTRATION = "PMTCT Post PNC Registration";
     }
 
     public static final class TableName {
@@ -145,6 +146,7 @@ public class Constants extends CoreConstants {
         private static final String LTFU_REFERRAL_FORM = "referrals/ltfu_referral_form";
         private static final String LD_EMERGENCY_REFERRAL_FORM = "referrals/labour_and_delivery_emergency_referral";
         private static final String LD_CHILD_EMERGENCY_REFERRAL_FORM = "referrals/labour_and_delivery_child_emergency_referral";
+        private static final String PMTCT_REGISTRATION_FOR_CLIENTS_POST_PNC = "pmtct_registration_for_clients_post_pnc";
 
         public static String getNextFacilityVisitForm() {
             return NEXT_FACILITY_VISIT_FORM;
@@ -264,6 +266,10 @@ public class Constants extends CoreConstants {
 
         public static String getPmtctRegistration() {
             return PMTCT_REGISTRATION;
+        }
+
+        public static String getPmtctRegistrationForClientsPostPnc() {
+            return PMTCT_REGISTRATION_FOR_CLIENTS_POST_PNC;
         }
 
         public static String getPmtctRegistrationForClientsKnownOnArtForm() {
