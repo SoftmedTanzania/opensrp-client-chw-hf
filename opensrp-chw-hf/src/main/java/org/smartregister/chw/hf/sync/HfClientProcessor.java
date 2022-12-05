@@ -1,6 +1,8 @@
 package org.smartregister.chw.hf.sync;
 
+import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_FOLLOWUP_CLIENT_REGISTRATION;
 import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_PARTNER_TESTING;
+import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_PREGNANCY_CONFIRMATION;
 import static org.smartregister.chw.hf.utils.Constants.Events.ANC_FIRST_FACILITY_VISIT;
 import static org.smartregister.chw.hf.utils.Constants.Events.ANC_RECURRING_FACILITY_VISIT;
 import static org.smartregister.chw.hf.utils.Constants.Events.HEI_FOLLOWUP;
@@ -67,6 +69,8 @@ public class HfClientProcessor extends CoreClientProcessor {
         super.processEvents(clientClassification, vaccineTable, serviceTable, eventClient, event, eventType);
 
         switch (eventType) {
+            case ANC_PREGNANCY_CONFIRMATION:
+            case ANC_FOLLOWUP_CLIENT_REGISTRATION:
             case ANC_FIRST_FACILITY_VISIT:
             case ANC_RECURRING_FACILITY_VISIT:
             case PNC_VISIT:

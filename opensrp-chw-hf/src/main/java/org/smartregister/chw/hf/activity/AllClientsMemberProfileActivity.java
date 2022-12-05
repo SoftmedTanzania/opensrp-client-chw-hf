@@ -378,12 +378,12 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
 
     protected void startPregnancyConfirmation() {
         AncRegisterActivity.startAncRegistrationActivity(AllClientsMemberProfileActivity.this, baseEntityId, PhoneNumber,
-                Constants.JsonForm.getAncPregnancyConfirmation(), null, familyBaseEntityId, familyName);
+                CoreConstants.JSON_FORM.ANC_PREGNANCY_CONFIRMATION, null, familyBaseEntityId, familyName);
     }
 
     protected void startAncTransferInRegistration() {
         AncRegisterActivity.startAncRegistrationActivity(AllClientsMemberProfileActivity.this, baseEntityId, PhoneNumber,
-                Constants.JsonForm.getAncTransferInRegistrationForm(), null, familyBaseEntityId, familyName);
+                Constants.JSON_FORM.ANC_TRANSFER_IN_REGISTRATION, null, familyBaseEntityId, familyName);
     }
 
 }

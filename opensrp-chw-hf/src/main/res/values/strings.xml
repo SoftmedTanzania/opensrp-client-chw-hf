@@ -1182,7 +1182,22 @@
     <string name="anc_emergency_funds">Prepare money for delivery and other delivery needs:</string>
     <string name="anc_household_support">Prepare A Household Caregiver For Support:</string>
     <string name="anc_blood_donor">Prepare Blood donor standby for blood transfusion:</string>
+    <string name="anc_type_of_pregnancy_test">Type of test conducted:</string>
+    <string name="anc_fundal_palpation">Fundal Palpation Results:</string>
+    <string name="anc_upt">UPT Results:</string>
+    <string name="anc_uss">USS results:</string>
+    <string name="anc_known_last_menstrual_period">Last Normal Menstrual Period (LNMP):</string>
+    <string name="anc_last_menstrual_period_unknown">Last Normal Menstrual Unknown:</string>
+    <string name="anc_gest_age_note">Gestational Age (GA) in Weeks:</string>
+    <string name="anc_edd">Expected Date of Delivery (EDD):</string>
+
+    <string name="anc_pregnancy_confirmation_date">ANC Pregnancy Confirmation: {0}</string>
+    <string name="anc_registration_date">ANC Registration: {0}</string>
+
+
     <string name="edit_partner_testing">Edit Partner Testing</string>
+    <string name="edit_pregnancy_confirmation">Edit Pregnancy Confirmation</string>
+    <string name="edit_anc_registration">Edit ANC Registration</string>
 
     <string name="tt1">Td1</string>
     <string name="tt2">Td2</string>

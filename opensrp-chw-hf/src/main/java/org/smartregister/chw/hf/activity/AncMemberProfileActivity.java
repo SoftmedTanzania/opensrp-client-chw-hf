@@ -307,6 +307,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
         }
 
         RelativeLayout partnerView = findViewById(R.id.rlPartnerView);
+        RelativeLayout registrationDetails = findViewById(R.id.rlRegistrationDetails);
         RelativeLayout partnerTestingView = findViewById(R.id.rlPartnerTesting);
         RelativeLayout partnerTestingHistoryView = findViewById(R.id.rlPartnerTestingHistory);
         CustomFontTextView tvPartnerProfileView = findViewById(R.id.text_view_partner_profile);
@@ -317,10 +318,13 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
         View partnerTestingBottomView = findViewById(R.id.partner_testing_row);
         View partnerBottomView = findViewById(R.id.view_partner_row);
 
+        findViewById(R.id.view_registration_details_row).setVisibility(View.VISIBLE);
+        registrationDetails.setVisibility(View.VISIBLE);
         partnerView.setVisibility(View.VISIBLE);
         partnerBottomView.setVisibility(View.VISIBLE);
         partnerTestingHistoryView.setVisibility(View.VISIBLE);
 
+        registrationDetails.setOnClickListener(this);
         partnerView.setOnClickListener(this);
         partnerTestingHistoryView.setOnClickListener(this);
         registerBtn.setOnClickListener(this);
@@ -523,6 +527,8 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
             AncPartnerTestingHistoryActivity.startMe(this, memberObject);
         } else if (id == R.id.test_partner_btn) {
             ((AncMemberProfilePresenter) presenter()).startPartnerTestingForm(memberObject);
+        } else if (id == R.id.rlRegistrationDetails) {
+            AncRegistrationDetailsActivity.startMe(this, memberObject);
         }
     }
 

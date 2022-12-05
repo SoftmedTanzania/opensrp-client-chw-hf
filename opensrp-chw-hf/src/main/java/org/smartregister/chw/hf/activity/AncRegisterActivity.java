@@ -163,7 +163,7 @@ public class AncRegisterActivity extends CoreAncRegisterActivity {
     }
 
     public static String getFormTable() {
-        if (form_name != null && (form_name.equals(CoreConstants.JSON_FORM.getAncRegistration()) || form_name.equals(org.smartregister.chw.hf.utils.Constants.JsonForm.getAncPregnancyConfirmationForm()))) {
+        if (form_name != null && (form_name.equals(CoreConstants.JSON_FORM.getAncRegistration()) || form_name.equals(CoreConstants.JSON_FORM.ANC_PREGNANCY_CONFIRMATION))) {
             return CoreConstants.TABLE_NAME.ANC_MEMBER;
         }
         return CoreConstants.TABLE_NAME.ANC_PREGNANCY_OUTCOME;
@@ -225,7 +225,7 @@ public class AncRegisterActivity extends CoreAncRegisterActivity {
 
     @Override
     public String getRegisterEventType() {
-        return org.smartregister.chw.hf.utils.Constants.Events.ANC_PREGNANCY_CONFIRMATION;
+        return CoreConstants.EventType.ANC_PREGNANCY_CONFIRMATION;
     }
 
     @Override
@@ -262,7 +262,7 @@ public class AncRegisterActivity extends CoreAncRegisterActivity {
 
                     presenter().saveForm(jsonString, false, table);
 
-                } else if (encounter_type.equalsIgnoreCase(org.smartregister.chw.hf.utils.Constants.Events.ANC_FOLLOWUP_CLIENT_FOLLOWUP)) {
+                } else if (encounter_type.equalsIgnoreCase(CoreConstants.EventType.ANC_FOLLOWUP_CLIENT_REGISTRATION)) {
 
                     presenter().saveForm(jsonString, false, table);
 

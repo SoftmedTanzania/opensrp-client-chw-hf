@@ -36,7 +36,6 @@ public class Constants extends CoreConstants {
     }
 
     public static final class Events {
-        public static final String ANC_PREGNANCY_CONFIRMATION = "Pregnancy Confirmation";
         public static final String ANC_FIRST_FACILITY_VISIT = "ANC First Facility Visit";
         public static final String ANC_RECURRING_FACILITY_VISIT = "ANC Recurring Facility Visit";
         public static final String ANC_FACILITY_VISIT_NOT_DONE = "ANC Facility Visit Not Done";
@@ -60,7 +59,6 @@ public class Constants extends CoreConstants {
         public static final String MARK_HEI_CLIENT_AS_LTF = "Mark HEI Client As LTF";
         public static final String HEI_COMMUNITY_FOLLOWUP = "HEI Community Followup";
         public static final String HEI_NUMBER_REGISTRATION = "HEI Number Registration";
-        public static final String ANC_FOLLOWUP_CLIENT_FOLLOWUP = "ANC Followup Client Registration";
         public static final String LD_REGISTRATION = "LD Registration";
         public static final String LD_PARTOGRAPHY = "LD Partograph";
         public static final String LD_GENERAL_EXAMINATION = "LD General Examination";
@@ -111,7 +109,6 @@ public class Constants extends CoreConstants {
         public static final String HEI_COMMUNITY_FOLLOWUP_REFERRAL = "hei_community_followup_referral";
         //TODO: cleanup
         private static final String NEXT_FACILITY_VISIT_FORM = "next_facility_visit_date_form";
-        private static final String ANC_PREGANCY_CONFIRMATION = "anc_pregnancy_confirmation";
         private static final String PMTCT_REGISTRATION = "pmtct_registration";
         private static final String PMTCT_REGISTRATION_FOR_CLIENTS_KNOWN_ON_ART_FORM = "pmtct_registration_for_clients_known_on_art";
         private static final String PMTCT_REGISTRATION_FOR_TI_CLIENTS_FORM = "pmtct_ti_registration";
@@ -139,7 +136,6 @@ public class Constants extends CoreConstants {
         private static final String PNC_HIV_TEST_RESULTS = "pnc_hiv_test_results";
         private static final String PNC_NUTRITIONAL_SUPPLEMENT = "pnc_nutritional_supplement";
         private static final String PMTCT_FOLLOWUP_STATUS = "pmtct_followup_status";
-        private static final String ANC_TRANSFER_IN_REGISTRATION = "anc_member_transfer_in_registration";
         private static final String LD_REGISTRATION = "labour_and_delivery_registration";
         private static final String LD_CHILD_REGISTRATION = "ld_child_registration";
         private static final String LD_HEI_FIRST_VISIT = "ld_hei_first_visit";
@@ -236,14 +232,6 @@ public class Constants extends CoreConstants {
             return PMTCT_CLINICAL_STAGING_OF_DISEASE;
         }
 
-        public static String getAncTransferInRegistration() {
-            return ANC_TRANSFER_IN_REGISTRATION;
-        }
-
-        public static String getAncTransferInRegistrationForm() {
-            return Utils.getLocalForm(ANC_TRANSFER_IN_REGISTRATION, locale, assetManager);
-        }
-
         public static String getEacVisitsForm() {
             return EAC_VISITS_FORM;
         }
@@ -300,10 +288,6 @@ public class Constants extends CoreConstants {
             return HVL_SUPPRESSION_FORM_AFTER_EAC_2;
         }
 
-        public static String getAncPregnancyConfirmation() {
-            return Utils.getLocalForm(ANC_PREGANCY_CONFIRMATION, locale, assetManager);
-        }
-
         public static String getHivRegistration() {
             return Utils.getLocalForm(HIV_REGISTRATION, locale, assetManager);
         }
@@ -318,10 +302,6 @@ public class Constants extends CoreConstants {
 
         public static String getPmtctFollowupStatus() {
             return PMTCT_FOLLOWUP_STATUS;
-        }
-
-        public static String getAncPregnancyConfirmationForm() {
-            return ANC_PREGANCY_CONFIRMATION;
         }
 
         public static String getHvlClinicianDetailsForm() {
