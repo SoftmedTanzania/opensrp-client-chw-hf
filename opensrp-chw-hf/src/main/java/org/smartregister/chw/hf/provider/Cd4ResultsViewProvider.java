@@ -48,6 +48,14 @@ public class Cd4ResultsViewProvider extends HvlResultsViewProvider {
                 cd4ResultDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(cd4ResultsDateString);
             }
 
+            viewHolder.sampleId.setText(sampleId);
+            viewHolder.collectionDate.setText(collectionDate);
+            viewHolder.recordHvl.setTag(pc);
+            viewHolder.recordHvl.setTag(org.smartregister.pmtct.R.id.VIEW_ID, BaseHvlResultsFragment.CLICK_VIEW_NORMAL);
+            viewHolder.recordHvl.setText(R.string.record_cd4);
+            viewHolder.resultTitle.setText(R.string.cd4_count);
+            viewHolder.recordHvl.setOnClickListener(onClickListener);
+
             if (StringUtils.isBlank(cd4Result)) {
                 viewHolder.hvlWrapper.setVisibility(View.GONE);
                 viewHolder.dueWrapper.setVisibility(View.VISIBLE);
@@ -61,14 +69,6 @@ public class Cd4ResultsViewProvider extends HvlResultsViewProvider {
                     viewHolder.recordHvl.setText(org.smartregister.pmtct.R.string.edit);
                 }
             }
-
-            viewHolder.sampleId.setText(sampleId);
-            viewHolder.collectionDate.setText(collectionDate);
-            viewHolder.recordHvl.setTag(pc);
-            viewHolder.recordHvl.setTag(org.smartregister.pmtct.R.id.VIEW_ID, BaseHvlResultsFragment.CLICK_VIEW_NORMAL);
-            viewHolder.recordHvl.setText(R.string.record_cd4);
-            viewHolder.resultTitle.setText(R.string.cd4_count);
-            viewHolder.recordHvl.setOnClickListener(onClickListener);
 
         } catch (Exception e) {
             Timber.e(e);

@@ -88,6 +88,12 @@ public class PncRegisterActivity extends CorePncRegisterActivity implements Bott
                 form.setName(getString(R.string.pregnancy_outcome_title));
                 form.setNextLabel(this.getResources().getString(org.smartregister.chw.core.R.string.next));
                 form.setPreviousLabel(this.getResources().getString(org.smartregister.chw.core.R.string.back));
+            }else if (jsonForm.getString("encounter_type").equals("PMTCT Post PNC Registration")) {
+                form.setWizard(true);
+                form.setNavigationBackground(org.smartregister.chw.core.R.color.family_navigation);
+                form.setName(getString(R.string.pmtct_registration));
+                form.setNextLabel(this.getResources().getString(org.smartregister.chw.core.R.string.next));
+                form.setPreviousLabel(this.getResources().getString(org.smartregister.chw.core.R.string.back));
             }
 
             startActivityForResult(intent, org.smartregister.family.util.JsonFormUtils.REQUEST_CODE_GET_JSON);

@@ -201,7 +201,8 @@
             "field": "eventType",
             "field_value": "Pregnancy Outcome",
             "closes_case": [
-              "ec_anc_register"
+              "ec_anc_register",
+              "ec_ld_confirmation"
             ]
           },
           {
@@ -442,7 +443,6 @@
             "field_value": "PMTCT Post PNC Registration",
             "creates_case": [
               "ec_pmtct_registration",
-              "ec_pmtct_followup",
               "ec_hiv_register"
             ]
           },

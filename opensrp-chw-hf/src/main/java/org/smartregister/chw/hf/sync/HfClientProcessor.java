@@ -1,5 +1,6 @@
 package org.smartregister.chw.hf.sync;
 
+import static org.smartregister.chw.anc.util.Constants.EVENT_TYPE.DELETE_EVENT;
 import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_FOLLOWUP_CLIENT_REGISTRATION;
 import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_PARTNER_TESTING;
 import static org.smartregister.chw.core.utils.CoreConstants.EventType.ANC_PREGNANCY_CONFIRMATION;
@@ -101,6 +102,7 @@ public class HfClientProcessor extends CoreClientProcessor {
                 break;
 
             case org.smartregister.chw.ld.util.Constants.EVENT_TYPE.VOID_EVENT:
+            case DELETE_EVENT:
                 processDeleteEvent(eventClient.getEvent());
             default:
                 break;

@@ -38,7 +38,7 @@ public class HeiVisitUtils extends VisitUtils {
         for (Visit v : visits) {
             Date visitDate = new Date(v.getDate().getTime());
             int daysDiff = TimeUtils.getElapsedDays(visitDate);
-            if (daysDiff > 1 && v.getVisitType().equalsIgnoreCase(Constants.Events.HEI_FOLLOWUP)) {
+            if (daysDiff >= 1 && v.getVisitType().equalsIgnoreCase(Constants.Events.HEI_FOLLOWUP)) {
                 try {
                     heiFollowupVisits.add(v);
                 } catch (Exception e) {

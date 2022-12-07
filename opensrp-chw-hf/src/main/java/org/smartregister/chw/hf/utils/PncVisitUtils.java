@@ -43,9 +43,9 @@ public class PncVisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
 
 
         for (Visit v : visits) {
-            Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
+            Date updatedAtDate = new Date(v.getDate().getTime());
             int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
-            if (daysDiff > 1) {
+            if (daysDiff >= 1) {
                 if (v.getVisitType().equalsIgnoreCase(Constants.Events.PNC_VISIT)) {
                     try {
                         JSONObject jsonObject = new JSONObject(v.getJson());

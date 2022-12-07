@@ -53,7 +53,7 @@ public class PmtctVisitUtils extends VisitUtils {
         for (Visit v : visits) {
             Date visitDate = new Date(v.getDate().getTime());
             int daysDiff = TimeUtils.getElapsedDays(visitDate);
-            if (daysDiff > 1 && v.getVisitType().equalsIgnoreCase(org.smartregister.chw.pmtct.util.Constants.EVENT_TYPE.PMTCT_FOLLOWUP)) {
+            if (daysDiff >= 1 && v.getVisitType().equalsIgnoreCase(org.smartregister.chw.pmtct.util.Constants.EVENT_TYPE.PMTCT_FOLLOWUP)) {
                 try {
                     JSONObject jsonObject = new JSONObject(v.getJson());
                     String baseEntityId = jsonObject.getString("baseEntityId");

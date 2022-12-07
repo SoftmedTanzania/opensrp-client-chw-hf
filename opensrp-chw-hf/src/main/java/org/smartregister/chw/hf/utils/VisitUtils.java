@@ -57,9 +57,9 @@ public class VisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
 
 
         for (Visit v : visits) {
-            Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
+            Date updatedAtDate = new Date(v.getDate().getTime());
             int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
-            if (daysDiff > 1) {
+            if (daysDiff >= 1) {
                 if (v.getVisitType().equalsIgnoreCase(Constants.Events.ANC_FIRST_FACILITY_VISIT)) {
                     if (isAncVisitComplete(v)) {
                         ancFirstVisitsCompleted.add(v);
