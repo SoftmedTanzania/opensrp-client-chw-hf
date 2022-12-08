@@ -1088,3 +1088,10 @@ indicators:
                                  substr(strftime('%Y-%m-%d', datetime(ecf.last_interacted_with / 1000, 'unixepoch', 'localtime')), 6, 2) ||
                                  '-' || '01') =
                             date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01'))"
+  - key: "cbhs-8-jumla"
+    description: ""
+    indicatorQuery: " SELECT count(DISTINCT ecr.provider_id) as count
+                      FROM ec_cbhs_register ecr
+                      WHERE date(substr(strftime('%Y-%m-%d', datetime(ecr.last_interacted_with / 1000, 'unixepoch', 'localtime')), 1, 4) || '-' ||
+                      substr(strftime('%Y-%m-%d', datetime(ecr.last_interacted_with / 1000, 'unixepoch', 'localtime')), 6, 2) || '-' || '01') =
+                      date((substr('%s', 1, 4) || '-' || substr('%s', 6, 2) || '-' || '01'))"
