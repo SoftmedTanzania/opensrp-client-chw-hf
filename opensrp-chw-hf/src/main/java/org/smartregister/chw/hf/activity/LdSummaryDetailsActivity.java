@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.presenter.BaseAncMedicalHistoryPresenter;
@@ -96,17 +94,11 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
         public void processViewData(List<Visit> visits, Context context) {
 
             if (visits.size() > 0) {
-                int days = 0;
                 List<LinkedHashMap<String, String>> hf_visits = new ArrayList<>();
 
                 int x = 0;
                 while (x < visits.size()) {
                     LinkedHashMap<String, String> visitDetails = new LinkedHashMap<>();
-
-                    // the first object in this list is the days difference
-                    if (x == 0) {
-                        days = Days.daysBetween(new DateTime(visits.get(visits.size() - 1).getDate()), new DateTime()).getDays();
-                    }
 
                     String[] generalExamination = {"general_condition", "pulse_rate", "respiratory_rate", "temperature", "systolic", "diastolic", "urine_protein", "urine_acetone", "fundal_height", "lie", "presentation", "contraction_frequency", "contraction_in_ten_minutes", "fetal_heart_rate", "level"};
                     extractVisitDetails(visits, generalExamination, visitDetails, x, context);
