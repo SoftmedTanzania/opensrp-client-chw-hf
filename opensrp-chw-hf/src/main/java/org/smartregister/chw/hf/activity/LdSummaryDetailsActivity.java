@@ -25,7 +25,6 @@ import org.smartregister.chw.hf.interactor.LDSummaryDetailsInteractor;
 import org.smartregister.chw.ld.domain.MemberObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -183,7 +182,7 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
 
         private void extractVisitDetails(List<Visit> sourceVisits, String[] hf_params, LinkedHashMap<String, String> visitDetailsMap, int iteration, Context context) {
             // get the hf details
-            Map<String, String> map = new HashMap<>();
+            LinkedHashMap<String, String> map = new LinkedHashMap<>();
             for (String param : hf_params) {
                 try {
                     List<VisitDetail> details = sourceVisits.get(iteration).getVisitDetails().get(param);

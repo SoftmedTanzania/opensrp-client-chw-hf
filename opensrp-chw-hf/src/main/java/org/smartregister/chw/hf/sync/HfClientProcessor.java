@@ -14,6 +14,7 @@ import static org.smartregister.chw.hf.utils.Constants.Events.LD_GENERAL_EXAMINA
 import static org.smartregister.chw.hf.utils.Constants.Events.LD_PARTOGRAPHY;
 import static org.smartregister.chw.hf.utils.Constants.Events.LD_POST_DELIVERY_MOTHER_MANAGEMENT;
 import static org.smartregister.chw.hf.utils.Constants.Events.LD_REGISTRATION;
+import static org.smartregister.chw.hf.utils.Constants.Events.PNC_CHILD_FOLLOWUP;
 import static org.smartregister.chw.hf.utils.Constants.Events.PNC_VISIT;
 import static org.smartregister.chw.hf.utils.Constants.FormConstants.FormSubmissionFields.CTC_NUMBER;
 import static org.smartregister.chw.hf.utils.Constants.FormConstants.FormSubmissionFields.HIV_TEST_RESULT;
@@ -75,6 +76,7 @@ public class HfClientProcessor extends CoreClientProcessor {
             case ANC_FIRST_FACILITY_VISIT:
             case ANC_RECURRING_FACILITY_VISIT:
             case PNC_VISIT:
+            case PNC_CHILD_FOLLOWUP:
             case LD_PARTOGRAPHY:
             case LD_REGISTRATION:
             case LD_ACTIVE_MANAGEMENT_OF_3RD_STAGE_OF_LABOUR:

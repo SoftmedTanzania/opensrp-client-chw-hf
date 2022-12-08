@@ -133,7 +133,7 @@ public class ChildProfileActivity extends CoreChildProfileActivity {
                 }
                 return true;
             case R.id.action_malaria_diagnosis:
-              //  displayShortToast(R.string.clicked_malaria_diagnosis);
+                //  displayShortToast(R.string.clicked_malaria_diagnosis);
                 startHfMalariaFollowupForm();
                 return true;
             default:
@@ -153,7 +153,7 @@ public class ChildProfileActivity extends CoreChildProfileActivity {
         menu.findItem(R.id.action_anc_registration).setVisible(false);
         menu.findItem(R.id.action_malaria_registration).setVisible(false);
         menu.findItem(R.id.action_malaria_followup_visit).setVisible(false);
-        menu.findItem(R.id.action_remove_member).setVisible(true);
+        menu.findItem(R.id.action_remove_member).setVisible(false);
         menu.findItem(R.id.action_sick_child_follow_up).setVisible(true);
 
         if (MalariaDao.isRegisteredForMalaria(childBaseEntityId)) {

@@ -252,7 +252,7 @@ public class PncMemberProfileActivity extends CorePncMemberProfileActivity imple
             menu.add(0, R.id.action_pnc_registration, 100 + i, nameOfMenuItem);
             menuItemEditNames.put(nameOfMenuItem, childModels.get(i).getBaseEntityId());
         }
-        menu.findItem(R.id.action__pnc_remove_member).setVisible(true);
+        menu.findItem(R.id.action__pnc_remove_member).setVisible(false);
         menu.findItem(R.id.action__pnc_danger_sign_outcome).setVisible(false);
         if (HealthFacilityApplication.getApplicationFlavor().hasHivst()) {
             int age = memberObject.getAge();
