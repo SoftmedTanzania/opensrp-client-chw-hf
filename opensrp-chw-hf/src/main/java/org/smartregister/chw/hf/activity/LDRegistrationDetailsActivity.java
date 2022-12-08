@@ -51,7 +51,6 @@ public class LDRegistrationDetailsActivity extends CoreAncMedicalHistoryActivity
     private Flavor flavor = new LDRegistrationDetailsActivityFlv();
     private ProgressBar progressBar;
     private RelativeLayout headerLayout;
-    private final StyleSpan boldSpan = new StyleSpan(android.graphics.Typeface.BOLD);
 
     public static void startMe(Activity activity, MemberObject memberObject) {
         Intent intent = new Intent(activity, LDRegistrationDetailsActivity.class);

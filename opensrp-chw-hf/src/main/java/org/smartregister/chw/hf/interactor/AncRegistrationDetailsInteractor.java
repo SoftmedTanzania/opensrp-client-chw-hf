@@ -12,7 +12,6 @@ import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.util.VisitUtils;
 import org.smartregister.chw.core.CoreBaseAncMedicalHistoryInteractor;
 import org.smartregister.chw.core.utils.CoreConstants;
-import org.smartregister.chw.hf.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;

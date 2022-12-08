@@ -104,7 +104,7 @@ public class Cd4ResultsFragment extends BaseHvlResultsFragment {
             assert jsonObject != null;
             CoreJsonFormUtils.populateJsonForm(jsonObject, client.getColumnmaps());
 
-            jsonObject.put(FORM_SUBMISSION_ID, Utils.getValue(client.getColumnmaps(), DBConstants.KEY.FORM_SUBMISSION_ID, false));
+            jsonObject.put(FORM_SUBMISSION_ID, Utils.getValue(client.getColumnmaps(), FORM_SUBMISSION_ID, false));
             Cd4ResultsViewActivity.startResultsForm(getContext(), jsonObject.toString(), baseEntityId, formSubmissionId);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -108,7 +108,7 @@ public class HvlResultsFragment extends BaseHvlResultsFragment {
                 Timber.e(e);
             }
 
-            jsonObject.put(FORM_SUBMISSION_ID, Utils.getValue(client.getColumnmaps(), DBConstants.KEY.FORM_SUBMISSION_ID, false));
+            jsonObject.put(FORM_SUBMISSION_ID, Utils.getValue(client.getColumnmaps(), FORM_SUBMISSION_ID, false));
 
             CoreJsonFormUtils.populateJsonForm(jsonObject, client.getColumnmaps());
 

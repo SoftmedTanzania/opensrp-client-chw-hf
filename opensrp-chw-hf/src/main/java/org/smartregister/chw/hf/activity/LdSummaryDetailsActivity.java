@@ -184,7 +184,7 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
                     x++;
                 }
 
-                processLastVisit(days, context);
+                updateLastVisitView();
                 processVisit(hf_visits, context, visits);
             }
         }
@@ -205,7 +205,7 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
         }
 
 
-        private void processLastVisit(int days, Context context) {
+        private void updateLastVisitView() {
             linearLayoutLastVisit.setVisibility(View.GONE);
         }
 

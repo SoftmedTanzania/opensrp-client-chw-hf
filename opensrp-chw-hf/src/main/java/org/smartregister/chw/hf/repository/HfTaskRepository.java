@@ -7,7 +7,6 @@ import net.sqlcipher.Cursor;
 import org.smartregister.chw.core.repository.ChwTaskRepository;
 import org.smartregister.chw.core.utils.ChwDBConstants;
 import org.smartregister.chw.core.utils.CoreConstants;
-import org.smartregister.chw.core.utils.Utils;
 import org.smartregister.domain.Task;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.repository.TaskNotesRepository;
@@ -42,8 +41,8 @@ public class HfTaskRepository extends ChwTaskRepository {
     }
 
     @Override
-    public Set<Task> getReferralTasksForClientByStatus(String planId, String forEntity, String businessStatus ) {
-        AllSharedPreferences allSharedPreferences = Utils.getAllSharedPreferences();
+    public Set<Task> getReferralTasksForClientByStatus(String planId, String forEntity, String businessStatus) {
+        AllSharedPreferences allSharedPreferences = getAllSharedPreferences();
         String anm = allSharedPreferences.fetchRegisteredANM();
 
         Cursor cursor = null;
