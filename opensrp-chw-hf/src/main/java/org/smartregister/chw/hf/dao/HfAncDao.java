@@ -1,7 +1,6 @@
 package org.smartregister.chw.hf.dao;
 
 import org.smartregister.chw.core.dao.AncDao;
-import org.smartregister.dao.AbstractDao;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -295,7 +294,7 @@ public class HfAncDao extends AncDao {
         return "null";
     }
 
-    public static String malariaIptDosage(String iptDosage,String baseEntityId) {
+    public static String malariaIptDosage(String iptDosage, String baseEntityId) {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, iptDosage);
 
         String sql = String.format(
@@ -315,7 +314,7 @@ public class HfAncDao extends AncDao {
     }
 
     //This method is used to obtain previous Malaria IPT Dosage during Editing Visits.
-    public static String previousMalariaIptDosage(String iptDosage,String baseEntityId) {
+    public static String previousMalariaIptDosage(String iptDosage, String baseEntityId) {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, iptDosage);
 
         String sql = String.format(

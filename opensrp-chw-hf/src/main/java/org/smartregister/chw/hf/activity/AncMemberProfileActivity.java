@@ -333,7 +333,7 @@ public class AncMemberProfileActivity extends CoreAncMemberProfileActivity {
             try {
                 CommonPersonObjectClient partnerClient = getClientDetailsByBaseEntityID(partnerBaseEntityId);
                 HashMap<String, String> clientDetails = (HashMap<String, String>) partnerClient.getColumnmaps();
-                tvPartnerProfileView.setText(R.string.view_partner_prefile);
+                tvPartnerProfileView.setText(R.string.view_partner_profile);
                 tvPartnerDetails.setVisibility(View.VISIBLE);
                 registerBtn.setVisibility(View.GONE);
                 goToProfileBtn.setVisibility(View.VISIBLE);

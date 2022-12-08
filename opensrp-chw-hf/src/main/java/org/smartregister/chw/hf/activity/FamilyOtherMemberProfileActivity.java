@@ -1,5 +1,8 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.chw.core.utils.Utils.updateToolbarTitle;
+import static org.smartregister.chw.hf.utils.Constants.JsonForm.HIV_REGISTRATION;
+
 import android.content.Context;
 import android.os.Build;
 import android.view.Menu;
@@ -43,9 +46,6 @@ import org.smartregister.family.util.DBConstants;
 import org.smartregister.view.contract.BaseProfileContract;
 
 import timber.log.Timber;
-
-import static org.smartregister.chw.core.utils.Utils.updateToolbarTitle;
-import static org.smartregister.chw.hf.utils.Constants.JsonForm.HIV_REGISTRATION;
 
 public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfileActivity {
     private FamilyMemberFloatingMenu familyFloatingMenu;
@@ -282,7 +282,7 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
         menu.findItem(R.id.action_malaria_followup_visit).setVisible(false);
         menu.findItem(R.id.action_sick_child_follow_up).setVisible(false);
         menu.findItem(R.id.action_anc_registration).setVisible(false);
-        menu.findItem(R.id.action_remove_member).setVisible(true);
+        menu.findItem(R.id.action_remove_member).setVisible(false);
         menu.findItem(R.id.action_tb_registration).setVisible(false);
         menu.findItem(R.id.action_pregnancy_out_come).setVisible(false);
 
