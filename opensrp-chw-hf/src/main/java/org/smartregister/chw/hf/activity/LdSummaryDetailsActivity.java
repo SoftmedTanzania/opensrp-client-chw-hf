@@ -157,8 +157,18 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
                     String[] immediateNewBornCare = {"newborn_status", "still_birth_choice", "child_delivery_date", "child_delivery_time", "sex"};
                     extractVisitDetails(visits, immediateNewBornCare, visitDetails, x, context);
 
-                    String[] immediateNewBornCareAgparScore = {"apgar_activity_score_at_1_minute", "apgar_pulse_score_at_1_minute", "apgar_grimace_on_stimulation_score_at_1_minute", "apgar_appearance_score_at_1_minute", "apgar_respiration_score_at_1_minute", "apgar_score_at_1_minute", "apgar_score_activity_label_at_5_mins", "apgar_activity_score_at_5_minutes", "apgar_pulse_score_at_5_minutes", "apgar_grimace_on_stimulation_score_at_5_minutes", "apgar_appearance_score_at_5_minutes", "apgar_respiration_score_at_5_minutes", "apgar_score_at_5_minutes"};
-                    extractVisitDetails(visits, immediateNewBornCareAgparScore, visitDetails, x, context);
+                    String[] totalApgarScoreAt1Minutes = {"apgar_score_at_1_minute"};
+                    extractVisitDetails(visits, totalApgarScoreAt1Minutes, visitDetails, x, context);
+
+                    String[] immediateNewBornCareAgparScoreAt1Minute = {"apgar_activity_score_at_1_minute", "apgar_pulse_score_at_1_minute", "apgar_grimace_on_stimulation_score_at_1_minute", "apgar_appearance_score_at_1_minute", "apgar_respiration_score_at_1_minute", "apgar_score_at_1_minute"};
+                    extractVisitDetails(visits, immediateNewBornCareAgparScoreAt1Minute, visitDetails, x, context);
+
+                    String[] totalApgarScoreAt5Minutes = {"apgar_score_at_5_minutes"};
+                    extractVisitDetails(visits, totalApgarScoreAt5Minutes, visitDetails, x, context);
+
+                    String[] immediateNewBornCareAgparScoreAt5Minutes = {"apgar_score_activity_label_at_5_mins", "apgar_activity_score_at_5_minutes", "apgar_pulse_score_at_5_minutes", "apgar_grimace_on_stimulation_score_at_5_minutes", "apgar_appearance_score_at_5_minutes", "apgar_respiration_score_at_5_minutes", "apgar_score_at_5_minutes"};
+                    extractVisitDetails(visits, immediateNewBornCareAgparScoreAt5Minutes, visitDetails, x, context);
+
 
                     String[] newBornCare = {"resuscitation_question", "keep_warm", "cord_bleeding", "early_bf_1hr", "reason_for_not_breast_feeding_within_one_hour", "other_reason_for_not_breast_feeding_within_one_hour", "eye_care", "reason_for_not_giving_eye_care", "other_reason_for_not_giving_eye_care"};
                     extractVisitDetails(visits, newBornCare, visitDetails, x, context);
@@ -226,8 +236,16 @@ public class LdSummaryDetailsActivity extends CoreAncMedicalHistoryActivity {
 
 
                         try {
-                            int resource = context.getResources().getIdentifier("ld_" + entry.getKey(), "string", context.getPackageName());
-                            evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "");
+                            if (entry.getKey().equalsIgnoreCase("cervix_observation")) {
+                                int resource = context.getResources().getIdentifier("ld_" + entry.getKey(), "string", context.getPackageName());
+                                evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "ld_cervix_observation_");
+                            } else if (entry.getKey().equalsIgnoreCase("vaginal_bleeding_observation")) {
+                                int resource = context.getResources().getIdentifier("ld_" + entry.getKey(), "string", context.getPackageName());
+                                evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "ld_vaginal_bleeding_observation_");
+                            } else {
+                                int resource = context.getResources().getIdentifier("ld_" + entry.getKey(), "string", context.getPackageName());
+                                evaluateView(context, vals, visitDetailTv, entry.getKey(), resource, "");
+                            }
                         } catch (Exception e) {
                             Timber.e(e);
                         }

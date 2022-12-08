@@ -103,7 +103,7 @@ public class AncMedicalHistoryActivityFlv extends DefaultAncMedicalHistoryActivi
                         "tt_vaccination", "tt_vaccination_type",
                         "client_on_malaria_medication", "mRDT_for_malaria", "reason_for_not_conducting_malaria_test", "other_reason_for_not_conducting_malaria_test", "llin_provision", "reason_for_not_providing_llin", "other_reason_llin_not_given",
                         "delivery_place", "name_of_hf", "transport", "birth_companion", "emergency_funds", "household_support", "blood_donor",
-                        "anc_visit_date"};
+                        "next_facility_visit_date"};
                 extractHFVisit(visits, hf_params, hfVisitsMaps, x, context);
 
                 x++;

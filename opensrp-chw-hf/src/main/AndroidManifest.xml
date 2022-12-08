@@ -26,13 +26,17 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme, android:icon">
         <activity
+            android:name=".activity.AncFilterActivity"
+            android:exported="false"
+            android:theme="@style/HFTheme.NoActionBar"/>
+        <activity
             android:name=".activity.LoginActivity"
             android:icon="@drawable/ic_launcher"
             android:launchMode="singleTask"
             android:roundIcon="@drawable/ic_launcher_round"
             android:screenOrientation="portrait"
             android:theme="@style/HFTheme.Login"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".activity.RequestPhoneNumberCollectionPermission"
             android:exported="true"
@@ -468,26 +472,21 @@
         <activity
             android:name=".activity.PrEPMedicalHistoryActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.SelfTestingReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.SelfTestingReportsViewActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.CdpReportsViewActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.CdpReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.KvpReportsViewActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.KvpReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
@@ -541,7 +540,6 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="io.ona.kujaku.receivers.KujakuNetworkChangeReceiver"
             android:exported="false">

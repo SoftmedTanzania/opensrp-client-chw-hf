@@ -2,6 +2,7 @@ package org.smartregister.chw.hf.utils;
 
 import static org.smartregister.chw.anc.util.NCUtils.getSyncHelper;
 import static org.smartregister.chw.hf.utils.LDVisitUtils.getFieldValue;
+import static org.smartregister.chw.hf.utils.PncVisitUtils.computeCompletionStatus;
 
 import android.app.Activity;
 import android.content.Context;
@@ -181,7 +182,9 @@ public class VisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
                 completionObject.put("isPharmacyComplete", computeCompletionStatusForAction(obs, "pharmacy_completion_status"));
                 completionObject.put("isTTVaccinationComplete", computeCompletionStatusForAction(obs, "tt_vaccination_completion_status"));
                 completionObject.put("isCounsellingComplete", computeCompletionStatusForAction(obs, "counselling_completion_status"));
-                if (!completionObject.containsValue(false)) {
+                boolean isNextVisitSet = computeCompletionStatus(obs, "next_facility_visit_date");
+
+                if (!completionObject.containsValue(false) && isNextVisitSet) {
                     isComplete = true;
                 }
             } catch (Exception e) {
@@ -194,6 +197,7 @@ public class VisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
                 JSONArray obs = jsonObject.getJSONArray("obs");
                 HashMap<String, Boolean> completionObject = new HashMap<>();
                 completionObject.put("isPregnancyStatusDone", computeCompletionStatusForAction(obs, "pregnancy_status_completion_status"));
+                boolean isNextVisitSet = true;
                 if (checkIfStatusIsViable(obs)) {
                     completionObject.put("isTriageDone", computeCompletionStatusForAction(obs, "triage_completion_status"));
                     completionObject.put("isConsultationDone", computeCompletionStatusForAction(obs, "consultation_completion_status"));
@@ -204,9 +208,10 @@ public class VisitUtils extends org.smartregister.chw.anc.util.VisitUtils {
                         completionObject.put("isTTVaccinationComplete", computeCompletionStatusForAction(obs, "tt_vaccination_completion_status"));
                     }
                     completionObject.put("isCounsellingComplete", computeCompletionStatusForAction(obs, "counselling_completion_status"));
+                    isNextVisitSet = computeCompletionStatus(obs, "next_facility_visit_date");
                 }
 
-                if (!completionObject.containsValue(false)) {
+                if (!completionObject.containsValue(false) && isNextVisitSet) {
                     isComplete = true;
                 }
             } catch (Exception e) {

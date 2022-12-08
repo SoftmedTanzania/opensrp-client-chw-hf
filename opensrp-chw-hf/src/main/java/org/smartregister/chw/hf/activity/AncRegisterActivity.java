@@ -1,5 +1,7 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.chw.hf.utils.Constants.REQUEST_FILTERS;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
@@ -235,7 +237,6 @@ public class AncRegisterActivity extends CoreAncRegisterActivity {
 
     @Override
     protected void onActivityResultExtended(int requestCode, int resultCode, Intent data) {
-
         if (resultCode == Activity.RESULT_OK && requestCode == Constants.REQUEST_CODE_GET_JSON) {
 //            process the form
             try {
@@ -275,6 +276,8 @@ public class AncRegisterActivity extends CoreAncRegisterActivity {
                 Timber.e(e);
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
+        } else if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_FILTERS) {
+            ((AncRegisterFragment) mBaseFragment).onFiltersUpdated(requestCode, data);
         }
     }
 

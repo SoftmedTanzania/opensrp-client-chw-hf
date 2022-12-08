@@ -833,8 +833,6 @@
     <string name="no_results">No results</string>
 
 
-
-
     <string name="triage">Triage</string>
     <string name="systolic_blood_pressure">Systolic (Blood Pressure) :</string>
     <string name="diastolic_blood_pressure">Diastolic (Blood Pressure) :</string>
@@ -1002,6 +1000,10 @@
     <string name="ld_perineum_repair_person_name">Name of doctor/nurse who repaired the perineum:</string>
     <string name="ld_perineum_repair_occupation">Perineum repaired by:</string>
     <string name="ld_cervix_observation">Cervix observation:</string>
+    <string name="ld_cervix_observation_normal">Normal</string>
+    <string name="ld_cervix_observation_tear">Tear</string>
+    <string name="ld_vaginal_bleeding_observation_normal">Normal</string>
+    <string name="ld_vaginal_bleeding_observation_abnormal">Abnormal</string>
     <string name="ld_uterus_contraction">Has Uterus Contracted?:</string>
     <string name="ld_urination">Urination:</string>
     <string name="ld_observation_date">Observation Date:</string>
@@ -1023,13 +1025,13 @@
     <string name="ld_apgar_grimace_on_stimulation_score_at_1_minute">Grimace of stimulation Score at 1 minute:</string>
     <string name="ld_apgar_appearance_score_at_1_minute">Appearance Score at 1 minute:</string>
     <string name="ld_apgar_respiration_score_at_1_minute">Respiration Score at 1 minute:</string>
-    <string name="ld_apgar_score_at_1_minute">Apgar Score at 1 minute:</string>
-    <string name="ld_apgar_activity_score_at_5_minutes">Activity Apgar Score at 1 minute:</string>
-    <string name="ld_apgar_pulse_score_at_5_minutes">Pulse Score at 1 minute:</string>
-    <string name="ld_apgar_grimace_on_stimulation_score_at_5_minutes">Grimace of stimulation Score at 1 minute:</string>
-    <string name="ld_apgar_appearance_score_at_5_minutes">Appearance Score at 1 minute:</string>
-    <string name="ld_apgar_respiration_score_at_5_minutes">Respiration Score at 1 minute:</string>
-    <string name="ld_apgar_score_at_5_minutes">Apgar Score at 1 minute:</string>
+    <string name="ld_apgar_score_at_1_minute">Total Apgar Score at 1 minute:</string>
+    <string name="ld_apgar_activity_score_at_5_minutes">Activity Apgar Score at 5 minute:</string>
+    <string name="ld_apgar_pulse_score_at_5_minutes">Pulse Score at 5 minute:</string>
+    <string name="ld_apgar_grimace_on_stimulation_score_at_5_minutes">Grimace of stimulation Score at 5 minute:</string>
+    <string name="ld_apgar_appearance_score_at_5_minutes">Appearance Score at 5 minute:</string>
+    <string name="ld_apgar_respiration_score_at_5_minutes">Respiration Score at 5 minute:</string>
+    <string name="ld_apgar_score_at_5_minutes">Total Apgar Score at 5 minute:</string>
     <string name="ld_resuscitation_question">Resuscitation:</string>
     <string name="ld_heart_rate">Heart Rate (bpm):</string>
     <string name="ld_keep_warm">Keep Warm (skin to skin):</string>
@@ -1068,6 +1070,27 @@
     <string name="ld_number_of_nvp_days_dispensed">Number of NVP Syrup days dispensed?:</string>
     <string name="ld_reason_for_not_providing_nvp_syrup">Reasons for not providing NVP Syrup:</string>
     <string name="ld_other_reason_for_not_providing_nvp_syrup">Other reasons for not providing NVP Syrup:</string>
+
+    <string name="chk_aph">APH</string>
+    <string name="chk_prom">Pre-mature Rupture of Membrane (PROM)</string>
+    <string name="chk_high_bp">High BP</string>
+    <string name="chk_anaemia">Anaemia</string>
+    <string name="chk_malaria">Malaria</string>
+    <string name="chk_hiv_stage_3_or_4">HIV + Stage III or IV</string>
+    <string name="chk_fgm">FGM</string>
+    <string name="chk_other">Other</string>
+    <string name="chk_pph">PPH</string>
+    <string name="chk_pre_eclampsia">Pre-eclampsia</string>
+    <string name="chk_eclampsia">Eclampsia</string>
+    <string name="chk_obstructed_labour">Obstructed labour</string>
+    <string name="chk_retained_placenta">Retained placenta</string>
+    <string name="chk_3_degree_tear">Third degree tear</string>
+    <string name="chk_ruptured_uterus">Ruptured uterus</string>
+    <string name="chk_sepsis">Sepsis</string>
+    <string name="chk_none">None</string>
+    <string name="chk_intact">Intact</string>
+    <string name="chk_bleeding">Bleeding</string>
+    <string name="chk_tear">Tear</string>
 
 
     <string name="anc_partner_testing_history_title">Partner Testing History</string>
@@ -1190,6 +1213,7 @@
     <string name="anc_last_menstrual_period_unknown">Last Normal Menstrual Unknown:</string>
     <string name="anc_gest_age_note">Gestational Age (GA) in Weeks:</string>
     <string name="anc_edd">Expected Date of Delivery (EDD):</string>
+    <string name="anc_next_facility_visit_date">Next Facility Visit Date:</string>
 
     <string name="anc_pregnancy_confirmation_date">ANC Pregnancy Confirmation: {0}</string>
     <string name="anc_registration_date">ANC Registration: {0}</string>
@@ -1203,5 +1227,20 @@
     <string name="tt2">Td2</string>
     <string name="tt3">Td3</string>
     <string name="tt4">Td4</string>
+
+    <!--    Filters  -->
+    <string name="filter_status_on">On</string>
+    <string name="filter_status_off">Off</string>
+    <string name="filter_applied">Filters Applied</string>
+
+    <string-array name="hiv_status_filter_options">
+        <item>All</item>
+        <item>Positive</item>
+        <item>Negative</item>
+    </string-array>
+
+    <string name="hiv_status_filter_title">HIV Status</string>
+    <string name="referred_from_community_filter_title">Referred From Community</string>
+    <string name="next_facility_visit_date_filter_title">Next Facility Visit Date</string>
 
 </resources>

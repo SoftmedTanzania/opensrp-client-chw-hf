@@ -98,7 +98,7 @@ public class HvlResultsFragment extends BaseHvlResultsFragment {
             JSONObject jsonObject = (new FormUtils()).getFormJsonFromRepositoryOrAssets(requireContext(), org.smartregister.chw.hf.utils.Constants.JsonForm.getHvlTestResultsForm());
             assert jsonObject != null;
             JSONObject global = jsonObject.getJSONObject("global");
-            global.put("is_after_eac", HfPmtctDao.isAfterEAC(baseEntityId));
+            global.put("is_after_eac", HfPmtctDao.wasPreviousResultsAfterEAC(baseEntityId));
 
             try {
                 JSONObject hvlResultDateObject = org.smartregister.util.JsonFormUtils.getFieldJSONObject(jsonObject.getJSONObject(STEP1).getJSONArray(FIELDS), "hvl_result_date");
