@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/title"
+            style="@style/CustomFontTextViewStyle.ClientList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/hei_visit_title"
+            android:paddingEnd="20dp"
+            android:textSize="16sp" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/textview_edit"
+            style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/record_btn_anc_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/hiv_visit_edit"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@color/anc_member_profile_bg" />
+    </RelativeLayout>
+
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/type_of_visit"
+        style="@style/CustomFontTextViewStyle.ClientList.ThreeLines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/hei_type_of_visit"
+        android:textColor="@color/medical_sub_text_inner"
+        android:textSize="14sp" />
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/weight"
+        style="@style/CustomFontTextViewStyle.ClientList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/weight_in_kgs"
+        android:textColor="@color/medical_sub_text_inner"
+        android:textSize="14sp" />
+
+
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/ctx"
+        style="@style/CustomFontTextViewStyle.ClientList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/ctx_days_dispensed"
+        android:textColor="@color/medical_sub_text_inner"
+        android:textSize="14sp" />
+
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/nvp"
+        style="@style/CustomFontTextViewStyle.ClientList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/nvp_days_dispensed"
+        android:textColor="@color/medical_sub_text_inner"
+        android:textSize="14sp" />
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/feeding_practice"
+        style="@style/CustomFontTextViewStyle.ClientList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/infant_feeding_practice"
+        android:textColor="@color/medical_sub_text_inner"
+        android:textSize="14sp" />
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/dna_pcr"
+        style="@style/CustomFontTextViewStyle.ClientList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/dna_pcr_sample"
+        android:textColor="@color/medical_sub_text_inner"
+        android:textSize="14sp" />
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/next_facility_visit_date"
+        style="@style/CustomFontTextViewStyle.ClientList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="@string/next_facility_visit_date"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+
+
+    <View
+        android:id="@+id/view_baseline_results_row"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dark_grey"
+        android:visibility="visible" />
+
+</LinearLayout>

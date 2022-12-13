@@ -1,0 +1,927 @@
+{
+  "count": "2",
+  "skip_blank_steps": true,
+  "encounter_type": "ANC Followup Client Registration",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Historia ya Matibabu na Upasuaji",
+    "next": "step2",
+    "fields": [
+      {
+        "key": "is_transfer_in",
+        "type": "native_radio",
+        "label": "Client registration type",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_transfer_in",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "true",
+            "text": "On Transit",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "true"
+          },
+          {
+            "key": "false",
+            "text": "Continuing Client",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "false"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        }
+      },
+      {
+        "key": "pregnancy_confirmation_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_confirmation_status",
+        "type": "hidden",
+        "value": "Confirmed"
+      },
+      {
+        "key": "pregnancy_confirmation_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_confirmation_date",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "medical_surgical_history",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "medical_surgical_history",
+        "type": "check_box",
+        "label": "Historia yoyote ya Matibabu na upasuaji ya Mgonjwa?",
+        "combine_checkbox_option_values": "true",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "known_on_art",
+            "text": "Mtumiaji wa dawa za kufubaza maambukizi ya virusi vya Ukimwi (ART) kabla ya mimba hii",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "known_on_art"
+          },
+          {
+            "key": "diabetes_mellitus",
+            "text": "Kisukari",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "diabetes_mellitus"
+          },
+          {
+            "key": "sickle_cell_disease",
+            "text": "Ugonjwa wa Seli mundu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sickle_cell_disease"
+          },
+          {
+            "key": "heart_diseases",
+            "text": "Magonjwa ya moyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heart_diseases"
+          },
+          {
+            "key": "thyroid_diseases",
+            "text": "Magonjwa ya tezi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "thyroid_diseases"
+          },
+          {
+            "key": "blood_transfusion",
+            "text": "Kuongezewa damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "blood_transfusion"
+          },
+          {
+            "key": "epilepsy",
+            "text": "Kifafa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "epilepsy"
+          },
+          {
+            "key": "previous_c_s",
+            "text": "Kujifungua kwa upasuaji",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "previous_c_s"
+          },
+          {
+            "key": "myomectomy",
+            "text": "Myomectomy",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "myomectomy"
+          },
+          {
+            "key": "third_degree_tear",
+            "text": "Kuchanika msamba hatua ya tatu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "third_degree_tear"
+          },
+          {
+            "key": "repaired_fistula",
+            "text": "Fistula iliyotibiwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "repaired_fistula"
+          },
+          {
+            "key": "female_genital_mutilation",
+            "text": "Tohara kwa wanawake",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "female_genital_mutilation"
+          },
+          {
+            "key": "closely_spaced_pregnancy",
+            "text": "Mimba zilizokaribiana (chini ya miaka miwili)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "closely_spaced_pregnancy"
+          },
+          {
+            "key": "pregnant_more_than_four",
+            "text": "Kuwa mjamzito mara nne au zaidi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pregnant_more_than_four"
+          },
+          {
+            "key": "hx_hemorrhage",
+            "text": "Historia ya kutokwa damu nyingi baada ya kujifungua",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hx_hemorrhage"
+          },
+          {
+            "key": "history_of_high_blood_pressure",
+            "text": "Historia ya shinikizo la damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "history_of_high_blood_pressure"
+          },
+          {
+            "key": "anaemia",
+            "text": "Ugonjwa wa upungufu wa damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anaemia"
+          },
+          {
+            "key": "difficult_delivery",
+            "text": "Kuzalishwa kwa kuvutwa na kifaa au kuongezewa njia (Vacuum, episiotomy)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "difficult_delivery"
+          },
+          {
+            "key": "hx_abortions",
+            "text": "Historia ya kuharibika kwa mimba",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hx_abortions"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua angalau moja"
+        }
+      },
+      {
+        "key": "ctc_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_number",
+        "type": "mask_edit_text",
+        "mask": "##-##-####-######",
+        "mask_hint": "12345678912345",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Utambulisho CTC",
+        "edit_type": "number",
+        "v_regex": {
+          "value": "(\\d{2}-\\d{2}-\\d{4}-\\d{6})?",
+          "err": "Namba ya CTC inatakiwa kuwa (XX-XX-XXXX-XXXXXX)"
+        },
+        "v_max_length": {
+          "value": "17",
+          "is_fixed_size": "true",
+          "err": "Tafadhali jaza namba ya CTC ya mteja"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza namba ya CTC ya mteja"
+        },
+        "relevance": {
+          "step1:medical_surgical_history": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "known_on_art"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "gravida",
+        "type": "edit_text",
+        "hint": "Idadi ya ujauzito (Gravida)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gravida",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya ujauzito"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza idadi ya ujauzito"
+        },
+        "v_max": {
+          "value": "35",
+          "err": "Idadi ya ujauzito lazima iwe sawa au chini ya 35"
+        }
+      },
+      {
+        "key": "parity",
+        "type": "edit_text",
+        "hint": "Idadi ya mimba zilizofikia wiki 24 au zaidi",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "parity",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza namba halali"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza namba halali"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:gravida)",
+            "err": "Namba lazima iwe chini ya idadi ya ujauzito"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_grand_multiparity",
+        "type": "toaster_notes",
+        "text": "Toa ushauri juu ya hatari ya kuchanika mfuko wa uzazi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_surv_children",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "no_surv_children",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya watoto walio hai",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya watoto walio hai"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya watoto walio hai"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "visit_number",
+        "openmrs_entity_parent": "",
+        "value": 1
+      },
+      {
+        "key": "hiv",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "known_on_art",
+        "type": "hidden",
+        "openmrs_entity_id": "known_on_art",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "step2": {
+    "title": "Usajili wa mahudhurio ya kliniki ya uzazi",
+    "fields": [
+      {
+        "key": "known_last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "known_last_menstrual_period",
+        "type": "date_picker",
+        "hint": "Tarehe ya kwanza ya hedhi ya mara ya mwisho (LNMP)",
+        "label_info_title": "Tarehe ya kwanza ya hedhi ya mara ya mwisho (LNMP)",
+        "label_info_text": "Tarehe ya kwanza ya hedhi ya mara ya mwisho = siku ya kwanza ya kipindi cha mwisho cha hedhi. Ikiwa tarehe halisi haijulikani, lakini kipindi cha mwezi kinajulikana, tumia siku ya 5 kwa mwanzo wa mwezi, siku ya 15 katikati ya mwezi na siku ya 25 kwa mwisho wa mwezi.",
+        "expanded": false,
+        "max_date": "today",
+        "min_date": "today-50w",
+        "v_required": {
+          "value": "true",
+          "err": "Tarehe ya kwanza ya hedhi ya mara ya mwisho inahitajika kujazwa"
+        }
+      },
+      {
+        "key": "last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "last_menstrual_period",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "gest_age_note",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Umri wa Mimba kwa Wiki",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "edd",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "edd",
+        "type": "edit_text",
+        "hint": "Tarehe anayotazamia Kujifungua",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "gest_age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gest_age",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "height",
+        "type": "edit_text",
+        "hint": "Urefu (CM)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "height",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza urefu"
+        },
+        "v_min": {
+          "value": "60",
+          "err": "Urefu lazima uwe sawasawa au zaidi ya 60 (CM)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Urefu lazima uwe sawasawa au chini ya 200 (CM)"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza urefu"
+        }
+      },
+      {
+        "key": "prompt_for_short_stature",
+        "type": "toaster_notes",
+        "text": "Mshauri mteja kujifungua kwenye Kituo cha Afya kutokana na hatari kubwa ya kupata uchungu pingamizi",
+        "openmrs_entity_id": "prompt_for_short_stature",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step2:height": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"145\")"
+          }
+        }
+      },
+      {
+        "key": "has_the_client_received_ipt_doses_from_previous_facility",
+        "type": "native_radio",
+        "label": "Has the client has received any IPT doses in the previous clinic",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "has_the_client_received_ipt_doses_from_previous_facility",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        },
+        "relevance": {
+          "step2:gest_age_note": {
+            "type": "numeric",
+            "ex": "greaterThanEqualTo(.,\"13\")"
+          }
+        }
+      },
+      {
+        "key": "malaria_preventive_therapy",
+        "type": "native_radio",
+        "label": "Please select the last IPT dose provided from the previous facility",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "malaria_preventive_therapy",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "ipt1",
+            "text": "IPT1",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ipt1"
+          },
+          {
+            "key": "ipt2",
+            "text": "IPT2",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ipt2"
+          },
+          {
+            "key": "ipt3",
+            "text": "IPT3",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ipt3"
+          },
+          {
+            "key": "ipt4",
+            "text": "IPT4",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ipt4"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        },
+        "relevance": {
+          "step2:has_the_client_received_ipt_doses_from_previous_facility": {
+            "type": "string",
+            "ex": "equalTo(.,\"yes\")"
+          }
+        }
+      },
+      {
+        "key": "hiv",
+        "type": "native_radio",
+        "label": "Majibu ya Virusi vya Ukimwi ya mteja kutoka katika kituo alichotoka",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Mteja hajapimwa maambukizi ya Virusi vya Ukimwi katika kituo alichotoka",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "is_test_at_32",
+        "type": "native_radio",
+        "label": "Je, hichi ni kipimo cha pili cha maambukizi ya virusi vya ukimwi?",
+        "openmrs_entity_id": "is_test_at_32",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_registration_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "ctc_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_number",
+        "type": "mask_edit_text",
+        "mask": "##-##-####-######",
+        "mask_hint": "12345678912345",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Utambulisho CTC",
+        "edit_type": "number",
+        "v_regex": {
+          "value": "(\\d{2}-\\d{2}-\\d{4}-\\d{6})?",
+          "err": "Namba ya CTC inatakiwa kuwa (XX-XX-XXXX-XXXXXX)"
+        },
+        "v_max_length": {
+          "value": "17",
+          "is_fixed_size": "true",
+          "err": "Tafadhali jaza namba ya CTC ya mteja"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza namba ya CTC ya mteja"
+        },
+        "relevance": {
+          "step2:hiv": {
+            "type": "string",
+            "ex": "equalTo(.,\"positive\")"
+          }
+        }
+      },
+      {
+        "key": "hiv_test_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_test_number",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_test_at_32",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_test_at_32",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_member_transfer_in_registration_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "abdominal_scars",
+        "type": "native_radio",
+        "label": "Je, kuna kovu la upasuaji kwenye tumbo?",
+        "openmrs_entity_id": "abdominal_scars",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jbu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_abdominal_scars",
+        "type": "toaster_notes",
+        "text": "Mteja ashauriwe kujifungua Kituo cha Afya kwa sababu ya hatari ya kupasuka kwa mfuko wa uzazi",
+        "openmrs_entity_id": "prompt_for_abdominal_scars",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step2:abdominal_scars": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "abdominal_movement_with_respiration",
+        "type": "native_radio",
+        "label": "Je, tumbo linasogea wakati wa kupumua?",
+        "openmrs_entity_id": "abdominal_movement_with_respiration",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_abdominal_movement_with_respiration",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step2:abdominal_movement_with_respiration": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "abnormal_vaginal_discharge",
+        "type": "native_radio",
+        "label": "Kutokwa na uchafu usio wa kawaida ukeni",
+        "openmrs_entity_id": "abnormal_vaginal_discharge",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_vaginal_discharge",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za kutokwa na uchafu ukeni na dhibiti hali hii kulingana na Mouongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_vaginal_discharge",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step2:abnormal_vaginal_discharge": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "vaginal_sores",
+        "type": "native_radio",
+        "label": "Vidonda sehemu ya ukeni",
+        "openmrs_entity_id": "vaginal_sores",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_vaginal_sores",
+        "type": "toaster_notes",
+        "text": "Chunguza sababu ya vidonda ukeni na tibu kulingana na muongozo",
+        "openmrs_entity_id": "prompt_for_vaginal_sores",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step2:vaginal_sores": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "vaginal_swelling",
+        "type": "native_radio",
+        "label": "Kuvimba  sehemu ya ukeni",
+        "openmrs_entity_id": "vaginal_swelling",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_vaginal_swelling",
+        "type": "toaster_notes",
+        "text": "Chunguza sababu ya uvimbe ukeni na tibu kulingana na muongozo",
+        "openmrs_entity_id": "prompt_for_vaginal_swelling",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step2:vaginal_swelling": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      }
+    ]
+  }
+}

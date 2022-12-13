@@ -15,11 +15,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -174,21 +169,18 @@
           {
             "key": "chk_vaginally",
             "text": "Vaginally",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_cesarean_section",
             "text": "Cesarean section",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_miscarriage",
             "text": "Miscarriage",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           }
@@ -218,21 +210,18 @@
           {
             "key": "chk_vaginally",
             "text": "Vaginally",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_cesarean_section",
             "text": "Cesarean section",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_miscarriage",
             "text": "Miscarriage",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           }

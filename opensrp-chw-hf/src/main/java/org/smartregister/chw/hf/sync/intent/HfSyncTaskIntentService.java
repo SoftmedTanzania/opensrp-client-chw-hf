@@ -17,6 +17,7 @@ import timber.log.Timber;
 public class HfSyncTaskIntentService extends SyncTaskIntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
+        super.onHandleIntent(intent);
         HfTaskServiceHelper taskServiceHelper = HfTaskServiceHelper.getInstance();
         taskServiceHelper.syncTasks();
         scheduleJobLater(SyncTaskWithClientEventsServiceJob.TAG, 5L);

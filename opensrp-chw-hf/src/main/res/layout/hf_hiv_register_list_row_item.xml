@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_columns"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/village_client_column"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ripple_custom"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/client_avatar_wrapper"
+            android:layout_width="70dp"
+            android:layout_height="90dp"
+            android:paddingStart="@dimen/register_list_item_padding"
+            android:paddingLeft="@dimen/register_list_item_padding"
+            android:paddingTop="@dimen/register_list_top_bottom_padding"
+            android:paddingEnd="@dimen/register_list_item_padding"
+            android:paddingRight="@dimen/register_list_item_padding"
+            android:paddingBottom="@dimen/register_list_top_bottom_padding">
+
+            <ImageView
+                android:id="@+id/client_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:hapticFeedbackEnabled="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:src="@mipmap/ic_member" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/patient_column"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/register_list_top_bottom_margin"
+            android:layout_marginBottom="@dimen/register_list_top_bottom_margin"
+            android:layout_toStartOf="@+id/due_button_wrapper"
+            android:layout_toLeftOf="@+id/due_button_wrapper"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/patient_name_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/google_sans_bold"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="Patient Name, Age"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/text_view_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/google_sans_regular"
+                    android:text="Male"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:id="@+id/text_view_village"
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/google_sans_regular"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_view_re_elicit"
+                style="@style/CustomFontTextViewStyle.ClientList.Light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/referral_text_background"
+                android:backgroundTint="@color/referral_text_background"
+                android:text="@string/index_client_re_elicit"
+                android:textColor="@color/due_vaccine_red"
+                android:textSize="@dimen/referral_text_size"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/text_view_referral_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pnc_period"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:padding="4dp"
+                android:background="@color/referral_text_background"
+                android:fontFamily="@font/google_sans_bolditalic"
+                android:text="@string/referral_day"
+                android:textColor="@color/due_vaccine_red"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/go_to_profile_wrapper"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingStart="@dimen/register_list_item_padding"
+        android:paddingLeft="@dimen/register_list_item_padding"
+        android:paddingTop="@dimen/register_list_top_bottom_padding"
+        android:paddingEnd="@dimen/register_list_item_padding"
+        android:paddingRight="@dimen/register_list_item_padding"
+        android:paddingBottom="@dimen/register_list_top_bottom_padding">
+
+        <ImageView
+            android:id="@+id/go_to_family_profile"
+            android:layout_width="@dimen/me_page_section_square_dimension"
+            android:layout_height="@dimen/me_page_section_square_dimension"
+            android:layout_gravity="center"
+            android:background="@color/transparent"
+            android:contentDescription="@string/right_arrow"
+            android:gravity="center"
+            android:src="@drawable/baseline_keyboard_arrow_right"
+            android:tint="@color/me_page_arrow" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/due_button_wrapper"
+        android:layout_width="@dimen/register_list_item_width"
+        android:layout_height="@dimen/register_list_item_height"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/grey_left_border"
+        android:paddingStart="@dimen/register_list_item_padding"
+        android:paddingLeft="@dimen/register_list_item_padding"
+        android:paddingTop="@dimen/register_list_top_bottom_padding"
+        android:paddingEnd="@dimen/register_list_item_padding"
+        android:paddingRight="@dimen/register_list_item_padding"
+        android:paddingBottom="@dimen/register_list_top_bottom_padding">
+
+        <Button
+            android:id="@+id/due_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@drawable/due_contact"
+            android:elevation="@dimen/register_list_elevation"
+            android:gravity="center"
+            android:hapticFeedbackEnabled="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:stateListAnimator="@drawable/button"
+            android:text="@string/hiv_follow_up_visit"
+            android:textAllCaps="false"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@color/vaccine_blue_bg_st"
+            android:textSize="@dimen/hiv_register_list_due_size"
+            android:typeface="normal" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -54,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "Badilisha au acha fomu ya uzazi wa mpango",
+    "title": "Change or Stop FP form",
     "next": "step2",
     "fields": [
       {
@@ -84,7 +79,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "164901AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity_parent": "",
-        "label": "Sababu za kuacha kutumia njia za uzazi wa mpango ya sasa",
+        "label": "Sababu ya mwanaume kusitisha njia yake ya sasa ya kupanga uzazi",
         "options": [
           {
             "key": "side_effects",
@@ -98,29 +93,28 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "160571AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "text": "Anataka mimba"
+            "text": "Anataka Kuzalisha"
           },
           {
             "key": "doesnt_want_to_use_anymore",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "164260AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "text": "Hataki kutumia sasa "
+            "text": "Hataki kutumia tena"
           },
           {
             "key": "decided_to_change_method",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "163494AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "value": false,
-            "text": "Aliamua kubadilisha mpango wa uzazi"
+            "text": "Iliamua kubadilisha mbinu"
           },
           {
             "key": "others",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "text": "Nyingine"
+            "text": "Wengine"
           }
         ],
         "v_required": {
@@ -138,7 +132,7 @@
         "hint": "Sababu nyingine",
         "v_required": {
           "value": "true",
-          "err": "Ni lazima kuingiza sababu nyingine"
+          "err": "Inahitajika"
         },
         "relevance": {
           "rules-engine": {
@@ -158,7 +152,7 @@
         "hint": "Madhara",
         "v_required": {
           "value": "true",
-          "err": "Ni lazima kuingiza madhara"
+          "err": "Inahitajika"
         },
         "relevance": {
           "rules-engine": {
@@ -171,7 +165,7 @@
     ]
   },
   "step2": {
-    "title": "Njia ya uzazi wa mpango",
+    "title": "Family planning method",
     "fields": [
       {
         "key": "fp_method_accepted",
@@ -179,11 +173,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fp_method_accepted",
         "type": "spinner",
-        "hint": "Njia za uzazi wa mpango selected",
+        "hint": "Mbinu ya kupanga uzazi imechaguliwa",
         "values": [
           "Kondomu ya kiume",
           "Kondomu ya kike",
-          "Kufunga kizazi mwanamme"
+          "Kufunga kizazi kwa wanaume"
         ],
         "keys": [
           "Male condom",
@@ -214,18 +208,18 @@
         "openmrs_entity_id": "no_condoms",
         "type": "edit_text",
         "edit_type": "number",
-        "hint": "Amepata vipande vya kondpmu vingapi?",
+        "hint": "Je, alipewa kondomu ngapi?",
         "v_required": {
           "value": "true",
-          "err": "Sawa au kubwa kuliko 0"
+          "err": "Sawa au zaidi ya 0"
         },
         "v_numeric_integer": {
           "value": "true",
-          "err": "Lazima iwe nambari iliyo na mviringo"
+          "err": "Weka umri halali"
         },
         "v_min": {
           "value": "0",
-          "err": "Nambari lazima iwe sawa au kubwa kuliko 0"
+          "err": "Nambari lazima iwe sawa au zaidi ya 0"
         },
         "relevance": {
           "rules-engine": {
@@ -256,9 +250,9 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "counselling_use",
         "type": "spinner",
-        "hint": "Je, ameshauri jinsi ya kutumia njia za uzazi wa mpango aliyochagua?",
+        "hint": "Je, alishauriwa jinsi ya kutumia njia ya kupanga uzazi?",
         "values": [
-          "Ndiyo",
+          "Ndio",
           "Hapana"
         ],
         "keys": [
@@ -287,7 +281,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fp_start_male_ster",
         "type": "date_picker",
-        "hint": "Tarehe ya kufunga kizazi cha mwanamume",
+        "hint": "Tarehe ya Kufunga kizazi ya kiume",
         "max_date": "today",
         "relevance": {
           "rules-engine": {
@@ -298,7 +292,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Ni lazima kuingiza tarehe ya kufunga kizazi cha mwanamume"
+          "err": "Inahitajika"
         }
       },
       {
@@ -322,8 +316,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Tumia kondomu kwa miezi mitatu kuzuia ujazito",
-        "toaster_info_text": "Tumia kondomu kwa miezi mitatu kuzuia ujazito",
+        "text": "Mshauri mwanaume atumie kondomu kwa muda wa miezi 3 ya kwanza ili kuzuia mimba",
+        "toaster_info_text": "Advise the man to use condoms for the first 3 months to prevent pregnancy",
         "toaster_type": "info",
         "relevance": {
           "rules-engine": {

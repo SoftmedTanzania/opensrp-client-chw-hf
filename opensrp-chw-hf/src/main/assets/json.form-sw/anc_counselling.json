@@ -1,0 +1,151 @@
+{
+  "count": "1",
+  "encounter_type": "ANC Counselling",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Ushauri",
+    "fields": [
+      {
+        "key": "given_counselling",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "given_counselling",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Chagua Ushauri uliyotolewa kwa mteja kwenye tembeleo hili",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "exclusive": [
+          "chk_none"
+        ]
+        "options": [
+          {
+            "key": "chk_sexual_relationship",
+            "text": "Uhusiano wa kimapenzi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_sexual_relationship"
+          },
+          {
+            "key": "chk_birth_emergency_plan",
+            "text": "Mpango wa kujifungua na wa dharura",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_birth_emergency_plan"
+          },
+          {
+            "key": "chk_danger_signs",
+            "text": "Dalili hatarishi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_danger_signs"
+          },
+          {
+            "key": "chk_discussion_std_hiv",
+            "text": "Majadiliano juu ya STI/RTI/VVU",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_discussion_std_hiv"
+          },
+          {
+            "key": "chk_condom_use",
+            "text": "Maumizi ya kondomu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_condom_use"
+          },
+          {
+            "key": "chk_advice_gravid",
+            "text": "Ushauri juu ya usumbufu unaojitokeza wakati wa ujauzito",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_advice_gravid"
+          },
+          {
+            "key": "chk_self_care",
+            "text": "Kujijali",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_self_care"
+          },
+          {
+            "key": "chk_healthy_eating",
+            "text": "Lishe bora",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_healthy_eating"
+          },
+          {
+            "key": "chk_physical_activity",
+            "text": "Shuguli za kimwili",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_physical_activity"
+          },
+          {
+            "key": "chk_use_folic_acid",
+            "text": "Matumizi ya Madini Chuma (Iron) Foliki Asidi kila siku",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_use_folic_acid"
+          },
+          {
+            "key": "chk_counsel_llin",
+            "text": "Utoaji na ushauri juu ya  matumizi ya chandarua (LLIN)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_counsel_llin"
+          },
+          {
+            "key": "chk_child_feeding",
+            "text": "Ulishaji wa mtoto",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_child_feeding"
+          },
+          {
+            "key": "chk_none",
+            "text": "Ushauri haukutolewa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_none"
+          }
+        ]
+      },
+      {
+        "key": "counselling_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "counselling_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

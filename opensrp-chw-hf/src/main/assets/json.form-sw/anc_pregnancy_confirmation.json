@@ -1,0 +1,567 @@
+{
+  "count": "3",
+  "skip_blank_steps": true,
+  "encounter_type": "Pregnancy Confirmation",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Uchambuzi wa wagonjwa au majeruhi",
+    "next": "step2",
+    "fields": [
+      {
+        "key": "danger_signs",
+        "type": "check_box",
+        "label": "Mtoa huduma wa Afya atafanya uchunguzi ili kubaini wateja wenye dalili za hatari",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "danger_signs",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "bleeding_vag",
+            "text": "Kutokwa na damu ukeni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bleeding_vag"
+          },
+          {
+            "key": "headache_visual_disturbance",
+            "text": "Kichwa kuuma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "headache_visual_disturbance"
+          },
+          {
+            "key": "severely_pale",
+            "text": "Kupauka sana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severely_pale"
+          },
+          {
+            "key": "dizziness",
+            "text": "Kizunguzungu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dizziness"
+          },
+          {
+            "key": "severe_vomiting",
+            "text": "Kutapika sana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_vomiting"
+          },
+          {
+            "key": "convulsion",
+            "text": "Degedege",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "convulsion"
+          },
+          {
+            "key": "looking_very_ill",
+            "text": "Kuwa mdhoofu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "looking_very_ill"
+          },
+          {
+            "key": "fever",
+            "text": "Homa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fever"
+          },
+          {
+            "key": "unconscious",
+            "text": "Kupoteza fahamu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unconscious"
+          },
+          {
+            "key": "severe_pain",
+            "text": "Maumivu makali",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_pain"
+          },
+          {
+            "key": "severe_breathing_difficulty",
+            "text": "Kupumua kwa shida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_breathing_difficulty"
+          },
+          {
+            "key": "in_labour",
+            "text": "Katika hali ya uchungu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "in_labour"
+          },
+          {
+            "key": "imminent_labour",
+            "text": "Hali ya Uchungu inayokaribu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "imminent_labour"
+          },
+          {
+            "key": "oedema_of_legs_and_sacrum",
+            "text": "Kuvimba kwa miguu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "oedema_of_legs_and_sacrum"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali Chagua dalili za hatari"
+        }
+      },
+      {
+        "key": "task_id",
+        "type": "hidden",
+        "openmrs_entity_id": "task_id",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "danger_signs_present_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Dalili ya Hatari! Mpatie rufaa aende katika wodi ya dharura",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:danger_signs": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "bleeding_vag",
+                  "headache_visual_disturbance",
+                  "severely_pale",
+                  "severe_vomiting",
+                  "severe_breathing_difficulty",
+                  "convulsion",
+                  "looking_very_ill",
+                  "fever",
+                  "unconscious",
+                  "severe_pain",
+                  "in_labour",
+                  "imminent_labour",
+                  "oedema_of_legs_and_sacrum",
+                  "dizziness"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "step2": {
+    "title": "Kuhakikisha ujauzito",
+    "next": "step3",
+    "fields": [
+      {
+        "key": "type_of_pregnancy_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_pregnancy_test",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Chagua aina ya kipimo cha Ujauzito kilichofanyika",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "exclusive": [
+          "fundal_palpation"
+        ],
+        "options": [
+          {
+            "key": "fundal_palpation",
+            "text": "Fundal Palpation",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fundal_palpation"
+          },
+          {
+            "key": "upt",
+            "text": "Kipimo cha Mkojo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "upt"
+          },
+          {
+            "key": "uss",
+            "text": "Kumulika kwa Mashine",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "uss"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua aina ya kipimo cha Ujauzito kilichofanyika"
+        }
+      },
+      {
+        "key": "upt",
+        "type": "native_radio",
+        "openmrs_entity_id": "upt",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "label": "Tafadhali chagua majibu ya kipimo cha mkojo",
+        "options": [
+          {
+            "text": "Chanya",
+            "key": "positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "text": "Hasi",
+            "key": "negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua majibu ya kipimo cha mkojo"
+        }
+      },
+      {
+        "key": "uss",
+        "type": "native_radio",
+        "openmrs_entity_id": "uss",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "label": "Tafadhali Chagua majibu ya Kumulika kwa mashine",
+        "options": [
+          {
+            "key": "present_gestation_sac",
+            "text": "Mfuko wa uzazi upo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "present_gestation_sac"
+          },
+          {
+            "key": "absent_gestation_sac",
+            "text": "Mfuko wa uzazi haupo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "absent_gestation_sac"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali Chagua majibu ya Kumulika kwa mashine"
+        }
+      }
+    ]
+  },
+  "step3": {
+    "title": "Mwisho",
+    "fields": [
+      {
+        "key": "known_last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "known_last_menstrual_period",
+        "type": "date_picker",
+        "hint": "Tarehe ya kwanza ya hedhi ya mara ya mwisho (LNMP)",
+        "label_info_title": "Tarehe ya kwanza ya hedhi ya mara ya mwisho (LNMP)",
+        "label_info_text": "Tarehe ya kwanza ya hedhi ya mara ya mwisho = siku ya kwanza ya kipindi cha mwisho cha hedhi. Ikiwa tarehe halisi haijulikani, lakini kipindi cha mwezi kinajulikana, tumia siku ya 5 kwa mwanzo wa mwezi, siku ya 15 katikati ya mwezi na siku ya 25 kwa mwisho wa mwezi.",
+        "expanded": false,
+        "max_date": "today",
+        "min_date": "today-50w",
+        "v_required": {
+          "value": "true",
+          "err": "Tarehe ya kwanza ya hedhi ya mara ya mwisho inahitajika kujazwa"
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "last_menstrual_period_unknown",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "last_menstrual_period_unknown",
+        "openmrs_data_type": "text",
+        "type": "check_box",
+        "options": [
+          {
+            "key": "lmp_unknown",
+            "text": "Tarehe ya kwanza ya hedhi ya mara ya mwisho haijulikani",
+            "text_size": "18px",
+            "value": "false",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lmp_unknown"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "fundal_height",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "fundal_height",
+        "type": "edit_text",
+        "hint": "Kimo cha mimba (CM)",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza kimo cha mimba"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kimo cha mimba"
+        },
+        "v_min": {
+          "value": "12",
+          "err": "Kimo cha mimba lazima kiwe sawa au zaidi ya 12 CM"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Kimo cha mimba lazima kiwe sawa au chini ya 50 CM"
+        }
+      },
+      {
+        "key": "estimated_last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "estimated_last_menstrual_period",
+        "type": "edit_text",
+        "read_only": true,
+        "hint": "Makadirio ya hedhi ya mwisho ilionekana lini",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "last_menstrual_period",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "gest_age_note",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Umri wa Mimba kwa Wiki",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "edd",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "edd",
+        "type": "edit_text",
+        "hint": "Tarehe anayotazamia Kujifungua",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "gest_age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gest_age",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "not_pregnant",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Mteja sio mjamzito. \nTafadhali muunganishe kwenye huduma za Uzazi wa Mpango",
+        "toaster_info_text": "Mteja sio mjamzito. Tafadhali muunganishe kwenye huduma za Uzazi wa Mpango",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "see_a_doctor",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Mpatie rufaa aende kufanyiwa uchunguzi wa Uzazi",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pregnancy_confirmation_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_confirmation_status",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pregnancy_confirmation_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_confirmation_date",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_pregnancy_confirmation_calculation.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

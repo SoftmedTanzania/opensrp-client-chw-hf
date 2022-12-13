@@ -62,7 +62,7 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "1889AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity_parent": "",
-        "label": "Je, ulienda hospitali kwa ajili ya kipimo na matibabu ya malaria?",
+        "label": "Je, ulipokea rufaa au ulienda hospitali kwa matibabu ya malaria?",
         "options": [
           {
             "key": "Yes",
@@ -81,7 +81,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": null
+          "err": "null"
         }
       },
       {
@@ -90,7 +90,7 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "162686AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity_parent": "",
-        "label": "Matibabu uliyopewa",
+        "label": "Matibabu yaliyotolewa",
         "options": [
           {
             "key": "ALU_6",
@@ -132,7 +132,7 @@
             "openmrs_entity": "",
             "openmrs_entity_id": "1767AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "text": "Amepewa matibabu, lakini hakumbuki aina gani"
+            "text": "Amepewa matibabu, ila hakumbuki ni yapi hasa"
           },
           {
             "key": "Not_given_treatment",
@@ -144,7 +144,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": null
+          "err": "null"
         },
         "relevance": {
           "rules-engine": {
@@ -160,7 +160,7 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "1743AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity_parent": "",
-        "label": "Sababu ya kutopata matibabu",
+        "label": "Sababu ya kutopewa matibabu",
         "options": [
           {
             "key": "Referral_unsuccessful",
@@ -174,7 +174,7 @@
             "openmrs_entity": "",
             "openmrs_entity_id": "1754AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "text": "Dawa zimeisha"
+            "text": "Dawa ziliisha"
           },
           {
             "key": "Other_reason",
@@ -186,7 +186,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": null
+          "err": "null"
         },
         "relevance": {
           "rules-engine": {
@@ -202,7 +202,7 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity_parent": "",
-        "label": "Je, bado ana homa?",
+        "label": "Bado una homa?",
         "options": [
           {
             "key": "Yes",
@@ -221,7 +221,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": null
+          "err": "null"
         }
       },
       {
@@ -230,26 +230,26 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_entity_parent": "",
-        "label": "Umekuwa na homa kwa muda gani?",
+        "label": "Muda wa homa",
         "options": [
           {
             "key": "Less_than_24hrs",
             "openmrs_entity": "",
             "openmrs_entity_id": "164449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "text": "Ndani ya saa 24"
+            "text": "Chini ya masaa 24"
           },
           {
             "key": "More_than_24hrs",
             "openmrs_entity": "",
             "openmrs_entity_id": "NA",
             "openmrs_entity_parent": "",
-            "text": "Zaidi ya saa 24"
+            "text": "Zaidi ya masaa 24"
           }
         ],
         "v_required": {
           "value": "true",
-          "err": null
+          "err": "null"
         },
         "relevance": {
           "rules-engine": {

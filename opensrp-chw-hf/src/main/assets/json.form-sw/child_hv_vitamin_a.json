@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Dozi ya Vitamini A ya {0}",
+    "title": "Vitamin A {0} dose",
     "fields": [
       {
         "key": "vitamin_a{0}_date",
@@ -56,12 +56,12 @@
         "openmrs_entity_id": "1418AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "date_picker",
         "image": "ic_form_vitamin",
-        "hint": "Dozi ya Vitamini A ya {0} ilifanyika lini?",
+        "hint": "Dozi ya Vitamini A {0} ilifanywa lini?",
         "min_date": "today-120y",
         "max_date": "today",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza tarehe ya dozi ya Vitamini A"
+          "err": "Tafadhali ingiza tarehe ya kupewa dozi ya Vitamini A"
         }
       }
     ]

@@ -1,0 +1,234 @@
+{
+  "count": "1",
+  "encounter_type": "PNC Family Planning Services",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Huduma za Uzazi wa Mpango",
+    "fields": [
+      {
+        "key": "education_counselling_given",
+        "type": "native_radio",
+        "label": "Je, Mteja alipewa Elimu/Ushauri?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_counselling_given",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_provide_education_counselling",
+        "type": "toaster_notes",
+        "text": "Tafadhali toa Elimu/Ushauri kwa mteja",
+        "openmrs_entity_id": "prompt_provide_education_counselling",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:education_counselling_given": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "iec_given",
+        "type": "native_radio",
+        "label": "Je, alipewa vijarida vya Habari, Elimu na Mawasiliano (IEC)?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "iec_given",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "using_family_planning_method",
+        "type": "native_radio",
+        "label": "Je, Mteja anatumia Njia ya Uzazi wa Mpango?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "using_family_planning_method",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "method_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "method_provided",
+        "type": "native_radio",
+        "label": "Njia ya uzazi wa mpango iliyotolewa",
+        "options": [
+          {
+            "key": "chk_condom",
+            "text": "Kondomu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_condom"
+          },
+          {
+            "key": "chk_pills",
+            "text": "Vidonge (Progestogen-only pill)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_pills"
+          },
+          {
+            "key": "chk_injectable",
+            "text": "Sindano (Baada ya siku 42)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_injectable"
+          },
+          {
+            "key": "chk_jadelle",
+            "text": "Vipandikizi (Jadelle)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_jadelle"
+          },
+          {
+            "key": "chk_implants",
+            "text": "Vipandikizi (Implanon/NXT)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_implants"
+          },
+          {
+            "key": "chk_iucd",
+            "text": "Kitanzi (PPIUCD) (Ndani ya masaa 48 baada ya kujifungua au baada ya siku 42 za PNC)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_iucd"
+          },
+          {
+            "key": "chk_tubal_ligation",
+            "text": "Kufungwa mirija ya uzazi (BTL)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_tubal_ligation"
+          },
+          {
+            "key": "chk_referred_fp_services",
+            "text": "Amepewa Rufaa ya huduma nyingine za Uzazi wa Mpango",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_referred_fp_services"
+          },
+          {
+            "key": "chk_none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "step1:using_family_planning_method": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_providing_fp_method",
+        "type": "edit_text",
+        "hint": "Specify reason for not providing FP method",
+        "openmrs_entity_id": "reason_for_not_providing_fp_method",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:method_provided": {
+            "type": "string",
+            "ex": "equalTo(.,\"chk_none\")"
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      }
+    ]
+  }
+}

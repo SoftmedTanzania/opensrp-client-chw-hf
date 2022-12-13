@@ -1,0 +1,1232 @@
+{
+  "count": "1",
+  "encounter_type": "ANC Lab Tests",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "ANC Vipimo Vya Maabara",
+    "fields": [
+      {
+        "key": "hb_level_test",
+        "type": "native_radio",
+        "label": "Kipimo wa Kiwango cha damu (HB)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hb_level_test",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "test_conducted",
+            "text": "Kipimo cha kiwango cha damu (HB) kimefanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_conducted",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha kiwango cha damu (HB) hakijafanyika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ]
+      },
+      {
+        "key": "hb_level",
+        "type": "edit_text",
+        "hint": "Kiwango cha damu (HB) (g/dl)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hb_level",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kiwango cha damu (HB)"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha damu (HB) lazima kiwe sawasawa au zaidi ya 0 (g/dl)"
+        },
+        "v_max": {
+          "value": "20",
+          "err": "Kiwango cha damu (HB) lazima kiwe sawasawa au chini ya20 (g/dl)"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali weka thamani"
+        },
+        "relevance": {
+          "step1:hb_level_test": {
+            "type": "string",
+            "ex": "equalTo(., \"test_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_severe_anaemia_treatment",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya upungufu mkubwa wa damu kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_severe_anaemia_treatment",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:hb_level": {
+            "type": "numeric",
+            "ex": "lessThanEqualTo(.,\"8.5\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_moderate_anaemia_management",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya ukosefu wa damu kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_moderate_anaemia_management",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_hb_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_hb_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha kiwango cha HB  ",
+        "values": [
+          "Cuvette Cartridges Hazipo Kituoni",
+          "Mashine ya Kupimwa wingi wa damu (Haemoque) haifanyi kazi",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja amekataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine (Bainisha)"
+        ],
+        "keys": [
+          "stock_out_of_cuvettes_cartridges",
+          "haemoque_machine_out_of_order",
+          "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "stock_out_of_cuvettes_cartridges": "stock_out_of_cuvettes_cartridges",
+          "haemoque_machine_out_of_order": "haemoque_machine_out_of_order",
+          "the_client_was_in_an_emergency_situation": "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client": "we_are_still_counselling_the_client",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:hb_level_test": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_hb_test_not_conducted",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_hb_test_not_conducted",
+        "type": "edit_text",
+        "hint": "Sababu nyingine ya kutofanya kipimo cha kiwango cha damu (HB)",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_hb_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "blood_for_glucose_test",
+        "type": "native_radio",
+        "label": "Kipimo cha sukari kwenye damu",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "blood_for_glucose_test",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "test_conducted",
+            "text": "Kipimo cha sukari kwenye damu kimefanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_conducted",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha sukari kwenye damu hakijafanyika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ]
+      },
+      {
+        "key": "type_of_blood_for_glucose_test",
+        "type": "native_radio",
+        "label": "Aina ya kipimo cha sikari kwenye damu kilichofanyika",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_blood_for_glucose_test",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "rbg",
+            "text": "Kipimo cha wingi wa sukari mwilini (rbg)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rbg",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "gtt",
+            "text": "Kipimo cha kugundua jinsi sukari mwilini inavyoratibiwa (GTT)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gtt"
+          },
+          {
+            "key": "fbg",
+            "text": "Kipimo cha sukari (asubuhi) kabla ya kula chochote",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fbg"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "step1:blood_for_glucose_test": {
+            "type": "string",
+            "ex": "equalTo(., \"test_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "blood_for_glucose",
+        "type": "edit_text",
+        "hint": "sukari kwenye damu (mmol/L)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "blood_for_glucose",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza sukari kwenye damu (mmol/L)"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Sukari kwenye damu lazima iwe sawasawa au zaidi ya 0 (mmol/L)"
+        },
+        "v_max": {
+          "value": "45",
+          "err": "Sukari kwenye damu lazima iwe sawasawa au chini ya 45 (mmol/L)"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sukari kwenye damu (mmol/L)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_gestational_diabetes_mellitus",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya Gestational diabetes mellitus kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_gestational_diabetes_mellitus",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_hypoglycaemia",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya hypoglycaemia kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_hypoglycaemia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_blood_glucose_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_blood_glucose_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha sukari kwenye damu",
+        "values": [
+          "Vifaa vya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja alikataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine"
+        ],
+        "keys": [
+          "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_are_out_of_stock": "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation": "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client": "we_are_still_counselling_the_client",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:blood_for_glucose_test": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_blood_glucose_test_not_conducted",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_blood_glucose_test_not_conducted",
+        "type": "edit_text",
+        "hint": "Sababu nyingine ya kutofanya kipimo cha sukari kwenye damu",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_blood_glucose_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "glucose_in_urine",
+        "type": "native_radio",
+        "label": "Sukari kwenye mkojo",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "glucose_in_urine",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha sukari kwenye mkojo hakijafanyika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_glucose_in_urine",
+        "type": "toaster_notes",
+        "text": "Angalia kiasi cha sukari katika damu ili kumuepusha Mteja na Ugonjwa wa kisukari wakati wa Ujauzito",
+        "openmrs_entity_id": "prompt_for_glucose_in_urine",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:glucose_in_urine": {
+            "type": "string",
+            "ex": "equalTo(., \"positive\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_glucose_in_urine_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_glucose_in_urine_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha sukari kwenye mkojo",
+        "values": [
+          "Vifaa vya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja alikataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine"
+        ],
+        "keys": [
+          "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_are_out_of_stock": "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation": "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client": "we_are_still_counselling_the_client",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:glucose_in_urine": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_glucose_in_urine_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_glucose_in_urine_test",
+        "type": "edit_text",
+        "hint": "Sababbu ya kutofanya kipimo cha sukari kwenye mkojo",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_glucose_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "protein_in_urine",
+        "type": "native_radio",
+        "label": "Protini kwenye mkojo",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "protein_in_urine",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanja ",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha protini kwenye mkojo hakijafanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted",
+            "openmrs_entity_parent": ""
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_protein_in_urine",
+        "type": "toaster_notes",
+        "text": "Tafadhali fuatilia shinikizo la damu kwa Mteja ili uweze kuepusha na hatari ya Kifafa cha mimba, bainisha dalili za UTI dhibiti viashiria vya Proteinuria kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_protein_in_urine",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:protein_in_urine": {
+            "type": "string",
+            "ex": "equalTo(., \"positive\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_protein_in_urine_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_protein_in_urine_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha protini kwenye mkojo",
+        "values": [
+          "Vifaa vuya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja alikataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine"
+        ],
+        "keys": [
+          "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_are_out_of_stock": "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation": "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client": "we_are_still_counselling_the_client",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:protein_in_urine": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_protein_in_urine_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_protein_in_urine_test",
+        "type": "edit_text",
+        "hint": "Sababu nyingine ya kutofanya kipimo cha protini kwenye mkojo",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Taadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_protein_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "blood_group",
+        "type": "spinner",
+        "hint": "Kundi la damu",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "blood_group",
+        "openmrs_entity_parent": "",
+        "values": [
+          "A",
+          "B",
+          "AB",
+          "O",
+          "Kipimo cha kundi la damu haijafanyika"
+        ],
+        "keys": [
+          "A",
+          "B",
+          "AB",
+          "O",
+          "test_not_conducted"
+        ],
+        "openmrs_choice_ids": {
+          "A": "A",
+          "B": "B",
+          "AB": "AB",
+          "O": "O",
+          "test_not_conducted": "test_not_conducted"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_blood_group_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_blood_group_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha kundi la damu",
+        "values": [
+          "Vifaa vya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja amekataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine (Bainisha)"
+        ],
+        "keys": [
+          "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_are_out_of_stock": "test_kits_are_out_of_stock",
+          "the_client_was_in_an_emergency_situation": "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client": "we_are_still_counselling_the_client",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:blood_group": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_blood_group_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_blood_group_test",
+        "type": "edit_text",
+        "hint": "Bainisha sababu zingine za kutofanya kipimo cha kundi la damu",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_blood_group_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "rh_factor",
+        "type": "native_radio",
+        "label": "Rh",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "rh_factor",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_rh_factor",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:rh_factor": {
+            "type": "string",
+            "ex": "equalTo(., \"negative\")"
+          }
+        }
+      },
+      {
+        "key": "hiv",
+        "type": "native_radio",
+        "label": "Matokeo ya Kipimo cha VVU",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha VVU hakijafanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_hiv_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_hiv_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha VVU ",
+        "values": [
+          "Vifaa vya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja alikataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine (Bainisha)"
+        ],
+        "keys": [
+          "test_kits_out_of_stock",
+          "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested",
+          "still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_out_of_stock": "test_kits_out_of_stock",
+          "client_was_in_an_emergency_situation": "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested": "client_refused_to_be_tested",
+          "still_counselling_the_client": "still_counselling_the_client",
+          "Other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:hiv": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_hiv_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_hiv_test",
+        "type": "edit_text",
+        "hint": "Bainisha sababu nyingine ya kutofanya kipimo cha VVU",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_hiv_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "register_pmtct",
+        "type": "toaster_notes",
+        "text": "Msajili Mteja kwenye PMTCT kwa ajili ya matunzo na ufuatiliaji",
+        "openmrs_entity_id": "register_pmtct",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:hiv": {
+            "type": "string",
+            "ex": "equalTo(.,\"positive\")"
+          }
+        }
+      },
+      {
+        "key": "prescribe_arv",
+        "type": "toaster_notes",
+        "text": "Mpatie Mteja dawa za kufubaza virusi vya Ukimwi (ARV) kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prescribe_arv",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:hiv": {
+            "type": "string",
+            "ex": "equalTo(.,\"positive\")"
+          }
+        }
+      },
+      {
+        "key": "hiv_counselling_before_testing",
+        "type": "native_radio",
+        "label": "Je, Mteja alipewa ushauri nasaha kabla ya kupima VVU?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_counselling_before_testing",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_counselling_after_testing",
+        "type": "native_radio",
+        "label": "Je, Mteja alipewa ushauri nasaha baada ya kupima VVU?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_counselling_after_testing",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "syphilis",
+        "type": "native_radio",
+        "label": "Matokeo ya kipimo cha kaswende",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "syphilis",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha kaswende hakijafanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prescribe_anti_sy",
+        "type": "toaster_notes",
+        "text": "Muagizie mteja dawa za antibiotiki (Kiuavijasumu)",
+        "openmrs_entity_id": "prescribe_anti_sy",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:syphilis": {
+            "type": "string",
+            "ex": "equalTo(.,\"positive\")"
+          }
+        }
+      },
+      {
+        "key": "syphilis_treatment",
+        "type": "native_radio",
+        "label": "Je, matibabu ya Kaswende yalitolewa?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "syphilis_treatment",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "step1:syphilis": {
+            "type": "string",
+            "ex": "equalTo(.,\"positive\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_syphilis_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_syphilis_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha kaswende",
+        "values": [
+          "Vifaa vya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja alikataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine (Bainisha)"
+        ],
+        "keys": [
+          "test_kits_out_of_stock",
+          "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested",
+          "still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_out_of_stock": "test_kits_out_of_stock",
+          "client_was_in_an_emergency_situation": "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested": "client_refused_to_be_tested",
+          "still_counselling_the_client": "still_counselling_the_client",
+          "Other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:syphilis": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_syphilis_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_syphilis_test",
+        "type": "edit_text",
+        "hint": "Bainisha sababu zingine za kutofanya kipimo cha kaswende",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_syphilis_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "hepatitis",
+        "type": "native_radio",
+        "label": "Matokeo ya kipimo cha homa ya ini",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha homa ya ini hakijafanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prescribe_arv_hepb_at_above_twenty_eight",
+        "type": "toaster_notes",
+        "text": "Mpatie Mteja  dawa za kufubaza virusi vya Ukimwi (ARV) kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prescribe_arv_hepb_at_above_twenty_eight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "counsel_arv_hepb_below_twenty_eight",
+        "type": "toaster_notes",
+        "text": "To ushauri kwa Mama mwenye ujauzito wa wiki 28 kuhusiana na matumizi  ya dawa za kufubaza virusi vya Ukimwi (ARV)",
+        "openmrs_entity_id": "counsel_arv_hepb_below_twenty_eight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_hepatitis_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_hepatitis_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha homa ya ini",
+        "values": [
+          "Vifaa vya kupima vimeisha",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja alikataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine (Bainisha)"
+        ],
+        "keys": [
+          "test_kits_out_of_stock",
+          "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested",
+          "still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "test_kits_out_of_stock": "test_kits_out_of_stock",
+          "client_was_in_an_emergency_situation": "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested": "client_refused_to_be_tested",
+          "still_counselling_the_client": "still_counselling_the_client",
+          "Other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:hepatitis": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_hepatitis_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_hepatitis_test",
+        "type": "edit_text",
+        "hint": "Bainisha sababu zingine za kutofanya kipimo cha kaswende",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_hepatitis_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "hiv_test_at_32",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_test_at_32",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_test_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_test_number",
+        "type": "hidden"
+      },
+      {
+        "key": "date_anc_hiv_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "date_anc_hiv_test",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_lab_test_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "lab_test_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "lab_test_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

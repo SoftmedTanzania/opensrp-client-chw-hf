@@ -1,0 +1,188 @@
+{
+  "count": "1",
+  "encounter_type": "Pregnancy Status",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Pregnancy Status",
+    "fields": [
+      {
+        "key": "pregnancy_status",
+        "type": "native_radio",
+        "label": "Pregnancy Status",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_status",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "viable",
+            "text": "Viable",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "viable"
+          },
+          {
+            "key": "spontaneous_abortion",
+            "text": "Spontaneous Abortion",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "spontaneous_abortion"
+          },
+          {
+            "key": "intrauterine_fetal_death",
+            "text": "Intrauterine Fetal Death (Still Birth)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "intrauterine_fetal_death"
+          }
+        ]
+      },
+      {
+        "key": "reg_cpac",
+        "type": "toaster_notes",
+        "text": "Provide comprehensive post-abortal care (cPAC) according to standard guidelines",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:pregnancy_status": {
+            "type": "string",
+            "ex": "equalTo(.,\"spontaneous_abortion\")"
+          }
+        }
+      },
+      {
+        "key": "still_birth",
+        "type": "toaster_notes",
+        "text": "Manage the client according to Standard Guidelines and counsel the client on appropriate Family Planning methods",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:pregnancy_status": {
+            "type": "string",
+            "ex": "equalTo(.,\"intrauterine_fetal_death\")"
+          }
+        }
+      },
+      {
+        "key": "pregnancy_status_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_status_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      },
+      {
+        "key": "delivery_place",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "delivery_place",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "The place the mother gave birth",
+        "values": [
+          "At a health facility",
+          "Birth before Arrival (BBA)",
+          "At home",
+          "Traditional birth attendant"
+        ],
+        "keys": [
+          "At a health facility",
+          "Birth before Arrival (BBA)",
+          "At home",
+          "Traditional birth attendant"
+        ],
+        "openmrs_choice_ids": {
+          "At a health facility": "At a health facility",
+          "Birth before Arrival (BBA)": "Birth before Arrival (BBA)",
+          "At home": "At home",
+          "Traditional birth attendant": "Traditional birth attendant"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select one option"
+        },
+        "relevance": {
+          "step1:pregnancy_status": {
+            "type": "string",
+            "ex": "equalTo(.,\"intrauterine_fetal_death\")"
+          }
+        }
+      },
+      {
+        "key": "delivery_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "delivery_date",
+        "type": "date_picker",
+        "hint": "Delivery Date",
+        "expanded": false,
+        "min_date": "today-2y",
+        "max_date": "today",
+        "relevance": {
+          "step1:pregnancy_status": {
+            "type": "string",
+            "ex": "equalTo(.,\"intrauterine_fetal_death\")"
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select the delivery date"
+        }
+      },
+      {
+        "key": "preg_outcome",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "type": "hidden",
+        "openmrs_entity_id": "preg_outcome",
+        "value": "still_born",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_pregnancy_status_calculation.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

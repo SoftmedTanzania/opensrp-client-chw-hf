@@ -1,0 +1,19 @@
+---
+name: "refer_to_chw_calculation"
+description: "refer_to_chw calculation"
+priority: 1
+condition: "true"
+actions:
+  - "refer_to_chw_calculation  = 'yes'"
+---
+name: "hiv_index_contact_community_followup_referral_date_calculation"
+description: "hiv_index_contact_community_followup_referral_date calculation"
+priority: 1
+condition: "true"
+actions:
+  - "def getDate(dateFormat) {
+          import java.util.*;
+          import java.text.SimpleDateFormat;
+          return new SimpleDateFormat(dateFormat).format(Calendar.getInstance().getTime());
+      }"
+  - "hiv_index_contact_community_followup_referral_date_calculation  = getDate('yyyy-MM-dd hh:mm:ss') "

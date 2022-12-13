@@ -1,0 +1,707 @@
+{
+  "count": "1",
+  "encounter_type": "ANC Consultation",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Mashauriano ya ANC",
+    "fields": [
+      {
+        "key": "examination_findings",
+        "type": "check_box",
+        "label": "Matokeo ya Uchunguzi kwenye hudhurio la leo",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "examination_findings",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "puffy_face",
+            "text": "Uso umevimba",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "puffy_face"
+          },
+          {
+            "key": "pallor",
+            "text": "Kupauka (jicho, viganja, ncha ya ulimi, fizi)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pallor"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_examination_findings",
+        "type": "toaster_notes",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "prompt_for_examination_findings",
+        "openmrs_entity_parent": "",
+        "text": "Tafadhali mpatie Mteja huduma ya dharura kuhusiana na hali hii ya upungufu wa damu na moyo/figo kushindwa kufanya kazi vizuri. Bainisha sababu na dhibiti hali hii kulingana na mwongozo wa Wizara ya Afya.",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:examination_findings": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "pallor",
+                  "puffy_face"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "gest_age_consultation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gest_age_consultation",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "height",
+        "type": "edit_text",
+        "hint": "Urefu (CM)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "height",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali jaza urefu"
+        },
+        "v_min": {
+          "value": "60",
+          "err": "Urefu lazima uwe sawasawa au zaidi ya 60 (CM)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Urefu lazima uwe sawasawa au chini ya 200 (CM)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "height_calculated",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "height_calculated",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_short_stature",
+        "type": "toaster_notes",
+        "text": "Mshauri mteja kujifungua kwenye Kituo cha Afya kutokana na hatari kubwa ya kupata uchungu pingamizi",
+        "openmrs_entity_id": "prompt_for_short_stature",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:height": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"145\")"
+          }
+        }
+      },
+      {
+        "key": "weight",
+        "type": "edit_text",
+        "hint": "Uzito (KG)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "weight",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza uzito"
+        },
+        "v_min": {
+          "value": "20",
+          "err": "Uzito lazima uwe sawasawa au zaidi ya 20 (KG)"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Uzito lazima uwe sawasawa au chini ya 300 (KG)"
+        }
+      },
+      {
+        "key": "bmi",
+        "type": "edit_text",
+        "hint": "Kielezo cha Uzito wa Mwili (BMI)",
+        "read_only": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bmi",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza urefu"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali ingiza urefu"
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_underweight",
+        "type": "toaster_notes",
+        "text": "Mshauri Mteja kuhusiana na hali yake ya uzito mdogo kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_underweight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:bmi": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"18.5\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_overweight",
+        "type": "toaster_notes",
+        "text": "Mshauri Mteja kuhusiana na hali yake ya uzito mkubwa kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_overweight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:bmi": {
+            "type": "numeric",
+            "ex": "greaterThanEqualTo(.,\"29\")"
+          }
+        }
+      },
+      {
+        "key": "fundal_height",
+        "type": "edit_text",
+        "openmrs_entity_id": "fundal_height",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "hint": "Kimo cha mimba (CM)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kimo cha mimba"
+        },
+        "v_min": {},
+        "v_max": {
+          "value": "50",
+          "err": "Kimo cha mimba lazima kiwe sawa au chini ya 50 CM"
+        }
+      },
+      {
+        "key": "fetal_heart_rate",
+        "type": "edit_text",
+        "hint": "Hesabu kiwango cha mapigo ya moyo wa mtoto (bpm)",
+        "openmrs_entity_id": "fetal_heart_rate",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kiwango cha mapigo ya moyo wa mtoto"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha mapigo ya moyo wa mtoto lazima kiwe sawasawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Kiwango cha mapigo ya moyo wa mtoto lazima kiwe sawasawa au chini ya 300"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_fetal_distress",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "prompt_for_fetal_distress",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "lie",
+        "type": "spinner",
+        "openmrs_entity_id": "lie",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "hint": "Mlalo wa mtoto",
+        "values": [
+          "Usawa",
+          "Kiupande",
+          "Wima"
+        ],
+        "keys": [
+          "transverse",
+          "oblique",
+          "longitudinal"
+        ],
+        "openmrs_choice_ids": {
+          "transverse": "transverse",
+          "oblique": "oblique",
+          "longitudinal": "longitudinal"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_lie",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "presentation",
+        "type": "spinner",
+        "openmrs_entity_id": "presentation",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "hint": "Kitangulizi cha mtoto",
+        "values": [
+          "Makalio",
+          "Kichwa"
+        ],
+        "keys": [
+          "breech",
+          "cephalic"
+        ],
+        "openmrs_choice_ids": {
+          "breech": "breech",
+          "cephalic": "cephalic"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_presentation",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:presentation": {
+            "type": "string",
+            "ex": "equalTo(., \"breech\")"
+          }
+        }
+      },
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Shinikizo la Damu)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza thamani ya systolic"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani ya systolic lazima iwe sawasawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Thamani ya systolic lazima iwe sawasawa au chini ya 320"
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastolic (Shinikizo la Damu)",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza thamani ya diastoli"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani ya diastolic lazima iwe sawasawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Thamani ya diastolic lazima iwe sawasawa au chini ya 200"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "Thamani ya diastolic lazima iwe chini ya thamani ya systolic"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya Shinikizo la damu ya juu kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za Shinikizo la damu ya chini na udhibiti kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_consultation_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pulse_rate",
+        "type": "edit_text",
+        "hint": "Kiwango cha Mapigo ya moyo (Midundo kwa dakika)",
+        "openmrs_entity_id": "pulse_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kasi ya mapigo ya moyo"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha mpigo lazima kiwe sawasawa au zaidi ya 0 (bpm)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Kiwango cha mpigo lazima kiwe sawasawa au chini ya 200 (bpm)"
+        }
+      },
+      {
+        "key": "prompt_for_Bradycardia",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za Mapigo hafifu ya moyo na udhibiti kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_Bradycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"60\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_Tachycardia",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za Tachycardia na njia za udhibiti  kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_Tachycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"100\")"
+          }
+        }
+      },
+      {
+        "key": "temperature",
+        "type": "edit_text",
+        "hint": "Halijoto (\u2103)",
+        "openmrs_entity_id": "temperature",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza halijoto"
+        },
+        "v_min": {
+          "value": "10",
+          "err": "Halijoto lazima liwe sawasawa au zaidi ya 10"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Halijoto lazima liwe sawasawa au chini ya 50"
+        }
+      },
+      {
+        "key": "notify_client_has_fever",
+        "type": "toaster_notes",
+        "text": "Mfanyie Mama vipimo kwa ajili ya kubainisha sababu ya Homa na dhibiti hali hii kulingana na mwongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "notify_client_has_fever",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"37.8\")"
+          }
+        }
+      },
+      {
+        "key": "notify_client_has_hypothermia",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya Jotoridi la mwili la chini kuliko kawaida kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "notify_client_has_hypothermia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"36.5\")"
+          }
+        }
+      },
+      {
+        "key": "breast",
+        "type": "native_radio",
+        "label": "Matiti",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "breast",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "normal",
+            "text": "Kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "normal"
+          },
+          {
+            "key": "abnormal",
+            "text": "SIo kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "abnormal"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_breasts",
+        "type": "toaster_notes",
+        "text": "Mfanyie Mama uchunguzi wa matiti ilikuweza kugundua kama ana 'Mastitis' au 'Breast lump'. Mpatie Antibiotic kama ana 'Mastitis' na dhibiti hali hii kulingana na mwongozo wa Wizara ya Afya. Mpe rufaa kwa huduma/matibabu zaidi kama ana 'Breast lump'",
+        "openmrs_entity_id": "prompt_for_breasts",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:breast": {
+            "type": "string",
+            "ex": "equalTo(.,\"abnormal\")"
+          }
+        }
+      },
+      {
+        "key": "lymph_node_under_arm",
+        "type": "native_radio",
+        "label": "Nodi ya limfu (kwenye kwapa)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "lymph_node_under_arm",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "normal",
+            "text": "Kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "normal"
+          },
+          {
+            "key": "abnormal",
+            "text": "Sio kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "abnormal"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_lymph_under_the_arm",
+        "type": "toaster_notes",
+        "text": "Tafadhali mpe rufaa mteja kwa huduma/matibabu zaidi",
+        "openmrs_entity_id": "prompt_for_lymph_under_the_arm",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:lymph_node_under_arm": {
+            "type": "string",
+            "ex": "equalTo(.,\"abnormal\")"
+          }
+        }
+      },
+      {
+        "key": "lymph_node_cervical",
+        "type": "native_radio",
+        "label": "Nodi ya limfu (Kwenye Shingo)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "lymph_node_cervical",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "normal",
+            "text": "Kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "normal"
+          },
+          {
+            "key": "abnormal",
+            "text": "Sio kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "abnormal"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_lymph_cervical",
+        "type": "toaster_notes",
+        "text": "Tafadhali mpe rufaa mteja kwa huduma/matibabu zaidi",
+        "openmrs_entity_id": "prompt_for_lymph_cervical",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:lymph_node_cervical": {
+            "type": "string",
+            "ex": "equalTo(.,\"abnormal\")"
+          }
+        }
+      },
+      {
+        "key": "consultation_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "consultation_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

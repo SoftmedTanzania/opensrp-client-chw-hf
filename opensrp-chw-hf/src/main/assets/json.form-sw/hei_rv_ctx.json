@@ -1,0 +1,173 @@
+{
+  "count": "1",
+  "encounter_type": "HEI CTX Prescription",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Kupatiwa Dawa ya CTX",
+    "fields": [
+      {
+        "key": "prescribed_ctx",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "prescribed_ctx",
+        "type": "native_radio",
+        "label": "Je, Mtoto huyu amepatiwa CTX?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        }
+      },
+      {
+        "key": "number_of_ctx_days_dispensed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_ctx_days_dispensed",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya Siku Iliyotolewa",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya siku iliyotolewa"
+        },
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Tafadhali ingiza namba halali"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Idadi ya siku iliyotolewa inatakiwa iwe zaidi ya 0"
+        },
+        "v_max": {
+          "value": "180",
+          "err": "Idadi ya siku iliyotolewa inatakiwa iwe sawa na au chini ya 180"
+        },
+        "relevance": {
+          "step1:prescribed_ctx": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_prescribing_ctx",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_prescribing_ctx",
+        "type": "native_radio",
+        "label": "Sababu za kutompatia Mtoto dawa",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "out_of_stock",
+            "text": "CTX zimeisha",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "out_of_stock"
+          },
+          {
+            "key": "medication_expired",
+            "text": "Muda wa matumizi ya CTX umeisha",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "medication_expired"
+          },
+          {
+            "key": "other",
+            "text": "Nyingine (Bainisha)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        },
+        "relevance": {
+          "step1:prescribed_ctx": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_prescribing_ctx",
+        "type": "edit_text",
+        "hint": "Tafadhali bainisha sababu nyingine",
+        "openmrs_entity_id": "other_reason_for_not_prescribing_ctx",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali bainisha sababu nyingine"
+        },
+        "relevance": {
+          "step1:reason_for_not_prescribing_ctx": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "visit_number",
+        "type": "hidden"
+      }
+    ]
+  }
+}

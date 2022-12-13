@@ -3,7 +3,6 @@ package org.smartregister.chw.hf.presenter;
 import org.smartregister.chw.core.contract.BaseReferralRegisterFragmentContract;
 import org.smartregister.chw.core.presenter.BaseReferralFragmentPresenter;
 import org.smartregister.chw.core.utils.CoreConstants;
-import org.smartregister.chw.hf.model.ReferralModel;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 
 import java.util.HashSet;
@@ -11,9 +10,9 @@ import java.util.HashSet;
 public class ReferralFragmentPresenter extends BaseReferralFragmentPresenter {
     protected BaseReferralRegisterFragmentContract.View view;
 
-    public ReferralFragmentPresenter(BaseReferralRegisterFragmentContract.View view) {
+    public ReferralFragmentPresenter(BaseReferralRegisterFragmentContract.View view, BaseReferralRegisterFragmentContract.Model model) {
         super(view);
-        this.model = new ReferralModel();
+        this.model = model;
         this.view = view;
     }
 

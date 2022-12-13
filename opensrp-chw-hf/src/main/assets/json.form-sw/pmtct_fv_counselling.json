@@ -1,0 +1,220 @@
+{
+  "count": "1",
+  "encounter_type": "PMTCT counselling",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Elimu ya Afya Endelevu",
+    "fields": [
+      {
+        "key": "is_client_counselled",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_client_counselled",
+        "type": "native_radio",
+        "label": "Je, Mteja amepatiwa elimu ya afya endelevu?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        }
+      },
+      {
+        "key": "counselling_topics_provided",
+        "type": "check_box",
+        "label": "Tafadhali chagua mada ambayo mtoa huduma amemshauri Mteja",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "counselling_topics_provided",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "chk_none"
+        ],
+        "options": [
+          {
+            "key": "chk_hiv_info",
+            "text": "Maambukizi ya VVU, Matibabu, Maendeleo ya Ugonjwa na jinsi ya kujikinga",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_hiv_info"
+          },
+          {
+            "key": "chk_disclosure",
+            "text": "Uwazi wa hali ya maambukizi  ya VVU na kubainisha msaidizi wa kimatibabu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_disclosure"
+          },
+          {
+            "key": "chk_promote_testing",
+            "text": "Kuhamasisha upimaji wa wenza na wenza walio katika mnyororo wa kingono",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_promote_testing"
+          },
+          {
+            "key": "chk_ayf_services",
+            "text": "Huduma rafiki za afya kwa vijana (Ufuasi mzuri wa dawa na kubaki kwenye matunzo)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_ayf_services"
+          },
+          {
+            "key": "chk_prevention_diseases",
+            "text": "Jinsi ya Kujikinga na Magonjwa, kutumia chandarua na usafi wa mazingira na Binafsi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_prevention_diseases"
+          },
+          {
+            "key": "chk_imp_cpt",
+            "text": "Umuhimu wa CPT, CrPET na TPT",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_cpt"
+          },
+          {
+            "key": "chk_imp_adherence",
+            "text": "Umuhimu wa ufuasi mzuri wa dawa, Jinsi ya kukumbuka kumeza dawa, kuandaa mpango na Jinsi ya kufanya wakati wa kusafiri au wakati unaumwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_adherence"
+          },
+          {
+            "key": "chk_imp_support_group",
+            "text": "Umuhimu wa CBS na Vikundi vya msaada vya watu wanaishi na VVU",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_support_group"
+          },
+          {
+            "key": "chk_imp_appointment",
+            "text": "Umuhimu wa miadi, tarehe, muda na mpango wa kusafiri",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_appointment"
+          },
+          {
+            "key": "chk_sti_rti",
+            "text": "Magonjwa ya STIs/RTIs",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_sti_rti"
+          },
+          {
+            "key": "chk_imp_insurance",
+            "text": "Umuhimu wa kughalimikiwa matibabu kwa kutumia Bima ya Afya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_insurance"
+          },
+          {
+            "key": "chk_non_communicable_diseases_prevention",
+            "text": "Jinsi ya kujikinga na Magonjwa yasiyoambukiza (muhimu kuzingatia lishe, kufanya mazoezi, mtindo wa Maisha)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_non_communicable_diseases_prevention"
+          },
+          {
+            "key": "chk_eac_sessions",
+            "text": "Ushauri mahususi wa Ufuasi mzuri wa dawa/ matibabu, kama HVL > 1000 copies/ml",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_eac_sessions"
+          },
+          {
+            "key": "chk_infant_feeding_options",
+            "text": "Chaguzi za kulisha watoto wachanga katika muktadha wa VVU",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_infant_feeding_options"
+          },
+          {
+            "key": "chk_living_with_hiv",
+            "text": "Jinsi ya kuishi na maambukizi ya VVU",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_living_with_hiv"
+          },
+          {
+            "key": "chk_none",
+            "text": "Ushauri haukutolewa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mada"
+        },
+        "relevance": {
+          "step1:is_client_counselled": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "type": "hidden",
+        "openmrs_entity_id": "visit_number",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "followup_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "followup_status",
+        "openmrs_entity_parent": "",
+        "value": "continuing_with_services",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_fv_counselling_relevance.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

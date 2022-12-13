@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Hali ya lishe ya mtoto",
+    "title": "Nutrition Status - Baby",
     "fields": [
       {
         "key": "nutrition_status_1m",
@@ -58,9 +58,9 @@
         "type": "spinner",
         "hint": "Hali ya lishe ya mtoto mchanga",
         "values": [
-          "Nzuri/Kijani",
-          "Kadri/Njano",
-          "Dhaifu/Nyekundu"
+          "Kawaida/Kijani",
+          "Wastani/Njano",
+          "Nyekundu / kali"
         ],
         "keys": [
           "Normal",

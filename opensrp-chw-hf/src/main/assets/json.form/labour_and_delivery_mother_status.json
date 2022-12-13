@@ -1,0 +1,372 @@
+{
+  "validate_on_submit": true,
+  "show_errors_on_submit": false,
+  "count": "1",
+  "encounter_type": "PPFP",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Mother - Status",
+    "fields": [
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "label": "Status",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "alive",
+            "text": "Alive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alive"
+          },
+          {
+            "key": "died",
+            "text": "Died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "died"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "cause_of_death",
+        "type": "edit_text",
+        "hint": "Cause of death",
+        "openmrs_entity_id": "cause_of_death",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:status": {
+            "type": "string",
+            "ex": "equalTo(., \"died\")"
+          }
+        }
+      },
+      {
+        "key": "time_of_death",
+        "type": "time_picker",
+        "hint": "Time of death",
+        "openmrs_entity_id": "time_of_death",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:status": {
+            "type": "string",
+            "ex": "equalTo(., \"died\")"
+          }
+        }
+      },
+      {
+        "key": "mode_of_delivery",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mode_of_delivery",
+        "label": "Mode of delivery",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "spontaneous_vaginal_delivery",
+            "text": "Spontaneous vertex delivery",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "spontaneous_vaginal_delivery"
+          },
+          {
+            "key": "vacuum_extraction",
+            "text": "Vacuum Extraction",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vacuum_extraction"
+          },
+          {
+            "key": "breech_delivery",
+            "text": "Breech Delivery",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "breech_delivery"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "delivery_place",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "delivery_place",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "Place of delivery",
+        "values": [
+          "At a health facility (HF)",
+          "Birth before Arrival (BBA)",
+          "Home delivery",
+          "Traditional birth attendant (TBA)"
+        ],
+        "keys": [
+          "at_a_health_facility",
+          "bba",
+          "at_home",
+          "tba"
+        ],
+        "openmrs_choice_ids": {
+          "at_a_health_facility": "at_a_health_facility",
+          "bba": "bba",
+          "at_home": "at_home",
+          "tba": "tba"
+        }
+      },
+      {
+        "key": "designation_of_delivery_personnel",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "designation_of_delivery_personnel",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "Designation of Delivery Person",
+        "values": [
+          "Obstetrician",
+          "Gynecologist",
+          "Medical doctor",
+          "Assistant Nurse officer",
+          "Clinical officer",
+          "Midwife officer",
+          "Enrolled Nurse",
+          "Student"
+        ],
+        "keys": [
+          "obstetrician",
+          "gynecologist",
+          "medical_doctor",
+          "assistant_nurse_officer",
+          "clinical_officer",
+          "midwife_officer",
+          "enrolled_nurse",
+          "student"
+        ],
+        "openmrs_choice_ids": {
+          "medical_doctor": "medical_doctor",
+          "obstetrician": "obstetrician",
+          "assistant_midwife_officer": "assistant_midwife_officer",
+          "clinical_officer": "clinical_officer",
+          "midwife_officer": "midwife_officer",
+          "gynecologist": "gynecologist",
+          "nurse": "nurse",
+          "student": "student"
+        },
+        "relevance": {
+          "step1:delivery_place": {
+            "type": "string",
+            "ex": "equalTo(., \"at_a_health_facility\")"
+          }
+        }
+      },
+      {
+        "key": "name_of_delivery_person",
+        "type": "edit_text",
+        "hint": "Name of delivery personnel",
+        "openmrs_entity_id": "name_of_delivery_person",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:delivery_place": {
+            "type": "string",
+            "ex": "equalTo(., \"at_a_health_facility\")"
+          }
+        }
+      },
+      {
+        "key": "supervised_by_occupation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "supervised_by_occupation",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "Supervision by",
+        "values": [
+          "Medical doctor",
+          "Obstetrician",
+          "Assistant midwife officer",
+          "Clinical officer",
+          "Midwife officer",
+          "Gynecologist",
+          "Nurse"
+        ],
+        "keys": [
+          "medical_doctor",
+          "obstetrician",
+          "assistant_midwife_officer",
+          "clinical_officer",
+          "midwife_officer",
+          "gynecologist",
+          "nurse"
+        ],
+        "openmrs_choice_ids": {
+          "medical_doctor": "medical_doctor",
+          "obstetrician": "obstetrician",
+          "assistant_midwife_officer": "assistant_midwife_officer",
+          "clinical_officer": "clinical_officer",
+          "midwife_officer": "midwife_officer",
+          "gynecologist": "gynecologist",
+          "nurse": "nurse"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_mother_status_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "name_of_supervising_person",
+        "type": "edit_text",
+        "hint": "Name of supervisor",
+        "openmrs_entity_id": "name_of_supervising_person",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "labour_and_delivery_mother_status_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "number_of_children_born",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_children_born",
+        "type": "edit_text",
+        "hint": "Number of Children Born",
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Please enter a valid number"
+        },
+        "v_max": {
+          "value": "5",
+          "err": "The number of children born should be equal or less than 5"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "The number of children born should greater than 0"
+        }
+      },
+      {
+        "key": "delivery_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "delivery_date",
+        "type": "date_picker",
+        "hint": "Delivery Date",
+        "expanded": false,
+        "min_date": "today-2y",
+        "max_date": "today",
+        "v_required": {
+          "value": true,
+          "err": "Please select the delivery date"
+        }
+      },
+      {
+        "key": "delivery_time",
+        "type": "time_picker",
+        "hint": "Delivery Time",
+        "openmrs_entity_id": "delivery_time",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "v_required": {
+          "value": true,
+          "err": "Please select the delivery time"
+        }
+      },
+      {
+        "key": "mother_status_module_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mother_status_module_status",
+        "type": "hidden",
+        "value": "PENDING"
+      },
+      {
+        "key": "labour_duration",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "labour_duration",
+        "label": "Labour information/conditions",
+        "type": "hidden"
+      },
+      {
+        "key": "labour_stage",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "labour_stage",
+        "type": "hidden",
+        "value": "complete"
+      },
+      {
+        "key": "hiv",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv",
+        "type": "edit_text",
+        "hidden": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "count": "1",
+  "encounter_type": "Triage",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Triage",
+    "fields": [
+      {
+        "key": "gest_age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gest_age",
+        "hint": "Gestational Age (GA) in Weeks",
+        "type": "edit_text",
+        "editable": true,
+        "read_only": true
+      },
+      {
+        "key": "edd",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "edd",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "last_menstrual_period",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "rapid_examination",
+        "type": "check_box",
+        "label": "Assess general condition of the woman immediately on arrival at antenatal clinic",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "rapid_examination",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "facial_expression",
+            "text": "Facial Expression (pain expression)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "facial_expression"
+          },
+          {
+            "key": "pallor",
+            "text": "Pallor",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pallor"
+          },
+          {
+            "key": "sweating",
+            "text": "Sweating",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sweating"
+          },
+          {
+            "key": "shivering",
+            "text": "Shivering",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "shivering"
+          },
+          {
+            "key": "difficulty_in_breathing",
+            "text": "Difficulty in breathing",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "difficulty_in_breathing"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_rapid_examination",
+        "type": "toaster_notes",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "prompt_for_rapid_examination",
+        "openmrs_entity_parent": "",
+        "text": "Provide supportive care and refer the client for advanced emergency care",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:rapid_examination": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "pallor",
+                  "sweating",
+                  "shivering",
+                  "difficulty_in_breathing",
+                  "facial_expression"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "reasons_to_clinic",
+        "type": "native_radio",
+        "label": "Why did you come to the clinic today?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reasons_to_clinic",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "text": "Routine Scheduled Visit",
+            "key": "routine_visit",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "routine_visit"
+          },
+          {
+            "text": "Sick/Concerned",
+            "key": "sick_concerned",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sick_concerned"
+          }
+        ]
+      },
+      {
+        "key": "client_concern",
+        "type": "edit_text",
+        "edit_type": "text",
+        "hint": "What is your concern?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_concern",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "danger_signs",
+        "type": "check_box",
+        "label": "Ask, look, and feel if the woman is/has: ",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "danger_signs",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "bleeding_vag",
+            "text": "Bleeding Vaginally",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bleeding_vag"
+          },
+          {
+            "key": "headache_visual_disturbance",
+            "text": "Headache and Visual Disturbance",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "headache_visual_disturbance"
+          },
+          {
+            "key": "severely_pale",
+            "text": "Severely Pale",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severely_pale"
+          },
+          {
+            "key": "severe_vomiting",
+            "text": "Severe Vomiting",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_vomiting"
+          },
+          {
+            "key": "convulsion",
+            "text": "Convulsion",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "convulsion"
+          },
+          {
+            "key": "looking_very_ill",
+            "text": "Looking Very Ill (lethargic, drowsy)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "looking_very_ill"
+          },
+          {
+            "key": "fever",
+            "text": "A Fever",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fever"
+          },
+          {
+            "key": "unconscious",
+            "text": "Unconscious",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unconscious"
+          },
+          {
+            "key": "severe_pain",
+            "text": "Severe Pain",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_pain"
+          },
+          {
+            "key": "severe_breathing_difficulty",
+            "text": "Severe Breathing Difficulty",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_breathing_difficulty"
+          },
+          {
+            "key": "in_labour",
+            "text": "In Labour",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "in_labour"
+          },
+          {
+            "key": "imminent_labour",
+            "text": "Imminent Labour",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "imminent_labour"
+          },
+          {
+            "key": "reduced_fetal_movement",
+            "text": "Reduced or no fetal movement",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reduced_fetal_movement"
+          },
+          {
+            "key": "sacrum_oedema",
+            "text": "Oedema of the face and sacrum",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sacrum_oedema"
+          },
+          {
+            "key": "other",
+            "text": "Other (Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "is_emergency",
+        "type": "toaster_notes",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_emergency",
+        "openmrs_entity_parent": "",
+        "text": "Provide emergency care to the client",
+        "toaster_type": "problem",
+        "toaster_info": "The client exhibits one or more of the emergency signs and needs emergency care",
+        "relevance": {
+          "step1:danger_signs": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "bleeding_vag",
+                  "headache_visual_disturbance",
+                  "severely_pale",
+                  "severe_vomiting",
+                  "severe_breathing_difficulty",
+                  "convulsion",
+                  "looking_very_ill",
+                  "fever",
+                  "unconscious",
+                  "severe_pain",
+                  "in_labour",
+                  "imminent_labour",
+                  "reduced_fetal_movement",
+                  "sacrum_oedema"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "other_danger_signs",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_danger_signs",
+        "type": "edit_text",
+        "hint": "Other danger sign(s)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the other danger sign(s)"
+        },
+        "relevance": {
+          "step1:danger_signs": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "visit_number",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "triage_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "triage_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

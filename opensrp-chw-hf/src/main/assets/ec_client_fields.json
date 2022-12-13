@@ -1,6 +1,660 @@
 {
   "bindobjects": [
     {
+      "name": "ec_pmtct_registration",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "pmtct_register_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "pmtct_register_date"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "known_on_art",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "known_on_art"
+          }
+        },
+        {
+          "column_name": "is_transfer_in_client",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "is_transfer_in_client"
+          }
+        },
+        {
+          "column_name": "next_facility_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_facility_visit_date"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_status"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pmtct_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_status"
+          }
+        },
+        {
+          "column_name": "followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_visit_date"
+          }
+        },
+        {
+          "column_name": "liver_function_test_conducted",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "liver_function_test_conducted"
+          }
+        },
+        {
+          "column_name": "receive_liver_function_test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "receive_liver_function_test_results"
+          }
+        },
+        {
+          "column_name": "renal_function_test_conducted",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "renal_function_test_conducted"
+          }
+        },
+        {
+          "column_name": "receive_renal_function_test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "receive_renal_function_test_results"
+          }
+        },
+        {
+          "column_name": "hvl_sample_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hvl_sample_id"
+          }
+        },
+        {
+          "column_name": "hvl_collection_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hvl_collection_date"
+          }
+        },
+        {
+          "column_name": "cd4_sample_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cd4_sample_id"
+          }
+        },
+        {
+          "column_name": "cd4_collection_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cd4_collection_date"
+          }
+        },
+        {
+          "column_name": "arv_line",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "arv_line"
+          }
+        },
+        {
+          "column_name": "arv_regimen",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "arv_regimen"
+          }
+        },
+        {
+          "column_name": "has_been_provided_with_tpt_before",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "has_been_provided_with_tpt_before"
+          }
+        },
+        {
+          "column_name": "is_client_provided_with_tpt",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "is_client_provided_with_tpt"
+          }
+        },
+        {
+          "column_name": "completed_tpt",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "completed_tpt"
+          }
+        },
+        {
+          "column_name": "prescribed_regimes",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prescribed_regimes"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "next_facility_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_facility_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pmtct_hvl_results",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "hvl_sample_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hvl_sample_id"
+          }
+        },
+        {
+          "column_name": "hvl_pmtct_followup_form_submission_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hvl_pmtct_followup_form_submission_id"
+          }
+        },
+        {
+          "column_name": "hvl_result",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hvl_result"
+          }
+        },
+        {
+          "column_name": "enroll_to_eac",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "enroll_to_eac"
+          }
+        },
+        {
+          "column_name": "hvl_result_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hvl_result_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pmtct_cd4_results",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "cd4_sample_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cd4_sample_id"
+          }
+        },
+        {
+          "column_name": "cd4_pmtct_followup_form_submission_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cd4_pmtct_followup_form_submission_id"
+          }
+        },
+        {
+          "column_name": "cd4_result",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cd4_result"
+          }
+        },
+        {
+          "column_name": "cd4_result_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cd4_result_date"
+          }
+        },
+        {
+          "column_name": "started_ctx",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "started_ctx"
+          }
+        },
+        {
+          "column_name": "reason_for_not_starting_ctx",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "reason_for_not_starting_ctx"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pmtct_eac_visit",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "eac_visit_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "eac_visit_type"
+          }
+        },
+        {
+          "column_name": "eac",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "eac"
+          }
+        },
+        {
+          "column_name": "eac_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "eac_visit_date"
+          }
+        },
+        {
+          "column_name": "eac_visit_session",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "eac_visit_session"
+          }
+        },
+        {
+          "column_name": "eac_completion_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "eac_completion_status"
+          }
+        },
+        {
+          "column_name": "form_submission_timestamp",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "form_submission_timestamp"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hei",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "unique_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "identifiers.opensrp_id"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "relationships.family"
+          }
+        },
+        {
+          "column_name": "mother_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "relationships.mother"
+          }
+        },
+        {
+          "column_name": "risk_category",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "risk_category"
+          }
+        },
+        {
+          "column_name": "dob",
+          "type": "Client",
+          "json_mapping": {
+            "field": "birthdate"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "hei_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hei_number"
+          }
+        },
+        {
+          "column_name": "next_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_facility_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hei_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_status"
+          }
+        },
+        {
+          "column_name": "followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_visit_date"
+          }
+        },
+        {
+          "column_name": "sample_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sample_id"
+          }
+        },
+        {
+          "column_name": "sample_collection_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sample_collection_date"
+          }
+        },
+        {
+          "column_name": "type_of_hiv_test",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "type_of_hiv_test"
+          }
+        },
+        {
+          "column_name": "test_at_age",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "test_at_age"
+          }
+        },
+        {
+          "column_name": "prophylaxis_arv_for_high_risk_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prophylaxis_arv_for_high_risk_given"
+          }
+        },
+        {
+          "column_name": "prophylaxis_arv_for_high_and_low_risk_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prophylaxis_arv_for_high_and_low_risk_given"
+          }
+        },
+        {
+          "column_name": "prescribed_ctx",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prescribed_ctx"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "next_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_facility_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hei_hiv_results",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "hei_followup_form_submission_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hei_followup_form_submission_id"
+          }
+        },
+        {
+          "column_name": "hiv_test_result",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "hiv_test_result_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_test_result_date"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        }
+      ]
+    },
+    {
       "name": "ec_family",
       "columns": [
         {
@@ -50,7 +704,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "163277AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "gps"
           }
         },
         {
@@ -58,7 +712,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "162724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "nearest_facility"
           }
         },
         {
@@ -76,6 +730,13 @@
           }
         },
         {
+          "column_name": "sync_location_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
           "column_name": "last_interacted_with",
           "type": "Event",
           "json_mapping": {
@@ -87,6 +748,13 @@
           "type": "Client",
           "json_mapping": {
             "field": "attributes.dateRemoved"
+          }
+        },
+        {
+          "column_name": "entity_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "entityType"
           }
         },
         {
@@ -177,7 +845,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "phone_number"
           }
         },
         {
@@ -185,7 +853,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "other_phone_number"
           }
         },
         {
@@ -238,11 +906,19 @@
           }
         },
         {
+          "column_name": "marital_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "marital_status"
+          }
+        },
+        {
           "column_name": "type_of_disability",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "type_of_disability"
           }
         },
         {
@@ -250,7 +926,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "162558AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "disabilities"
           }
         },
         {
@@ -258,7 +934,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "1542AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "service_provider"
           }
         },
         {
@@ -273,6 +949,29 @@
           "type": "Client",
           "json_mapping": {
             "field": "attributes.Other_Community_Leader_Type_Name"
+          }
+        },
+        {
+          "column_name": "reasons_for_registration",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.Registration_Reason"
+          }
+        },
+        {
+          "column_name": "has_primary_caregiver",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "Has_Primary_Caregiver"
+          }
+        },
+        {
+          "column_name": "primary_caregiver_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "Primary_Caregiver_Name"
           }
         },
         {
@@ -398,7 +1097,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "161543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "early_bf_1hr"
           }
         },
         {
@@ -406,7 +1105,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "162558AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "disabilities"
           }
         },
         {
@@ -414,7 +1113,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "type_of_disability"
           }
         },
         {
@@ -422,7 +1121,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "165406AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "birth_cert_available"
           }
         },
         {
@@ -430,7 +1129,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "164147AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "rhc_card"
           }
         },
         {
@@ -438,7 +1137,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "163301AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "nutrition_status"
           }
         },
         {
@@ -491,7 +1190,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "162052AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "birth_regist_number"
           }
         },
         {
@@ -553,6 +1252,46 @@
           "type": "Client",
           "json_mapping": {
             "field": "attributes.Health_Insurance_Number"
+          }
+        },
+        {
+          "column_name": "child_bcg_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "child_bcg_vaccination"
+          }
+        },
+        {
+          "column_name": "child_opv0_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "child_opv0_vaccination"
+          }
+        },
+        {
+          "column_name": "weight",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "weight"
+          }
+        },
+        {
+          "column_name": "head_circumference",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "head_circumference"
+          }
+        },
+        {
+          "column_name": "kangaroo_enrollment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kangaroo_enrollment"
           }
         }
       ]
@@ -653,11 +1392,51 @@
           }
         },
         {
+          "column_name": "confirmation_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "pregnancy_confirmation_status"
+          }
+        },
+        {
+          "column_name": "confirmation_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "pregnancy_confirmation_date"
+          }
+        },
+        {
+          "column_name": "known_on_art",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "known_on_art"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "task_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "task_id"
+          }
+        },
+        {
           "column_name": "last_menstrual_period",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "last_menstrual_period"
           }
         },
         {
@@ -665,7 +1444,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "1438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "gest_age"
           }
         },
         {
@@ -673,7 +1452,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "edd"
           }
         },
         {
@@ -681,7 +1460,15 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "1438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "no_prev_preg"
+          }
+        },
+        {
+          "column_name": "parity",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "parity"
           }
         },
         {
@@ -689,7 +1476,15 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "5624AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "gravida"
+          }
+        },
+        {
+          "column_name": "fundal_height",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "fundal_height"
           }
         },
         {
@@ -697,7 +1492,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "164894AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "no_surv_children"
           }
         },
         {
@@ -705,7 +1500,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "phone_number"
           }
         },
         {
@@ -713,7 +1508,135 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "1054AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "marital_status"
+          }
+        },
+        {
+          "column_name": "medical_surgical_history",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "medical_surgical_history"
+          }
+        },
+        {
+          "column_name": "other_medical_surgical_history",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_medical_surgical_history"
+          }
+        },
+        {
+          "column_name": "blood_group",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "blood_group"
+          }
+        },
+        {
+          "column_name": "rh_factor",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "rh_factor"
+          }
+        },
+        {
+          "column_name": "tb_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tb_status"
+          }
+        },
+        {
+          "column_name": "tt_vaccination_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tt_vaccination_type"
+          }
+        },
+        {
+          "column_name": "partner_base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_base_entity_id"
+          }
+        },
+        {
+          "column_name": "partner_hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hiv"
+          }
+        },
+        {
+          "column_name": "reason_for_not_conducting_partner_hiv_test",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "reason_for_not_conducting_partner_hiv_test"
+          }
+        },
+        {
+          "column_name": "partner_hiv_test_at_32",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hiv_test_at_32"
+          }
+        },
+        {
+          "column_name": "partner_hiv_test_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hiv_test_number"
+          }
+        },
+        {
+          "column_name": "partner_syphilis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_syphilis"
+          }
+        },
+        {
+          "column_name": "partner_syphilis_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_syphilis_treatment"
+          }
+        },
+        {
+          "column_name": "partner_hepatitis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hepatitis"
+          }
+        },
+        {
+          "column_name": "partner_other_stds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_other_stds"
+          }
+        },
+        {
+          "column_name": "partner_other_stds_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_other_stds_treatment"
           }
         },
         {
@@ -733,6 +1656,150 @@
           }
         },
         {
+          "column_name": "couple_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "couple_testing"
+          }
+        },
+        {
+          "column_name": "name_of_hf",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "name_of_hf"
+          }
+        },
+        {
+          "column_name": "hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv"
+          }
+        },
+        {
+          "column_name": "syphilis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "syphilis"
+          }
+        },
+        {
+          "column_name": "mRDT_for_malaria",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mRDT_for_malaria"
+          }
+        },
+        {
+          "column_name": "llin_provision",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "llin_provision"
+          }
+        },
+        {
+          "column_name": "syphilis_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "syphilis_treatment"
+          }
+        },
+        {
+          "column_name": "hepatitis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hepatitis"
+          }
+        },
+        {
+          "column_name": "height",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "height"
+          }
+        },
+        {
+          "column_name": "date_anc_hiv_test",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "date_anc_hiv_test"
+          }
+        },
+        {
+          "column_name": "hiv_test_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_test_number"
+          }
+        },
+        {
+          "column_name": "hiv_test_at_32",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_test_at_32"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy"
+          }
+        },
+        {
+          "column_name": "mRDT_for_malaria",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mRDT_for_malaria"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt1",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt1"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt2",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt2"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt3",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt3"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt4",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt4"
+          }
+        },
+        {
           "column_name": "confirmed_visits",
           "type": "Event",
           "json_mapping": {
@@ -741,11 +1808,482 @@
           }
         },
         {
+          "column_name": "tb_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tb_status"
+          }
+        },
+        {
+          "column_name": "other_stds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_stds"
+          }
+        },
+        {
+          "column_name": "other_stds_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_stds_treatment"
+          }
+        },
+        {
+          "column_name": "is_transfer_in",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "is_transfer_in"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "next_facility_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_facility_visit_date"
+          }
+        },
+        {
           "column_name": "last_contact_visit",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "159590AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "anc_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_anc_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "gest_age",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "gest_age"
+          }
+        },
+        {
+          "column_name": "hb_level",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hb_level"
+          }
+        },
+        {
+          "column_name": "systolic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "systolic"
+          }
+        },
+        {
+          "column_name": "diastolic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "diastolic"
+          }
+        },
+        {
+          "column_name": "tb_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tb_status"
+          }
+        },
+        {
+          "column_name": "other_stds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_stds"
+          }
+        },
+        {
+          "column_name": "other_stds_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_stds_treatment"
+          }
+        },
+        {
+          "column_name": "partner_other_stds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_other_stds"
+          }
+        },
+        {
+          "column_name": "partner_other_stds_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_other_stds_treatment"
+          }
+        },
+        {
+          "column_name": "protein_in_urine",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "protein_in_urine"
+          }
+        },
+        {
+          "column_name": "glucose_in_urine",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "glucose_in_urine"
+          }
+        },
+        {
+          "column_name": "hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv"
+          }
+        },
+        {
+          "column_name": "hiv_test_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_test_number"
+          }
+        },
+        {
+          "column_name": "hiv_test_at_32",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_test_at_32"
+          }
+        },
+        {
+          "column_name": "partner_hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hiv"
+          }
+        },
+        {
+          "column_name": "partner_hiv_test_at_32",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hiv_test_at_32"
+          }
+        },
+        {
+          "column_name": "partner_hiv_test_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_hiv_test_number"
+          }
+        },
+        {
+          "column_name": "hiv_counselling_before_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_counselling_before_testing"
+          }
+        },
+        {
+          "column_name": "hiv_counselling_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_counselling_after_testing"
+          }
+        },
+        {
+          "column_name": "couple_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "couple_testing"
+          }
+        },
+        {
+          "column_name": "mRDT_for_malaria",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mRDT_for_malaria"
+          }
+        },
+        {
+          "column_name": "llin_provision",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "llin_provision"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt1",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt1"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt2",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt2"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt3",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt3"
+          }
+        },
+        {
+          "column_name": "malaria_preventive_therapy_ipt4",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "malaria_preventive_therapy_ipt4"
+          }
+        },
+        {
+          "column_name": "iron_folate_supplements",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "iron_folate_supplements"
+          }
+        },
+        {
+          "column_name": "tt_vaccination_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tt_vaccination_type"
+          }
+        },
+        {
+          "column_name": "syphilis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "syphilis"
+          }
+        },
+        {
+          "column_name": "syphilis_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "syphilis_treatment"
+          }
+        },
+        {
+          "column_name": "partner_syphilis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_syphilis"
+          }
+        },
+        {
+          "column_name": "partner_syphilis_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_syphilis_treatment"
+          }
+        },
+        {
+          "column_name": "deworming",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "deworming"
+          }
+        },
+        {
+          "column_name": "given_counselling",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "given_counselling"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_anc_birth_emergency_plan",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "delivery_place",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "delivery_place"
+          }
+        },
+        {
+          "column_name": "name_of_hf",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "name_of_hf"
+          }
+        },
+        {
+          "column_name": "transport",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "transport"
+          }
+        },
+        {
+          "column_name": "birth_companion",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "birth_companion"
+          }
+        },
+        {
+          "column_name": "emergency_funds",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "emergency_funds"
+          }
+        },
+        {
+          "column_name": "household_support",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "household_support"
+          }
+        },
+        {
+          "column_name": "blood_donor",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "blood_donor"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_anc_pregnancy_lookup",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "pregnancy_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "pregnancy_number"
           }
         }
       ]
@@ -1134,7 +2672,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "161033AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "preg_outcome"
           }
         },
         {
@@ -1142,7 +2680,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "165248AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "miscarriage_date"
           }
         },
         {
@@ -1150,7 +2688,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "delivery_date"
           }
         },
         {
@@ -1158,7 +2696,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "1572AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "delivery_place"
           }
         },
         {
@@ -1184,6 +2722,14 @@
           }
         },
         {
+          "column_name": "next_facility_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_facility_visit_date"
+          }
+        },
+        {
           "column_name": "last_health_facility_visit_date",
           "type": "Event",
           "data_type": "date",
@@ -1200,6 +2746,357 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "confirmed_health_facility_visits"
+          }
+        },
+        {
+          "column_name": "hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv"
+          }
+        },
+        {
+          "column_name": "hiv_status_question",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status_question"
+          }
+        },
+        {
+          "column_name": "hepatitis_b_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hepatitis_b_vaccination"
+          }
+        },
+        {
+          "column_name": "tetanus_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tetanus_vaccination"
+          }
+        },
+        {
+          "column_name": "sex_of_the_deceased_child",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sex_of_the_deceased_child"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_no_mother_pnc",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "caregiver_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "caregiver_name"
+          }
+        },
+        {
+          "column_name": "caregiver_phone_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "caregiver_phone_number"
+          }
+        },
+        {
+          "column_name": "caregiver_location",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "caregiver_location"
+          }
+        },
+        {
+          "column_name": "dob",
+          "type": "Client",
+          "json_mapping": {
+            "field": "birthdate"
+          }
+        },
+        {
+          "column_name": "delivery_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "delivery_date"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pnc_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_visit_date"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "hb_level",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hb_level"
+          }
+        },
+        {
+          "column_name": "puerperal_psychosis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "puerperal_psychosis"
+          }
+        },
+        {
+          "column_name": "mental_illness_symptom",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mental_illness_symptom"
+          }
+        },
+        {
+          "column_name": "iron_and_folic_acid",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "iron_and_folic_acid"
+          }
+        },
+        {
+          "column_name": "vitamin_a",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "vitamin_a"
+          }
+        },
+        {
+          "column_name": "perineum_infection",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "perineum_infection"
+          }
+        },
+        {
+          "column_name": "fistula",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "fistula"
+          }
+        },
+        {
+          "column_name": "education_counselling_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "education_counselling_given"
+          }
+        },
+        {
+          "column_name": "method_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "method_provided"
+          }
+        },
+        {
+          "column_name": "hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pnc_child_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_visit_date"
+          }
+        },
+        {
+          "column_name": "child_activeness",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "child_activeness"
+          }
+        },
+        {
+          "column_name": "hb_level",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hb_level"
+          }
+        },
+        {
+          "column_name": "feeding_options",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "feeding_options"
+          }
+        },
+        {
+          "column_name": "umbilical_cord",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "umbilical_cord"
+          }
+        },
+        {
+          "column_name": "kangaroo_enrollment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kangaroo_enrollment"
+          }
+        },
+        {
+          "column_name": "child_bcg_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "child_bcg_vaccination"
+          }
+        },
+        {
+          "column_name": "child_opv0_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "child_opv0_vaccination"
+          }
+        },
+        {
+          "column_name": "septicaemia",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "septicaemia"
+          }
+        },
+        {
+          "column_name": "weight",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "weight"
+          }
+        },
+        {
+          "column_name": "jaundice",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "jaundice"
+          }
+        },
+        {
+          "column_name": "skin_infection",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "skin_infection"
+          }
+        },
+        {
+          "column_name": "hiv_antibody_test",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_antibody_test"
           }
         },
         {
@@ -1363,7 +3260,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "163182AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "problem"
           }
         },
         {
@@ -1371,7 +3268,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "problem_other"
           }
         },
         {
@@ -1379,7 +3276,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "service_before_referral"
           }
         },
         {
@@ -1387,7 +3284,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "service_before_referral_other"
           }
         },
         {
@@ -1396,7 +3293,7 @@
           "data_type": "date",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "163181AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "referral_appointment_date"
           }
         },
         {
@@ -1569,7 +3466,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "163182AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "problem"
           }
         },
         {
@@ -1585,7 +3482,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "service_before_referral"
           }
         },
         {
@@ -1635,6 +3532,14 @@
           "json_mapping": {
             "field": "obs.formSubmissionField",
             "concept": "referral_status"
+          }
+        },
+        {
+          "column_name": "on_art",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "on_art"
           }
         }
       ]
@@ -1705,6 +3610,81 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ltfu_feedback",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "referral_task_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referral_task"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "followup_status"
+          }
+        },
+        {
+          "column_name": "reasons_for_missed_appointment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reasons_for_missed_appointment"
+          }
+        },
+        {
+          "column_name": "referral_appointment_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referral_appointment_date"
+          }
+        },
+        {
+          "column_name": "date_of_death",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "date_of_death"
+          }
+        },
+        {
+          "column_name": "reason_client_not_found",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reason_client_not_found"
+          }
+        },
+        {
+          "column_name": "feedback_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referral_date"
           }
         }
       ]
@@ -1956,7 +3936,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "other_anc_danger_signs"
           }
         },
         {
@@ -1964,7 +3944,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "concept": "action_taken_anc_danger_signs"
           }
         },
         {
@@ -2283,6 +4263,4103 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "date_marked_as_done"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "cbhs_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cbhs_number"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_during_registration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_hiv_status_during_registration"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "hiv_registration_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_registration_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hts_register",
+      "columns": [
+        {
+          "column_name": "chw_referral_service",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "chw_referral_service"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "cbhs_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cbhs_number"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_during_registration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_hiv_status_during_registration"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "hiv_registration_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_registration_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_outcome",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "action_taken_hiv_problems",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "action_taken_hiv_problems"
+          }
+        },
+        {
+          "column_name": "test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "hiv_facility_visit_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_facility_visit_date"
+          }
+        },
+        {
+          "column_name": "enrolled_to_clinic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "formSubmissionField": "enrolled_to_clinic"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "comment_hiv_problems",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment_hiv_problems"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_community_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "reasons_for_issuing_community_referral",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "reasons_for_issuing_community_referral"
+          }
+        },
+        {
+          "column_name": "reason_for_issuing_community_referral_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reason_for_issuing_community_referral_other"
+          }
+        },
+        {
+          "column_name": "last_client_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "last_client_visit_date"
+          }
+        },
+        {
+          "column_name": "comment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment_hiv_community_followup"
+          }
+        },
+        {
+          "column_name": "hiv_community_referral_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_community_referral_date"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_tb_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "community_client_tb_registration_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "community_client_tb_registration_number"
+          }
+        },
+        {
+          "column_name": "client_tb_status_during_registration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_tb_status_during_registration"
+          }
+        },
+        {
+          "column_name": "client_tb_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "place_of_domicile",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "place_of_domicile"
+          }
+        },
+        {
+          "column_name": "client_tb_screening_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_tb_screening_results"
+          }
+        },
+        {
+          "column_name": "tb_registration_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "tb_registration_date"
+          }
+        },
+        {
+          "column_name": "tb_case_closure_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "tb_case_closure_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_tb_outcome",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "problem",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "problem"
+          }
+        },
+        {
+          "column_name": "problem_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "problem_other"
+          }
+        },
+        {
+          "column_name": "action_taken_tb_problems",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "action_taken_tb_problems"
+          }
+        },
+        {
+          "column_name": "test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "tb_facility_visit_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "tb_facility_visit_date"
+          }
+        },
+        {
+          "column_name": "enrolled_to_clinic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "formSubmissionField": "enrolled_to_clinic"
+          }
+        },
+        {
+          "column_name": "tb_clinic_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "tb_clinic_number"
+          }
+        },
+        {
+          "column_name": "comment_tb_problems",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment_tb_problems"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_tb_community_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "reasons_for_issuing_community_referral",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "reasons_for_issuing_community_referral"
+          }
+        },
+        {
+          "column_name": "reason_for_issuing_community_referral_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reason_for_issuing_community_referral_other"
+          }
+        },
+        {
+          "column_name": "last_client_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "last_client_visit_date"
+          }
+        },
+        {
+          "column_name": "comment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment_tb_community_followup"
+          }
+        },
+        {
+          "column_name": "tb_community_referral_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "tb_community_referral_date"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_community_feedback",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "hiv_community_followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_community_followup_visit_date"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_status"
+          }
+        },
+        {
+          "column_name": "community_referral_form_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "community_referral_form_id"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "chw_name"
+          }
+        },
+        {
+          "column_name": "mark_as_done",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mark_as_done"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_pmtct_community_feedback",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "pmtct_community_followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "pmtct_community_followup_visit_date"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "followup_status"
+          }
+        },
+        {
+          "column_name": "community_referral_form_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "community_referral_form_id"
+          }
+        },
+        {
+          "column_name": "provider_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "providerId"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "chw_name"
+          }
+        },
+        {
+          "column_name": "mark_as_done",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mark_as_done"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_index_chw_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "followed_by_chw",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_followed_up_by_chw"
+          }
+        },
+        {
+          "column_name": "agreed_to_be_tested",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "has_the_client_agreed_to_be_tested"
+          }
+        },
+        {
+          "column_name": "client_found",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "has_the_contact_client_been_found"
+          }
+        },
+        {
+          "column_name": "test_location",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "place_where_test_will_be_conducted"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_tb_community_feedback",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "tb_community_followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "tb_community_followup_visit_date"
+          }
+        },
+        {
+          "column_name": "followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_status"
+          }
+        },
+        {
+          "column_name": "community_referral_form_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "community_referral_form_id"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "chw_name"
+          }
+        },
+        {
+          "column_name": "mark_as_done",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mark_as_done"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_index_hf",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "hiv_client_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "index_client_base_entity_id"
+          }
+        },
+        {
+          "column_name": "relationship",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "relationship"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "has_started_medication",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "has_started_medication"
+          }
+        },
+        {
+          "column_name": "hiv_test_eligibility",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_test_eligibility"
+          }
+        },
+        {
+          "column_name": "how_to_notify_the_contact_client",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "how_to_notify_the_contact_client"
+          }
+        },
+        {
+          "column_name": "has_the_contact_client_been_tested",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "has_the_contact_client_been_tested"
+          }
+        },
+        {
+          "column_name": "test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "place_where_test_was_conducted",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "place_where_test_was_conducted"
+          }
+        },
+        {
+          "column_name": "enrolled_to_clinic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "enrolled_to_clinic"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "refer_to_chw",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "refer_to_chw"
+          }
+        },
+        {
+          "column_name": "hiv_index_contact_community_followup_referral_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_index_contact_community_followup_referral_date"
+          }
+        },
+        {
+          "column_name": "client_followed_up_by_chw",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_followed_up_by_chw"
+          }
+        },
+        {
+          "column_name": "comment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment"
+          }
+        },
+        {
+          "column_name": "hiv_index_registration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hiv_index",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "hiv_client_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "index_client_base_entity_id"
+          }
+        },
+        {
+          "column_name": "relationship",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "relationship"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "has_started_medication",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "has_started_medication"
+          }
+        },
+        {
+          "column_name": "hiv_test_eligibility",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_test_eligibility"
+          }
+        },
+        {
+          "column_name": "how_to_notify_the_contact_client",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "how_to_notify_the_contact_client"
+          }
+        },
+        {
+          "column_name": "has_the_contact_client_been_tested",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "has_the_contact_client_been_tested"
+          }
+        },
+        {
+          "column_name": "test_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "test_results"
+          }
+        },
+        {
+          "column_name": "place_where_test_was_conducted",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "place_where_test_was_conducted"
+          }
+        },
+        {
+          "column_name": "enrolled_to_clinic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "enrolled_to_clinic"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "refer_to_chw",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "refer_to_chw"
+          }
+        },
+        {
+          "column_name": "hiv_index_contact_community_followup_referral_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_index_contact_community_followup_referral_date"
+          }
+        },
+        {
+          "column_name": "client_followed_up_by_chw",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_followed_up_by_chw"
+          }
+        },
+        {
+          "column_name": "comment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment"
+          }
+        },
+        {
+          "column_name": "hiv_index_registration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_confirmation",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "labour_confirmation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "labour_confirmation"
+          }
+        },
+        {
+          "column_name": "reasons_for_admission",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reasons_for_admission"
+          }
+        },
+        {
+          "column_name": "gravida",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "gravida"
+          }
+        },
+        {
+          "column_name": "para",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "para"
+          }
+        },
+        {
+          "column_name": "anc_hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "anc_hiv_status"
+          }
+        },
+        {
+          "column_name": "membrane",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "membrane"
+          }
+        },
+        {
+          "column_name": "amniotic_fluid",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "amniotic_fluid"
+          }
+        },
+        {
+          "column_name": "hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv"
+          }
+        },
+        {
+          "column_name": "admission_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "admission_date"
+          }
+        },
+        {
+          "column_name": "admission_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "admission_time"
+          }
+        },
+        {
+          "column_name": "labour_onset_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "labour_onset_date"
+          }
+        },
+        {
+          "column_name": "labour_onset_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "labour_onset_time"
+          }
+        },
+        {
+          "column_name": "moulding",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "moulding"
+          }
+        },
+        {
+          "column_name": "moulding_options",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "moulding_options"
+          }
+        },
+        {
+          "column_name": "cervix_dilation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cervix_dilation"
+          }
+        },
+        {
+          "column_name": "descent_presenting_part",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "descent_presenting_part"
+          }
+        },
+        {
+          "column_name": "labour_stage",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "labour_stage"
+          }
+        },
+        {
+          "column_name": "mode_of_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "mode_of_delivery"
+          }
+        },
+        {
+          "column_name": "delivery_mode_reason",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "delivery_mode_reason"
+          }
+        },
+        {
+          "column_name": "pmtct_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "pmtct_test_date"
+          }
+        },
+        {
+          "column_name": "hb_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hb_test_date"
+          }
+        },
+        {
+          "column_name": "syphilis",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "syphilis"
+          }
+        },
+        {
+          "column_name": "malaria",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "malaria"
+          }
+        },
+        {
+          "column_name": "blood_group",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "blood_group"
+          }
+        },
+        {
+          "column_name": "rh_factor",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "rh_factor"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_follow_up_visit",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_general_examination_consultation",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "form_submission_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "event_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventId"
+          }
+        },
+        {
+          "column_name": "event_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
+          }
+        },
+        {
+          "column_name": "pulse_rate",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "pulse_rate"
+          }
+        },
+        {
+          "column_name": "temperature",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "temperature"
+          }
+        },
+        {
+          "column_name": "systolic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "systolic"
+          }
+        },
+        {
+          "column_name": "diastolic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "diastolic"
+          }
+        },
+        {
+          "column_name": "urine",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "urine"
+          }
+        },
+        {
+          "column_name": "fundal_height",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "fundal_height"
+          }
+        },
+        {
+          "column_name": "lie",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "lie"
+          }
+        },
+        {
+          "column_name": "presentation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "presentation"
+          }
+        },
+        {
+          "column_name": "contraction_in_ten_minutes",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "contraction_in_ten_minutes"
+          }
+        },
+        {
+          "column_name": "fetal_heart_rate",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "fetal_heart_rate"
+          }
+        },
+        {
+          "column_name": "vaginal_exam_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "vaginal_exam_date"
+          }
+        },
+        {
+          "column_name": "vaginal_exam_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "vaginal_exam_time"
+          }
+        },
+        {
+          "column_name": "cervix_state",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "cervix_state"
+          }
+        },
+        {
+          "column_name": "cervix_dilation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "cervix_dilation"
+          }
+        },
+        {
+          "column_name": "presenting_part",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "presenting_part"
+          }
+        },
+        {
+          "column_name": "occiput_position",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "occiput_position"
+          }
+        },
+        {
+          "column_name": "amniotic_fluid",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "amniotic_fluid"
+          }
+        },
+        {
+          "column_name": "hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "hiv"
+          }
+        },
+        {
+          "column_name": "forecasted_svd_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "forecasted_svd_time"
+          }
+        },
+        {
+          "column_name": "visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_partograph",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "name_of_the_health_care_provider",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "name_of_the_health_care_provider"
+          }
+        },
+        {
+          "column_name": "partograph_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "partograph_date"
+          }
+        },
+        {
+          "column_name": "partograph_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "partograph_time"
+          }
+        },
+        {
+          "column_name": "fetal_heart_rate",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "fetal_heart_rate"
+          }
+        },
+        {
+          "column_name": "moulding",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "moulding"
+          }
+        },
+        {
+          "column_name": "moulding_options",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "moulding_options"
+          }
+        },
+        {
+          "column_name": "membrane",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "membrane"
+          }
+        },
+        {
+          "column_name": "amniotic_fluid",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "amniotic_fluid"
+          }
+        },
+        {
+          "column_name": "cervix_dilation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "cervix_dilation"
+          }
+        },
+        {
+          "column_name": "descent_presenting_part",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "descent_presenting_part"
+          }
+        },
+        {
+          "column_name": "contraction_every_half_hour_frequency",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "contraction_every_half_hour_frequency"
+          }
+        },
+        {
+          "column_name": "contraction_every_half_hour_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "contraction_every_half_hour_time"
+          }
+        },
+        {
+          "column_name": "pulse_rate",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "pulse_rate"
+          }
+        },
+        {
+          "column_name": "temperature",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "temperature"
+          }
+        },
+        {
+          "column_name": "urine_protein",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "urine_protein"
+          }
+        },
+        {
+          "column_name": "urine_acetone",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "urine_acetone"
+          }
+        },
+        {
+          "column_name": "urine_volume",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "urine_volume"
+          }
+        },
+        {
+          "column_name": "oral_intake",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "oral_intake"
+          }
+        },
+        {
+          "column_name": "moulding_options",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "moulding_options"
+          }
+        },
+        {
+          "column_name": "caput",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "caput"
+          }
+        },
+        {
+          "column_name": "amniotic_fluid",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "amniotic_fluid"
+          }
+        },
+        {
+          "column_name": "systolic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "systolic"
+          }
+        },
+        {
+          "column_name": "diastolic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "diastolic"
+          }
+        },
+        {
+          "column_name": "oxytocin_units_per_liter",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "oxytocin_units_per_liter"
+          }
+        },
+        {
+          "column_name": "oxytocin_drops_per_minute",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "oxytocin_drops_per_minute"
+          }
+        },
+        {
+          "column_name": "drugs_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "drugs_provided"
+          }
+        },
+        {
+          "column_name": "iv_fluid_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "iv_fluid_provided"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_placenta_and_membrane",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "uterotonic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "uterotonic"
+          }
+        },
+        {
+          "column_name": "method_used_to_remove_the_placenta",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "method_used_to_remove_the_placenta"
+          }
+        },
+        {
+          "column_name": "placenta_and_membrane_expulsion",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "placenta_and_membrane_expulsion"
+          }
+        },
+        {
+          "column_name": "type_of_incomplete_placenta",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "type_of_incomplete_placenta"
+          }
+        },
+        {
+          "column_name": "placenta_removed_by_hand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "placenta_removed_by_hand"
+          }
+        },
+        {
+          "column_name": "prompt_for_placenta_and_membrane_expulsion",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "prompt_for_placenta_and_membrane_expulsion"
+          }
+        },
+        {
+          "column_name": "conducted_mva",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "conducted_mva"
+          }
+        },
+        {
+          "column_name": "administered_antibiotics",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "administered_antibiotics"
+          }
+        },
+        {
+          "column_name": "administered_magnesium_sulphate",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "administered_magnesium_sulphate"
+          }
+        },
+        {
+          "column_name": "removal_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "removal_date"
+          }
+        },
+        {
+          "column_name": "removal_duration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "removal_duration"
+          }
+        },
+        {
+          "column_name": "estimated_blood_loss",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "estimated_blood_loss"
+          }
+        },
+        {
+          "column_name": "prompt_for_excessive_blood_loss",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "prompt_for_excessive_blood_loss"
+          }
+        },
+        {
+          "column_name": "provided_blood_transfusion",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "provided_blood_transfusion"
+          }
+        },
+        {
+          "column_name": "name_of_the_provider_who_removed_the_placenta",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "name_of_the_provider_who_removed_the_placenta"
+          }
+        },
+        {
+          "column_name": "uterus_massage_after_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "uterus_massage_after_delivery"
+          }
+        },
+        {
+          "column_name": "reason_for_not_massaging_uterus_after_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "reason_for_not_massaging_uterus_after_delivery"
+          }
+        },
+        {
+          "column_name": "visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_immediate_new_born_care",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "delivery_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "delivery_date"
+          }
+        },
+        {
+          "column_name": "delivery_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "delivery_time"
+          }
+        },
+        {
+          "column_name": "newborn_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "newborn_status"
+          }
+        },
+        {
+          "column_name": "still_birth_choice",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "still_birth_choice"
+          }
+        },
+        {
+          "column_name": "sex",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "sex"
+          }
+        },
+        {
+          "column_name": "apgar_score_at_1_minute",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "formSubmissionField": "apgar_score_at_1_minute"
+          }
+        },
+        {
+          "column_name": "apgar_score_at_5_minutes",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "formSubmissionField": "apgar_score_at_5_minutes"
+          }
+        },
+        {
+          "column_name": "resuscitation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "resuscitation"
+          }
+        },
+        {
+          "column_name": "weight",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "weight"
+          }
+        },
+        {
+          "column_name": "keep_warm",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "keep_warm"
+          }
+        },
+        {
+          "column_name": "early_bf_1hr",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "early_bf_1hr"
+          }
+        },
+        {
+          "column_name": "reason_for_not_breast_feeding_within_one_hour",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "reason_for_not_breast_feeding_within_one_hour"
+          }
+        },
+        {
+          "column_name": "risk_category",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "risk_category"
+          }
+        },
+        {
+          "column_name": "provided_azt_nvp_syrup",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "provided_azt_nvp_syrup"
+          }
+        },
+        {
+          "column_name": "provided_other_combinations",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "provided_other_combinations"
+          }
+        },
+        {
+          "column_name": "provided_nvp_syrup",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "provided_nvp_syrup"
+          }
+        },
+        {
+          "column_name": "collect_dbs",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "collect_dbs"
+          }
+        },
+        {
+          "column_name": "prophylaxis_arv_for_high_risk_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "prophylaxis_arv_for_high_risk_given"
+          }
+        },
+        {
+          "column_name": "name_of_the_provider_who_removed_the_placenta",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "name_of_the_provider_who_removed_the_placenta"
+          }
+        },
+        {
+          "column_name": "uterus_massage_after_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "uterus_massage_after_delivery"
+          }
+        },
+        {
+          "column_name": "reason_for_not_massaging_uterus_after_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "reason_for_not_massaging_uterus_after_delivery"
+          }
+        },
+        {
+          "column_name": "visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ld_postpartum_care",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "status"
+          }
+        },
+        {
+          "column_name": "cause_of_death",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "cause_of_death"
+          }
+        },
+        {
+          "column_name": "time_of_death",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "time_of_death"
+          }
+        },
+        {
+          "column_name": "delivery_place",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "delivery_place"
+          }
+        },
+        {
+          "column_name": "delivered_by_occupation",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "delivered_by_occupation"
+          }
+        },
+        {
+          "column_name": "number_of_children_born",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "number_of_children_born"
+          }
+        },
+        {
+          "column_name": "delivery_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "delivery_date"
+          }
+        },
+        {
+          "column_name": "delivery_time",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "delivery_time"
+          }
+        },
+        {
+          "column_name": "labour_duration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "labour_duration"
+          }
+        },
+        {
+          "column_name": "maternal_complications_before_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "maternal_complications_before_delivery"
+          }
+        },
+        {
+          "column_name": "maternal_complications_during_and_after_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "maternal_complications_during_and_after_delivery"
+          }
+        },
+        {
+          "column_name": "family_planning_counselling_after_delivery",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "family_planning_counselling_after_delivery"
+          }
+        },
+        {
+          "column_name": "family_planning_methods_selected",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "formSubmissionField": "family_planning_methods_selected"
+          }
+        },
+        {
+          "column_name": "visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cbhs_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "tb_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tb_number"
+          }
+        },
+        {
+          "column_name": "rch_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "rch_number"
+          }
+        },
+        {
+          "column_name": "mat_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "mat_number"
+          }
+        },
+        {
+          "column_name": "cbhs_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cbhs_number"
+          }
+        },
+        {
+          "column_name": "registration_or_followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "registration_or_followup_status",
+            "value_field": "obs.fieldCode"
+          }
+        },
+        {
+          "column_name": "client_tb_status_during_registration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_tb_status_during_registration"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_during_registration",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_hiv_status_during_registration"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_hiv_status_after_testing"
+          }
+        },
+        {
+          "column_name": "client_tb_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_tb_status_after_testing"
+          }
+        },
+        {
+          "column_name": "next_appointment_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "next_appointment_date"
+          }
+        },
+        {
+          "column_name": "hiv_registration_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_registration_date"
+          }
+        },
+        {
+          "column_name": "reasons_for_registration",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reasons_for_registration"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cbhs_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "registration_or_followup_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "registration_or_followup_status"
+          }
+        },
+        {
+          "column_name": "client_condition",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_condition"
+          }
+        },
+        {
+          "column_name": "health_problem",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "health_problem"
+          }
+        },
+        {
+          "column_name": "health_problem_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "health_problem_other"
+          }
+        },
+        {
+          "column_name": "prompt_for_health_challenges",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "prompt_for_health_challenges"
+          }
+        },
+        {
+          "column_name": "social_problem",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "social_problem"
+          }
+        },
+        {
+          "column_name": "social_problem_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "social_problem_other"
+          }
+        },
+        {
+          "column_name": "supplies_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "supplies_provided"
+          }
+        },
+        {
+          "column_name": "supplies_provided_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "supplies_provided_other"
+          }
+        },
+        {
+          "column_name": "medicine_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "medicine_provided"
+          }
+        },
+        {
+          "column_name": "next_appointment_date",
+          "type": "Event",
+          "data_type": "date",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "next_appointment_date"
+          }
+        },
+        {
+          "column_name": "hiv_services_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_services_provided"
+          }
+        },
+        {
+          "column_name": "hiv_services_provided_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "hiv_services_provided_other"
+          }
+        },
+        {
+          "column_name": "referrals_issued_to_other_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referrals_issued_to_other_services"
+          }
+        },
+        {
+          "column_name": "referrals_issued_to_other_services_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referrals_issued_to_other_services_other"
+          }
+        },
+        {
+          "column_name": "referrals_to_other_services_completed",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referrals_to_other_services_completed"
+          }
+        },
+        {
+          "column_name": "referrals_to_other_services_completed_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "referrals_to_other_services_completed_other"
+          }
+        },
+        {
+          "column_name": "state_of_hiv_care_and_treatment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "state_of_hiv_care_and_treatment"
+          }
+        },
+        {
+          "column_name": "state_of_registration_in_tb_and_pwid_clinics",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "state_of_registration_in_tb_and_pwid_clinics"
+          }
+        },
+        {
+          "column_name": "client_moved_location",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_moved_location"
+          }
+        },
+        {
+          "column_name": "client_moved_location_other",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_moved_location_other"
+          }
+        },
+        {
+          "column_name": "client_hiv_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_hiv_status_after_testing"
+          }
+        },
+        {
+          "column_name": "client_tb_status_after_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "client_tb_status_after_testing"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_mother_champion",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "last_client_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "last_client_visit_date"
+          }
+        },
+        {
+          "column_name": "pmtct_community_referral_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "pmtct_community_referral_date"
+          }
+        },
+        {
+          "column_name": "comment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "comment_pmtct_community_followup"
+          }
+        },
+        {
+          "column_name": "reasons_for_issuing_community_referral",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "reasons_for_issuing_community_referral"
+          }
+        },
+        {
+          "column_name": "mother_champion_location",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.formSubmissionField",
+            "concept": "mother_champion_location"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_mother_champion_followup",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "type_of_service",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "type_of_service"
+          }
+        },
+        {
+          "column_name": "linked_to_psychosocial_group",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "linked_to_psychosocial_group"
+          }
+        },
+        {
+          "column_name": "counselling_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "counselling_given"
+          }
+        },
+        {
+          "column_name": "referrals_issued_other_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "referrals_issued_other_services"
+          }
+        },
+        {
+          "column_name": "provider_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "providerId"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "chw_name"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_sbcc",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "sbcc_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sbcc_date"
+          }
+        },
+        {
+          "column_name": "location_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "location_type"
+          }
+        },
+        {
+          "column_name": "participants_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "participants_number"
+          }
+        },
+        {
+          "column_name": "provider_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "providerId"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "chw_name"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_anc_partner_community_feedback",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "referral_form_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "referral_form_id"
+          }
+        },
+        {
+          "column_name": "partner_agree_attending_hf",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_agree_attending_hf"
+          }
+        },
+        {
+          "column_name": "client_found",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "is_partner_found"
+          }
+        },
+        {
+          "column_name": "partner_base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "partner_base_entity_id"
+          }
+        },
+        {
+          "column_name": "provider_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "providerId"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "chw_name"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hivst_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "registration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "registration_date"
+          }
+        },
+        {
+          "column_name": "client_testing_history",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_testing_history"
+          }
+        },
+        {
+          "column_name": "client_group",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_group"
+          }
+        },
+        {
+          "column_name": "known_positive_during_reg",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "known_positive_during_reg"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hivst_followup",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "client_testing_approach",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_testing_approach"
+          }
+        },
+        {
+          "column_name": "self_test_kit_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "self_test_kit_given"
+          }
+        },
+        {
+          "column_name": "extra_kits",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "extra_kits_required"
+          }
+        },
+        {
+          "column_name": "collection_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collection_date"
+          }
+        },
+        {
+          "column_name": "condoms_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condoms_given"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hivst_results",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "result_reg_id"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "kit_for",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kit_for"
+          }
+        },
+        {
+          "column_name": "kit_code",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kit_code"
+          }
+        },
+        {
+          "column_name": "hivst_result",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hivst_result"
+          }
+        },
+        {
+          "column_name": "collection_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collection_date"
+          }
+        },
+        {
+          "column_name": "result_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "result_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_hivst_mobilization",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "mobilization_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mobilization_date"
+          }
+        },
+        {
+          "column_name": "female_clients_reached",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "female_clients_reached"
+          }
+        },
+        {
+          "column_name": "male_clients_reached",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "male_clients_reached"
+          }
+        },
+        {
+          "column_name": "male_condoms_issued",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "male_condoms_issued"
+          }
+        },
+        {
+          "column_name": "female_condoms_issued",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "female_condoms_issued"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cdp_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "outlet_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "outlet_visit_date"
+          }
+        },
+        {
+          "column_name": "male_condoms_count",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "number_of_male_condoms"
+          }
+        },
+        {
+          "column_name": "female_condoms_count",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "number_of_female_condoms"
+          }
+        },
+        {
+          "column_name": "visit_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_number"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cdp_orders",
+      "columns": [
+        {
+          "column_name": "location_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
+          "column_name": "receiving_order_facility",
+          "type": "Event",
+          "json_mapping": {
+            "field": "receiving_order_facility"
+          }
+        },
+        {
+          "column_name": "form_submission_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "form_submission_id"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "condom_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_type"
+          }
+        },
+        {
+          "column_name": "condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_brand"
+          }
+        },
+        {
+          "column_name": "quantity_requested",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "requested_condoms"
+          }
+        },
+        {
+          "column_name": "request_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "request_type"
+          }
+        },
+        {
+          "column_name": "requested_at",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "requested_at"
+          }
+        },
+        {
+          "column_name": "teamId",
+          "type": "Event",
+          "json_mapping": {
+            "field": "teamId"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cdp_order_feedback",
+      "columns": [
+        {
+          "column_name": "location_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "request_reference",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "request_reference"
+          }
+        },
+        {
+          "column_name": "response_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "response_status"
+          }
+        },
+        {
+          "column_name": "condom_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_type"
+          }
+        },
+        {
+          "column_name": "condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_brand"
+          }
+        },
+        {
+          "column_name": "quantity_response",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "quantity_response"
+          }
+        },
+        {
+          "column_name": "response_at",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "response_at"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cdp_stock_count",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
+          "column_name": "form_submission_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "chw_name"
+          }
+        },
+        {
+          "column_name": "female_condoms_count",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "female_condoms_count"
+          }
+        },
+        {
+          "column_name": "male_condoms_count",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "male_condoms_count"
+          }
+        },
+        {
+          "column_name": "date_updated",
+          "type": "Event",
+          "json_mapping": {
+            "field": "condom_restock_date"
+          }
+        },
+        {
+          "column_name": "processed_form_submission_ids"
+        }
+      ]
+    },
+    {
+      "name": "ec_cdp_stock_log",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "chw_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "chw_name"
+          }
+        },
+        {
+          "column_name": "female_condoms_offset",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "female_condoms_offset"
+          }
+        },
+        {
+          "column_name": "male_condoms_offset",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "male_condoms_offset"
+          }
+        },
+        {
+          "column_name": "event_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventType"
+          }
+        },
+        {
+          "column_name": "stock_event_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "stock_event_type"
+          }
+        },
+        {
+          "column_name": "issuing_organization",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "issuing_organization"
+          }
+        },
+        {
+          "column_name": "other_issuing_organization",
+          "type": "Event",
+          "json_mapping": {
+            "field": "other_issuing_organization"
+          }
+        },
+        {
+          "column_name": "condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_brand"
+          }
+        },
+        {
+          "column_name": "date_updated",
+          "type": "Event",
+          "json_mapping": {
+            "field": "condom_restock_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_cdp_issuing_hf",
+      "columns": [
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "locationId"
+          }
+        },
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "male_condoms",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "male_condoms"
+          }
+        },
+        {
+          "column_name": "female_condoms",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "female_condoms"
+          }
+        },
+        {
+          "column_name": "condom_restock_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_restock_date"
+          }
+        },
+        {
+          "column_name": "condom_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_type"
+          }
+        },
+        {
+          "column_name": "condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "condom_brand"
+          }
+        },
+        {
+          "column_name": "other_condom_brand",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_condom_brand"
+          }
+        },
+        {
+          "column_name": "point_of_service",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "point_of_service"
+          }
+        },
+        {
+          "column_name": "other_pos",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_pos"
+          }
+        },
+        {
+          "column_name": "male_condoms_offset",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "male_condoms_offset"
+          }
+        },
+        {
+          "column_name": "female_condoms_offset",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "female_condoms_offset"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_kvp_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "uic_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "uic_id"
+          }
+        },
+        {
+          "column_name": "prep_qualified",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_qualified"
+          }
+        },
+        {
+          "column_name": "prep_assessment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_assessment"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "client_group",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_group"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_kvp_bio_medical_services",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "client_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_status"
+          }
+        },
+        {
+          "column_name": "other_kvp_category",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_kvp_category"
+          }
+        },
+        {
+          "column_name": "previous_hiv_testing_method",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "previous_hiv_testing_method"
+          }
+        },
+        {
+          "column_name": "testing_site",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "testing_site"
+          }
+        },
+        {
+          "column_name": "testing_approach",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "testing_approach"
+          }
+        },
+        {
+          "column_name": "tested_hiv",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tested_hiv"
+          }
+        },
+        {
+          "column_name": "hiv_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hiv_status"
+          }
+        },
+        {
+          "column_name": "ctc_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_services"
+          }
+        },
+        {
+          "column_name": "ctc_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_number"
+          }
+        },
+        {
+          "column_name": "kits_distributed",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kits_distributed"
+          }
+        },
+        {
+          "column_name": "enrolled_to_prep",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "enrolled_to_prep"
+          }
+        },
+        {
+          "column_name": "pep_provision",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "pep_provision"
+          }
+        },
+        {
+          "column_name": "number_of_male_condoms_issued",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "number_of_male_condoms_issued"
+          }
+        },
+        {
+          "column_name": "number_of_female_condoms_issued",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "number_of_female_condoms_issued"
+          }
+        },
+        {
+          "column_name": "family_planning_service",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "family_planning_service"
+          }
+        },
+        {
+          "column_name": "tb_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tb_screening"
+          }
+        },
+        {
+          "column_name": "sti_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sti_screening"
+          }
+        },
+        {
+          "column_name": "treatment_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "treatment_provided"
+          }
+        },
+        {
+          "column_name": "hep_b_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hep_b_testing"
+          }
+        },
+        {
+          "column_name": "hep_c_testing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hep_c_testing"
+          }
+        },
+        {
+          "column_name": "vmcc_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "vmcc_provided"
+          }
+        },
+        {
+          "column_name": "cervical_cancer_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cervical_cancer_screening"
+          }
+        },
+        {
+          "column_name": "mat_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mat_provided"
+          }
+        },
+        {
+          "column_name": "kvp_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kvp_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_kvp_behavioral_services",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "iec_sbcc_materials",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "iec_sbcc_materials"
+          }
+        },
+        {
+          "column_name": "health_education_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "health_education_provided"
+          }
+        },
+        {
+          "column_name": "kvp_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kvp_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_kvp_structural_services",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "gbv_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "gbv_screening"
+          }
+        },
+        {
+          "column_name": "kvp_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kvp_visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_kvp_other_services",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "other_services_referrals_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_services_referrals_provided"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_prep_register",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "relational_id"
+          }
+        },
+        {
+          "column_name": "prep_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_status"
+          }
+        },
+        {
+          "column_name": "prep_initiation_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_initiation_date"
+          }
+        },
+        {
+          "column_name": "hbv_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hbv_test_date"
+          }
+        },
+        {
+          "column_name": "hcv_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hcv_test_date"
+          }
+        },
+        {
+          "column_name": "crcl_test_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "crcl_test_date"
+          }
+        },
+        {
+          "column_name": "crcl_results",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "crcl_results"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_prep_followup",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "visit_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "visit_type"
+          }
+        },
+        {
+          "column_name": "prep_drug_offered",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_drug_offered"
+          }
+        },
+        {
+          "column_name": "prep_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_status"
+          }
+        },
+        {
+          "column_name": "reasons_stopping_prep",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "reasons_stopping_prep"
+          }
+        },
+        {
+          "column_name": "prep_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "prep_status"
+          }
+        },
+        {
+          "column_name": "kvp_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "kvp_visit_date"
+          }
+        },
+        {
+          "column_name": "next_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "next_visit_date"
           }
         }
       ]

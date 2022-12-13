@@ -18,11 +18,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
-    },
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -112,7 +107,6 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "163494AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
             "openmrs_entity_parent": "",
-            "value": false,
             "text": "Decided to change method"
           },
           {
@@ -185,7 +179,7 @@
           "Female condom",
           "Male sterilization"
         ],
-          "keys": [
+        "keys": [
           "Male condom",
           "Female condom",
           "Male sterilization"

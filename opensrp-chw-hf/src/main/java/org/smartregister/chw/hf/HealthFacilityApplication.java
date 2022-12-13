@@ -7,6 +7,7 @@ import android.os.Build;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.evernote.android.job.JobManager;
+import com.mapbox.mapboxsdk.Mapbox;
 
 import org.jetbrains.annotations.NotNull;
 import org.smartregister.AllConstants;
@@ -14,11 +15,10 @@ import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
 import org.smartregister.P2POptions;
 import org.smartregister.chw.anc.AncLibrary;
+import org.smartregister.chw.cdp.CdpLibrary;
 import org.smartregister.chw.core.application.CoreChwApplication;
 import org.smartregister.chw.core.contract.CoreApplication;
-import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.core.loggers.CrashlyticsTree;
-import org.smartregister.chw.core.provider.CoreAllClientsRegisterQueryProvider;
 import org.smartregister.chw.core.service.CoreAuthorizationService;
 import org.smartregister.chw.core.utils.ChildDBConstants;
 import org.smartregister.chw.core.utils.ChwDBConstants;
@@ -27,24 +27,45 @@ import org.smartregister.chw.core.utils.FormUtils;
 import org.smartregister.chw.fp.FpLibrary;
 import org.smartregister.chw.hf.activity.AllClientsRegisterActivity;
 import org.smartregister.chw.hf.activity.AncRegisterActivity;
+import org.smartregister.chw.hf.activity.CdpRegisterActivity;
 import org.smartregister.chw.hf.activity.ChildRegisterActivity;
 import org.smartregister.chw.hf.activity.FamilyProfileActivity;
 import org.smartregister.chw.hf.activity.FamilyRegisterActivity;
 import org.smartregister.chw.hf.activity.FpRegisterActivity;
+import org.smartregister.chw.hf.activity.HeiRegisterActivity;
+import org.smartregister.chw.hf.activity.HivIndexContactsContactsRegisterActivity;
+import org.smartregister.chw.hf.activity.HivRegisterActivity;
+import org.smartregister.chw.hf.activity.HivstRegisterActivity;
+import org.smartregister.chw.hf.activity.HtsRegisterActivity;
+import org.smartregister.chw.hf.activity.KvpRegisterActivity;
+import org.smartregister.chw.hf.activity.LDRegisterActivity;
+import org.smartregister.chw.hf.activity.LTFURegisterActivity;
 import org.smartregister.chw.hf.activity.LoginActivity;
 import org.smartregister.chw.hf.activity.MalariaRegisterActivity;
+import org.smartregister.chw.hf.activity.PmtctRegisterActivity;
 import org.smartregister.chw.hf.activity.PncRegisterActivity;
+import org.smartregister.chw.hf.activity.PrEPRegisterActivity;
 import org.smartregister.chw.hf.activity.ReferralRegisterActivity;
+import org.smartregister.chw.hf.activity.ReportsActivity;
 import org.smartregister.chw.hf.configs.AllClientsRegisterRowOptions;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.custom_view.HfNavigationMenu;
 import org.smartregister.chw.hf.job.HfJobCreator;
 import org.smartregister.chw.hf.model.NavigationModel;
+import org.smartregister.chw.hf.provider.HfAllClientsRegisterQueryProvider;
 import org.smartregister.chw.hf.repository.HfChwRepository;
 import org.smartregister.chw.hf.repository.HfTaskRepository;
 import org.smartregister.chw.hf.sync.HfClientProcessor;
 import org.smartregister.chw.hf.sync.HfSyncConfiguration;
+import org.smartregister.chw.hiv.HivLibrary;
+import org.smartregister.chw.hivst.HivstLibrary;
+import org.smartregister.chw.kvp.KvpLibrary;
+import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.malaria.MalariaLibrary;
+import org.smartregister.chw.pmtct.PmtctLibrary;
 import org.smartregister.chw.pnc.PncLibrary;
+import org.smartregister.chw.referral.ReferralLibrary;
+import org.smartregister.chw.tb.TbLibrary;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.configurableviews.ConfigurableViewsLibrary;
 import org.smartregister.configurableviews.helper.JsonSpecHelper;
@@ -70,10 +91,16 @@ import java.util.Locale;
 import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
+import io.ona.kujaku.KujakuLibrary;
 import timber.log.Timber;
 
 public class HealthFacilityApplication extends CoreChwApplication implements CoreApplication {
+    private static final Flavor flavor = new DefaultHFApplicationFlv();
     private CommonFtsObject commonFtsObject;
+
+    public static Flavor getApplicationFlavor() {
+        return flavor;
+    }
 
     @Override
     public FamilyMetadata getMetadata() {
@@ -104,7 +131,25 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.REFERRALS_REGISTER_ACTIVITY, ReferralRegisterActivity.class);
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.ALL_CLIENTS_REGISTERED_ACTIVITY, AllClientsRegisterActivity.class);
         registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.MALARIA_REGISTER_ACTIVITY, MalariaRegisterActivity.class);
-        registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.FP_REGISTER_ACTIVITY, FpRegisterActivity.class);
+
+        if (!BuildConfig.BUILD_FOR_BORESHA_AFYA_SOUTH) {
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.FP_REGISTER_ACTIVITY, FpRegisterActivity.class);
+        } else {
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.HIV_REGISTER_ACTIVITY, HivRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.HTS_REGISTER_ACTIVITY, HtsRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.HIV_INDEX_REGISTER_ACTIVITY, HivIndexContactsContactsRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.PMTCT_REGISTER_ACTIVITY, PmtctRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.HEI, HeiRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.REPORTS, ReportsActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.LD, LDRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.LTFU_REFERRALS_REGISTER_ACTIVITY, LTFURegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.HIV_SELF_TESTING_REGISTER_ACTIVITY, HivstRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.KVP_REGISTER_ACTIVITY, KvpRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.PrEP_REGISTER_ACTIVITY, PrEPRegisterActivity.class);
+            registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.CDP_REGISTER_ACTIVITY, CdpRegisterActivity.class);
+//          TODO uncomment these when NACP is ready to test these modules
+            //registeredActivities.put(CoreConstants.REGISTERED_ACTIVITIES.TB_REGISTER_ACTIVITY, TbRegisterActivity.class);
+        }
         return registeredActivities;
     }
 
@@ -173,8 +218,8 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
                 HealthFacilityApplication.getInstance().getApplicationContext().getAssets());
 
         //Setup Navigation menu. Done only once when app is created
-        NavigationMenu.setupNavigationMenu(this, new HfNavigationMenu(), new NavigationModel(),
-                getRegisteredActivities(), false);
+        FacilityMenu.setupNavigationMenu(this, new HfNavigationMenu(), new NavigationModel(),
+                getRegisteredActivities(), true);
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
@@ -201,11 +246,50 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         ReportingLibrary.init(context, getRepository(), null, BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         AncLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         PncLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
-        MalariaLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        if (flavor.hasMalaria()) {
+            MalariaLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
         FpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+
+        if (flavor.hasCdp()) {
+            CdpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
+
+        //setup referral library
+        ReferralLibrary.init(this);
+        ReferralLibrary.getInstance().setAppVersion(BuildConfig.VERSION_CODE);
+        ReferralLibrary.getInstance().setDatabaseVersion(BuildConfig.DATABASE_VERSION);
+
+        //Setup hiv library
+        HivLibrary.init(this);
+        HivLibrary.getInstance().setAppVersion(BuildConfig.VERSION_CODE);
+        HivLibrary.getInstance().setDatabaseVersion(BuildConfig.DATABASE_VERSION);
+
+        //Setup hivst library
+        if (flavor.hasHivst()) {
+            HivstLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
+
+        if (flavor.hasKvpPrEP()) {
+            KvpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
+
+        //Setup tb library
+        TbLibrary.init(this);
+        TbLibrary.getInstance().setAppVersion(BuildConfig.VERSION_CODE);
+        TbLibrary.getInstance().setDatabaseVersion(BuildConfig.DATABASE_VERSION);
+
+        //Setup pmtct library
+        PmtctLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+
+        //Setup L&D library
+        if (flavor.hasLD()) {
+            LDLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        }
+
         //Needed for all clients register
         OpdLibrary.init(context, getRepository(),
-                new OpdConfiguration.Builder(CoreAllClientsRegisterQueryProvider.class)
+                new OpdConfiguration.Builder(HfAllClientsRegisterQueryProvider.class)
                         .setBottomNavigationEnabled(true)
                         .setOpdRegisterRowOptions(AllClientsRegisterRowOptions.class)
                         .build(),
@@ -226,6 +310,15 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         }
         // set up processor
         FamilyLibrary.getInstance().setClientProcessorForJava(HfClientProcessor.getInstance(getApplicationContext()));
+
+        //initialize Map
+        initializeMapBox();
+    }
+
+    protected void initializeMapBox() {
+        // Init Kujaku
+        Mapbox.getInstance(getApplicationContext(), BuildConfig.MAPBOX_SDK_ACCESS_TOKEN);
+        KujakuLibrary.init(getApplicationContext());
     }
 
     @Override
@@ -240,7 +333,7 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
         Timber.i("Logged out user %s", getContext().allSharedPreferences().fetchRegisteredANM());
     }
 
-    public boolean getChildFlavorUtil(){
+    public boolean getChildFlavorUtil() {
         return true;
     }
 
@@ -282,5 +375,19 @@ public class HealthFacilityApplication extends CoreChwApplication implements Cor
                 .LAST_INTERACTED_WITH, ChildDBConstants.KEY.DATE_CREATED, DBConstants.KEY.DATE_REMOVED, DBConstants.KEY.DOB, ChildDBConstants.KEY.ENTRY_POINT
         });
         return map;
+    }
+
+    public interface Flavor {
+        boolean hasCdp();
+
+        boolean hasHivst();
+
+        boolean hasKvpPrEP();
+
+        boolean hasMalaria();
+
+        boolean hasLD();
+
+        boolean hasChildModule();
     }
 }

@@ -1,6 +1,4 @@
 {
-  "validate_on_submit": true,
-  "show_errors_on_submit": false,
   "count": "2",
   "encounter_type": "Malaria Confirmation",
   "entity_id": "",
@@ -17,11 +15,6 @@
       "openmrs_entity": "concept",
       "openmrs_data_type": "end",
       "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    },
-    "today": {
-      "openmrs_entity_parent": "",
-      "openmrs_entity": "encounter",
-      "openmrs_entity_id": "encounter_date"
     },
     "deviceid": {
       "openmrs_entity_parent": "",

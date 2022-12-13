@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Hudhurio katika kituo cha kutolea huduma za afya ya mama na mtoto baada ya kujifungua",
+    "title": "Health Facility Visit",
     "fields": [
       {
         "key": "pnc_visit_{0}",
@@ -56,18 +56,14 @@
         "openmrs_entity_id": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Je, mama alihudhuria hudhurio la {0} la huduma ya mama  na  mtoto  baada ya kujifungua katika kituo cha kutolea  huduma za afya? \n\nTarehe ya hudhurio lingine: {1}",
+        "hint": "Je, mwanamke huyo alihudhuria PNC yake alipotembelea {0} kituo cha afya? Tembelea tarehe ya kukamilisha: {1}",
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo"
         },
         "values": [
-          "Ndiyo",
+          "Ndio",
           "Hapana"
-        ],
-        "keys": [
-          "Yes",
-          "No"
         ]
       },
       {
@@ -76,12 +72,12 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "164093AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "date_picker",
-        "hint": "Tarehe ya hudhurio la {0} la huduma ya  mama na  mtoto baada ya kujifungua",
+        "hint": "Tarehe ya kutembelea kituo cha afya cha PNC {0}",
         "expanded": false,
         "max_date": "today",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza tarehe"
+          "err": "Tafadhali weka tarehe"
         },
         "relevance": {
           "step1:pnc_visit_{0}": {
@@ -97,18 +93,14 @@
         "openmrs_entity_id": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Je, mama alipewa Vitamini A ndani ya masaa 24 baada ya kujifungua?",
+        "hint": "Je, mwanamke huyo alipokea Vitamini A ndani ya saa 24 baada ya kujifungua?",
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo"
         },
         "values": [
-          "Ndiyo",
+          "Ndio",
           "Hapana"
-        ],
-        "keys": [
-          "Yes",
-          "No"
         ],
         "relevance": {
           "step1:pnc_visit_{0}": {
@@ -124,18 +116,14 @@
         "openmrs_entity_id": "104677AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Je, mama alipewa dawa za kuongeza damu (FEFO) ndani ya masaa 24 baada ya kujifungua?",
+        "hint": "Je, mwanamke alipokea vidonge vya iron na folic acid (IFA) ndani ya saa 24 baada ya kujifungua?",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo"
+          "err": "Tafadhali chagua "
         },
         "values": [
-          "Ndiyo",
+          "Ndio",
           "Hapana"
-        ],
-        "keys": [
-          "Yes",
-          "No"
         ],
         "openmrs_choice_ids": {
           "Yes": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",

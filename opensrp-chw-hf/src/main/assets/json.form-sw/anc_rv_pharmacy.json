@@ -1,0 +1,305 @@
+{
+  "count": "1",
+  "encounter_type": "Medication and Supplements",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Dawa na Virutubisho",
+    "fields": [
+      {
+        "key": "pharmacy",
+        "type": "label",
+        "text": "Mtoa huduma ampatie dawa ya prophylactic na virutubishi",
+        "text_color": "#000000",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "iron_folate_supplements",
+        "type": "native_radio",
+        "label": "Vidonge vya Madini ya chuma",
+        "openmrs_entity_id": "iron_folate_supplements",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "text": "FeFo",
+            "key": "FeFo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "FeFo"
+          },
+          {
+            "text": "folic",
+            "key": "Foliki Asidi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "folic"
+          },
+          {
+            "text": "Hajapewa dawa ya vidonge vya madini ya chuma",
+            "key": "medication_not_given",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "medication_not_given"
+          }
+        ]
+      },
+      {
+        "key": "reason_for_giving_folic_acid",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_giving_folic_acid",
+        "type": "spinner",
+        "hint": "Sababu kwanini amepewa Foliki Asidi badala ya FEFO",
+        "values": [
+          "Bidhaa zimeisha",
+          "Selimundu",
+          "Nyingine (Taja)"
+        ],
+        "keys": [
+          "out_of_stock",
+          "sickle_cell",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "out_of_stock": "out_of_stock",
+          "sickle_cell": "sickle_cell",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select a reason"
+        },
+        "relevance": {
+          "step1:iron_folate_supplements": {
+            "type": "string",
+            "ex": "equalTo(., \"folic\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_giving_folic_acid",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_giving_folic_acid",
+        "type": "edit_text",
+        "hint": "Elezea sababu nyingine ya kupewa dawa za Foliki Asidi ",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_giving_folic_acid": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_giving_iron_folate_supplements",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_giving_iron_folate_supplements",
+        "type": "spinner",
+        "hint": "Sababu ya kutopewa vidonge vya madini ya chuma",
+        "values": [
+          "Bidhaa zimeisha",
+          "Mteja amekataa kuchukua dawa",
+          "Anamzio na dawa (Allegy)",
+          "Nyingine"
+        ],
+        "keys": [
+          "out_of_stock",
+          "client_did_not_agree_medication",
+          "client_is_allergic_to_medication",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "out_of_stock": "out_of_stock",
+          "client_did_not_agree_medication": "client_did_not_agree_medication",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "client_is_allergic_to_medication": "client_is_allergic_to_medication",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua moja"
+        },
+        "relevance": {
+          "step1:iron_folate_supplements": {
+            "type": "string",
+            "ex": "equalTo(., \"medication_not_given\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_fefo_medication_not_given",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_fefo_medication_not_given",
+        "type": "edit_text",
+        "hint": "Elezea sababu nyingine yakutokupewa dawa ya FEFO",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_giving_fefo_medication": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "deworming",
+        "type": "check_box",
+        "label": "Dawa ya minyoo",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "deworming",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "mebendazole",
+          "albendazole",
+          "medication_not_given"
+        ],
+        "options": [
+          {
+            "text": "Mebendazole(500Mg)",
+            "key": "mebendazole",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mebendazole"
+          },
+          {
+            "text": "Albendazole(400Mg)",
+            "key": "albendazole",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "albendazole"
+          },
+          {
+            "text": "Hajapewa dawa ya minyoo",
+            "key": "medication_not_given",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "medication_not_given"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_pharmacy_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_giving_deworming_medication",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_giving_deworming_medication",
+        "type": "spinner",
+        "hint": "Sababu ya kutopewa dawa ya minyoo",
+        "values": [
+          "Bidhaa zimeisha",
+          "Mteja amekataa kuchukua dawa",
+          "Anamzio na dawa (Allegy)",
+          "Nyingine"
+        ],
+        "keys": [
+          "out_of_stock",
+          "client_did_not_agree_medication",
+          "client_is_allergic_to_medication",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "out_of_stock": "out_of_stock",
+          "client_did_not_agree_medication": "client_did_not_agree_medication",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "client_is_allergic_to_medication": "client_is_allergic_to_medication",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:deworming": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "medication_not_given"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "other_reason_deworming_medication_not_given",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_deworming_medication_not_given",
+        "type": "edit_text",
+        "hint": "Sababu nyingine",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_giving_deworming_medication": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "pharmacy_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pharmacy_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

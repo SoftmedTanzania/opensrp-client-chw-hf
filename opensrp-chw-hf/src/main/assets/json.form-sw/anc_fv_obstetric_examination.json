@@ -1,0 +1,730 @@
+{
+  "count": "1",
+  "encounter_type": "Obstetric Examination",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Uchunguzi wa Uzazi",
+    "fields": [
+      {
+        "key": "gest_age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gest_age",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "weight",
+        "type": "edit_text",
+        "hint": "Uzito (KG)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "weight",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza uzito"
+        },
+        "v_min": {
+          "value": "20",
+          "err": "Uzito lazima uwe sawasawa au zaidi ya 20 (KG)"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Uzito lazima uwe sawasawa au chini ya 300 (KG)"
+        }
+      },
+      {
+        "key": "height",
+        "type": "edit_text",
+        "hint": "Urefu (CM)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "height",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza urefu"
+        },
+        "v_min": {
+          "value": "60",
+          "err": "Urefu lazima uwe sawasawa au zaidi ya 60 (CM)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Urefu lazima uwe sawasawa au chini ya 200 (CM)"
+        }
+      },
+      {
+        "key": "prompt_for_short_stature",
+        "type": "toaster_notes",
+        "text": "Mshauri mteja kujifungua kwenye Kituo cha Afya kutokana na hatari kubwa ya kupata uchungu pingamizi",
+        "openmrs_entity_id": "prompt_for_short_stature",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:height": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"145\")"
+          }
+        }
+      },
+      {
+        "key": "bmi",
+        "type": "edit_text",
+        "hint": "Kielezo cha Uzito wa Mwili (BMI)",
+        "read_only": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bmi",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza urefu"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali ingiza urefu"
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_underweight",
+        "type": "toaster_notes",
+        "text": "Mshauri Mteja kuhusiana na hali yake ya uzito mdogo kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_underweight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:bmi": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"18.5\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_overweight",
+        "type": "toaster_notes",
+        "text": "Mshauri Mteja kuhusiana na hali yake ya uzito mkubwa kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_overweight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:bmi": {
+            "type": "numeric",
+            "ex": "greaterThanEqualTo(.,\"29\")"
+          }
+        }
+      },
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Shinikizo la Damu)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza thamani ya systolic "
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani ya systolic lazima iwe sawasawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Thamani ya systolic lazima iwe sawasawa au chini ya 320"
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastolic (Shinikizo la Damu)",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza thamani ya diastolic"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani ya diastolic lazima iwe sawasawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Thamani ya diastolic lazima iwe sawasawa au chini ya 200"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "Thamani ya diastolic lazima iwe chini ya thamani ya systolic"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya Shinikizo la damu ya juu kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za Shinikizo la damu ya chini na udhibiti  kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pulse_rate",
+        "type": "edit_text",
+        "hint": "Kiwango cha Mapigo ya moyo (midundo kwa dakika moja)",
+        "openmrs_entity_id": "pulse_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kiwango cha mapigo ya moyo "
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha mapigo ya moyo lazima kiwe sawasawa au zaidi ya 0 (bpm)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Kiwango cha mapigo ya moyo lazima kiwe sawasawa au chini ya 200 (bpm)"
+        }
+      },
+      {
+        "key": "prompt_for_Bradycardia",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za Mapigo hafifu ya moyo na udhibiti kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_Bradycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"60\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_Tachycardia",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za Tachycardia na njia za udhibiti  kulingana na muongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_Tachycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"100\")"
+          }
+        }
+      },
+      {
+        "key": "temperature",
+        "type": "edit_text",
+        "hint": "Kiwango cha joto",
+        "openmrs_entity_id": "temperature",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kiwango cha joto"
+        },
+        "v_min": {
+          "value": "10",
+          "err": "Kiwango cha joto lazima kiwe sawasawa au zaidi ya 10"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Kiwango cha joto lazima kiwe sawasawa au chini ya 50"
+        }
+      },
+      {
+        "key": "notify_client_has_fever",
+        "type": "toaster_notes",
+        "text": "Mfanyie Mama vipimo kwa ajili ya kubainisha sababu ya Homa na dhibiti hali hii kulingana na mwongozo kutoka Wizara ya Afya",
+        "openmrs_entity_id": "notify_client_has_fever",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"37.8\")"
+          }
+        }
+      },
+      {
+        "key": "notify_client_has_hypothermia",
+        "type": "toaster_notes",
+        "text": "Dhibiti hali hii ya Jotoridi la mwili la chini kuliko kawaida kulingana na muongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "notify_client_has_hypothermia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"36.5\")"
+          }
+        }
+      },
+      {
+        "key": "abdominal_scars",
+        "type": "native_radio",
+        "label": "Je, kuna kovu la upasuaji kwenye tumbo?",
+        "openmrs_entity_id": "abdominal_scars",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_abdominal_scars",
+        "type": "toaster_notes",
+        "text": "Mteja ashauriwe kujifungua Kituo cha Afya kwa sababu ya hatari ya kupasuka kwa mfuko wa uzazi",
+        "openmrs_entity_id": "prompt_for_abdominal_scars",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:abdominal_scars": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "abdominal_movement_with_respiration",
+        "type": "native_radio",
+        "label": "Je, tumbo linasogea wakati wa kupumua?",
+        "openmrs_entity_id": "abdominal_movement_with_respiration",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_abdominal_movement_with_respiration",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:abdominal_movement_with_respiration": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "abdominal_contour",
+        "type": "spinner",
+        "hint": "Umbo la Tumbo",
+        "label_info_title": "Umbo la Tumbo",
+        "label_info_text": "Chunguza umbo la tumbo",
+        "openmrs_entity_id": "abdominal_contour",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "values": [
+          "Limevimba",
+          "Umbo la kawaida"
+        ],
+        "keys": [
+          "distended",
+          "normal_contour"
+        ],
+        "openmrs_choice_ids": {
+          "distended": "distended",
+          "normal_contour": "normal_contour"
+        }
+      },
+      {
+        "key": "fundal_height",
+        "type": "edit_text",
+        "openmrs_entity_id": "fundal_height",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "hint": "Kimo cha mimba (CM)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kimo cha mimba"
+        },
+        "v_min": {},
+        "v_max": {
+          "value": "50",
+          "err": "Kimo cha mimba lazima kiwe sawa au chini ya 50 CM"
+        }
+      },
+      {
+        "key": "lie",
+        "type": "spinner",
+        "openmrs_entity_id": "lie",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "hint": "Mlalo wa mtoto tumboni",
+        "values": [
+          "Mlalo wa usawa",
+          "mlalo wa kiupande",
+          "Mlalo wa wima"
+        ],
+        "keys": [
+          "transverse",
+          "oblique",
+          "longitudinal"
+        ],
+        "openmrs_choice_ids": {
+          "transverse": "transverse",
+          "oblique": "oblique",
+          "longitudinal": "longitudinal"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_lie",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "presentation",
+        "type": "spinner",
+        "openmrs_entity_id": "presentation",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "hint": "Kitangulizi cha mtoto",
+        "values": [
+          "Makalio",
+          "Kichwa"
+        ],
+        "keys": [
+          "breech",
+          "cephalic"
+        ],
+        "openmrs_choice_ids": {
+          "breech": "breech",
+          "cephalic": "cephalic"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_presentation",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa hudama zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "fetal_heart_rate",
+        "type": "edit_text",
+        "hint": "Hesabu kiwango cha mapigo ya moyo wa mtoto (bpm)",
+        "openmrs_entity_id": "fetal_heart_rate",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza kiawango cha mapigo ya moyo ya mtoto"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiwango cha mapigo ya moyo wa mtoto lazima kiwe sawasawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Kiwango cha mapigo ya moyo wa mtoto lazima kiwe sawasawa au chini ya 300"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_fetal_distress",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "prompt_for_fetal_distress",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_fv_obstetric_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "abnormal_vaginal_discharge",
+        "type": "native_radio",
+        "label": "Kutokwa na uchafu usio wa kawaida ukeni",
+        "openmrs_entity_id": "abnormal_vaginal_discharge",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_vaginal_discharge",
+        "type": "toaster_notes",
+        "text": "Bainisha sababu za kutokwa na uchafu ukeni na dhibiti hali hii kulingana na Mouongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_vaginal_discharge",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:abnormal_vaginal_discharge": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "vaginal_sores",
+        "type": "native_radio",
+        "label": "Vidonda sehemu ya ukeni",
+        "openmrs_entity_id": "vaginal_sores",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_vaginal_sores",
+        "type": "toaster_notes",
+        "text": "Chunguza sababu ya vidonda ukeni na tibu kulingana na muongozo",
+        "openmrs_entity_id": "prompt_for_vaginal_sores",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:vaginal_sores": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "vaginal_swelling",
+        "type": "native_radio",
+        "label": "Kuvimba  sehemu ya ukeni",
+        "openmrs_entity_id": "vaginal_swelling",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_id": "yes",
+            "openmrs_entity": "concept"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_id": "no",
+            "openmrs_entity": "concept"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_vaginal_swelling",
+        "type": "toaster_notes",
+        "text": "Chunguza sababu ya uvimbe ukeni na tibu kulingana na muongozo",
+        "openmrs_entity_id": "prompt_for_vaginal_swelling",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:vaginal_swelling": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "obstetric_examination_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "obstetric_examination_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

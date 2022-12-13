@@ -1,0 +1,270 @@
+{
+  "form": "HIV Outcome",
+  "count": "1",
+  "encounter_type": "HIV Outcome",
+  "entity_id": "",
+  "relational_id": "",
+  "rules_file": "rule/hiv_outcome_rules.yml",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "steps": [
+    {
+      "title": "Matokeo ya Vipimo vya VVU",
+      "fields": [
+        {
+          "name": "action_taken_hiv_problems",
+          "type": "radio_group",
+          "properties": {
+            "text": "Hatua zilizochukuliwa kwenye kituo"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "action_taken_hiv_problems",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "no_action_taken",
+              "text": "Hajapewa matibabu yoyote",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no_action_taken",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "tested",
+              "text": "Amepimwa",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "tested",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "referred",
+              "text": "Amepewa rufaa",
+              "is_exclusive": true,
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "referred",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Please select action taken",
+          "dependent_calculations": [
+            "hiv_facility_visit_date"
+          ]
+        },
+        {
+          "name": "reason_no_action_was_taken",
+          "type": "radio_group",
+          "properties": {
+            "text": "Reasons actions was not taken"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reason_no_action_was_taken",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "known_positive",
+              "text": "Known Positive",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "known_positive",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "client_declined",
+              "text": "Client Declined",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "client_declined",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "test_not_required_based_on_risk_assessment",
+              "text": "Test not required based on risk assessment",
+              "is_exclusive": true,
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "test_not_required_based_on_risk_assessment",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Please select action taken",
+          "subjects": "action_taken_hiv_problems:map",
+          "dependent_calculations": [
+            "test_results_calculation"
+          ]
+        },
+        {
+          "name": "test_results",
+          "type": "radio_group",
+          "properties": {
+            "text": "Chagua matokeo ya vipimo vya VVU"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_results",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "positive",
+              "text": "Ana VVU",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "positive",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "negative",
+              "text": "Hana VVU",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "negative",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua matokeo ya vipimo vya VVU",
+          "subjects": "action_taken_hiv_problems:map"
+        },
+        {
+          "name": "enrolled_to_clinic",
+          "type": "radio_group",
+          "properties": {
+            "text": "Je, mteja amesajiliwa kwenye kliniki ya VVU?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "enrolled_to_clinic",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "yes",
+              "text": "Ndio",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "yes",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "no",
+              "text": "Hapana",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali jaza jibu sahihi",
+          "subjects": "test_results:map, action_taken_hiv_problems:map"
+        },
+        {
+          "name": "ctc_number",
+          "type": "masked_edit_text",
+          "properties": {
+            "hint": "Namba ya CTC, mfano: 12-34-5678-912345",
+            "type": "name",
+            "mask": "##-##-####-######",
+            "mask_hint": "12345678912345",
+            "input_type": "number",
+            "allowed_chars": "0123456789"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ctc_number",
+            "openmrs_entity_parent": ""
+          },
+          "validation": [
+            {
+              "condition": "value.matches(\"(\\\\d{2}-\\\\d{2}-\\\\d{4}-\\\\d{6})?\")",
+              "message": "Namba ya CTC inatakiwa kuwa (XX-XX-XXXX-XXXXXX)."
+            }
+          ],
+          "required_status": "true:Tafadhali jaza namba ya CTC ya mteja",
+          "subjects": "reason_no_action_was_taken:map, enrolled_to_clinic:map,test_results:map, action_taken_hiv_problems:map"
+        },
+        {
+          "name": "prompt_for_ctc_enrollment",
+          "type": "toast_notification",
+          "properties": {
+            "notification_type": "info",
+            "dismissible": "no",
+            "text": "Endelea na ushauri mpaka mteja atakapokuwa tayari kuanzishiwa dawa",
+            "background_color": "#082455",
+            "text_color": "#EBEE2F"
+          },
+          "subjects": "enrolled_to_clinic:map, test_results:map, action_taken_hiv_problems:map"
+        },
+        {
+          "name": "comment_hiv_problems",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Toa maoni"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "comment_hiv_problems",
+            "openmrs_entity_parent": ""
+          },
+          "required_status": "false"
+        }
+      ]
+    }
+  ]
+}
+

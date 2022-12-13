@@ -95,6 +95,13 @@
           },
           {
             "field": "eventType",
+            "field_value": "PNC Child Followup",
+            "creates_case": [
+              "ec_child"
+            ]
+          },
+          {
+            "field": "eventType",
             "field_value": "Visit not done",
             "creates_case": [
               "ec_child",
@@ -117,17 +124,56 @@
           },
           {
             "field": "eventType",
+            "field_value": "Pregnancy Confirmation",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_log",
+              "ec_anc_pregnancy_lookup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Followup Client Registration",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_log",
+              "ec_anc_followup",
+              "ec_anc_birth_emergency_plan",
+              "ec_anc_pregnancy_lookup"
+            ]
+          },
+          {
+            "field": "eventType",
             "field_value": "ANC Registration",
             "creates_case": [
               "ec_anc_register",
+              "ec_anc_pregnancy_lookup",
               "ec_anc_log"
             ]
           },
           {
             "field": "eventType",
-            "field_value": "ANC Home Visit",
+            "field_value": "ANC First Facility Visit",
             "creates_case": [
+              "ec_anc_register",
+              "ec_anc_followup",
+              "ec_anc_birth_emergency_plan"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Close Followup Visits",
+            "closes_case": [
               "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Recurring Facility Visit",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_followup",
+              "ec_anc_birth_emergency_plan"
             ]
           },
           {
@@ -155,7 +201,8 @@
             "field": "eventType",
             "field_value": "Pregnancy Outcome",
             "closes_case": [
-              "ec_anc_register"
+              "ec_anc_register",
+              "ec_ld_confirmation"
             ]
           },
           {
@@ -218,7 +265,8 @@
             "field": "eventType",
             "field_value": "Referral Registration",
             "creates_case": [
-              "ec_referral"
+              "ec_referral",
+              "ec_hts_register"
             ]
           },
           {
@@ -247,6 +295,675 @@
             "field_value": "Family Planning Update",
             "creates_case": [
               "ec_family_planning_update"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Hiv Registration",
+            "creates_case": [
+              "ec_hiv_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Hiv Registration",
+            "creates_case": [
+              "ec_hts_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Tb Registration",
+            "creates_case": [
+              "ec_tb_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Case Closure",
+            "creates_case": [
+              "ec_tb_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Outcome",
+            "creates_case": [
+              "ec_hiv_register",
+              "ec_hiv_outcome",
+              "ec_hts_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update CTC Number",
+            "creates_case": [
+              "ec_hiv_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Outcome",
+            "creates_case": [
+              "ec_tb_register",
+              "ec_tb_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Community Followup",
+            "creates_case": [
+              "ec_hiv_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Community Followup",
+            "creates_case": [
+              "ec_tb_community_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Community Followup Feedback",
+            "creates_case": [
+              "ec_hiv_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "TB Community Followup Feedback",
+            "creates_case": [
+              "ec_tb_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Close Hiv Feedback",
+            "creates_case": [
+              "ec_hiv_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Close Tb Feedback",
+            "creates_case": [
+              "ec_tb_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Hiv Index Contact Registration",
+            "creates_case": [
+              "ec_hiv_index_hf",
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact Testing Followup",
+            "creates_case": [
+              "ec_hiv_index_hf",
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact CHW Followup",
+            "creates_case": [
+              "ec_hiv_index_chw_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIV Index Contact Community Followup Referral",
+            "creates_case": [
+              "ec_hiv_index_hf",
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Registration",
+            "creates_case": [
+              "ec_pmtct_registration",
+              "ec_hiv_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT TI Registration",
+            "creates_case": [
+              "ec_pmtct_registration",
+              "ec_pmtct_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Post PNC Registration",
+            "creates_case": [
+              "ec_pmtct_registration",
+              "ec_hiv_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Follow-up Visit",
+            "creates_case": [
+              "ec_pmtct_followup",
+              "ec_pmtct_registration"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mark PMTCT Client As LTF",
+            "creates_case": [
+              "ec_pmtct_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT HVL Results",
+            "creates_case": [
+              "ec_pmtct_hvl_results"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Close Visits",
+            "closes_case": [
+              "ec_pmtct_registration"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT CD4 Test Results",
+            "creates_case": [
+              "ec_pmtct_cd4_results"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT EAC Visit",
+            "creates_case": [
+              "ec_pmtct_eac_visit"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Pregnancy Unconfirmed",
+            "closes_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Partner Registration",
+            "creates_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Partner Testing",
+            "creates_case": [
+              "ec_anc_register",
+              "ec_anc_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update HIV Index Contact Testing Followup",
+            "creates_case": [
+              "ec_hiv_index_hf",
+              "ec_hiv_index"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PMTCT Community Followup Feedback",
+            "creates_case": [
+              "ec_pmtct_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Close PMTCT Feedback",
+            "creates_case": [
+              "ec_pmtct_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI Registration",
+            "creates_case": [
+              "ec_hei"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI Number Registration",
+            "creates_case": [
+              "ec_hei"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI Followup",
+            "creates_case": [
+              "ec_hei_followup",
+              "ec_hei"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mark HEI Client As LTF",
+            "creates_case": [
+              "ec_hei_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI HIV Test Results",
+            "creates_case": [
+              "ec_hei_hiv_results",
+              "ec_hei"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI Positive Infant",
+            "closes_case": [
+              "ec_hei"
+            ],
+            "creates_case": [
+              "ec_hiv_register",
+              "ec_hei_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HEI Negative Infant",
+            "creates_case": [
+              "ec_hei_followup"
+            ],
+            "closes_case": [
+              "ec_hei"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC No Mother Registration",
+            "creates_case": [
+              "ec_no_mother_pnc",
+              "ec_child"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC VISIT",
+            "creates_case": [
+              "ec_pregnancy_outcome",
+              "ec_pnc_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PNC Child Followup",
+            "creates_case": [
+              "ec_pnc_child_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Close PNC Visits",
+            "closes_case": [
+              "ec_pregnancy_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD Registration",
+            "creates_case": [
+              "ec_ld_confirmation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD Registration",
+            "closes_case": [
+              "ec_anc_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Labour Stage  Assessment",
+            "creates_case": [
+              "ec_ld_confirmation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD General Examination",
+            "creates_case": [
+              "ec_ld_confirmation",
+              "ec_ld_general_examination_consultation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Cervix Dilation Monitoring",
+            "creates_case": [
+              "ec_ld_confirmation",
+              "ec_ld_general_examination_consultation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD Partograph",
+            "creates_case": [
+              "ec_ld_confirmation",
+              "ec_ld_partograph"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mode of Delivery",
+            "creates_case": [
+              "ec_ld_confirmation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD Active Management of 3rd Stage Of Labour",
+            "creates_case": [
+              "ec_ld_confirmation",
+              "ec_ld_placenta_and_membrane"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Close LD",
+            "closes_case": [
+              "ec_ld_confirmation"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Post Delivery Mother Management",
+            "creates_case": [
+              "ec_pregnancy_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Post Delivery Mother Management",
+            "creates_case": [
+              "ec_ld_confirmation",
+              "ec_ld_postpartum_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LND 1st Newborn",
+            "creates_case": [
+              "ec_ld_immediate_new_born_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LND 2nd Newborn",
+            "creates_case": [
+              "ec_ld_immediate_new_born_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LND 3rd Newborn",
+            "creates_case": [
+              "ec_ld_immediate_new_born_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LND 4th Newborn",
+            "creates_case": [
+              "ec_ld_immediate_new_born_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LND 5th Newborn",
+            "creates_case": [
+              "ec_ld_immediate_new_born_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LND 6th Newborn",
+            "creates_case": [
+              "ec_ld_immediate_new_born_care"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LTFU Feedback",
+            "creates_case": [
+              "ec_ltfu_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "LD Child Registration",
+            "creates_case": [
+              "ec_child",
+              "ec_family_member"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Registration",
+            "creates_case": [
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update CBHS Registration",
+            "creates_case": [
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Registration",
+            "creates_case": [
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Update CBHS Registration",
+            "creates_case": [
+              "ec_cbhs_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CBHS Followup",
+            "creates_case": [
+              "ec_cbhs_register",
+              "ec_cbhs_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mother Champion Community Services Referral",
+            "creates_case": [
+              "ec_mother_champion"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mother Champion Followup",
+            "creates_case": [
+              "ec_mother_champion_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Mother Champion SBCC Sessions",
+            "creates_case": [
+              "ec_sbcc"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "ANC Partner Community Followup Feedback",
+            "creates_case": [
+              "ec_anc_partner_community_feedback"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Registration",
+            "creates_case": [
+              "ec_hivst_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Kits Issue",
+            "creates_case": [
+              "ec_hivst_followup"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Results Registration",
+            "creates_case": [
+              "ec_hivst_results"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Self Testing Results",
+            "creates_case": [
+              "ec_hivst_results"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HIVST Mobilization Session",
+            "creates_case":[
+              "ec_hivst_mobilization"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "HTS Registration",
+            "creates_case":[
+              "ec_hts_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Transfer to PNC",
+            "creates_case": [
+              "ec_pregnancy_outcome"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Condom Order",
+            "creates_case": [
+              "ec_cdp_orders_receive"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Order From Facility",
+            "creates_case": [
+              "ec_cdp_orders_sent"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Distribution Within Facility",
+            "creates_case": [
+              "ec_cdp_issuing_hf"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "CDP Distribution Outside Facility",
+            "creates_case": [
+              "ec_cdp_issuing_hf"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "KVP Registration",
+            "creates_case": [
+              "ec_kvp_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "KVP Behavioral Service Visit",
+            "creates_case": [
+              "ec_kvp_behavioral_services"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "KVP Structural Service Visit",
+            "creates_case": [
+              "ec_kvp_structural_services"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "KVP Bio Medical Service Visit",
+            "creates_case": [
+              "ec_kvp_register",
+              "ec_kvp_bio_medical_services"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "KVP Other Service Visit",
+            "creates_case": [
+              "ec_kvp_other_services"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PrEP Registration",
+            "creates_case": [
+              "ec_prep_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PrEP Follow-up Visit",
+            "creates_case": [
+              "ec_prep_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PrEP Client Not Eligible",
+            "closes_case": [
+              "ec_prep_register"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "PrEP Follow-up Visit",
+            "creates_case": [
+              "ec_prep_register",
+              "ec_prep_followup"
             ]
           }
         ]

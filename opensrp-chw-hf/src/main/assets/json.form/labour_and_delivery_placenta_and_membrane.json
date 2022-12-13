@@ -1,0 +1,399 @@
+{
+  "validate_on_submit": true,
+  "show_errors_on_submit": false,
+  "count": "1",
+  "encounter_type": "Placenta and Membrane",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Expulsion of the placenta and membranes",
+    "fields": [
+      {
+        "key": "method_used_to_remove_the_placenta",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "method_used_to_remove_the_placenta",
+        "label": "The method used to remove/deliver the placenta",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "control_cord_traction",
+            "text": "Control Cord Traction",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "control_cord_traction"
+          },
+          {
+            "key": "manual",
+            "text": "Manual",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "manual"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "placenta_and_membrane_expulsion",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "placenta_and_membrane_expulsion",
+        "label": "Expulsion of the Placenta and Membranes",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "complete_placenta",
+            "text": "Complete placenta",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "complete_placenta"
+          },
+          {
+            "key": "incomplete_placenta",
+            "text": "Incomplete placenta",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "incomplete_placenta"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "type_of_incomplete_placenta",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "type_of_incomplete_placenta",
+        "label": "Type of incomplete placenta",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "retained_product",
+            "text": "Retained Product",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "retained_product"
+          },
+          {
+            "key": "retained_placenta",
+            "text": "Retained Placenta",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "retained_placenta"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "step1:placenta_and_membrane_expulsion": {
+            "type": "string",
+            "ex": "equalTo(., \"incomplete_placenta\")"
+          }
+        }
+      },
+      {
+        "key": "placenta_removed_by_hand",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "placenta_removed_by_hand",
+        "label": "Was the placenta/product removed by hand?",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "step1:placenta_and_membrane_expulsion": {
+            "type": "string",
+            "ex": "equalTo(., \"incomplete_placenta\")"
+          }
+        }
+      },
+      {
+        "key": "conducted_mva",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "conducted_mva",
+        "label": "MVA.D&C was conducted?",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "step1:placenta_removed_by_hand": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_placenta_and_membrane_expulsion",
+        "type": "toaster_notes",
+        "text": "Manage according to SOP and National guideline",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:conducted_mva": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "administered_antibiotics",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "administered_antibiotics",
+        "label": "Was the client administered antibiotics?",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "step1:placenta_and_membrane_expulsion": {
+            "type": "string",
+            "ex": "equalTo(., \"incomplete_placenta\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_provision_of_antibiotics",
+        "type": "toaster_notes",
+        "text": "Provide the client with  antibiotic",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:administered_antibiotics": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "removal_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "removal_date",
+        "type": "date_picker",
+        "hint": "Removal Date",
+        "expanded": false,
+        "min_date": "today-2y",
+        "max_date": "today",
+        "v_required": {
+          "value": true,
+          "err": "Removal date is required"
+        }
+      },
+      {
+        "key": "removal_duration",
+        "type": "edit_text",
+        "hint": "How long did it take to remove the placenta? (In minutes)",
+        "openmrs_entity_id": "removal_duration",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "edit_type": "number",
+        "v_required": {
+          "value": true,
+          "err": "Removal duration is required"
+        }
+      },
+      {
+        "key": "estimated_blood_loss",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "estimated_blood_loss",
+        "hint": "Estimated blood loss (mls)",
+        "text_color": "#000000",
+        "type": "edit_text",
+        "v_numeric": {
+          "value": true,
+          "err": "Please enter a valid number"
+        },
+        "v_min": {
+          "value": 0,
+          "err": "Please enter a valid number"
+        }
+      },
+      {
+        "key": "prompt_for_excessive_blood_loss",
+        "type": "toaster_notes",
+        "text": "Manage according to SOP and National guideline",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:estimated_blood_loss": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"500\")"
+          }
+        }
+      },
+      {
+        "key": "provided_blood_transfusion",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "provided_blood_transfusion",
+        "label": "Provided blood transfusion?",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "step1:estimated_blood_loss": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"500\")"
+          }
+        }
+      },
+      {
+        "key": "name_of_the_provider_who_removed_the_placenta",
+        "type": "edit_text",
+        "hint": "Name of the Provider who removed the placenta",
+        "openmrs_entity_id": "name_of_the_provider_who_removed_the_placenta",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "v_required": {
+          "value": true,
+          "err": "Please specify the name of the provider"
+        }
+      },
+      {
+        "key": "labour_stage",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "labour_stage",
+        "type": "hidden",
+        "value": 4
+      }
+    ]
+  }
+}

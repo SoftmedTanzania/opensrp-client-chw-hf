@@ -1,0 +1,260 @@
+{
+  "count": "1",
+  "encounter_type": "PNC Family Planning Services",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Family Planning Services",
+    "fields": [
+      {
+        "key": "education_counselling_given",
+        "type": "native_radio",
+        "label": "Was Education/counselling given?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_counselling_given",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        }
+      },
+      {
+        "key": "prompt_provide_education_counselling",
+        "type": "toaster_notes",
+        "text": "Please provide education/counselling",
+        "openmrs_entity_id": "prompt_provide_education_counselling",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:education_counselling_given": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "iec_given",
+        "type": "native_radio",
+        "label": "Were IEC materials given?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "iec_given",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        }
+      },
+      {
+        "key": "using_family_planning_method",
+        "type": "native_radio",
+        "label": "Is the client already using any Family Planning Method?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "using_family_planning_method",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        }
+      },
+      {
+        "key": "has_the_client_been_provided_fp_method",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "has_the_client_been_provided_fp_method",
+        "type": "native_radio",
+        "label": "Has the client been provided any family planning method?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        },
+        "relevance": {
+          "step1:using_family_planning_method": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "method_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "method_provided",
+        "type": "native_radio",
+        "label": "Family Planning Method Provided",
+        "options": [
+          {
+            "key": "chk_condom",
+            "text": "Condom",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_condom"
+          },
+          {
+            "key": "chk_pills",
+            "text": "Pills (Progestogen-only pill)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_pills"
+          },
+          {
+            "key": "chk_injectable",
+            "text": "Injectable (After 42 days)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_injectable"
+          },
+          {
+            "key": "chk_jadelle",
+            "text": "Jadelle",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_jadelle"
+          },
+          {
+            "key": "chk_implants",
+            "text": "Implanon/NXT",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_implants"
+          },
+          {
+            "key": "chk_iucd",
+            "text": "PPIUCD (Within 48 hours after delivery or after 42 days of PNC)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_iucd"
+          },
+          {
+            "key": "chk_tubal_ligation",
+            "text": "Bilateral Tubal Ligation (BTL)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_tubal_ligation"
+          },
+          {
+            "key": "chk_referred_fp_services",
+            "text": "Referred for other FP services",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_referred_fp_services"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please answer this question"
+        },
+        "relevance": {
+          "step1:has_the_client_been_provided_fp_method": {
+            "type": "string",
+            "ex": "equalTo(.,\"yes\")"
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_providing_fp_method",
+        "type": "edit_text",
+        "hint": "Specify reason for not providing FP method",
+        "openmrs_entity_id": "reason_for_not_providing_fp_method",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:method_provided": {
+            "type": "string",
+            "ex": "equalTo(.,\"chk_none\")"
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        }
+      }
+    ]
+  }
+}

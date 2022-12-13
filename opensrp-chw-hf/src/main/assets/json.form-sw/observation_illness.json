@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Uangulifu na muda ya ugonjwa",
+    "title": "Observations & Illness",
     "fields": [
       {
         "key": "date_of_illness",
@@ -61,7 +61,7 @@
         "min_date": "",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza tarehe ya ugonjwa"
+          "err": "Tafadhali weka tarehe ya ugonjwa"
         }
       },
       {
@@ -74,7 +74,7 @@
         "hint": "Maelezo",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza maelezo"
+          "err": "Tafadhali weka maelezo"
         }
       },
       {
@@ -84,10 +84,10 @@
         "openmrs_entity_id": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Hatua zilizochukuliwa",
+        "hint": "Hatua iliyochukuliwa",
         "v_required": {
           "value": "true",
-          "err": "Please select action"
+          "err": "Tafadhali chagua kitendo"
         },
         "values": [
           "ORS 5",
@@ -105,7 +105,7 @@
       {
         "key": "other_treat_1m5yr",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "edit_text",
         "hint": "Matibabu mengine",

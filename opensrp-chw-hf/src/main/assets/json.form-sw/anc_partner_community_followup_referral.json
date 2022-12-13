@@ -1,0 +1,100 @@
+{
+  "validate_on_submit": true,
+  "show_errors_on_submit": false,
+  "count": "1",
+  "encounter_type": "ANC Partner Community Followup Referral",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Rufaa ya Ufuatiliaji wa Mwenza wa Mama Mjamzito katika Ngazi ya Jamii",
+    "fields": [
+      {
+        "key": "toast_refer_to_chw",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Mteja atapewa rufaa kwa Mtoa huduma ngazi ya jamii kwa ajili ya ufuatiliaji",
+        "toaster_info_text": "Mteja atapewa rufaa kwenda kwa mtoa huduma ngazi ya jamii aliye kwenye kijiji chake kwa ajili ya ufuatiliaji. Ongeza taarifa zozote ambazo zinahitajika kwa ajili ya rufaa hii.",
+        "toaster_type": "info"
+      },
+      {
+        "key": "chw_location",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "chw_location",
+        "type": "spinner",
+        "hint": "Chagua Eneo la WAJA/Mama Kinara",
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali chagua eneo alipo mama kinara"
+        }
+      },
+      {
+        "key": "anc_partner_followup_comment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "anc_partner_followup_comment",
+        "type": "edit_text",
+        "hint": "Maoni yako",
+        "v_required": {
+          "value": "false",
+          "err": "Tafadhali jaza maoni yako hapa"
+        }
+      },
+      {
+        "key": "anc_partner_community_referral_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "anc_partner_community_referral_date",
+        "type": "hidden",
+        "is_problem": false,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_partner_community_followup_calculation.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+---
+name: step2_last_menstrual_period
+description: Last Menstrual Period
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step2_known_last_menstrual_period"
+
+---
+name: step2_gest_age
+description: Gestational age calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (helper.getDifferenceDays(step2_last_menstrual_period)-helper.getDifferenceDays(helper.getDateToday())) /7"
+
+---
+name: step2_edd
+description: Edd calculated
+priority: 1
+condition: "!step2_last_menstrual_period.equals('')"
+actions:
+  - "calculation = helper.addDuration(step2_last_menstrual_period,'280d')"
+
+---
+name: step2_gest_age_note
+description: Gestational age calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step2_gest_age"
+
+---
+name: step2_last_menstrual_period
+description: last_menstrual_period calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = helper.subtractDuration(step2_edd, '280d')"
+
+---
+name: step2_hiv_test_at_32
+description: hiv_test_at_32 calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step2_is_test_at_32.contains('yes')? true : false"
+
+---
+name: step2_hiv_test_number
+description: hiv_test_number calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step2_hiv_test_at_32.equals('true')? 2 : 1"
+---
+name: step1_pregnancy_confirmation_date
+description: pregnancy_confirmation_date calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = helper.getDateToday()"
+---
+name: step1_hiv
+description: hiv calculated
+priority: 1
+condition: "step1_medical_surgical_history.contains('known_on_art')"
+actions:
+  - "calculation = step1_medical_surgical_history.contains('known_on_art')? 'positive'"
+---
+name: step1_known_on_art
+description: known_on_art calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step1_medical_surgical_history.contains('known_on_art')? 'yes':''"
+
+

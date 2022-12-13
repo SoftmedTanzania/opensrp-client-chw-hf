@@ -5,13 +5,16 @@ import org.smartregister.SyncConfiguration;
 import org.smartregister.SyncFilter;
 import org.smartregister.chw.hf.BuildConfig;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author Elly Nerdstone
  */
 public class HfSyncConfiguration extends SyncConfiguration {
+    private int connectTimeout = 900000;
+    private int readTimeout = 900000;
+
     @Override
     public int getSyncMaxRetries() {
         return BuildConfig.MAX_SYNC_RETRIES;
@@ -60,11 +63,21 @@ public class HfSyncConfiguration extends SyncConfiguration {
 
     @Override
     public List<String> getSynchronizedLocationTags() {
-        return Collections.emptyList();
+        return Arrays.asList("Facility");
     }
 
     @Override
     public String getTopAllowedLocationLevel() {
-        return "";
+        return "Country";
+    }
+
+    @Override
+    public int getReadTimeout() {
+        return connectTimeout;
+    }
+
+    @Override
+    public int getConnectTimeout() {
+        return readTimeout;
     }
 }

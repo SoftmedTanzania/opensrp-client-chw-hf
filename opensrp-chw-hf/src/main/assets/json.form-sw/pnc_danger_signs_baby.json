@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Dalili za hatari kwa mtoto",
+    "title": "Danger Signs Baby",
     "fields": [
       {
         "key": "danger_signs_present_child",
@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "159860AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "check_box",
-        "label": "Je, mtoto mchanga ana dalili zozote za hatari?",
+        "label": "Je, mtoto ana dalili zozote za hatari?",
         "label_text_style": "normal",
         "text_color": "#C0C0C0",
         "exclusive": [
@@ -71,35 +71,35 @@
           },
           {
             "key": "chk_excessive_crying",
-            "text": "Mtoto kulia sana",
+            "text": "Kulia kupita kiasi",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "110540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_fast_breathing",
-            "text": "Kupumua kwa haraka",
+            "text": "Kupumua haraka",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "125061AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_difficult_breathing",
-            "text": "Kushindwa kupumua",
+            "text": "Ugumu wa kupumua",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_unable_to_suck",
-            "text": "Kushindwa kunyonya au kumeza",
+            "text": "Haiwezi kunyonya",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "159861AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_umbilical_discharge",
-            "text": "Kutoka damu kwenye kitovu au usaha",
+            "text": "Kutokwa na damu ya kitovu / usaha",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "123843AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -113,28 +113,28 @@
           },
           {
             "key": "chk_convulsions",
-            "text": "Degedege / Mtukutiko wa mwili",
+            "text": "Degedege",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "164483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_skin_rashes",
-            "text": "Vipele mwilini",
+            "text": "Vipele vya ngozi",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_pale",
-            "text": "Mwili kuwa njano",
+            "text": "Kupaula au manjano",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "136443AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_eye_discharge",
-            "text": "Macho kutoa uchafu / usaha",
+            "text": "Kutokwa kwa macho",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "142246AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -148,14 +148,14 @@
           },
           {
             "key": "chk_lethargy",
-            "text": "Uchovu / Kulegea mwili",
+            "text": "Ulegevu",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "116334AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_none",
-            "text": "Hakuna",
+            "text": "Hakun",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -169,10 +169,10 @@
       {
         "key": "danger_signs_present_toaster",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Dalili za hatari! \nToa rufaa haraka kwenda kituo cha kutolea huduma za afya.",
+        "text": "Alama ya hatari! Mpe rufaa mara moja kwenye kituo cha afya.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {

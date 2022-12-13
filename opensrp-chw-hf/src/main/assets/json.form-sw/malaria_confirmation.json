@@ -1,6 +1,4 @@
 {
-  "validate_on_submit": true,
-  "show_errors_on_submit": false,
   "count": "2",
   "encounter_type": "Malaria Confirmation",
   "entity_id": "",
@@ -54,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Uhakiki wa Malaria",
+    "title": "Malaria Confirmation",
     "next": "step2",
     "fields": [
       {
@@ -77,14 +75,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fever_malaria_chw",
         "type": "spinner",
-        "hint": "Je, mteja ana homa au aligunduliwa kuwa na malaria ndani ya siku 14 katika kituo cha afya?",
+        "hint": "Je, mtu huyu ana homa au alipima malaria katika siku 14 zilizopita kwenye kituo cha afya?",
         "values": [
           "Ana homa",
-          "Alikuwa na malaria ndani ya siku 14"
-        ],
-        "keys": [
-          "Has a fever",
-          "Tested positive for malaria in the last 14 days at a health facility"
+          "Alipimwa na kuwa na malaria katika siku 14 zilizopita katika kituo cha afya"
         ],
         "v_required": {
           "value": "true",
@@ -101,14 +95,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "1731AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "spinner",
-        "hint": "Umekuwa na homa kwa muda gani?",
+        "hint": "Muda wa homa?",
         "values": [
-          "Ndani ya saa 24",
-          "Zaidi ya saa 24"
-        ],
-        "keys": [
-          "Less than 24 hrs",
-          "More than 24 hrs"
+          "Chini ya masaa 24",
+          "Zaidi ya masaa 24"
         ],
         "openmrs_choice_ids": {
           "Less than 24 hrs": "164449AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -132,16 +122,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "1643AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "spinner",
-        "hint": "Majibu ya mRDT",
+        "hint": "Matokeo ya mRDT",
         "values": [
           "Chanya",
           "Hasi",
-          "Kipimo hakijafanyika"
-        ],
-        "keys": [
-          "Positive",
-          "Negative",
-          "Not done"
+          "Haijafanyika"
         ],
         "openmrs_choice_ids": {
           "Positive": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -166,12 +151,12 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_hf_malaria_test",
         "type": "date_picker",
-        "hint": "Tarehe ya kipimo cha malaria katika kituo cha afya",
+        "hint": "Tarehe ya kufanyika kwa kipimo cha malaria katika kituo cha afya",
         "expanded": false,
         "max_date": "today",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza tarehe ya majaribio ya ugonjwa wa malaria katika kituo cha afya"
+          "err": "Tafahdali ingiza tarehe ya kufanyika kwa kipimo cha malaria katika kituo cha afya"
         },
         "relevance": {
           "rules-engine": {
@@ -215,22 +200,14 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "malaria_treat",
         "type": "spinner",
-        "hint": "Matibabu aliyopewa",
+        "hint": "Matibabu yaliyotolewa",
         "values": [
           "ALU 6",
           "ALU 12",
           "ALU 18",
           "ALU 24",
-          "Hajapewa",
+          "Hayakutolewa",
           "Matibabu mengine"
-        ],
-        "keys": [
-          "ALU 6",
-          "ALU 12",
-          "ALU 18",
-          "ALU 24",
-          "Not given",
-          "Other treatment"
         ],
         "openmrs_choice_ids": {
           "ALU 6": "1072AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -255,7 +232,7 @@
     ]
   },
   "step2": {
-    "title": "Kuzuia Malaria",
+    "title": "Malaria Prevention",
     "fields": [
       {
         "key": "fam_llin",
@@ -263,14 +240,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "fam_llin",
         "type": "spinner",
-        "hint": "Ana chandarua chenye viuwatilifu?",
+        "hint": "Je, una chandarua chenye dawa inayodumu kwa muda mrefu (LLIN)?",
         "values": [
           "Ndiyo",
           "Hapana"
-        ],
-        "keys": [
-          "Yes",
-          "No"
         ],
         "openmrs_choice_ids": {
           "Yes": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -278,7 +251,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Tafadhali chagua chaguzi moja"
         }
       },
       {
@@ -287,14 +260,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "llin_2days",
         "type": "spinner",
-        "hint": "Je, amelala kwenye chandarua chenye viuwatilifu usiku uliopita?",
+        "hint": "Je, ulilala chini ya chandarua (LLIN) jana usiku?",
         "values": [
           "Ndiyo",
           "Hapana"
-        ],
-        "keys": [
-          "Yes",
-          "No"
         ],
         "openmrs_choice_ids": {
           "Yes": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -302,7 +271,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Tafadhali chagua chaguzi moja"
         },
         "relevance": {
           "rules-engine": {
@@ -318,14 +287,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "llin_condition",
         "type": "spinner",
-        "hint": "Hali ya chandarua chenye viuwatilifu kinachotumika",
+        "hint": "Hali ya chandarua (LLIN)",
         "values": [
-          "Nzima",
-          "Mbovu"
-        ],
-        "keys": [
-          "Okay",
-          "Bad"
+          "Nzuri",
+          "Mbaya"
         ],
         "openmrs_choice_ids": {
           "Okay": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -333,7 +298,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Tafadhali chagua chaguzi moja"
         },
         "relevance": {
           "rules-engine": {
@@ -349,22 +314,14 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "1379AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "spinner",
-        "hint": "Mada juu ya ugonjwa wa malaria zilizofundishwa",
+        "hint": "Mada za malaria zilizojadiliwa",
         "values": [
-          "Muktasari kuhusu ugonjwa wa malaria",
-          "Kuzuia malaria",
-          "Malaria isiyokali",
-          "Malaria kali",
-          "Malaria kwa mama mjamzito",
-          "Hajafanya"
-        ],
-        "keys": [
-          "Overview on malaria",
-          "Malaria prevention",
-          "Uncomplicated malaria",
-          "Severe malaria",
-          "Malaria in pregnancy",
-          "None"
+          "Muhtasari wa ugonjwa wa malaria",
+          "Kuzuia Malaria",
+          "Malaria isiyo ngumu",
+          "Ml\\alaria kali",
+          "Malaria wakati wa ujauzito",
+          "Hakuna"
         ],
         "openmrs_choice_ids": {
           "Overview on malaria": "116128AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -376,7 +333,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Tafadhali chagua chaguzi moja"
         }
       }
     ]

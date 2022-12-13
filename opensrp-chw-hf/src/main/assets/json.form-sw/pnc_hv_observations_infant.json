@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Uchunguzi na ugonjwa kwa mtoto",
+    "title": "Observations & Illness - Child",
     "fields": [
       {
         "key": "date_of_illness_child",
@@ -61,7 +61,7 @@
         "max_date": "today",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza tarehe ya shida"
+          "err": "Tafadhali weka tarehe ya ugonjwa"
         }
       },
       {
@@ -73,7 +73,7 @@
         "hint": "Maelezo",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza maelezo"
+          "err": "Tafadhali weka maelezo"
         }
       },
       {
@@ -82,7 +82,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "164378AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "check_box",
-        "label": "Hatua zilizochukuliwa",
+        "label": "Hatua iliyochukuliwa",
         "label_text_style": "normal",
         "text_color": "#C0C0C0",
         "exclusive": [
@@ -98,7 +98,7 @@
           },
           {
             "key": "chk_zinc",
-            "text": "Zinc 10",
+            "text": "Zinki 10",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "86672AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -126,7 +126,7 @@
           },
           {
             "key": "chk_none",
-            "text": "Hajapata matibabu",
+            "text": "Hakuna matibabu iliyotolewa",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -142,7 +142,7 @@
         "hint": "Matibabu mengine",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza maelezo ya ugonjwa"
+          "err": "Tafadhali weka maelezo ya ugonjwa"
         },
         "relevance": {
           "rules-engine": {

@@ -1,0 +1,42 @@
+---
+name: step2_ctc_number
+description: ctc_number relevance
+priority: 1
+condition: "step1_known_on_art.contains('yes') || step2_has_the_client_been_provided_with_ctc_number.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step2_has_the_client_been_provided_with_ctc_number
+description: has_the_client_been_provided_with_ctc_number relevance
+priority: 1
+condition: "(!step2_hiv_status.equals('') && step2_hiv_status.contains('positive'))"
+actions:
+  - "isRelevant = true"
+---
+name: step2_hiv
+description: hiv relevance
+priority: 1
+condition: "!step1_medical_surgical_history.contains('known_on_art')"
+actions:
+  - "isRelevant = true"
+---
+name: step2_is_test_at_32
+description: is_test_at_32 relevance
+priority: 1
+condition: "!step2_gest_age.equals('') && !step2_hiv.equals('') && step2_gest_age >= 32 && step2_hiv.contains('negative')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_pmtct_register_date_from_originating_facility
+description: pmtct_register_date_from_originating_facility relevance
+priority: 1
+condition: "step1_is_transfer_in_client.equals('yes') && step1_known_on_art.equals('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_pmtct_register_date_at_this_facility
+description: pmtct_register_date_at_this_facility relevance
+priority: 1
+condition: "step1_is_transfer_in_client.equals('no') && step1_known_on_art.equals('yes')"
+actions:
+  - "isRelevant = true"

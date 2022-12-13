@@ -47,7 +47,7 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Dalili za hatari kwa mama",
+    "title": "Danger Signs Mother",
     "fields": [
       {
         "key": "danger_signs_present_mama",
@@ -71,49 +71,49 @@
           },
           {
             "key": "chk_bleeding_vaginally",
-            "text": "Damu kutoka ukeni",
+            "text": "Kutokwa na damu ukeni",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "150802AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_server_headache",
-            "text": "Maumivu ya kichwa",
+            "text": "Maumivu makali ya kichwa",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "139081AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_convulsions",
-            "text": "Degedege / Mtukutiko wa mwili",
+            "text": "Degedege",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "164483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_difficulty_breathing",
-            "text": "Kupumua kwa shida",
+            "text": "Ugumu wa kupumua",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_severe_leg_pain",
-            "text": "Maumivu makali kwenye misuli ya miguu",
+            "text": "Maumivu makali ya mguu",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "114395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_unusual_behaviour",
-            "text": "Tabia isiyo ya kawaida (msongo wa mawazo, kuchanganyikiwa)",
+            "text": "Tabia isiyo ya kawaida (stress, kuchanganyikiwa)",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "152376AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_swelling of breast",
-            "text": "Kuvimba kwa matiti na chuchu zilizo chanika",
+            "text": "Kuvimba kwa matiti na chuchu",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "125212AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -127,14 +127,14 @@
           },
           {
             "key": "chk_vaginal_discharge",
-            "text": "Kutoka uchafu / majimaji ukeni yenye harufu mbaya",
+            "text": "Kutokwa na majimaji yenye rangi nyekundu au yenye majimaji ukeni yenye harufu mbaya",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "123395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
           },
           {
             "key": "chk_blurred_vision",
-            "text": "Kutoona vizuri",
+            "text": "Maono yaliyofifia",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "147104AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -148,7 +148,7 @@
           },
           {
             "key": "chk_urination",
-            "text": "Kupata mkojo kidogo au kuvuja mkojo mfululizo",
+            "text": "Kojoa kidogo au kuvuja kwa mkojo",
             "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "118982AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -172,7 +172,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Dalili za hatari! \nMpe rufaa haraka kwenda kituo cha afya.",
+        "text": "Alama ya hatari! Mpe rufaa mara moja kwenye kituo cha afya.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {

@@ -80,7 +80,7 @@
         "hint": "Uzito (kg)",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza uzito (kg)"
+          "err": "Tafhadhali ingiza uzito"
         }
       },
       {
@@ -93,7 +93,7 @@
         "hint": "Urefu (cm)",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza urefu (cm)"
+          "err": "Tafadhali ingiza urefu"
         }
       },
       {
@@ -113,19 +113,19 @@
           {
             "key": "mRDT_not_done",
             "openmrs_choice_id": "",
-            "text": "Kipimo cha mRDT hakitakiwi kufanyika",
+            "text": "mRDT haijafanyika",
             "value": false
           },
           {
             "key": "Other_tests",
             "openmrs_choice_id": "",
-            "text": "Vipimo vingine",
+            "text": "Vpipimo vingine",
             "value": false
           }
         ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali onesha vipimo vilivyoamuru"
+          "err": "Tafadhali onyesha vipimo vilivyoagizwa"
         }
       },
       {
@@ -134,19 +134,19 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "no_mrdt_malaria_hf",
         "openmrs_entity_parent": "",
-        "label": "Sababu ya kutofanyika kipimo cha mRDT",
+        "label": "Sababu ya kipimo cha mRDT kutofanyika",
         "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "stock_out",
             "openmrs_choice_id": "",
-            "text": "Ukosefu wa vitendanishi",
+            "text": "Vifaa vimeisha",
             "value": false
           },
           {
             "key": "mRDT_done_within_14_days",
             "openmrs_choice_id": "",
-            "text": "Kipimo cha mRDT kimefanyika ndani ya siku 14",
+            "text": "mRDT imefanyika ndani ya siku 14",
             "value": false
           }
         ],
@@ -159,7 +159,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua sababu ya mRDT haijafanywa"
+          "err": "Tafadhali chagua sababu ya kutofanya kipimo cha mRDT"
         }
       },
       {
@@ -169,7 +169,7 @@
         "openmrs_entity_id": "other_test_malaria_hf",
         "openmrs_entity_parent": "",
         "edit_type": "name",
-        "hint": "Taja vipimo vingine vilivyoagizwa",
+        "hint": "Vipimo vingu=ine vilivyoombwa",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -179,7 +179,7 @@
         },
         "v_required": {
           "value": false,
-          "err": "Tafadhali ingiza majaribio mengine yaliyoombewa"
+          "err": "Tafadhali ingiza vipimo vingine vilivyoombwa"
         }
       },
       {
@@ -188,7 +188,7 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "test_results_malaria_hf",
         "openmrs_entity_parent": "",
-        "label": "Matokeo ya vipimo",
+        "label": "Matokeo ya kipimo",
         "options": [
           {
             "key": "mRDT_positive",
@@ -199,31 +199,31 @@
           {
             "key": "mRDT_negative",
             "openmrs_choice_id": "",
-            "text": "mRDT hasi",
+            "text": "mRDT hasi ",
             "value": false
           },
           {
             "key": "Malaria_parasite_seen",
             "openmrs_choice_id": "",
-            "text": "Kuna vimelea vya malaria",
+            "text": "Kijidudu cha Malaria kimeonekana",
             "value": false
           },
           {
             "key": "No_malaria_parasite_seen",
             "openmrs_choice_id": "",
-            "text": "Hakuna vimelea vya malaria",
+            "text": "Kijidudu cha Malaria hakionekani",
             "value": false
           },
           {
             "key": "Other_test_results",
             "openmrs_choice_id": "",
-            "text": "Matokeo ya vipimo vingines",
+            "text": "Matokeo mengine ya kipimo",
             "value": false
           }
         ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua matokeo ya jaribio"
+          "err": "Tafadhali ingiza matokeo ya kipimo"
         }
       },
       {
@@ -233,7 +233,7 @@
         "openmrs_entity_id": "other_test_results_malaria_hf",
         "openmrs_entity_parent": "",
         "edit_type": "name",
-        "hint": "Matokeo ya vipimo vingine",
+        "hint": "Matokeo mengine ya kipimo",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -243,7 +243,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza matokeo mengine"
+          "err": "Tafadhali ingiza matokeo megine ya kipimo"
         }
       },
       {
@@ -252,13 +252,13 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "diagnosis_malaria_hf",
         "openmrs_entity_parent": "",
-        "label": "Diagnosis",
+        "label": "Utambuzi",
         "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "Uncomplicated_malaria",
             "openmrs_choice_id": "",
-            "text": "Malaria isiyo kali",
+            "text": "Malaria isiyo ngumu",
             "value": false
           },
           {
@@ -270,13 +270,13 @@
           {
             "key": "Other_diagnosis",
             "openmrs_choice_id": "",
-            "text": "Diagnosis nyingine",
+            "text": "Utambuzi mwingine",
             "value": false
           }
         ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua utambuzi"
+          "err": "Tafadhali ingiza utambuzi"
         }
       },
       {
@@ -286,7 +286,7 @@
         "openmrs_entity_id": "other_diagnosis_malaria_hf",
         "openmrs_entity_parent": "",
         "edit_type": "name",
-        "hint": "Diagnosis nyingine",
+        "hint": "Utambuzi mwingine",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -296,7 +296,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza diagnosis nyingine"
+          "err": "Tafadhali ingiza utambuzi mwingine"
         }
       },
       {
@@ -306,30 +306,30 @@
         "openmrs_entity_id": "treat_malaria_hf",
         "openmrs_entity_parent": "",
         "combine_checkbox_option_values": "true",
-        "label": "Matibabu aliyoandikiwa",
+        "label": "Matibabu yaliyotolewa",
         "options": [
           {
             "key": "ALU_1_x_6_strips",
             "openmrs_choice_id": "",
-            "text": "ALU ya 1 x 6",
+            "text": "Vipande vya ALU 1 x ",
             "value": false
           },
           {
             "key": "ALU_2_x_6_strips",
             "openmrs_choice_id": "",
-            "text": "ALU ya 2 x 6",
+            "text": "Vipande vya ALU 2 x 6",
             "value": false
           },
           {
             "key": "ALU_3_x_6_strips",
             "openmrs_choice_id": "",
-            "text": "ALU ya 3 x 6",
+            "text": "Vipandde vya ALU 3 x 6",
             "value": false
           },
           {
             "key": "ALU_4_x_6_strips",
             "openmrs_choice_id": "",
-            "text": "ALU ya 4 x 6",
+            "text": "Vipande vya ALU 4 x 6",
             "value": false
           },
           {
@@ -341,13 +341,13 @@
           {
             "key": "Paracetamol",
             "openmrs_choice_id": "",
-            "text": "Panadol (Dawa ya kupunguza maumivu)",
+            "text": "Paracetamol",
             "value": false
           },
           {
             "key": "Other_drugs",
             "openmrs_choice_id": "NA",
-            "text": "Dawa nyingine",
+            "text": "Dawa zingine",
             "value": false
           }
         ],
@@ -360,7 +360,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali ingiza matibabu iliyowekwa"
+          "err": "Tafadhali ingiza matibabu yaliyotolewa"
         }
       },
       {
@@ -370,7 +370,7 @@
         "openmrs_entity_id": "treat_other_malaria_hf",
         "openmrs_entity_parent": "",
         "edit_type": "name",
-        "hint": "Taja dawa nyingine zilizotolewa",
+        "hint": "Taja dawa zingine zilizotolewa",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -380,7 +380,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Taja dawa nyingine zilizotolewa"
+          "err": "Tafadhali ingiza dawa zingine"
         }
       },
       {
@@ -396,7 +396,7 @@
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Rufaa"
+            "text": "Amepewa rufaa"
           },
           {
             "key": "Admitted",
@@ -410,14 +410,14 @@
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Kifo"
+            "text": "Amefariki"
           },
           {
             "key": "Discharge",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Ameruhusiwa"
+            "text": "Ametolewa"
           }
         ],
         "v_required": {
@@ -435,7 +435,7 @@
         "hint": "Maoni",
         "v_required": {
           "value": "false",
-          "err": null
+          "err": "Hamna"
         }
       },
       {
@@ -444,68 +444,68 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "hcp_attending",
         "openmrs_entity_parent": "",
-        "label": "Kada ya mtoa huduma kwa mteja",
+        "label": "Wadhifa wa mtoa huduma wa afya anamhudumia mteja",
         "options": [
           {
             "key": "Medical_Doctor_MD",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Medical Doctor (MD)"
+            "text": "Daktari wa Tiba (MD)"
           },
           {
             "key": "Assistant_Medical_Doctor_AMO",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Assistant Medical Doctor (AMO)"
+            "text": "Daktari Msaidizi wa Tiba (AMO)"
           },
           {
             "key": "Clinical_Officer_CO",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Clinical Officer (CO)"
+            "text": "Afisa wa Kliniki (CO)"
           },
           {
             "key": "Assistance_Clincal_Officer_ACO",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Assistance Clincal Officer (ACO)"
+            "text": "Afisa Msaidizi wa Kliniki (ACO)"
           },
           {
             "key": "Nursing_Officer_NO",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Nursing Officer (NO)"
+            "text": "Afisa Muuguzi (NO)"
           },
           {
             "key": "Assistant_Nursing_officer_ANO",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Assistant Nursing officer (ANO)"
+            "text": "Afisa Muuguzi Msaidizi"
           },
           {
             "key": "Enrolled_Nurse_EN",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Enrolled Nurse (EN)"
+            "text": "Muuguzi aliyeanzikishwa (EN)"
           },
           {
             "key": "Medical_Attendant_MAT",
             "openmrs_entity": "",
             "openmrs_entity_id": "",
             "openmrs_entity_parent": "",
-            "text": "Medical Attendant (MAT)"
+            "text": "Mhudumu wa matibabu (MAT)"
           }
         ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua kichwa cha kuhudhuria"
+          "err": "Tafadhali chagua wadhifa wa mtoa huduma wa afya anayehudumia"
         }
       }
     ]

@@ -47,10 +47,17 @@ actions:
   - "isRelevant = true"
 
 ---
-name: step1_type_of_disability
-description: type_of_disability relevance
+name: step1_no_children_no
+description: no_children_no relevance
 priority: 1
-condition: "step1_disabilities == 'Yes' && (step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem')"
+condition: "(step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem') && !(step1_delivery_date == helper.getDateToday() && (step1_delivery_place == 'At a health facility' || step1_delivery_place == 'Birth before Arrival (BBA)'))"
+actions:
+  - "isRelevant = true"
+---
+name: step1_no_immediate_new_born
+description: no_immediate_new_born relevance
+priority: 1
+condition: "(step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem') && (step1_delivery_date == helper.getDateToday() && (step1_delivery_place == 'At a health facility' || step1_delivery_place == 'Birth before Arrival (BBA)'))"
 actions:
   - "isRelevant = true"
 
@@ -63,10 +70,10 @@ actions:
   - "isRelevant = true"
 
 ---
-name: step1_unique_id
-description: unique_id relevance
+name: step1_type_of_disability
+description: type_of_disability relevance
 priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
+condition: "step1_disabilities == 'Yes'"
 actions:
   - "isRelevant = true"
 
@@ -74,70 +81,48 @@ actions:
 name: step1_surname
 description: surname relevance
 priority: 1
-condition: "!step1_same_as_fam_name_chk.contains('same_as_fam_name') && (step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem')"
+condition: "!step1_same_as_fam_name_chk.contains('same_as_fam_name')"
 actions:
   - "isRelevant = true"
-
 ---
-name: step1_same_as_fam_name_chk
-description: same_as_fam_name relevance
+name: step1_hiv_status_question
+description: hiv question relevance
+priority: 1
+condition: "(step1_mothers_condition == 'alive' && !global_hiv_status_mother)"
+actions:
+  - "isRelevant = true"
+---
+name: step1_risk_category
+description: risk_category question relevance
+priority: 1
+condition: "((step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem') && (step1_hiv_status_question.contains('positive') || global_hiv_status_mother))"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hiv_status
+description: hiv status relevance
 priority: 1
 condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
 actions:
   - "isRelevant = true"
-
 ---
-name: step1_fam_name
-description: fam_name relevance
+name: step1_prompt_for_normal_apgar_score
+description: prompt_for_normal_apgar_score info
 priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
+condition: "step1_apgar_score != ''"
 actions:
-  - "isRelevant = true"
-
+  - "calculation = ['apgar_score':step1_apgar_score]"
 ---
-name: step1_first_name
-description: first_name relevance
+name: step1_apgar_score_calculated
+description: apgar_score_calculated info
 priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
+condition: "step1_apgar_score != ''"
 actions:
-  - "isRelevant = true"
-
+  - "calculation = step1_apgar_score"
 ---
-name: step1_middle_name
-description: middle_name relevance
+name: step1_prompt_for_abnormal_apgar_score
+description: prompt_for_abnormal_apgar_score info
 priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
+condition: "step1_apgar_score != ''"
 actions:
-  - "isRelevant = true"
-
----
-name: step1_gender
-description: gender relevance
-priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_disabilities
-description: disabilities relevance
-priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_early_bf_1hr
-description: early_bf_1hr relevance
-priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_vacc_birth
-description: vacc_birth relevance
-priority: 1
-condition: "step1_preg_outcome == 'born_alive' || step1_preg_outcome == 'alive_with_problem'"
-actions:
-  - "isRelevant = true"
+  - "calculation = ['apgar_score':step1_apgar_score]"

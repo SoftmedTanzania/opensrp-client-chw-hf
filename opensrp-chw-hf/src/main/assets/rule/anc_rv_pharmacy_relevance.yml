@@ -1,0 +1,7 @@
+---
+name: step1_deworming
+description: deworming relevance
+priority: 1
+condition: "global_gestational_age >= 13 && !global_deworming_given"
+actions:
+  - "isRelevant = true"

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taarifa ya miezi mitatu</title>
+    <link rel="stylesheet" href="../report-styles.css">
+    <script src="../report-script.js"></script>
+</head>
+
+<body onload="loadData('three_months')">
+<div class="show-on-print">
+    <h1>TAARIFA YA KUNDI MIEZI MITATU</h1>
+    <h2>COHORT YA MAMA [MWEZI/MWAKA]: <span id="report_period"></span></h2>
+    <h2>KITUO: <span id="reporting_facility"></span></h2>
+</div>
+<table border="1" style="border-collapse: collapse;">
+    <thead>
+    <tr>
+        <th colspan="4">
+            Taarifa za mama alipoandikishwa (Month 0)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="four-cols">
+        <td>A3</td>
+        <td colspan="3" class="list-title">Idadi ya wajawazito na wanaonyonyesha walioandikishwa katika kundi katika mwezi husika (Month 0)</td>
+    </tr>
+    <tr class="four-cols">
+        <td>
+        </td>
+        <td>
+            B3a
+        </td>
+        <td>
+            Idadi umri wa miaka 10-14
+        </td>
+        <td id="B3a"></td>
+    </tr>
+    <tr class="four-cols">
+        <td>
+        </td>
+        <td>
+            B3b
+        </td>
+        <td>
+            Idadi umri wa miaka 15-19
+        </td>
+        <td id="B3b"></td>
+    </tr>
+    <tr class="four-cols">
+        <td>
+        </td>
+        <td>
+            B3c
+        </td>
+        <td>
+            Idadi umri wa miaka 20-24
+        </td>
+        <td id="B3c"></td>
+    </tr>
+    <tr class="four-cols">
+        <td>
+        </td>
+        <td>
+            B3d
+        </td>
+        <td>
+            Idadi umri wa miaka 25+
+        </td>
+        <td id="B3d"></td>
+    </tr>
+    <tr class="four-cols">
+        <td>
+        </td>
+        <td>
+            C3a
+        </td>
+        <td>
+            Idadi walioanza tiba ART(initiates)
+        </td>
+        <td id="C3a"></td>
+    </tr>
+    <tr class="four-cols">
+        <td>
+        </td>
+        <td>
+            C3b
+        </td>
+        <td>
+            Idadi waliyotayari kwenye tiba ya ART
+        </td>
+        <td id="C3b"></td>
+    </tr>
+    <th colspan="4">
+        Tafuta jumla ya kundi
+    </th>
+    <tr class="three-cols">
+        <td>
+            D3
+        </td>
+        <td colspan="2" class="list-title">
+            Jumla waliohamia kliniki hii ya PMTCT(TI) tangu month 0
+        </td>
+        <td id="D3"></td>
+    </tr>
+    <tr class="three-cols">
+        <td>
+            E3
+        </td>
+        <td colspan="2" class="list-title">
+            Jumla waliohama kutoka kliniki hii ya PMTCT (TO) tangu month 0
+        </td>
+        <td id="E3"></td>
+    </tr>
+    <tr class="three-cols">
+        <td>
+            F3
+        </td>
+        <td colspan="2" class="list-title">
+            Jumla ya kundi = (A3+D3-E3)
+        </td>
+        <td id="F3"></td>
+    </tr>
+    <th colspan="4">
+        Matokeo ya ufuatiliaji wa mama
+    </th>
+    <tr class="three-cols">
+        <td>
+            G3
+        </td>
+        <td colspan="2" class="list-title">
+            Idadi ya kina mama wanaoendelea na huduma (CTN katika M1 au M2 au M3)
+        </td>
+        <td id="G3"></td>
+    </tr>
+    <tr class="three-cols">
+        <td>
+            H3
+        </td>
+        <td colspan="2" class="list-title">
+            Idadi waliokosa mahudhurio matatu mfululizo (M1, M2 na M3)
+        </td>
+        <td id="H3"></td>
+    </tr>
+    <tr class="three-cols">
+        <td>
+            I3
+        </td>
+        <td colspan="2" class="list-title">
+            Waliofariki
+        </td>
+        <td id="I3"></td>
+    </tr>
+    <tr class="three-cols">
+        <td>
+            J3
+        </td>
+        <td colspan="2" class="list-title">
+            Waliomaliza ufuatiliaji na kwenda CTC (Exit)
+        </td>
+        <td id="J3"></td>
+    </tr>
+    <tr class="three-cols">
+        <td>
+            K3
+        </td>
+        <td colspan="2" class="list-title">
+            (Early retention)% walio hai na wanatumia huduma ya PMTCT [G3/(F3-J3)*100]%
+        </td>
+        <td id="K3"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,220 @@
+{
+  "count": "1",
+  "encounter_type": "PMTCT counselling",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Continuous Health Education",
+    "fields": [
+      {
+        "key": "is_client_counselled",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_client_counselled",
+        "type": "native_radio",
+        "label": "Has the client been provided continuous health education?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "counselling_topics_provided",
+        "type": "check_box",
+        "label": "Please select the topics that the client has been educated on",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "counselling_topics_provided",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "chk_none"
+        ],
+        "options": [
+          {
+            "key": "chk_hiv_info",
+            "text": "HIV transmission, presentation, treatment, disease progression & prevention",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_hiv_info"
+          },
+          {
+            "key": "chk_disclosure",
+            "text": "Disclosure and identifying treatment supporter",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_disclosure"
+          },
+          {
+            "key": "chk_promote_testing",
+            "text": "Promoting Index testing and couple testing",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_promote_testing"
+          },
+          {
+            "key": "chk_ayf_services",
+            "text": "Adolescent and youth-friendly services (Adherence, Retention e.t.c)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_ayf_services"
+          },
+          {
+            "key": "chk_prevention_diseases",
+            "text": "Prevention of diseases, use of bed nets, environmental and personal hygiene",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_prevention_diseases"
+          },
+          {
+            "key": "chk_imp_cpt",
+            "text": "Importance of CPT, CrPET and TPT",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_cpt"
+          },
+          {
+            "key": "chk_imp_adherence",
+            "text": "Importance of adherence, how to remind, plan, what to do when travelling, sick, etc. Refer to adherence checklist",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_adherence"
+          },
+          {
+            "key": "chk_imp_support_group",
+            "text": "Importance of CBS and HIV support group",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_support_group"
+          },
+          {
+            "key": "chk_imp_appointment",
+            "text": "Importance of appointment, dates and time, planning transport",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_appointment"
+          },
+          {
+            "key": "chk_sti_rti",
+            "text": "STIs/RTIs Syndromes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_sti_rti"
+          },
+          {
+            "key": "chk_imp_insurance",
+            "text": "Importance of processing and using health insurance to cover treatment costs",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_imp_insurance"
+          },
+          {
+            "key": "chk_non_communicable_diseases_prevention",
+            "text": "Non-communicable diseases preventions (Nutrition, Exercise, lifestyle, etc)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_non_communicable_diseases_prevention"
+          },
+          {
+            "key": "chk_eac_sessions",
+            "text": "EAC sessions if HVL > 1000 copies/ml",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_eac_sessions"
+          },
+          {
+            "key": "chk_infant_feeding_options",
+            "text": "Infant feeding options in the context of HIV",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_infant_feeding_options"
+          },
+          {
+            "key": "chk_living_with_hiv",
+            "text": "How to live with HIV",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_living_with_hiv"
+          },
+          {
+            "key": "chk_none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the topic(s)"
+        },
+        "relevance": {
+          "step1:is_client_counselled": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "type": "hidden",
+        "openmrs_entity_id": "visit_number",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "followup_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "followup_status",
+        "openmrs_entity_parent": "",
+        "value": "continuing_with_services",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_fv_counselling_relevance.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

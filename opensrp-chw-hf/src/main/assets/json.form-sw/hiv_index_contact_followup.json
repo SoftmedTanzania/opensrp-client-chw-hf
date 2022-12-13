@@ -1,0 +1,532 @@
+{
+  "form": "HIV Index Contact Testing Followup",
+  "count": "1",
+  "encounter_type": "HIV Index Contact Testing Followup",
+  "entity_id": "",
+  "relational_id": "",
+  "rules_file": "rule/hiv_index_contact_followup_for_non_sex_partner_rules.yml",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "steps": [
+    {
+      "title": "Majibu ya mshirika wa kingono/wakujidunga",
+      "fields": [
+        {
+          "name": "has_the_client_been_reached",
+          "type": "radio_group",
+          "properties": {
+            "text": "Je, mteja amepatikana?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_the_client_been_reached",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "yes",
+              "text": "Ndio",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "yes",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "no",
+              "text": "Hapana",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua jibu",
+          "dependent_calculations": [
+            "relationship"
+          ]
+        },
+        {
+          "name": "eligibility_for_testing",
+          "type": "radio_group",
+          "properties": {
+            "text": "Je, mteja ana kidhi vigezo vya upimaji wa VVU?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "eligibility_for_testing",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "yes",
+              "text": "Ndio",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "yes",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "no",
+              "text": "Hapana",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua jibu",
+          "subjects": "has_the_client_been_reached:map"
+        },
+        {
+          "name": "has_the_contact_client_been_tested",
+          "type": "radio_group",
+          "properties": {
+            "text": "Je, amepimwa VVU?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_the_contact_client_been_tested",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "yes",
+              "text": "Ndio",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "yes",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "no",
+              "text": "Hapana",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua jibu",
+          "subjects": "has_the_client_been_reached:map, eligibility_for_testing:map"
+        },
+        {
+          "name": "reasons_conducting_testing_for_index_contact",
+          "type": "spinner",
+          "properties": {
+            "text": "Sababu ya kutofanya kipimo cha VVU"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reasons_conducting_testing_for_index_contact",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "test_kits_are_out_of_stock",
+              "text": "Vifaa vya kupima vimeisha",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "test_kits_are_out_of_stock",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "the_client_refused_to_be_tested",
+              "text": "Mteja alikataa kupimwa",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "the_client_refused_to_be_tested",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "we_are_still_counselling_the_client",
+              "text": "Tunaendelea kumshauri mteja",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "we_are_still_counselling_the_client",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "other",
+              "text": "Nyingine",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "other",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali ingiza sababu",
+          "subjects": "eligibility_for_testing:map,has_the_contact_client_been_tested:map,has_the_client_been_reached:map"
+        },
+        {
+          "name": "other_reason_for_not_testing",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Sababu nyingine ya kutofanya kipimo cha VVU"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_reason_for_not_testing",
+            "openmrs_entity_parent": ""
+          },
+          "required_status": "yes:Please enter the reason",
+          "subjects": "reasons_conducting_testing_for_index_contact:map,eligibility_for_testing:map,has_the_contact_client_been_tested:map,has_the_client_been_reached:map"
+        },
+        {
+          "name": "test_results",
+          "type": "radio_group",
+          "properties": {
+            "text": "Ni nini matokeo ya kipimo cha VVU?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_results",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "positive",
+              "text": "Ana VVU",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "positive",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "negative",
+              "text": "Hana VVU",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "negative",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua matokeo ya vipimo vya VVU",
+          "subjects": "has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "place_where_test_was_conducted",
+          "type": "radio_group",
+          "properties": {
+            "text": "Mahali alikopimia mteja"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "place_where_test_was_conducted",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "outpatient_department",
+              "text": "Idara ya wagonjwa wa nje",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "outpatient_department",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "inpatient_department",
+              "text": "Idara ya wagonjwa waliolazwa",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "inpatient_department",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "community_based_hiv_testing_service",
+              "text": "Huduma za upimaji nyumbani",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "community_based_hiv_testing_service",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "ctc",
+              "text": "CTC",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "ctc",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "outreach_services",
+              "text": "Huduma ya mkoba (outreach services)",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "outreach_services",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "other",
+              "text": "Kwingineko",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "other",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua jibu sahihi",
+          "subjects": "test_results:map, eligibility_for_testing:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "client_test_date",
+          "type": "datetime_picker",
+          "properties": {
+            "hint": "Tarehe ya kupima ya mteja",
+            "type": "date_picker",
+            "display_format": "dd/MM/yyyy",
+            "max_date": "today"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_test_date",
+            "openmrs_entity_parent": ""
+          },
+          "required_status": "true:Tafadhali jaza tarehe ya upimaji wa VVU wa mteja",
+          "subjects": "test_results:map, eligibility_for_testing:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "toast_enroll_the_client_to_prep",
+          "type": "toast_notification",
+          "properties": {
+            "notification_type": "info",
+            "dismissible": "no",
+            "title": "Mteja anatakiwa kusajiliwa kwenye PrEP",
+            "text": "Mteja ni mshirika wa kingono wa mteja wa VVU, anatakiwa kusajiliwa kwenye huduma ya PrEP",
+            "background_color": "#082455",
+            "text_color": "#EBEE2F"
+          },
+          "subjects": "relationship:text, test_results:map, has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "enrolled_to_prep",
+          "type": "radio_group",
+          "properties": {
+            "text": "Je, mteja amasajiliwa kwenye huduma ya PrEP?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "enrolled_to_prep",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "yes",
+              "text": "Ndio",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "yes",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "no",
+              "text": "Hapana",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali chagua jibu",
+          "subjects": "relationship:text, test_results:map, has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "reason_for_not_being_enrolled_to_prep",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Sababu gani mteja hajasajiliwa kwenye huduma ya PrEP?",
+            "input_type": "text"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reason_for_not_being_enrolled_to_prep",
+            "openmrs_entity_parent": ""
+          },
+          "required_status": "yes:Tafadhali jaza majibu",
+          "subjects": "relationship:text, test_results:map, has_the_contact_client_been_tested:map, eligibility_for_testing:map, has_the_client_been_reached:map, enrolled_to_prep:map"
+        },
+        {
+          "name": "enrolled_to_clinic",
+          "type": "radio_group",
+          "properties": {
+            "text": "Je, mteja amesajiliwa kwenye kliniki ya VVU?"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "enrolled_to_clinic",
+            "openmrs_entity_parent": ""
+          },
+          "options": [
+            {
+              "name": "yes",
+              "text": "Ndio",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "yes",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "no",
+              "text": "Hapana",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "no",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes:Tafadhali jaza jibu",
+          "subjects": "test_results:map, eligibility_for_testing:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "reasons_for_ineligibility_for_testing",
+          "type": "spinner",
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reasons_for_ineligibility_for_testing",
+            "openmrs_entity_parent": ""
+          },
+          "properties": {
+            "text": "Sababu zinazomfanya mteja asifanyiwe kipimo cha HIV"
+          },
+          "options": [
+            {
+              "name": "known_positive",
+              "text": "Mteja tayari amekwisha pima na ana HIV",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "known_positive",
+                "openmrs_entity_parent": ""
+              }
+            },
+            {
+              "name": "other",
+              "text": "Nyingine",
+              "meta_data": {
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "other",
+                "openmrs_entity_parent": ""
+              }
+            }
+          ],
+          "required_status": "yes: Tafadhali Chagua",
+          "subjects": "has_the_client_been_reached:map,eligibility_for_testing:map"
+        },
+        {
+          "name": "other_reason_for_ineligibility",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Nyingine"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_reason_for_ineligibility",
+            "openmrs_entity_parent": ""
+          },
+          "required_status": "yes: Tafadhali jaza sababu nyingine",
+          "subjects": "reasons_for_ineligibility_for_testing:map, eligibility_for_testing:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "ctc_number",
+          "type": "masked_edit_text",
+          "properties": {
+            "hint": "Namba ya CTC, mfano: 12-34-5678-912345",
+            "type": "Clinic of Treatment and Care registration number (CTC Number)",
+            "mask": "##-##-####-######",
+            "mask_hint": "12345678912345",
+            "input_type": "number",
+            "allowed_chars": "0123456789"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ctc_number",
+            "openmrs_entity_parent": ""
+          },
+          "validation": [
+            {
+              "condition": "value.matches(\"(\\\\d{2}-\\\\d{2}-\\\\d{4}-\\\\d{6})?\")",
+              "message": "Namba ya CTC inatakiwa kuwa (XX-XX-XXXX-XXXXXX)."
+            }
+          ],
+          "required_status": "yes:Tafadhali jaza namba ya CTC ya mteja",
+          "subjects": "enrolled_to_clinic:map, reasons_for_ineligibility_for_testing:map, eligibility_for_testing:map, test_results:map, has_the_contact_client_been_tested:map, has_the_client_been_reached:map"
+        },
+        {
+          "name": "comment",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Toa maoni"
+          },
+          "meta_data": {
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "comment",
+            "openmrs_entity_parent": ""
+          },
+          "required_status": "false"
+        }
+      ]
+    }
+  ]
+}
+

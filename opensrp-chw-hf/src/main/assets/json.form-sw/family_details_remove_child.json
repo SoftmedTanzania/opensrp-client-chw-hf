@@ -52,12 +52,12 @@
     }
   },
   "step1": {
-    "title": "Ondoa mtoto chini ya miaki 5",
+    "title": "Remove Child Under 5",
     "fields": [
       {
         "key": "spacer",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "spacer",
         "spacer_height": "10sp"
@@ -65,7 +65,7 @@
       {
         "key": "details",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "label",
         "text": "",
@@ -75,13 +75,13 @@
         "key": "divider1",
         "type": "h_line",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": ""
       },
       {
         "key": "spacer",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "spacer",
         "spacer_height": "15dp"
@@ -93,11 +93,11 @@
         "openmrs_entity_id": "160417AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Sababu ya kuiondoa",
+        "hint": "Sababu",
         "values": [
-          "Kifo",
+          "Amefariki",
           "Amehama",
-          "Sababu nyingine"
+          "Nyinginezo"
         ],
         "keys": [
           "Died",
@@ -115,9 +115,28 @@
         }
       },
       {
+        "key": "other_reason_for_removing_the_client",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_removing_the_client",
+        "type": "edit_text",
+        "hint": "Sababu Nyinginezo",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza sababu nyinginezo"
+        },
+        "relevance": {
+          "step1:remove_reason": {
+            "type": "string",
+            "ex": "equalTo(., \"Other\")"
+          }
+        }
+      },
+      {
         "key": "dob",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "spacer",
         "expanded": false,
@@ -131,20 +150,20 @@
         "openmrs_entity_id": "164133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "text",
         "type": "date_picker",
-        "label": "Tarehe aliyohama",
-        "hint": "Tarehe aliyohama",
+        "label": "Date moved away",
+        "hint": "Tarehe ya kuhamishwa",
         "expanded": false,
         "min_date": "",
         "max_date": "today",
         "v_required": {
           "value": "true",
-          "err": "Ingiza tarehe ambayo mwanachama alihama"
+          "err": "Weka tarehe ambayo mwanachama alihama"
         },
         "constraints": [
           {
             "type": "date",
             "ex": "greaterThanEqualTo(., step1:dob)",
-            "err": "Tarehe ya kuhamishwa haiwezi kuwa kabla ya tarehe ya kuzaliwa"
+            "err": "Moved away date cannot be before date of birth"
           }
         ],
         "relevance": {
@@ -161,20 +180,20 @@
         "openmrs_entity_id": "1543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "text",
         "type": "date_picker",
-        "label": "Tarehe ya kifo",
+        "label": "Date of death",
         "hint": "Tarehe ya kifo",
         "expanded": false,
         "min_date": "",
         "max_date": "today",
         "v_required": {
           "value": "true",
-          "err": "Ingiza tarehe ya kifo"
+          "err": "Weka tarehe ya kifo"
         },
         "constraints": [
           {
             "type": "date",
             "ex": "greaterThanEqualTo(., step1:dob)",
-            "err": "Tarehe ya kifo haiwezi kutokea kabla ya tarehe ya kuzaliwa"
+            "err": "Date of death can't occur before date of birth"
           }
         ],
         "relevance": {
@@ -187,10 +206,10 @@
       {
         "key": "age_at_death",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
-        "label": "Umri wakati anafariki",
-        "hint": "Umri wakati anafariki",
+        "label": "Age at death",
+        "hint": "Umri wakati wa kifo",
         "type": "edit_text",
         "read_only": "true",
         "relevance": {

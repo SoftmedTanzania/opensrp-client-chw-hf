@@ -1,0 +1,49 @@
+---
+name: step3_gest_age
+description: Gestational age calculated
+priority: 1
+condition: "step2_fundal_palpation.contains('fetal_parts_detected') || (step2_uss.contains('present_gestation_sac') && !step2_upt.contains('negative'))  || (step2_upt.contains('positive'))"
+actions:
+  - "calculation = step3_fundal_height == '' ? ((helper.getDifferenceDays(step3_last_menstrual_period)-helper.getDifferenceDays(helper.getDateToday())) /7) : step3_fundal_height"
+---
+name: step3_gest_age_note
+description: Gestational age calculated
+priority: 1
+condition: "step2_fundal_palpation.contains('fetal_parts_detected') || (step2_uss.contains('present_gestation_sac') && !step2_upt.contains('negative')) || (step2_upt.contains('positive'))"
+actions:
+  - "calculation = step3_gest_age"
+---
+name: step3_estimated_last_menstrual_period
+description: estimated_last_menstrual_period calculation
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step3_fundal_height == '' ? '' : helper.subtractDuration(helper.getDateToday(), step3_gest_age+'w') "
+---
+name: step3_edd
+description: Edd calculated
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step3_estimated_last_menstrual_period == '' ? helper.addDuration(step3_last_menstrual_period,'280d')  : helper.addDuration(step3_estimated_last_menstrual_period,'280d')"
+---
+name: step3_last_menstrual_period
+description: Last Menstrual Period
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step3_estimated_last_menstrual_period == '' ? step3_known_last_menstrual_period : step3_estimated_last_menstrual_period"
+---
+name: step3_pregnancy_confirmation_status
+description: Pregnancy Confirmation Status
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step2_fundal_palpation.contains('fetal_parts_detected') || (step2_uss.contains('present_gestation_sac') && !step2_upt.contains('negative'))  || (step2_upt.contains('positive'))  ? 'Confirmed' : 'Unconfirmed'"
+---
+name: step3_pregnancy_confirmation_date
+description: Pregnancy Confirmation Date
+priority: 1
+condition: "true"
+actions:
+  - "calculation = helper.getDateToday()"

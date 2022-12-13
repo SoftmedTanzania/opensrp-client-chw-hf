@@ -1,0 +1,880 @@
+{
+  "count": "1",
+  "encounter_type": "PNC Mother General Examination",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Uchunguzi wa Afya ya Mama",
+    "fields": [
+      {
+        "key": "followup_visit_date",
+        "type": "edit_text",
+        "hidden": "true",
+        "openmrs_entity_id": "followup_visit_date",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_followup_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Blood Pressure)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza namba ya Systolic (Blood Pressure)"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "namba ya Tafadhali ingiza namba ya Systolic lazime iwe sawa au kubwa kuliko 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Tafadhali ingiza namba ya Systolic lazima iwe sawa au chini ya 320"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali ingiza namba ya Systolic (Blood Pressure)"
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastolic",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza Diastolic"
+        },
+        "v_min": {
+          "value": "0",
+          "err": " Diastolic lazima iwe sawa au kubwa na 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": " Diastolic lazima iwe sawa au ndogo ya 200"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali ingiza Diastolic"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "Thamani ya diastolic lazima iwe chini ya thamani ya systolic"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Mtibu Mteja Shinikizo la damu ya juu kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_mother_general_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Mpatie IV Fluids, pia bainisha chanzo cha Shinikizo la damu ya chini na dhibiti hali hii kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_mother_general_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hb_level_test",
+        "type": "native_radio",
+        "label": "Kipimo cha kiwango cha damu (HB)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hb_level_test",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "test_conducted",
+            "text": "Kipimo cha HB kimefanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_conducted",
+            "openmrs_entity_parent": ""
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha HB hakujafanyika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "hb_level",
+        "type": "edit_text",
+        "hint": "Kiwango cha damu (HB) (g/dl)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hb_level",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Ingiza kiasi cha HB"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Kiasi cha HB lazima kiwe sawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "20",
+          "err": "Kiasi cha HB lazima kiwe sawa au chini ya 20 (g/dl)"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Ingiza kiasi cha HB"
+        },
+        "relevance": {
+          "step1:hb_level_test": {
+            "type": "string",
+            "ex": "equalTo(., \"test_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_severe_anaemia_treatment",
+        "type": "toaster_notes",
+        "text": "Dhibiti anaemia kali kulingana na miongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_severe_anaemia_treatment",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:hb_level": {
+            "type": "numeric",
+            "ex": "lessThanEqualTo(.,\"8.5\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_moderate_anaemia_management",
+        "type": "toaster_notes",
+        "text": "Dhibiti anemia kidogo kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "prompt_for_moderate_anaemia_management",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_mother_general_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_hb_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_hb_test",
+        "type": "spinner",
+        "hint": "Sababu ya kutofanya kipimo cha HB",
+        "values": [
+          "Cuvette Cartridges Hazipo Kituoni",
+          "Mashine ya Kupimwa wingi wa damu (Haemoque) haifanyi kazi",
+          "Mteja alikuwa katika hali ya dharura",
+          "Mteja amekataa kupimwa",
+          "Tunaendelea kumshauri mteja",
+          "Nyingine (Bainisha)"
+        ],
+        "keys": [
+          "stock_out_of_cuvettes_cartridges",
+          "haemoque_machine_out_of_order",
+          "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "stock_out_of_cuvettes_cartridges": "stock_out_of_cuvettes_cartridges",
+          "haemoque_machine_out_of_order": "haemoque_machine_out_of_order",
+          "the_client_was_in_an_emergency_situation": "the_client_was_in_an_emergency_situation",
+          "the_client_refused_to_be_tested": "the_client_refused_to_be_tested",
+          "we_are_still_counselling_the_client": "we_are_still_counselling_the_client",
+          "other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua sababu"
+        },
+        "relevance": {
+          "step1:hb_level_test": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_hb_test_not_conducted",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_hb_test_not_conducted",
+        "type": "edit_text",
+        "hint": "Sababu nyingine kwa kutofanyika kwa kipimo cha HB",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Jaza sababu"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_hb_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "temperature",
+        "type": "edit_text",
+        "hint": "Joto (\u2103)",
+        "openmrs_entity_id": "temperature",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Ingiza kiasi cha Joto (\u2103)"
+        },
+        "v_min": {
+          "value": "10",
+          "err": "Kiasi cha joto lazima kiwe sawa au kubwa kuliko 10 C"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Kiasi cha joto lazima kiwe sawa au chini kuliko 50 C"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Ingiza kiasi cha Joto (\u2103)"
+        }
+      },
+      {
+        "key": "notify_client_has_fever",
+        "type": "toaster_notes",
+        "text": "Fanya vipimo vya maabara vinavyofaa ili kupata sababu ya homa na udhibiti kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "notify_client_has_fever",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"37.8\")"
+          }
+        }
+      },
+      {
+        "key": "notify_client_has_hypothermia",
+        "type": "toaster_notes",
+        "text": "Dhibiti hypothermia kulingana na miongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "notify_client_has_hypothermia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"36.5\")"
+          }
+        }
+      },
+      {
+        "key": "weight",
+        "type": "edit_text",
+        "hint": "Uzito (Kg)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "weight",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza Uzito wa Mteja"
+        },
+        "v_min": {
+          "value": "20",
+          "err": "Uzito lazima uwe sawa au zaidi ya 20kg"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Uzito lazima uwe sawa au chini ya 300kg"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali ingiza Uzito wa Mteja"
+        }
+      },
+      {
+        "key": "prompt_for_breast_exam",
+        "type": "toaster_notes",
+        "text": "Uchunguzi wa Matiti",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info"
+      },
+      {
+        "key": "breast_milk_flow",
+        "type": "native_radio",
+        "label": "Je Matiti ya mama yanatoa maziwa?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "breast_milk_flow",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_no_breast_milk_flow",
+        "type": "toaster_notes",
+        "text": "Mshauri na msaidie Mama kumweka Mtoto katika ziwa wakati wa kunyonyesha mtoto. Maziwa ya mama yataendelea kutoka kwa wingi jinsi mtoto ananyoendelea kunyonya",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:breast_milk_flow": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "bruised_nipples",
+        "type": "native_radio",
+        "label": "Je, Mama ana Chuchu Iliyochubuka?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bruised_nipples",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_bruised_nipples",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:bruised_nipples": {
+            "type": "string",
+            "ex": "equalTo(.,\"yes\")"
+          }
+        }
+      },
+      {
+        "key": "engorgement_mastitis",
+        "type": "native_radio",
+        "label": "Je, matiti ya Mama yamejaa au yamevimba?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "engorgement_mastitis",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_engorgement_mastitis",
+        "type": "toaster_notes",
+        "text": "Mpatie mama antibiotiki (kiuavijsimu) na dawa za kutuliza maumivu",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:engorgement_mastitis": {
+            "type": "string",
+            "ex": "equalTo(.,\"yes\")"
+          }
+        }
+      },
+      {
+        "key": "abscess",
+        "type": "native_radio",
+        "label": "Je, Mama ana Jipu?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "abscess",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_abscess",
+        "type": "toaster_notes",
+        "text": "Minya, toboa na kamua Jipu la Mama. Mpatie Mama antibiotics na dawa za kutuliza maumivu",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:abscess": {
+            "type": "string",
+            "ex": "equalTo(.,\"yes\")"
+          }
+        }
+      },
+      {
+        "key": "perineum_infection",
+        "type": "native_radio",
+        "label": "Je, Mama ana msamba au kidonda cha upasuaji ulioambikwizwa/ulioachia?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "perineum_infection",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_perineum_infection",
+        "type": "toaster_notes",
+        "text": "Toa rufaa kwa huduma zaidi",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:perineum_infection": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "uterus_assessment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uterus_assessment",
+        "type": "native_radio",
+        "label": "Tathmini ya mfuko wa uzazi",
+        "options": [
+          {
+            "key": "chk_normal_involution",
+            "text": "Upo kawaida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_normal_involution"
+          },
+          {
+            "key": "chk_pain",
+            "text": "Kuna maumivu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_pain"
+          },
+          {
+            "key": "chk_distended",
+            "text": "Haujanywea",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_distended"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_uterus_pain",
+        "type": "toaster_notes",
+        "text": "Fanya uchunguzi wa uke kuangalia kama kuna dalili zozote za puerperial sepsis au mabaki yoyote ya uchafu baada ya kujifungua. Dhibiti hali hii kulingana na muongozo na mpatie Antibiotiki (Kiuavijasumu) na Dawa za kutuliza maumivu kulingana na muongozo",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:uterus_assessment": {
+            "type": "string",
+            "ex": "equalTo(.,\"chk_pain\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_uterus_distended",
+        "type": "toaster_notes",
+        "text": "Tathmini usikivu wa tumbo na mabadiliko ya uterasi, dhibiti hali ya mteja kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:uterus_assessment": {
+            "type": "string",
+            "ex": "equalTo(.,\"chk_distended\")"
+          }
+        }
+      },
+      {
+        "key": "lochia_assessment",
+        "type": "native_radio",
+        "label": "Tathmini ya Lokia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "lochia_assessment",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "lochia_rubra",
+            "text": "Ute mwekundu ukeni (lokia)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lochia_rubra"
+          },
+          {
+            "key": "lochia_serosa",
+            "text": "Ute wa pinki au kahawia ukeni (lokia)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lochia_serosa"
+          },
+          {
+            "key": "lochia_alba",
+            "text": "Ute mweupe ukeni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lochia_alba"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "vaginal_assessment",
+        "type": "native_radio",
+        "label": "Tathmini ya uke",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "vaginal_assessment",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "tear",
+            "text": "Umechanika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tear"
+          },
+          {
+            "key": "episiotomy",
+            "text": "Kuongezewa njia wakati wa kujifungua",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "episiotomy"
+          },
+          {
+            "key": "intact",
+            "text": "Haujacahnika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "intact"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_tear_vaginal_assessment",
+        "type": "toaster_notes",
+        "text": "Ikiwa mteja anavuja damu sana, toa huduma ya dharura ya kuzuia uvujaji damu baada ya kujifungua, rekebisha jeraha na mpe Antibiotics na dawa za kutuliza maumivu",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:vaginal_assessment": {
+            "type": "string",
+            "ex": "equalTo(.,\"tear\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_episiotomy_vaginal_assessment",
+        "type": "toaster_notes",
+        "text": "Angalia jeraha kama linatokwa na damu na maambukizi yoyote, udhibiti hali hii kulingana na mwongozo wa Wizara ya Afya",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:vaginal_assessment": {
+            "type": "string",
+            "ex": "equalTo(.,\"episiotomy\")"
+          }
+        }
+      },
+      {
+        "key": "fistula",
+        "type": "native_radio",
+        "label": "Je, Mama huyu ana Fistula?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "fistula",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "prompt_for_fistula",
+        "type": "toaster_notes",
+        "text": "Mpatie rufaa ya upasuaji kwa ajili kurekebisha fistula",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:fistula": {
+            "type": "string",
+            "ex": "equalTo(.,\"yes\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_mental_health_examination",
+        "type": "toaster_notes",
+        "text": "Uchunguzi wa Afya ya Akili",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info"
+      },
+      {
+        "key": "puerperal_psychosis",
+        "type": "native_radio",
+        "label": "Je, Mama amepata Kichaa cha mimba?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "puerperal_psychosis",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        }
+      },
+      {
+        "key": "mental_illness_symptom",
+        "type": "native_radio",
+        "label": "Dalili nyingine yoyote ya Ugonjwa wa Akili",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mental_illness_symptom",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali hili"
+        },
+        "relevance": {
+          "step1:puerperal_psychosis": {
+            "type": "string",
+            "ex": "equalTo(.,\"no\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_mental_illness",
+        "type": "toaster_notes",
+        "text": "Mpatie rufaa kwenda kumuona Daktari wa Magonjwa ya Akili",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_mother_general_examination_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "type": "hidden",
+        "openmrs_entity_id": "visit_number",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      }
+    ]
+  }
+}

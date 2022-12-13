@@ -12,6 +12,7 @@ import org.smartregister.chw.core.repository.StockUsageReportRepository;
 import org.smartregister.chw.core.utils.ChwDBConstants;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.hf.BuildConfig;
+import org.smartregister.chw.hf.HealthFacilityApplication;
 import org.smartregister.chw.hf.dao.FamilyDao;
 import org.smartregister.domain.db.Column;
 import org.smartregister.family.util.DBConstants;
@@ -24,6 +25,9 @@ import org.smartregister.repository.EventClientRepository;
 import org.smartregister.util.DatabaseMigrationUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import timber.log.Timber;
@@ -69,10 +73,15 @@ public class HfChwRepository extends CoreChwRepository {
                     upgradeToVersion9(db);
                 case 10:
                     upgradeToVersion10(db);
+                    upgradeToVersion10ForBaSouth(db);
                 case 11:
                     upgradeToVersion11(db);
                 case 12:
                     upgradeToVersion12(db);
+                case 13:
+                    upgradeToVersion14(db);
+                case 14:
+                    upgradeToVersion15(db);
                 default:
                     break;
             }
@@ -165,14 +174,32 @@ public class HfChwRepository extends CoreChwRepository {
 
     private static void upgradeToVersion7(SQLiteDatabase db) {
         try {
-            String indicatorsConfigFile = "config/indicator-definitions.yml";
-            String indicatorDataInitialisedPref = "INDICATOR_DATA_INITIALISED";
             ReportingLibrary reportingLibraryInstance = ReportingLibrary.getInstance();
+            String indicatorDataInitialisedPref = "INDICATOR_DATA_INITIALISED";
 
             boolean indicatorDataInitialised = Boolean.parseBoolean(reportingLibraryInstance.getContext().allSharedPreferences().getPreference(indicatorDataInitialisedPref));
             boolean isUpdated = checkIfAppUpdated();
             if (!indicatorDataInitialised || isUpdated) {
-                reportingLibraryInstance.readConfigFile(indicatorsConfigFile, db);
+
+                String indicatorsConfigFile = "config/indicator-definitions.yml";
+                String ancIndicatorConfigFile = "config/anc-reporting-indicator-definitions.yml";
+                String pmtctIndicatorConfigFile = "config/pmtct-reporting-indicator-definitions.yml";
+                String pncIndicatorConfigFile = "config/pnc-reporting-indicator-definitions.yml";
+                String cbhsReportingIndicatorConfigFile = "config/cbhs-reporting-indicator-definitions.yml";
+                String ldReportingIndicatorConfigFile = "config/ld-reporting-indicator-definitions.yml";
+                String motherChampionReportingIndicatorConfigFile = "config/mother_champion-reporting-indicator-definitions.yml";
+                String selfTestingIndicatorConfigFile = "config/self-testing-monthly-report.yml";
+                String kvpTestingIndicatorConfigFile = "config/kvp-monthly-report.yml";
+                String ltfuIndicatorConfigFile = "config/community-ltfu-summary.yml";
+
+                for (String configFile : Collections.unmodifiableList(
+                        Arrays.asList(indicatorsConfigFile, ancIndicatorConfigFile,
+                                pmtctIndicatorConfigFile, pncIndicatorConfigFile,
+                                cbhsReportingIndicatorConfigFile, ldReportingIndicatorConfigFile,
+                                motherChampionReportingIndicatorConfigFile,selfTestingIndicatorConfigFile,kvpTestingIndicatorConfigFile,ltfuIndicatorConfigFile))) {
+                    reportingLibraryInstance.readConfigFile(configFile, db);
+                }
+
                 reportingLibraryInstance.initIndicatorData(indicatorsConfigFile, db); // This will persist the data in the DB
                 reportingLibraryInstance.getContext().allSharedPreferences().savePreference(indicatorDataInitialisedPref, "true");
                 reportingLibraryInstance.getContext().allSharedPreferences().savePreference(appVersionCodePref, String.valueOf(org.smartregister.chw.core.BuildConfig.VERSION_CODE));
@@ -237,8 +264,65 @@ public class HfChwRepository extends CoreChwRepository {
     private static void upgradeToVersion12(SQLiteDatabase db) {
         try {
             db.execSQL(VisitRepository.ADD_VISIT_GROUP_COLUMN);
-        }catch (Exception e) {
+        } catch (Exception e) {
             Timber.e(e, "upgradeToVersion12");
+        }
+    }
+
+    private static void upgradeToVersion14(SQLiteDatabase db) {
+        try {
+            // add missing columns
+            db.execSQL("ALTER TABLE ec_ld_confirmation ADD COLUMN blood_group TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_ld_confirmation ADD COLUMN rh_factor TEXT NULL;");
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion14");
+        }
+    }
+
+    private static void upgradeToVersion15(SQLiteDatabase db) {
+        try {
+            // add missing columns
+            db.execSQL("ALTER TABLE ec_anc_register ADD COLUMN next_facility_visit_date TEXT NULL;");
+
+            db.execSQL("ALTER TABLE ec_pregnancy_outcome ADD COLUMN next_facility_visit_date TEXT NULL;");
+
+            db.execSQL("ALTER TABLE ec_ld_confirmation ADD COLUMN blood_group TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_ld_confirmation ADD COLUMN rh_factor TEXT NULL;");
+
+            db.execSQL("ALTER TABLE ec_cdp_orders ADD COLUMN receiving_order_facility TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_cdp_stock_log ADD COLUMN other_issuing_organization TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_cdp_stock_log ADD COLUMN condom_brand TEXT NULL;");
+
+            db.execSQL("ALTER TABLE ec_kvp_register ADD COLUMN client_group TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_kvp_register ADD COLUMN prep_assessment TEXT NULL;");
+
+            db.execSQL("ALTER TABLE ec_prep_register ADD COLUMN prep_status TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_prep_register ADD COLUMN prep_initiation_date TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_prep_register ADD COLUMN hbv_test_date TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_prep_register ADD COLUMN hcv_test_date TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_prep_register ADD COLUMN crcl_test_date TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_prep_register ADD COLUMN crcl_results TEXT NULL;");
+
+
+            DatabaseMigrationUtils.createAddedECTables(db,
+                    new HashSet<>(Arrays.asList("ec_cdp_issuing_hf","ec_kvp_bio_medical_services","ec_kvp_behavioral_services","ec_kvp_structural_services","ec_kvp_other_services","ec_prep_followup")),
+                    HealthFacilityApplication.createCommonFtsObject());
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion15");
+        }
+    }
+
+    private static void upgradeToVersion10ForBaSouth(SQLiteDatabase db) {
+        try {
+            db.execSQL("ALTER TABLE ec_family_member ADD COLUMN reasons_for_registration TEXT NULL;");
+            db.execSQL("ALTER TABLE ec_family_member ADD COLUMN has_primary_caregiver VARCHAR;");
+            db.execSQL("ALTER TABLE ec_family_member ADD COLUMN primary_caregiver_name VARCHAR;");
+
+            DatabaseMigrationUtils.createAddedECTables(db,
+                    new HashSet<>(Arrays.asList("ec_hiv_register", "ec_hiv_outcome", "ec_hiv_community_followup", "ec_tb_register", "ec_tb_outcome", "ec_tb_community_followup", "ec_hiv_community_feedback", "ec_tb_community_feedback")),
+                    HealthFacilityApplication.createCommonFtsObject());
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion10");
         }
     }
 }

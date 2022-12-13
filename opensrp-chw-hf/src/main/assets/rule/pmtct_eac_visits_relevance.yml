@@ -1,0 +1,14 @@
+---
+name: step1_additional_session
+description: relevant if the session is above 2
+priority: 1
+condition: "global_eac_session_number > 2 "
+actions:
+  - "isRelevant = true"
+---
+name: step1_patient_adherence_before_eac
+description: relevant if the session is 1
+priority: 1
+condition: "global_eac_session_number == 1"
+actions:
+  - "isRelevant = true"

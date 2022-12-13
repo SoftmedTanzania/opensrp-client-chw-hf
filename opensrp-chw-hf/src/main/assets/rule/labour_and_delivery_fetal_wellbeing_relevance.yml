@@ -1,0 +1,28 @@
+---
+name: step1_prompt_for_fetal_distress
+description: prompt for fetal distress
+priority: 1
+condition: "!step1_fetal_heart_rate.equals('') && (step1_fetal_heart_rate > 160 || step1_fetal_heart_rate < 120)"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_amniotic_fluid
+description: prompt_for_amniotic_fluid
+priority: 1
+condition: "!step1_amniotic_fluid.equals('') && (step1_amniotic_fluid != 'membrane_intact') && (step1_amniotic_fluid != 'membrane_ruptured_liquor_clear')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_moulding
+description: prompt for moulding
+priority: 1
+condition: "step1_moulding_options == '++' ||  step1_moulding_options == '+++'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_caput
+description: prompt for caput
+priority: 1
+condition: "step1_caput=='++' || step1_caput == '+++'"
+actions:
+  - "isRelevant = true"

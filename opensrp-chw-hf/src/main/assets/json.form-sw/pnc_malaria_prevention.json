@@ -47,18 +47,18 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Kuzuia malaria",
+    "title": "Malaria Prevention",
     "fields": [
       {
         "key": "fam_llin",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Je, ana chandarua chenye viuwatilifu vya muda mrefu?",
+        "hint": "Je, ana chandarua kinachodumu kwa muda mrefu (LLIN)?",
         "values": [
-          "Ndiyo",
+          "Ndio",
           "Hapana"
         ],
         "keys": [
@@ -77,13 +77,13 @@
       {
         "key": "llin_2days",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Je, amelala kwenye chandarua chenye viuwatilifu vya muda mrefu usiku uliopita?",
+        "hint": "Je, alilala chini ya neti jana usiku?",
         "values": [
-          "Ndiyo",
+          "Ndio",
           "Hapana"
         ],
         "keys": [
@@ -108,14 +108,14 @@
       {
         "key": "llin_condition",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Hali ya chandarua chenye viuwatilifu vya muda mrefu kinachotumika",
+        "hint": "Hali ya neti",
         "values": [
-          "Nzima",
-          "Mbovu"
+          "Nzuri",
+          "Mbaya"
         ],
         "keys": [
           "Okay",

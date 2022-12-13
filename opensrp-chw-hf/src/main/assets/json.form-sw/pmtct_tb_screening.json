@@ -1,0 +1,496 @@
+{
+  "count": "1",
+  "encounter_type": "PMTCT tb screening",
+  "entity_id": "",
+  "global": {},
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Uchunguzi wa Awali wa Kifua Kikuu",
+    "fields": [
+      {
+        "key": "on_tb_treatment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "on_tb_treatment",
+        "type": "native_radio",
+        "label": "Je, Mteja huyu yupo katika Matibabu ya Kifua kikuu?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        }
+      },
+      {
+        "key": "tb_registration_number",
+        "type": "edit_text",
+        "openmrs_entity_id": "tb_registration_number",
+        "hint": "Namba ya Kliniki ya TB ya mteja",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "step1:on_tb_treatment": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza namba ya Kliniki ya TB"
+        }
+      },
+      {
+        "key": "tb_symptoms_screening",
+        "type": "check_box",
+        "label": "Tafadhali chagua kama Mteja ana dalili zifuatazo za Kifua Kikuu?",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "tb_symptoms_screening",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "chk_none"
+        ],
+        "options": [
+          {
+            "key": "chk_cough",
+            "text": "Mteja anakikohozi cha muda wowote",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_cough"
+          },
+          {
+            "key": "chk_sputum",
+            "text": "Mteja anakohoa makohozi yaliyochanganyika na damu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_sputum"
+          },
+          {
+            "key": "chk_fevers",
+            "text": "Mteja amekuwa na Homa kwa zaidi ya wiki mbili",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_fevers"
+          },
+          {
+            "key": "chk_weight_loss",
+            "text": "Mteja anapoteza Uzito",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_weight_loss"
+          },
+          {
+            "key": "chk_weight_loss_subsequent_visit",
+            "text": "Mteja amepungua uzito katika mfululizo mahudhulio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_weight_loss_subsequent_visit"
+          },
+          {
+            "key": "chk_excessive_sweating",
+            "text": "Mteja amekuwa akitoka na jasho jingi sana usiku kwa wiki mbili au zaidi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_excessive_sweating"
+          },
+          {
+            "key": "chk_none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mada"
+        },
+        "relevance": {
+          "step1:on_tb_treatment": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "investigate_for_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "investigate_for_tb",
+        "type": "native_radio",
+        "label": "Fanya uchunguzi wa Kifua kikuu",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hazi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "test_not_conducted",
+            "text": "Kipimo cha TB hakijafanyika",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_not_conducted"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo:"
+        },
+        "relevance": {
+          "step1:tb_symptoms_screening": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "chk_cough",
+                  "chk_sputum",
+                  "chk_fevers",
+                  "chk_weight_loss",
+                  "chk_weight_loss_subsequent_visit",
+                  "chk_excessive_sweating"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_conducting_tb_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_conducting_tb_test",
+        "type": "spinner",
+        "hint": "Reason as to why the TB test was not conducted",
+        "values": [
+          "The client was in an emergency situation",
+          "The client refused to be tested",
+          "We are still counselling the client",
+          "Other (Specify)"
+        ],
+        "keys": [
+          "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested",
+          "still_counselling_the_client",
+          "other"
+        ],
+        "openmrs_choice_ids": {
+          "client_was_in_an_emergency_situation": "client_was_in_an_emergency_situation",
+          "client_refused_to_be_tested": "client_refused_to_be_tested",
+          "still_counselling_the_client": "still_counselling_the_client",
+          "Other": "other"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select a reason"
+        },
+        "relevance": {
+          "step1:investigate_for_tb": {
+            "type": "string",
+            "ex": "equalTo(., \"test_not_conducted\")"
+          }
+        }
+      },
+      {
+        "key": "other_reason_for_not_conducting_tb_test",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_reason_for_not_conducting_tb_test",
+        "type": "edit_text",
+        "hint": "Specify other reasons for not conducting TB test",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the reason"
+        },
+        "relevance": {
+          "step1:reason_for_not_conducting_tb_test": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_tb_treatment",
+        "type": "toaster_notes",
+        "text": "Mpe rufaa mteja kwa ajili ya Matibabu ya Kifua kikuu",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:investigate_for_tb": {
+            "type": "string",
+            "ex": "equalTo(., \"positive\")"
+          }
+        }
+      },
+      {
+        "key": "has_been_provided_with_tpt_before",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "has_been_provided_with_tpt_before",
+        "type": "native_radio",
+        "label": "Je, Mteja amewahi kupewa TPT kabla?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio (Amemaliza TPT)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "partial_complete",
+            "text": "Ndio (Lakini hajamaliza TPT)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "partial_complete"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_tb_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_tpt_eligibility",
+        "type": "toaster_notes",
+        "text": "Mteja huyu anakidhi vigezo kwa ajili ya kupewa TPT",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_tb_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_tpt_ineligibility",
+        "type": "toaster_notes",
+        "text": "Mteja huyu hakidhi vigezo vya kupewa TPT",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_tb_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "completed_tpt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "completed_tpt",
+        "type": "native_radio",
+        "label": "Je mteja amemaliza dose ya TPT?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu sahihi"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_tb_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "is_client_provided_with_tpt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_client_provided_with_tpt",
+        "type": "native_radio",
+        "label": "Je, Mteja huyu amepewa TPT leo?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pmtct_tb_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reason_for_not_providing_tpt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_for_not_providing_tpt",
+        "type": "native_radio",
+        "label": "Sababu ya kutompatia Mteja TPT?",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "out_of_medicine",
+            "text": "Dawa zimeisha",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "out_of_medicine"
+          },
+          {
+            "key": "client_refused_medication",
+            "text": "Mteja amekataa kuchukua dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_refused_medication"
+          },
+          {
+            "key": "client_allergic_to_tpt",
+            "text": "Mteja huyu ana mzio na dawa za TPT",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_allergic_to_tpt"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mojawapo"
+        },
+        "relevance": {
+          "step1:is_client_provided_with_tpt": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "number_of_tpt_days_dispensed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_tpt_days_dispensed",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya Siku Iliyotolewa",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza idadi ya siku iliyotolewa"
+        },
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Tafadhali ingiza namba halali"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Idadi ya siku iliyotolewa inatakiwa iwe zaidi ya 0"
+        },
+        "v_max": {
+          "value": "180",
+          "err": "Idadi ya siku iliyotolewa inatakiwa iwe sawa na au chini ya 180"
+        },
+        "relevance": {
+          "step1:is_client_provided_with_tpt": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      }
+    ]
+  }
+}

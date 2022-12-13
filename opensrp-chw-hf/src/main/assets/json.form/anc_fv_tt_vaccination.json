@@ -1,0 +1,173 @@
+{
+  "count": "1",
+  "encounter_type": "Vaccination",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "step1": {
+    "title": "Td Vaccination",
+    "fields": [
+      {
+        "key": "completed_tt_vaccination",
+        "type": "native_radio",
+        "label": "Has the client completed all vaccinations for Td?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "completed_tt_vaccination",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "text": "Yes",
+            "key": "yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "tt_vaccination",
+        "type": "native_radio",
+        "label": "Has the client been vaccinated for Td?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tt_vaccination",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "text": "Yes",
+            "key": "yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "step1:completed_tt_vaccination": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "tt1_vaccination_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Provide Td1 vaccination dose and follow-up immunization doses to the client according to immunization schedule",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:tt_vaccination": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "tt_vaccination_type",
+        "type": "check_box",
+        "label": "What Td Vaccinations were given?",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tt_vaccination_type",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "text": "Td1",
+            "key": "tt1",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tt1"
+          },
+          {
+            "key": "tt2",
+            "text": "Td2",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tt2"
+          },
+          {
+            "key": "tt3",
+            "text": "Td3",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tt3"
+          },
+          {
+            "key": "tt4",
+            "text": "Td4",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tt4"
+          },
+          {
+            "key": "tt5",
+            "text": "Td5",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tt5"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select one"
+        },
+        "relevance": {
+          "step1:tt_vaccination": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "tt_vaccination_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tt_vaccination_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

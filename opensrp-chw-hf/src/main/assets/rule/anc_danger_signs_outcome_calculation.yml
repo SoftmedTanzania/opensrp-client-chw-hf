@@ -11,4 +11,11 @@ description: ANC key info
 priority: 1
 condition: "true"
 actions:
-  - "calculation = 'Key information for health facility:\nLast menstrual period: ' + step1_lmp + '\nGestational age: ' + step1_gest_age + '\nEDD: ' + step1_edd"
+  - "calculation = ['gest_age':step1_gest_age, 'edd':step1_edd]"
+---
+name: step1_anc_key_info_swahili
+description: ANC key info for swahili
+priority: 1
+condition: "true"
+actions:
+  - "calculation = 'Taarifa muhimu kwa kituo cha afya:\nKipindi cha mwisho cha kawaida cha hedhi: ' + step1_lmp + '\nUmri wa ujauzito: ' + step1_gest_age + '\nEDD: ' + step1_edd"

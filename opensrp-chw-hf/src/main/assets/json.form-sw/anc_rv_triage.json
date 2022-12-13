@@ -1,0 +1,389 @@
+{
+  "count": "1",
+  "encounter_type": "Triage",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Uchambuzi wa wagonjwa au majeruhi",
+    "fields": [
+      {
+        "key": "gest_age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gest_age",
+        "hint": "Umri wa Ujauzito kwa Wiki",
+        "type": "edit_text",
+        "editable": true,
+        "read_only": true
+      },
+      {
+        "key": "edd",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "edd",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "last_menstrual_period",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "last_menstrual_period",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "rapid_examination",
+        "type": "check_box",
+        "label": "Tathmini hali ya jumla ya mwanamke mara tu unapofika kwenye kliniki ya ujauzito",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "rapid_examination",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "facial_expression",
+            "text": "Muonekano wa sura (muonekano wa maumivu)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "facial_expression"
+          },
+          {
+            "key": "pallor",
+            "text": "Kupauka",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pallor"
+          },
+          {
+            "key": "sweating",
+            "text": "Kutokwa jasho",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sweating"
+          },
+          {
+            "key": "shivering",
+            "text": "Kutetemeka",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "shivering"
+          },
+          {
+            "key": "difficulty_in_breathing",
+            "text": "Kupumua kwa shida",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "difficulty_in_breathing"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_rapid_examination",
+        "type": "toaster_notes",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "prompt_for_rapid_examination",
+        "openmrs_entity_parent": "",
+        "text": "Tafadhali mpatie Mteja msaada na uangalizi wa karibu na mpe rufaa kwa ajili ya matibabu ya dharura",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:rapid_examination": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "pallor",
+                  "sweating",
+                  "shivering",
+                  "difficulty_in_breathing",
+                  "facial_expression"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "reasons_to_clinic",
+        "type": "native_radio",
+        "label": "Kwa nini ulikuja kliniki leo?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reasons_to_clinic",
+        "openmrs_entity_parent": "",
+        "options": [
+          {
+            "text": "Nimezingatia ratiba ya mahudhurio",
+            "key": "routine_visit",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "routine_visit"
+          },
+          {
+            "text": "Mgonjwa/Wasiwasi",
+            "key": "sick_concerned",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sick_concerned"
+          }
+        ]
+      },
+      {
+        "key": "client_concern",
+        "type": "edit_text",
+        "edit_type": "text",
+        "hint": "Wasiwasi wako ni nini?",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_concern",
+        "openmrs_entity_parent": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "danger_signs",
+        "type": "check_box",
+        "label": "Uliza, angalia, na uhisi kama mwanamke ana:",
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "danger_signs",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "bleeding_vag",
+            "text": "Kutokwa na damu ukeni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "bleeding_vag"
+          },
+          {
+            "key": "headache_visual_disturbance",
+            "text": "Maumivu ya kichwa na changamoto ya kuona",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "headache_visual_disturbance"
+          },
+          {
+            "key": "severely_pale",
+            "text": "Kupauka sana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severely_pale"
+          },
+          {
+            "key": "severe_vomiting",
+            "text": "Kutapika sana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_vomiting"
+          },
+          {
+            "key": "convulsion",
+            "text": "Degedege",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "convulsion"
+          },
+          {
+            "key": "looking_very_ill",
+            "text": "Kuonekana mgonjwa sana (mchovu, kusinzia), ",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "looking_very_ill"
+          },
+          {
+            "key": "fever",
+            "text": "Homa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fever"
+          },
+          {
+            "key": "unconscious",
+            "text": "Kupoteza fahamu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unconscious"
+          },
+          {
+            "key": "severe_pain",
+            "text": "Maumivu makali",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_pain"
+          },
+          {
+            "key": "severe_breathing_difficulty",
+            "text": "Kupumua kwa shida sana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "severe_breathing_difficulty"
+          },
+          {
+            "key": "in_labour",
+            "text": "Kusikia uchungu wa kujifungua",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "in_labour"
+          },
+          {
+            "key": "imminent_labour",
+            "text": "Kujifungua hivi karibuni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "imminent_labour"
+          },
+          {
+            "key": "reduced_fetal_movement",
+            "text": "Kupungua au kutosikia mtoto akicheza",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reduced_fetal_movement"
+          },
+          {
+            "key": "sacrum_oedema",
+            "text": "Edema ya uso na sacrum",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sacrum_oedema"
+          },
+          {
+            "key": "other",
+            "text": "Nyingine (Bainisha)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "is_emergency",
+        "type": "toaster_notes",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_emergency",
+        "openmrs_entity_parent": "",
+        "text": "Toa huduma ya dharura kwa Mteja",
+        "toaster_type": "warning",
+        "toaster_info": "Mteja anaonyesha ishara moja au zaidi ya dharura na anahitaji huduma ya dharura",
+        "relevance": {
+          "step1:danger_signs": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "bleeding_vag",
+                  "headache_visual_disturbance",
+                  "severely_pale",
+                  "severe_vomiting",
+                  "severe_breathing_difficulty",
+                  "convulsion",
+                  "looking_very_ill",
+                  "fever",
+                  "unconscious",
+                  "severe_pain",
+                  "in_labour",
+                  "imminent_labour",
+                  "reduced_fetal_movement",
+                  "sacrum_oedema"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "other_danger_signs",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_danger_signs",
+        "type": "edit_text",
+        "hint": "Dalili za hatari nyingine",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali bainisha dalili za hatari nyingine"
+        },
+        "relevance": {
+          "step1:danger_signs": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "visit_number",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "visit_number",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "anc_rv_triage_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "triage_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "triage_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

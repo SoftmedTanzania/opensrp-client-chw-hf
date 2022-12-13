@@ -1,0 +1,49 @@
+---
+name: step1_partner_hiv
+description: Hiv testing for partner if it was not conducted in first visit
+priority: 1
+condition: "!global_hiv_testing_done || ((global_gestational_age >= 32  && global_partner_hiv_status.contains('negative')) && !global_partner_hiv_test_at_32_done)"
+actions:
+  - "isRelevant = true"
+---
+name: step1_partner_syphilis
+description: Syphilis testing for partner if it was not conducted in first visit
+priority: 1
+condition: "!global_syphilis_testing_done"
+actions:
+  - "isRelevant = true"
+---
+name: step1_partner_hepatitis
+description: Syphilis testing for partner if it was not conducted in first visit
+priority: 1
+condition: "!global_hepatitis_testing_done"
+actions:
+  - "isRelevant = true"
+---
+name: step1_partner_hiv_test_at_32
+description: Check to mark if test was conducted at week 32 if client was marked negative
+priority: 1
+condition: "((global_gestational_age >= 32  && global_partner_hiv_status.contains('negative')) && !global_partner_hiv_test_at_32_done)"
+actions:
+  - "isRelevant = true"
+---
+name: step1_partner_other_stds
+description: To only show up once
+priority: 1
+condition: "global_partner_other_stds == 'null'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_couple_testing
+description: couple_testing relevance
+priority: 1
+condition: "!step1_partner_hiv.equals('') && !step1_partner_hiv.contains('test_not_conducted')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_partner_ctc_number
+description: partner_ctc_number relevance
+priority: 1
+condition: "step1_partner_hiv.contains('positive') || step1_reason_for_not_conducting_partner_hiv_test.contains('known_on_art') "
+actions:
+  - "isRelevant = true"

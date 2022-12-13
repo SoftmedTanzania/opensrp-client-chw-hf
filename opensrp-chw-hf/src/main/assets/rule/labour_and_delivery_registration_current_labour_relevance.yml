@@ -1,0 +1,29 @@
+---
+name: step1_prompt_for_ruptured_membrane
+description: prompt_for_ruptured_membrane
+priority: 1
+condition: "step1_membrane.equals('ruptured') && step1_labour_onset_timestamp <= step1_membrane_raptured_date_timestamp"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_prom
+description: prompt_for_prom
+priority: 1
+condition: "step1_membrane.equals('ruptured') && step1_membrane_ruptured_date != '' && step1_membrane_ruptured_time != '' && step1_labour_onset_date != '' && step1_labour_onset_time != '' && step1_labour_onset_timestamp > step1_membrane_raptured_date_timestamp"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_fetal_movement
+description: prompt_for_fetal_movement
+priority: 1
+condition: "step1_fetal_movement.equals('absent')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_reduced_fetal_movement
+description: prompt_for_reduced_fetal_movement
+priority: 1
+condition: "step1_fetal_movement.equals('present') && step1_movement_status.equals('reduced')"
+actions:
+  - "isRelevant = true"
+
