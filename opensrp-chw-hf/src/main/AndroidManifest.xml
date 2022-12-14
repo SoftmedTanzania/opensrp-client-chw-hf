@@ -26,25 +26,29 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme, android:icon">
         <activity
+            android:name=".activity.AncFilterActivity"
+            android:exported="false"
+            android:theme="@style/HFTheme.NoActionBar"/>
+        <activity
             android:name=".activity.LoginActivity"
             android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name"
             android:launchMode="singleTask"
             android:roundIcon="@drawable/ic_launcher_round"
             android:screenOrientation="portrait"
             android:theme="@style/HFTheme.Login"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity
             android:name=".activity.RequestPhoneNumberCollectionPermission"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.KvpRegisterActivity"
+            android:exported="false"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.KvpProfileActivity"
@@ -86,6 +90,10 @@
             android:name=".activity.AncBirthReviewAndEmergencyPlanJsonWizardFormActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
+            android:name=".activity.AncPartnerTestingHistoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
             android:name=".activity.LDRegistrationAdmissionInformationJsonWizardFormActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
@@ -123,12 +131,15 @@
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.MotherChampionReportsActivity"
+            android:exported="false"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.MotherChampionReportsViewActivity"
+            android:exported="false"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.PncReportsActivity"
+            android:exported="false"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.CbhsReportsActivity"
@@ -231,6 +242,10 @@
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.AncMedicalHistoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
+            android:name=".activity.AncRegistrationDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
@@ -443,32 +458,36 @@
             android:screenOrientation="portrait"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
+            android:name=".activity.LDRegistrationDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
+            android:name=".activity.LdSummaryDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HFTheme.NoActionBar" />
+        <activity
             android:name=".activity.KvpMedicalHistoryActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.PrEPMedicalHistoryActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.SelfTestingReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
         <activity
             android:name=".activity.SelfTestingReportsViewActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.CdpReportsViewActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.CdpReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.KvpReportsViewActivity"
             android:screenOrientation="landscape"
             android:theme="@style/HFTheme.NoActionBar" />
-
         <activity
             android:name=".activity.KvpReportsActivity"
             android:theme="@style/HFTheme.NoActionBar" />
@@ -507,9 +526,32 @@
         <service android:name=".sync.intent.ProcessVisitsIntentService" />
         <service android:name=".sync.intent.PncCloseDateIntentService" />
 
+        <receiver
+            android:name="org.smartregister.view.receiver.ConnectivityChangeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="org.smartregister.view.receiver.TimeChangedBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="io.ona.kujaku.receivers.KujakuNetworkChangeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
     </application>
-
 </manifest>
