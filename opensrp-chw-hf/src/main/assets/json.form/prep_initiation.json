@@ -492,6 +492,34 @@
         }
       },
       {
+        "key": "maximum_date_for_next_visit",
+        "type": "edit_text",
+        "openmrs_entity_id": "prep_initiation_date",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "prep_initiation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "minimum_date_for_next_visit",
+        "type": "edit_text",
+        "openmrs_entity_id": "minimum_date_for_next_visit",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "prep_initiation_calculation.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "next_visit_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
