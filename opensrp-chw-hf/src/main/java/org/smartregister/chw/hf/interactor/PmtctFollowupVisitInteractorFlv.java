@@ -12,12 +12,12 @@ import org.json.JSONObject;
 import org.smartregister.chw.core.utils.CoreJsonFormUtils;
 import org.smartregister.chw.core.utils.FormUtils;
 import org.smartregister.chw.hf.R;
-import org.smartregister.chw.hf.actionhelper.PmtctNextFollowupVisitAction;
 import org.smartregister.chw.hf.actionhelper.PmtctArvLineAction;
 import org.smartregister.chw.hf.actionhelper.PmtctBaselineInvestigationAction;
 import org.smartregister.chw.hf.actionhelper.PmtctCd4SampleCollection;
 import org.smartregister.chw.hf.actionhelper.PmtctCounsellingAction;
 import org.smartregister.chw.hf.actionhelper.PmtctDiseaseStagingAction;
+import org.smartregister.chw.hf.actionhelper.PmtctNextFollowupVisitAction;
 import org.smartregister.chw.hf.actionhelper.PmtctTbScreeningAction;
 import org.smartregister.chw.hf.actionhelper.PmtctVisitAction;
 import org.smartregister.chw.hf.dao.HfPmtctDao;
@@ -34,7 +34,6 @@ import org.smartregister.chw.pmtct.util.JsonFormUtils;
 import org.smartregister.chw.pmtct.util.VisitUtils;
 import org.smartregister.chw.referral.util.JsonFormConstants;
 
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,66 +75,58 @@ public class PmtctFollowupVisitInteractorFlv implements PmtctFollowupVisitIntera
     private void evaluatePmtctActions(BasePmtctHomeVisitContract.View view, Map<String, List<VisitDetail>> details, BasePmtctHomeVisitContract.InteractorCallBack callBack, MemberObject memberObject, Context context)
             throws BasePmtctHomeVisitAction.ValidationException {
 
-        Date followUpVisitDate = PmtctDao.getPmtctFollowUpVisitDate(memberObject.getBaseEntityId());
+        JSONObject followupStatusForm = null;
+        try {
+            followupStatusForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.getPmtctFollowupStatus());
+            JSONArray fields = followupStatusForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
 
-        if (followUpVisitDate != null) {
-            JSONObject followupStatusForm = null;
-            try {
-                followupStatusForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.getPmtctFollowupStatus());
-                JSONArray fields = followupStatusForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
+            //update visit number
+            JSONObject visitNumber = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "visit_number");
+            visitNumber.put(JsonFormUtils.VALUE, HfPmtctDao.getVisitNumber(memberObject.getBaseEntityId()));
 
-                //update visit number
-                JSONObject visitNumber = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "visit_number");
-                visitNumber.put(JsonFormUtils.VALUE, HfPmtctDao.getVisitNumber(memberObject.getBaseEntityId()));
-
-            } catch (Exception e) {
-                Timber.e(e);
-            }
-
-            BasePmtctHomeVisitAction FollowupStatus = new BasePmtctHomeVisitAction.Builder(context, context.getString(R.string.pmtct_followup_status_title))
-                    .withOptional(false)
-                    .withDetails(details)
-                    .withFormName(Constants.JsonForm.getPmtctFollowupStatus())
-                    .withJsonPayload(followupStatusForm.toString())
-                    .withHelper(new PmtctFollowupStatusAction(view, memberObject, callBack, details))
-                    .build();
-            actionList.put(context.getString(R.string.pmtct_followup_status_title), FollowupStatus);
-
-        } else {
-            JSONObject counsellingForm = null;
-            try {
-                counsellingForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.getPmtctCounselling());
-                JSONArray fields = counsellingForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
-                //add globals
-
-                JSONObject global = counsellingForm.getJSONObject("global");
-                global.put("is_visit_zero", true);
-
-                //update visit number
-                JSONObject visitNumber = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "visit_number");
-                visitNumber.put(JsonFormUtils.VALUE, HfPmtctDao.getVisitNumber(memberObject.getBaseEntityId()));
-
-                //loads details to the form
-                if (details != null && !details.isEmpty()) {
-                    JsonFormUtils.populateForm(counsellingForm, details);
-                }
-                BasePmtctHomeVisitAction Counselling = new BasePmtctHomeVisitAction.Builder(context, context.getString(R.string.pmtct_counselling_title))
-                        .withOptional(true)
-                        .withDetails(details)
-                        .withFormName(Constants.JsonForm.getPmtctCounselling())
-                        .withJsonPayload(counsellingForm.toString())
-                        .withHelper(new PmtctCounsellingAction(memberObject))
-                        .build();
-                actionList.put(context.getString(R.string.pmtct_counselling_title), Counselling);
-
-            } catch (JSONException e) {
-                Timber.e(e);
-            } catch (BasePmtctHomeVisitAction.ValidationException e) {
-                e.printStackTrace();
-            }
-
-            addActions(details, memberObject, context);
+        } catch (Exception e) {
+            Timber.e(e);
         }
+
+        BasePmtctHomeVisitAction FollowupStatus = new BasePmtctHomeVisitAction.Builder(context, context.getString(R.string.pmtct_followup_status_title))
+                .withOptional(false)
+                .withDetails(details)
+                .withFormName(Constants.JsonForm.getPmtctFollowupStatus())
+                .withJsonPayload(followupStatusForm.toString())
+                .withHelper(new PmtctFollowupStatusAction(view, memberObject, callBack, details))
+                .build();
+
+        actionList.put(context.getString(R.string.pmtct_followup_status_title), FollowupStatus);
+
+        JSONObject counsellingForm;
+        try {
+            counsellingForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.getPmtctCounselling());
+            JSONArray fields = counsellingForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
+            //add globals
+
+            JSONObject global = counsellingForm.getJSONObject("global");
+            global.put("is_visit_zero", PmtctDao.getPmtctFollowUpVisitDate(memberObject.getBaseEntityId()) == null);
+
+            //loads details to the form
+            if (details != null && !details.isEmpty()) {
+                JsonFormUtils.populateForm(counsellingForm, details);
+            }
+            BasePmtctHomeVisitAction Counselling = new BasePmtctHomeVisitAction.Builder(context, context.getString(R.string.pmtct_counselling_title))
+                    .withOptional(true)
+                    .withDetails(details)
+                    .withFormName(Constants.JsonForm.getPmtctCounselling())
+                    .withJsonPayload(counsellingForm.toString())
+                    .withHelper(new PmtctCounsellingAction(memberObject))
+                    .build();
+            actionList.put(context.getString(R.string.pmtct_counselling_title), Counselling);
+
+        } catch (JSONException e) {
+            Timber.e(e);
+        } catch (BasePmtctHomeVisitAction.ValidationException e) {
+            e.printStackTrace();
+        }
+
+        addActions(details, memberObject, context);
 
     }
 
@@ -188,16 +179,11 @@ public class PmtctFollowupVisitInteractorFlv implements PmtctFollowupVisitIntera
         try {
             nextVisitForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.getNextFacilityVisitForm());
 
-            JSONArray fields = nextVisitForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
-            //update visit number
-            JSONObject visitNumber = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "visit_number");
-            visitNumber.put(JsonFormUtils.VALUE, HfPmtctDao.getVisitNumber(memberObject.getBaseEntityId()));
-
             //loads details to the form
             if (details != null && !details.isEmpty()) {
                 JsonFormUtils.populateForm(nextVisitForm, details);
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
             Timber.e(e);
         }
 
@@ -429,11 +415,6 @@ public class PmtctFollowupVisitInteractorFlv implements PmtctFollowupVisitIntera
                 try {
                     counsellingForm = FormUtils.getFormUtils().getFormJson(Constants.JsonForm.getPmtctCounselling());
 
-                    JSONArray fields = counsellingForm.getJSONObject(Constants.JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
-                    //update visit number
-                    JSONObject visitNumber = org.smartregister.util.JsonFormUtils.getFieldJSONObject(fields, "visit_number");
-                    visitNumber.put(JsonFormUtils.VALUE, HfPmtctDao.getVisitNumber(memberObject.getBaseEntityId()));
-
                     //loads details to the form
                     if (details != null && !details.isEmpty()) {
                         JsonFormUtils.populateForm(counsellingForm, details);
@@ -447,9 +428,7 @@ public class PmtctFollowupVisitInteractorFlv implements PmtctFollowupVisitIntera
                             .build();
                     actionList.put(context.getString(R.string.pmtct_counselling_title), Counselling);
 
-                } catch (JSONException e) {
-                    Timber.e(e);
-                } catch (BasePmtctHomeVisitAction.ValidationException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 addActions(details, memberObject, context);
