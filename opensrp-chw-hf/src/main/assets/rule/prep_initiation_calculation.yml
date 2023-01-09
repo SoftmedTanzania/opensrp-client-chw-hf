@@ -11,31 +11,35 @@ description: Calculate the maximum date for the next follow-up visit
 priority: 1
 condition: "step1_prep_pills_number != '' "
 actions:
-  - "def getMaximumDate(number_of_pills) {
-        import java.util.*;
-  
-        int numberOfPills = number_of_pills;
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, numberOfPills + 3);
+  - "def getMaxDate(number_of_pills) {
+        import java.util.Calendar;
+        import java.util.Locale;
+        import java.text.SimpleDateFormat;
         
-        SimpleDateFormat dateFormat = new SimpleDateFormat('dd-MM-yyyy', Locale.getDefault());
-        return dateFormat.format(cal.getTime());
+        int numberOfPills = number_of_pills;
+        numberOfPills-=-3;
+        
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE,  numberOfPills);
+        return new SimpleDateFormat('dd-MM-yyyy', Locale.getDefault()).format(cal.getTime());
      }"
-  - "calculation = getMaximumDate(step1_prep_pills_number)"
+  - "calculation = getMaxDate(step1_prep_pills_number)"
 ---
 name: step1_minimum_date_for_next_visit
 description: Calculate the minimum date for the next follow-up visit
 priority: 1
-condition: "step1_prep_pills_number != ''"
+condition: "step1_prep_pills_number != '' "
 actions:
   - "def getMinimumDate(number_of_pills) {
-        import java.util.*;
-  
-        int numberOfPills = number_of_pills;
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, numberOfPills - 3);
+        import java.util.Calendar;
+        import java.util.Locale;
+        import java.text.SimpleDateFormat;
         
-        SimpleDateFormat dateFormat = new SimpleDateFormat('dd-MM-yyyy', Locale.getDefault());
-        return dateFormat.format(cal.getTime());
+        int nPills = number_of_pills;
+  
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE,  nPills - 3);
+        
+        return new SimpleDateFormat('dd-MM-yyyy', Locale.getDefault()).format(calendar.getTime());
      }"
   - "calculation = getMinimumDate(step1_prep_pills_number)"
