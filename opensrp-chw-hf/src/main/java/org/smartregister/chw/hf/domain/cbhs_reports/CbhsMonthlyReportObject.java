@@ -61,6 +61,15 @@ public class CbhsMonthlyReportObject extends ReportObject {
         indicatorCodesWithAgeGroups.add("cbhs-5-moved");
         indicatorCodesWithAgeGroups.add("cbhs-5-absconded");
         indicatorCodesWithAgeGroups.add("cbhs-5-completed_and_qualified_from_the_services");
+
+        indicatorCodesWithAgeGroups.add("cbhs-6-kisheria");
+        indicatorCodesWithAgeGroups.add("cbhs-6-vikundi");
+        indicatorCodesWithAgeGroups.add("cbhs-6-huduma-zingine");
+
+        indicatorCodesWithAgeGroups.add("cbhs-7-kisheria");
+        indicatorCodesWithAgeGroups.add("cbhs-7-vikundi");
+        indicatorCodesWithAgeGroups.add("cbhs-7-huduma-zingine");
+
         indicatorCodesWithAgeGroups.add("cbhs-8-jumla");
 
 
