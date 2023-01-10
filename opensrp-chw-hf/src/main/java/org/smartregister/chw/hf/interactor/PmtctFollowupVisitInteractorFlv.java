@@ -52,8 +52,9 @@ public class PmtctFollowupVisitInteractorFlv implements PmtctFollowupVisitIntera
                 return context.getString(R.string.transfer_out);
             case "lost_to_followup":
                 return context.getString(R.string.lost_to_followup);
+            default:
+                return "";
         }
-        return "";
     }
 
     @Override
