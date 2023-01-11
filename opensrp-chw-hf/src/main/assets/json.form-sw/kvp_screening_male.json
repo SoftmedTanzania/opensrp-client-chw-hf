@@ -184,7 +184,7 @@
     ]
   },
   "step4": {
-    "title": "MSM",
+    "title": "Mwanaume Anayefanya Ngono na Mwanaume Mwenzie",
     "next": "step5",
     "fields": [
       {
@@ -403,7 +403,7 @@
     ]
   },
   "step6": {
-    "title": "Other Vulnerable Population",
+    "title": "Makundi Mengine Hatarishi",
     "next": "step7",
     "fields": [
       {
@@ -559,7 +559,7 @@
     ]
   },
   "step7": {
-    "title": "PrEP Assessment",
+    "title": "Tathmini ya Dawa Kinga",
     "next": "step8",
     "fields": [
       {
@@ -581,20 +581,20 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "prep_assessment",
-        "label": "Has the client been assessed for the use of PrEP?",
+        "label": "Mteja amekwisha fanyiwa asesmenti ya dawa kinga?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
             "key": "yes",
-            "text": "Yes",
+            "text": "Ndio",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
-            "text": "No",
+            "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
@@ -602,7 +602,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali jaza jibu la swali"
+          "err": "Tafadhali chagua jibu"
         }
       },
       {
@@ -746,12 +746,58 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "birth_region",
-        "type": "edit_text",
-        "hint": "Jaza mkoa mteja aliozaliwa",
-        "edit_type": "name",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "label_info_title": "Mkoa aliozaliwa mteja",
+        "label_info_text": "",
+        "hint": "Chagua mkoa aliozaliwa mteja",
+        "values": [
+          "Arusha",
+          "Geita",
+          "Simiyu",
+          "Mtwara",
+          "Njombe",
+          "Singida",
+          "Pwani",
+          "Dodoma",
+          "Manyara",
+          "Mara",
+          "Shinyanga",
+          "Tabora",
+          "Mwanza",
+          "Songwe",
+          "Rukwa",
+          "Mbeya",
+          "Kagera",
+          "Dar es Salaam",
+          "Lindi",
+          "Katavi"
+        ],
+        "keys": [
+          "Arusha",
+          "Geita",
+          "Simiyu",
+          "Mtwara",
+          "Njombe",
+          "Singida",
+          "Pwani",
+          "Dodoma",
+          "Manyara",
+          "Mara",
+          "Shinyanga",
+          "Tabora",
+          "Mwanza",
+          "Songwe",
+          "Rukwa",
+          "Mbeya",
+          "Kagera",
+          "Dar es Salaam",
+          "Lindi",
+          "Katavi"
+        ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali jaza jibu la maswali"
+          "err": "Tafadhali chagua mkoa"
         },
         "relevance": {
           "rules-engine": {
@@ -829,7 +875,7 @@
           },
           {
             "key": "serodiscordant_couple",
-            "text": "Serodiscordant couple",
+            "text": "Mwenza /mwenye majibu kinzani",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "serodiscordant_couple"

@@ -81,6 +81,9 @@
         "openmrs_entity_id": "counselling_topics_provided",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
+        "exclusive": [
+          "chk_none"
+        ],
         "options": [
           {
             "key": "chk_hiv_info",
@@ -171,6 +174,12 @@
             "text": "How to live with HIV",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "chk_living_with_hiv"
+          },
+          {
+            "key": "chk_none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chk_none"
           }
         ],
         "v_required": {
@@ -181,28 +190,6 @@
           "step1:is_client_counselled": {
             "type": "string",
             "ex": "equalTo(., \"yes\")"
-          }
-        }
-      },
-      {
-        "key": "visit_number",
-        "type": "hidden",
-        "openmrs_entity_id": "visit_number",
-        "openmrs_entity": "concept",
-        "openmrs_entity_parent": ""
-      },
-      {
-        "key": "followup_status",
-        "type": "hidden",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "followup_status",
-        "openmrs_entity_parent": "",
-        "value": "continuing_with_services",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "pmtct_fv_counselling_relevance.yml"
-            }
           }
         }
       }
