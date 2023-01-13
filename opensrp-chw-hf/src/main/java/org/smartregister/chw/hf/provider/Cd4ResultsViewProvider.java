@@ -64,10 +64,10 @@ public class Cd4ResultsViewProvider extends HvlResultsViewProvider {
                 viewHolder.hvlWrapper.setVisibility(View.VISIBLE);
                 viewHolder.dueWrapper.setVisibility(View.GONE);
 
-//                if (cd4ResultDate != null && NCUtils.getElapsedDays(cd4ResultDate) < 30) {
-//                    viewHolder.dueWrapper.setVisibility(View.VISIBLE);
-//                    viewHolder.recordHvl.setText(org.smartregister.pmtct.R.string.edit);
-//                }
+                if (cd4ResultDate != null && NCUtils.getElapsedDays(cd4ResultDate) < 30) {
+                    viewHolder.dueWrapper.setVisibility(View.VISIBLE);
+                    viewHolder.recordHvl.setText(org.smartregister.pmtct.R.string.edit);
+                }
             }
 
         } catch (Exception e) {
