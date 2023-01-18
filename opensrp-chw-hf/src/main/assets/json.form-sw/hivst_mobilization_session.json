@@ -43,7 +43,7 @@
     },
     "global": {},
     "step1": {
-        "title": "Self Testing Mobilization Session",
+        "title": "Uhamasishaji wa Vipindi vya Jipime",
         "fields": [
             {
                 "key": "mobilization_date",
@@ -66,7 +66,7 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "female_clients_reached",
                 "type": "edit_text",
-                "hint": "Number ya wateja wa kike waliofikiwa",
+                "hint": "Namba ya wateja wa kike waliofikiwa",
                 "v_numeric": {
                     "value": "true",
                     "err": "Tafadhali ingiza numbari sahihi"
@@ -86,7 +86,7 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "male_clients_reached",
                 "type": "edit_text",
-                "hint": "Number ya wateja wa kiume waliofikiwa",
+                "hint": "Namba ya wateja wa kiume waliofikiwa",
                 "v_numeric": {
                     "value": "true",
                     "err": "Tafadhali ingiza numbari sahihi"
@@ -183,7 +183,7 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "kit_code",
                 "type": "edit_text",
-                "hint": "Number ya kitepe",
+                "hint": "Msimbo wa kitepe",
                 "relevance": {
                     "step1:kit_used_in_demonstration": {
                         "type": "string",

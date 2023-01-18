@@ -43,7 +43,7 @@
     },
     "global": {},
     "step1": {
-        "title": "Providing Self Test Kits",
+        "title": "Ugawaji wa Vitepe vya Jipime",
         "fields": [
             {
                 "key": "pre_test_counselling_and_instructions",
@@ -71,7 +71,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 }
             },
             {
@@ -79,7 +79,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "client_testing_approach",
-                "label": "njia za upimaji wa mteja ",
+                "label": "Njia za upimaji wa mteja ",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
@@ -114,7 +114,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 },
                 "relevance": {
                     "rules-engine": {
@@ -129,7 +129,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "self_test_kit_given",
-                "label": "je mteja alipewa kitendanishi cha jipime",
+                "label": "Je mteja alipewa kitendanishi cha jipime",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
@@ -150,7 +150,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 },
                 "relevance": {
                     "rules-engine": {
@@ -166,7 +166,7 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "kit_code",
                 "type": "edit_text",
-                "hint": "Namba ya kitepe",
+                "hint": "Msimbo wa kitepe",
                 "relevance": {
                     "rules-engine": {
                         "ex-rules": {
@@ -193,7 +193,7 @@
                     },
                     {
                         "key": "no",
-                        "text": "hapana",
+                        "text": "Hapana",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "no"
@@ -201,7 +201,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 },
                 "relevance": {
                     "rules-engine": {
@@ -218,20 +218,20 @@
                 "openmrs_entity_id": "extra_kits_issued_for",
                 "type": "check_box",
                 "combine_checkbox_option_values": "true",
-                "label": "vitepe vyaziada vilitoloea kwajili ya",
+                "label": "vitepe vya ziada vilitoloea kwajili ya",
                 "label_text_style": "normal",
                 "text_color": "#C0C0C0",
                 "options": [
                     {
                         "key": "peer_friend",
-                        "text": "rafiki rika",
+                        "text": "Rafiki rika",
                         "value": false,
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "peer_friend"
                     },
                     {
                         "key": "sexual_partner",
-                        "text": "mshirika wa kingono",
+                        "text": "Mshirika wa kingono",
                         "value": false,
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "sexual_partner"
@@ -239,7 +239,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 },
                 "relevance": {
                     "step1:extra_kits_required": {
@@ -254,7 +254,7 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "peer_friend_kit_code",
                 "type": "edit_text",
-                "hint": "namber ya kitepe cha rafiki rika",
+                "hint": "namba ya kitepe cha rafiki rika",
                 "relevance": {
                     "step1:extra_kits_issued_for": {
                         "ex-checkbox": [
@@ -291,20 +291,20 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "condoms_given",
-                "label": "je mteja alipewa kondom",
+                "label": "Je mteja alipewa kondom",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
                     {
                         "key": "yes",
-                        "text": "ndio",
+                        "text": "Ndio",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "yes"
                     },
                     {
                         "key": "no",
-                        "text": "hapana",
+                        "text": "Hapana",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "no"
@@ -312,7 +312,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 }
             },
             {
@@ -322,7 +322,7 @@
                 "openmrs_entity_id": "type_of_issued_condoms",
                 "type": "check_box",
                 "combine_checkbox_option_values": "true",
-                "label": "chaguwa aina ya kondom zilizotolewa",
+                "label": "chagua aina ya kondom zilizotolewa",
                 "label_text_style": "normal",
                 "text_color": "#C0C0C0",
                 "options": [
@@ -343,7 +343,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu "
+                    "err": "Tafadhali chagua jibu "
                 },
                 "relevance": {
                     "step1:condoms_given": {
@@ -358,14 +358,14 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "number_of_male_condoms_issued",
                 "type": "edit_text",
-                "hint": "Namba za kondom za kiume zilizotolewa",
+                "hint": "Idadi ya kondom za kiume zilizotolewa",
                 "v_numeric": {
                     "value": "true",
                     "err": "Tafadhali ingiza namba sahihi"
                 },
                 "v_min": {
                     "value": "0",
-                    "err": "namba ni lazima iwe sawa sawa au kubwa kuliko 0"
+                    "err": "idadi ni lazima iwe sawa sawa au kubwa kuliko 0"
                 },
                 "v_required": {
                     "value": true,
@@ -389,14 +389,14 @@
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "number_of_female_condoms_issued",
                 "type": "edit_text",
-                "hint": "Namba za kondom za kike zilizotolewa",
+                "hint": "Idadi aa kondom za kike zilizotolewa",
                 "v_numeric": {
                     "value": "true",
                     "err": "Tafadhali ingiza namba sahihi"
                 },
                 "v_min": {
                     "value": "0",
-                    "err": "namba ni lazima iwe sawa sawa au kubwa kuliko 0"
+                    "err": "idadi ni lazima iwe sawa sawa au kubwa kuliko 0"
                 },
                 "v_required": {
                     "value": true,
@@ -419,7 +419,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "sms_notification_service",
-                "label": "je mteja amekubali kuingia kwenye huduma za SMS",
+                "label": "Je mteja amekubali kuingia kwenye huduma za SMS",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
@@ -440,7 +440,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu"
+                    "err": "Tafadhali chagua jibu"
                 }
             },
             {

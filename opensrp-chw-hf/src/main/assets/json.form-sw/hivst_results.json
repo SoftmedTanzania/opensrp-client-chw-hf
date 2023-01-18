@@ -43,7 +43,7 @@
     },
     "global": {},
     "step1": {
-        "title": "Record HIVST results",
+        "title": "Rekodi Matokeo ya Jipime",
         "fields": [
             {
                 "key": "disclose_result",
@@ -71,7 +71,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu"
+                    "err": "Tafadhali chagua jibu"
                 },
                 "relevance": {
                     "rules-engine": {
@@ -86,7 +86,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "client_test_result",
-                "label": "chaguwa majibu ya vipimo vya mteja",
+                "label": "Chagua majibu ya vipimo vya mteja",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
@@ -106,7 +106,7 @@
                     },
                     {
                         "key": "invalid",
-                        "text": "Jibu Batili",
+                        "text": "Jibu batili",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "invalid"
@@ -128,7 +128,7 @@
                 },
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu"
+                    "err": "Tafadhali chagua jibu"
                 }
             },
             {
@@ -136,7 +136,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "peer_test_result",
-                "label": "chaguwa majibu ya rafiki rika",
+                "label": "chagua majibu ya rafiki rika",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
@@ -170,7 +170,7 @@
                     },
                     {
                         "key": "not_returned",
-                        "text": "majibu hayajarudi",
+                        "text": "Majibu hayajarudi",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "not_returned"
@@ -178,7 +178,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu"
+                    "err": "Tafadhali chagua jibu"
                 },
                 "relevance": {
                     "rules-engine": {
@@ -193,7 +193,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "sexual_partner_test_result",
-                "label": "chaguwa majibu ya mshirika wa kingono",
+                "label": "chagua majibu ya mshirika wa kingono",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
@@ -220,14 +220,14 @@
                     },
                     {
                         "key": "wastage",
-                        "text": "upotevu",
+                        "text": "Upotevu",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "wastage"
                     },
                     {
                         "key": "not_returned",
-                        "text": "majibu hayajarudi",
+                        "text": "Majibu hayajarudi",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "not_returned"
@@ -235,7 +235,7 @@
                 ],
                 "v_required": {
                     "value": "true",
-                    "err": "Tafadhali chaguwa jibu"
+                    "err": "Tafadhali chaguaa jibu"
                 },
                 "relevance": {
                     "rules-engine": {
