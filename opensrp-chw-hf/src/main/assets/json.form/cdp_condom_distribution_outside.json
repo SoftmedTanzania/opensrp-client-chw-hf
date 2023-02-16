@@ -105,6 +105,34 @@
         }
       },
       {
+        "key": "male_condom_brand",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "male_condom_brand",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "cdp_condom_distribution_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "female_condom_brand",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "female_condom_brand",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "cdp_condom_distribution_calculation.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "other_condom_brand",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
