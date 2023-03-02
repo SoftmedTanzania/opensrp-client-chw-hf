@@ -234,34 +234,6 @@
         }
       },
       {
-        "key": "malaria_results",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "malaria_results",
-        "type": "hidden",
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "malaria_followup_hf_calculation.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "malaria_test_date",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "malaria_test_date",
-        "hidden": "hidden",
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "malaria_followup_hf_calculation.yml"
-            }
-          }
-        }
-      },
-      {
         "key": "other_test_results_malaria_hf",
         "type": "edit_text",
         "openmrs_entity": "",
