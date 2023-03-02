@@ -16,6 +16,7 @@ import org.smartregister.chw.core.activity.CoreCdpRegisterActivity;
 import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.fragment.CdpReceiveFromOrganizationsRegisterFragment;
 import org.smartregister.chw.hf.fragment.OrdersRegisterFragment;
 import org.smartregister.chw.hf.fragment.RequestOrdersRegisterFragment;
@@ -43,7 +44,7 @@ public class CdpRegisterActivity extends CoreCdpRegisterActivity {
     @Override
     protected void onResumption() {
         super.onResumption();
-        NavigationMenu menu = NavigationMenu.getInstance(this, null, null);
+        NavigationMenu menu = FacilityMenu.getInstance(this, null, null);
         if (menu != null) {
             menu.getNavigationAdapter().setSelectedView(CoreConstants.DrawerMenu.CDP_HF);
         }

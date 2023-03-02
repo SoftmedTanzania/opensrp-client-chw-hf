@@ -1,6 +1,8 @@
 package org.smartregister.chw.hf.activity;
 
+import static org.smartregister.chw.core.utils.CoreConstants.JSON_FORM.getMalariaFollowUpHfForm;
 import static org.smartregister.chw.core.utils.Utils.passToolbarTitle;
+import static org.smartregister.chw.hf.utils.Constants.JsonForm.getHeiNumberRegistration;
 import static org.smartregister.chw.malaria.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID;
 
 import android.app.Activity;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,7 +51,8 @@ public class MalariaProfileActivity extends CoreMalariaProfileActivity implement
     @Override
     protected void onCreation() {
         super.onCreation();
-        findViewById(R.id.record_visit_malaria).setVisibility(View.GONE);
+        findViewById(R.id.record_visit_malaria).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.textview_record_malaria)).setText(R.string.malaria_diagnosis);
         this.setOnMemberTypeLoadedListener(memberType -> {
             switch (memberType.getMemberType()) {
                 case CoreConstants.TABLE_NAME.ANC_MEMBER:
@@ -90,6 +94,7 @@ public class MalariaProfileActivity extends CoreMalariaProfileActivity implement
                 String encounterType = form.getString(JsonFormUtils.ENCOUNTER_TYPE);
                 if (encounterType.equals(CoreConstants.EventType.MALARIA_FOLLOW_UP_HF)) {
                     getPresenter().createHfMalariaFollowupEvent(Utils.getAllSharedPreferences(), jsonString, memberObject.getBaseEntityId());
+                    finish();
                 }
             } catch (Exception ex) {
                 Timber.e(ex);
@@ -195,5 +200,16 @@ public class MalariaProfileActivity extends CoreMalariaProfileActivity implement
 
     public void setCommonPersonObjectClient(CommonPersonObjectClient commonPersonObjectClient) {
         this.commonPersonObjectClient = commonPersonObjectClient;
+    }
+
+    @Override
+    public void onClick(View view) {
+        super.onClick(view);
+        if (view.getId() == R.id.textview_record_malaria) {
+
+            JSONObject jsonForm = org.smartregister.chw.core.utils.FormUtils.getFormUtils().getFormJson(getMalariaFollowUpHfForm());
+            startFormActivity(jsonForm);
+//            MalariaFollowUpVisitActivityHelper.startMalariaFollowUpActivity(this, baseEntityId);
+        }
     }
 }
