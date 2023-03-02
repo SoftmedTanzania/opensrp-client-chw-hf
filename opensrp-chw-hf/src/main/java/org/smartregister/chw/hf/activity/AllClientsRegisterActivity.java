@@ -1,6 +1,7 @@
 package org.smartregister.chw.hf.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import org.smartregister.AllConstants;
 import org.smartregister.chw.core.activity.CoreAllClientsRegisterActivity;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.fragment.AdvancedSearchFragment;
 import org.smartregister.chw.hf.fragment.AllClientsRegisterFragment;
 import org.smartregister.chw.hf.model.HfAllClientsRegisterModel;
@@ -28,6 +30,11 @@ import java.util.List;
 import timber.log.Timber;
 
 public class AllClientsRegisterActivity extends CoreAllClientsRegisterActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        FacilityMenu.getInstance(this, null, null);
+    }
 
     @Override
     protected BaseRegisterFragment getRegisterFragment() {

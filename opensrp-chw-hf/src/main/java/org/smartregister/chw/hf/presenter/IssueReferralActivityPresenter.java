@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import org.jetbrains.annotations.NotNull;
 import org.smartregister.chw.core.custom_views.NavigationMenu;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.model.IssueReferralActivityModel;
 import org.smartregister.chw.hf.utils.Constants;
 import org.smartregister.chw.referral.contract.BaseIssueReferralContract;
@@ -37,7 +38,7 @@ public class IssueReferralActivityPresenter extends BaseIssueReferralPresenter {
     @Override
     public void onRegistrationSaved(boolean saveSuccessful) {
         super.onRegistrationSaved(saveSuccessful);
-        NavigationMenu navigationMenu = NavigationMenu.getInstance((Activity) getView(),
+        NavigationMenu navigationMenu = FacilityMenu.getInstance((Activity) getView(),
                 null, null);
         if (navigationMenu != null) {
             navigationMenu.refreshCount();

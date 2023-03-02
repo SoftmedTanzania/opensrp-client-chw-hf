@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.core.custom_views.NavigationMenu;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.presenter.IssueReferralActivityPresenter;
 import org.smartregister.chw.referral.activity.BaseIssueReferralActivity;
 import org.smartregister.chw.referral.contract.BaseIssueReferralContract;
@@ -45,7 +46,7 @@ public class ReferralRegistrationActivity extends BaseIssueReferralActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        NavigationMenu.getInstance(this, null, null);
+        FacilityMenu.getInstance(this, null, null);
     }
 
 //    @Override

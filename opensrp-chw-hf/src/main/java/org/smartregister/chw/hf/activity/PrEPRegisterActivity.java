@@ -6,6 +6,7 @@ import android.content.Intent;
 import org.smartregister.chw.core.activity.CoreKvpRegisterActivity;
 import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.core.utils.CoreConstants;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.fragment.PrEPRegisterFragment;
 import org.smartregister.chw.kvp.util.Constants;
 import org.smartregister.view.fragment.BaseRegisterFragment;
@@ -31,7 +32,7 @@ public class PrEPRegisterActivity extends CoreKvpRegisterActivity {
     @Override
     protected void onResumption() {
         super.onResumption();
-        NavigationMenu menu = NavigationMenu.getInstance(this, null, null);
+        NavigationMenu menu = FacilityMenu.getInstance(this, null, null);
         if (menu != null) {
             menu.getNavigationAdapter().setSelectedView(CoreConstants.DrawerMenu.PrEP);
         }

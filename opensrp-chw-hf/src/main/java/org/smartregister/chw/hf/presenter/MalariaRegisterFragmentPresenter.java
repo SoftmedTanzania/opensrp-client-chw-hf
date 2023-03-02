@@ -8,4 +8,9 @@ public class MalariaRegisterFragmentPresenter extends CoreMalariaRegisterFragmen
                                             MalariaRegisterFragmentContract.Model model, String viewConfigurationIdentifier) {
         super(view, model, viewConfigurationIdentifier);
     }
+
+    @Override
+    public String getMainCondition() {
+        return " ec_family_member.date_removed is null AND ec_malaria_confirmation.malaria IS NULL AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') AND ec_malaria_confirmation.is_closed = 0";
+    }
 }

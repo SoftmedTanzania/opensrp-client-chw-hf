@@ -68,27 +68,43 @@
       {
         "key": "weight_malaria_hf",
         "type": "edit_text",
-        "openmrs_entity": "",
+        "hint": "Weight (kg)",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "weight_malaria_hf",
         "openmrs_entity_parent": "",
-        "edit_type": "number",
-        "hint": "Weight (kg)",
-        "v_required": {
+        "v_numeric": {
           "value": "true",
-          "err": "Please enter weight"
+          "err": "Please enter the height"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "The weight must be equal or less than 300 (KG)"
+        },
+        "v_max_length": {
+          "value": "3",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid weight."
         }
       },
       {
         "key": "height_malaria_hf",
         "type": "edit_text",
-        "openmrs_entity": "",
+        "hint": "Height (cm)",
+        "openmrs_entity": "concept",
         "openmrs_entity_id": "height_malaria_hf",
         "openmrs_entity_parent": "",
-        "edit_type": "number",
-        "hint": "Height (cm)",
-        "v_required": {
+        "v_numeric": {
           "value": "true",
-          "err": "Please enter height"
+          "err": "Please enter the height"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "The height must be equal or less than 200 (CM)"
+        },
+        "v_max_length": {
+          "value": "3",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid height."
         }
       },
       {
@@ -209,6 +225,12 @@
         "v_required": {
           "value": "true",
           "err": "Please select test results"
+        },
+        "relevance": {
+          "step1:test_malaria_hf": {
+            "type": "string",
+            "ex": "notEqualTo(., \"mRDT_not_done\")"
+          }
         }
       },
       {
@@ -259,6 +281,12 @@
         "v_required": {
           "value": "true",
           "err": "Please select diagnosis"
+        },
+        "relevance": {
+          "step1:test_malaria_hf": {
+            "type": "string",
+            "ex": "notEqualTo(., \"mRDT_not_done\")"
+          }
         }
       },
       {

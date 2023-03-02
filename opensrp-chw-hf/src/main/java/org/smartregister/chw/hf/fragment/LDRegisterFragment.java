@@ -17,6 +17,7 @@ import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.QueryBuilder;
 import org.smartregister.chw.core.utils.Utils;
 import org.smartregister.chw.hf.activity.LDProfileActivity;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.model.LDRegisterFragmentModel;
 import org.smartregister.chw.hf.presenter.LDRegisterFragmentPresenter;
 import org.smartregister.chw.hf.provider.HfLDRegisterProvider;
@@ -163,7 +164,7 @@ public class LDRegisterFragment extends BaseLDRegisterFragment {
     protected void onResumption() {
         super.onResumption();
         try {
-            NavigationMenu.getInstance(getActivity(), null, toolbar);
+            FacilityMenu.getInstance(getActivity(), null, toolbar);
         } catch (NullPointerException e) {
             Timber.e(e);
         }

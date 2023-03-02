@@ -5,3 +5,17 @@ priority: 1
 condition: "true"
 actions:
   - "calculation = helper.getDateTimeToday()"
+---
+name: step1_malaria_results
+description: Calculated malaria_results
+priority: 1
+condition: "step_1_test_results_malaria_hf == 'mRDT_positive' || step_1_test_malaria_hf == 'Malaria_parasite_seen'"
+actions:
+  - "calculation = 'positive'"
+---
+name: step1_malaria_test_date
+description: Calculated malaria_test_date
+priority: 1
+condition: "step_1_test_results_malaria_hf == 'mRDT_positive' || step_1_test_malaria_hf == 'Malaria_parasite_seen'"
+actions:
+  - "calculation = helper.getDateTimeToday()"

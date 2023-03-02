@@ -3,8 +3,8 @@ package org.smartregister.chw.hf.fragment;
 import android.view.View;
 
 import org.json.JSONObject;
-import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.hf.R;
+import org.smartregister.chw.hf.custom_view.FacilityMenu;
 import org.smartregister.chw.hf.utils.JsonFormUtils;
 import org.smartregister.chw.hivst.fragment.BaseHivstMobilizationRegisterFragment;
 
@@ -16,7 +16,7 @@ public class HivstMobilizationFragment extends BaseHivstMobilizationRegisterFrag
     public void setupViews(View view) {
         super.setupViews(view);
         try {
-            NavigationMenu.getInstance(getActivity(), null, toolbar);
+            FacilityMenu.getInstance(getActivity(), null, toolbar);
         } catch (NullPointerException e) {
             Timber.e(e);
         }
@@ -25,7 +25,7 @@ public class HivstMobilizationFragment extends BaseHivstMobilizationRegisterFrag
     @Override
     protected void onResumption() {
         super.onResumption();
-        NavigationMenu.getInstance(getActivity(), null, toolbar);
+        FacilityMenu.getInstance(getActivity(), null, toolbar);
     }
 
 
