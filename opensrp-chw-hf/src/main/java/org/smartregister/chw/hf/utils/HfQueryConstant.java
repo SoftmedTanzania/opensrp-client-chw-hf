@@ -38,6 +38,8 @@ public interface HfQueryConstant {
             "    UNION ALL\n" +
             "    SELECT ec_malaria_confirmation.base_entity_id AS base_entity_id\n" +
             "    FROM ec_malaria_confirmation\n" +
+            "    WHERE ec_malaria_confirmation.malaria  IS NULL AND ec_malaria_confirmation.is_closed = 0" +
+            "    AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') " +
             "    UNION ALL\n" +
             "    SELECT ec_family_planning.base_entity_id AS base_entity_id\n" +
             "    FROM ec_family_planning\n" +
@@ -191,6 +193,8 @@ public interface HfQueryConstant {
             "    UNION ALL\n" +
             "    SELECT ec_malaria_confirmation.base_entity_id AS base_entity_id\n" +
             "    FROM ec_malaria_confirmation\n" +
+            "    WHERE ec_malaria_confirmation.malaria  IS NULL  AND ec_malaria_confirmation.is_closed = 0 " +
+            "    AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') " +
             "    UNION ALL\n" +
             "    SELECT ec_family_planning.base_entity_id AS base_entity_id\n" +
             "    FROM ec_family_planning\n" +
@@ -347,6 +351,8 @@ public interface HfQueryConstant {
             "                    on ec_family_member.base_entity_id = ec_malaria_confirmation.base_entity_id\n" +
             "where ec_family_member.date_removed is null\n" +
             "  AND ec_family_member.base_entity_id IN (%s)\n" +
+            "  AND ec_malaria_confirmation.malaria  IS NULL  AND ec_malaria_confirmation.is_closed = 0 \n" +
+            "  AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') " +
             "  AND ec_family_member.base_entity_id NOT IN (\n" +
             "    SELECT ec_anc_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_anc_register\n" +
@@ -411,6 +417,8 @@ public interface HfQueryConstant {
             "    UNION ALL\n" +
             "    SELECT ec_malaria_confirmation.base_entity_id AS base_entity_id\n" +
             "    FROM ec_malaria_confirmation\n" +
+            "    WHERE ec_malaria_confirmation.malaria  IS NULL AND ec_malaria_confirmation.is_closed = 0 " +
+            "    AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') " +
             "    UNION ALL\n" +
             "    SELECT ec_tb_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_tb_register\n" +
@@ -459,6 +467,8 @@ public interface HfQueryConstant {
             "    UNION ALL\n" +
             "    SELECT ec_malaria_confirmation.base_entity_id AS base_entity_id\n" +
             "    FROM ec_malaria_confirmation\n" +
+            "    WHERE ec_malaria_confirmation.malaria  IS NULL AND ec_malaria_confirmation.is_closed = 0 " +
+            "    AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') " +
             "    UNION ALL\n" +
             "    SELECT ec_tb_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_tb_register\n" +
@@ -499,6 +509,8 @@ public interface HfQueryConstant {
             "    UNION ALL\n" +
             "    SELECT ec_malaria_confirmation.base_entity_id AS base_entity_id\n" +
             "    FROM ec_malaria_confirmation\n" +
+            "    WHERE ec_malaria_confirmation.malaria  IS NULL AND ec_malaria_confirmation.is_closed = 0 " +
+            "    AND datetime('NOW') <= datetime(ec_malaria_confirmation.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days') " +
             "    UNION ALL\n" +
             "    SELECT ec_tb_register.base_entity_id AS base_entity_id\n" +
             "    FROM ec_tb_register\n" +
