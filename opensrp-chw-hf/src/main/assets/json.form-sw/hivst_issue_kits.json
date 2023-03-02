@@ -75,6 +75,42 @@
                 }
             },
             {
+                "key": "self_test_kit_given",
+                "openmrs_entity_parent": "",
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "self_test_kit_given",
+                "label": "Je mteja alipewa kitendanishi cha jipime",
+                "text_color": "#000000",
+                "type": "native_radio",
+                "options": [
+                    {
+                        "key": "yes",
+                        "text": "Ndio",
+                        "openmrs_entity_parent": "",
+                        "openmrs_entity": "concept",
+                        "openmrs_entity_id": "yes"
+                    },
+                    {
+                        "key": "no",
+                        "text": "Hapana",
+                        "openmrs_entity_parent": "",
+                        "openmrs_entity": "concept",
+                        "openmrs_entity_id": "no"
+                    }
+                ],
+                "v_required": {
+                    "value": "true",
+                    "err": "Tafadhali chagua jibu "
+                },
+                "relevance": {
+                    "rules-engine": {
+                        "ex-rules": {
+                            "rules-file": "hivst_issue_kits_relevance.yml"
+                        }
+                    }
+                }
+            },
+            {
                 "key": "client_testing_approach",
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
@@ -110,42 +146,6 @@
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "unassisted_testing_off_site"
-                    }
-                ],
-                "v_required": {
-                    "value": "true",
-                    "err": "Tafadhali chagua jibu "
-                },
-                "relevance": {
-                    "rules-engine": {
-                        "ex-rules": {
-                            "rules-file": "hivst_issue_kits_relevance.yml"
-                        }
-                    }
-                }
-            },
-            {
-                "key": "self_test_kit_given",
-                "openmrs_entity_parent": "",
-                "openmrs_entity": "concept",
-                "openmrs_entity_id": "self_test_kit_given",
-                "label": "Je mteja alipewa kitendanishi cha jipime",
-                "text_color": "#000000",
-                "type": "native_radio",
-                "options": [
-                    {
-                        "key": "yes",
-                        "text": "Ndio",
-                        "openmrs_entity_parent": "",
-                        "openmrs_entity": "concept",
-                        "openmrs_entity_id": "yes"
-                    },
-                    {
-                        "key": "no",
-                        "text": "Hapana",
-                        "openmrs_entity_parent": "",
-                        "openmrs_entity": "concept",
-                        "openmrs_entity_id": "no"
                     }
                 ],
                 "v_required": {
