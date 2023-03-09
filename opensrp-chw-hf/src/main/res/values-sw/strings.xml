@@ -361,10 +361,13 @@
     <string name="condom_distribution_reports_subtitle">View Condom Distribution Report</string>
     <string name="condom_distribution_reports">Condom Distribution Reports</string>
     <string name="cdp_reports">RIPOTI za CDP</string>
-    <string name="cdp_issuing_report">CDP Issuing Report</string>
+    <string name="cdp_issuing_at_the_facility_report">CDP Issuing at the facility Report</string>
+    <string name="cdp_issuing_from_the_facility_report">CDP Issuing from the facility Report</string>
     <string name="cdp_receiving_report">CDP Receiving Report</string>
     <string name="kvp_reports">RIPOTI za KVP</string>
     <string name="kvp_reports_subtitle">Tazama Ripoti za KVP</string>
     <string name="global_search_description"><![CDATA[Jaza jina la mteja kisha Tafuta kwenye kanzi data ya kitaifa ya UCS]]></string>
+    <string name="select_issued_condoms">Chagua taarifa ya kondomu zilizotolewa</string>
+    <string name="cdp_issuing_report">Taarifa ya kondomu zilizotolewa</string>
 
 </resources>

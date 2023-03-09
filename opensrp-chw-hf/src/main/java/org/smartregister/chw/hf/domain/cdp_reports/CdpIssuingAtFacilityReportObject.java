@@ -12,10 +12,10 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class CdpIssuingReportObject extends ReportObject {
+public class CdpIssuingAtFacilityReportObject extends ReportObject {
     private Date reportDate;
 
-    public CdpIssuingReportObject(Date reportDate) {
+    public CdpIssuingAtFacilityReportObject(Date reportDate) {
         super(reportDate);
         this.reportDate = reportDate;
     }
