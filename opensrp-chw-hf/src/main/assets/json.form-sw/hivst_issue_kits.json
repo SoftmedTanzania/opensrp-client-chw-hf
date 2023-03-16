@@ -180,7 +180,7 @@
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
                 "openmrs_entity_id": "extra_kits_required",
-                "label": "Je mteja anahitaji vitepe vya ziada",
+                "label": "Je mteja anahitaji vitepe kwa ajili ya rafiki rika au mshirika ngono",
                 "text_color": "#000000",
                 "type": "native_radio",
                 "options": [
