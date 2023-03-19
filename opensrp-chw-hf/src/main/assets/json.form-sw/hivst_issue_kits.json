@@ -111,6 +111,21 @@
                 }
             },
             {
+                "key": "kit_code",
+                "openmrs_entity_parent": "",
+                "openmrs_entity": "concept",
+                "openmrs_entity_id": "kit_code",
+                "type": "edit_text",
+                "hint": "Msimbo wa kitepe",
+                "relevance": {
+                    "rules-engine": {
+                        "ex-rules": {
+                            "rules-file": "hivst_issue_kits_relevance.yml"
+                        }
+                    }
+                }
+            },
+            {
                 "key": "client_testing_approach",
                 "openmrs_entity_parent": "",
                 "openmrs_entity": "concept",
@@ -152,21 +167,6 @@
                     "value": "true",
                     "err": "Tafadhali chagua jibu "
                 },
-                "relevance": {
-                    "rules-engine": {
-                        "ex-rules": {
-                            "rules-file": "hivst_issue_kits_relevance.yml"
-                        }
-                    }
-                }
-            },
-            {
-                "key": "kit_code",
-                "openmrs_entity_parent": "",
-                "openmrs_entity": "concept",
-                "openmrs_entity_id": "kit_code",
-                "type": "edit_text",
-                "hint": "Msimbo wa kitepe",
                 "relevance": {
                     "rules-engine": {
                         "ex-rules": {
