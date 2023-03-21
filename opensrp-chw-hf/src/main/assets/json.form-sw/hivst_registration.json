@@ -70,7 +70,7 @@
                     },
                     {
                         "key": "known_positive",
-                        "text": "Tayari ana maabukizi ya VVU",
+                        "text": "Tayari ana maambukizi ya VVU",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "known_positive"
@@ -113,14 +113,14 @@
                     },
                     {
                         "key": "pwid",
-                        "text": "Wakujidunga",
+                        "text": "Wajidunga dawa za kulevya",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "pwid"
                     },
                     {
                         "key": "prisoners",
-                        "text": "Mfungwa",
+                        "text": "Mfungwa/Mahabusu",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "prisoners"
