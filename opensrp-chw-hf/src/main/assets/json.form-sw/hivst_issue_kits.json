@@ -150,7 +150,7 @@
                     },
                     {
                         "key": "unassisted_testing_on_site",
-                        "text": "Bila Usaidizi ndani ya eneo la upimaji",
+                        "text": "Bila Usaidizi katika eneo la upimaji",
                         "openmrs_entity_parent": "",
                         "openmrs_entity": "concept",
                         "openmrs_entity_id": "unassisted_testing_on_site"
