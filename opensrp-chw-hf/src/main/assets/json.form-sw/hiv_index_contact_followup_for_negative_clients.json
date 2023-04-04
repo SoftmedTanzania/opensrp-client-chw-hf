@@ -305,7 +305,7 @@
           "type": "text_input_edit_text",
           "properties": {
             "hint": "Jaza numbari ya CTC ya mteja",
-            "type": "Clinic of Treatment and Care registration number (CTC Number)"
+            "type": "Care and Treatment Clinic registration number (CTC Number)"
           },
           "meta_data": {
             "openmrs_entity": "concept",
