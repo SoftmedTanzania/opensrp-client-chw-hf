@@ -452,7 +452,7 @@
     <string name="kvp_screening">KVP Screening</string>
     <string name="kvp_client_status">Client Status</string>
     <string name="kvp_hts">HTS</string>
-    <string name="kvp_prep_and_pep">PrEP and PEP</string>
+    <string name="kvp_pep_assesment">PEP assesment</string>
     <string name="kvp_condom_provision">Condom Provision</string>
     <string name="kvp_family_planning">Family Planning</string>
     <string name="kvp_tb_screening">TB Screening</string>
@@ -1247,5 +1247,6 @@
     <string name="global_search_description"><![CDATA[Fill in client’s name & search through UCS’s global database]]></string>
 
     <string name="referral_submitted_successfully">Referral sent successfully</string>
+    <string name="referral_submitted">Referral sent successfully</string>
 
 </resources>

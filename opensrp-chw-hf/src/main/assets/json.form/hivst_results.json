@@ -168,6 +168,22 @@
         }
       },
       {
+        "key": "prompt_for_referral",
+        "type": "toaster_notes",
+        "text": "The client should be linked for HIV conventional test",
+        "openmrs_entity_id": "",
+        "openmrs_entity": "",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "hivst_results_relevance.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "prompt_for_invalid_or_wastage_for_client",
         "type": "toaster_notes",
         "text": "Provide additional kit",
