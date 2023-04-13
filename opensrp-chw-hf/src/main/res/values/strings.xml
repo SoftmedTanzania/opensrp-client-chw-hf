@@ -755,7 +755,7 @@
     <string name="kvp_family_planning_service">Family planning service provided:</string>
     <string name="kvp_cervical_cancer_screening">Was the client screened for Cervical Cancer:</string>
 
-    <string name="hivst">HIVST</string>
+    <string name="hivst">Self Testing</string>
     <string name="hiv_cv_test">HIV conventional test</string>
     <string name="hivst_and_hiv_cv_test">HIVST and HIV conventional test</string>
     <string name="other_method">Other method</string>
