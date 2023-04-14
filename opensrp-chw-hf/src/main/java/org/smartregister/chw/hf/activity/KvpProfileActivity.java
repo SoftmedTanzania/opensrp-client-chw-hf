@@ -13,10 +13,10 @@ import org.smartregister.chw.hivst.dao.HivstDao;
 import org.smartregister.chw.kvp.KvpLibrary;
 import org.smartregister.chw.kvp.domain.Visit;
 import org.smartregister.chw.kvp.util.Constants;
+import org.smartregister.chw.kvp.util.DBConstants;
 import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.commonregistry.CommonRepository;
-import org.smartregister.family.util.DBConstants;
 import org.smartregister.family.util.Utils;
 
 public class KvpProfileActivity extends CoreKvpProfileActivity {
@@ -59,7 +59,7 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-         super.onCreateOptionsMenu(menu);
+        super.onCreateOptionsMenu(menu);
 
         if (HealthFacilityApplication.getApplicationFlavor().hasHivst()) {
             int age = memberObject.getAge();
@@ -71,13 +71,13 @@ public class KvpProfileActivity extends CoreKvpProfileActivity {
 
     @Override
     public void startHivstRegistration() {
-        CommonRepository commonRepository = org.smartregister.family.util.Utils.context().commonrepository(org.smartregister.family.util.Utils.metadata().familyMemberRegister.tableName);
+        CommonRepository commonRepository = Utils.context().commonrepository(Utils.metadata().familyMemberRegister.tableName);
 
         final CommonPersonObject commonPersonObject = commonRepository.findByBaseEntityId(memberObject.getBaseEntityId());
         final CommonPersonObjectClient client =
                 new CommonPersonObjectClient(commonPersonObject.getCaseId(), commonPersonObject.getDetails(), "");
         client.setColumnmaps(commonPersonObject.getColumnmaps());
-        String gender = Utils.getValue(commonPersonObject.getColumnmaps(), org.smartregister.family.util.DBConstants.KEY.GENDER, false);
+        String gender = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.GENDER, false);
         HivstRegisterActivity.startHivstRegistrationActivity(this, memberObject.getBaseEntityId(), gender);
     }
 

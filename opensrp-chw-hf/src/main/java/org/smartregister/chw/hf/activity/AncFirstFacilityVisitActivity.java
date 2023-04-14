@@ -32,6 +32,8 @@ import timber.log.Timber;
  * 11-10-2021
  */
 public class AncFirstFacilityVisitActivity extends BaseAncHomeVisitActivity {
+    private long mLastExecutionTime = 0;
+    private static final long MINIMUM_INTERVAL_MS = 3000;
 
     public static void startMe(Activity activity, String baseEntityID, Boolean isEditMode) {
         Intent intent = new Intent(activity, AncFirstFacilityVisitActivity.class);
@@ -51,9 +53,6 @@ public class AncFirstFacilityVisitActivity extends BaseAncHomeVisitActivity {
         Utils.startAsyncTask(new RunnableTask(runnable), null);
         super.submittedAndClose();
     }
-
-    private long mLastExecutionTime = 0;
-    private static final long MINIMUM_INTERVAL_MS = 3000;
 
     @Override
     public void startFormActivity(JSONObject jsonForm) {

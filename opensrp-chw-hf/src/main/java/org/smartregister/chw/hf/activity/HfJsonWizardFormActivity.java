@@ -12,6 +12,9 @@ import org.smartregister.chw.hf.fragment.HfJsonFormFragment;
 import org.smartregister.family.activity.FamilyWizardFormActivity;
 
 public class HfJsonWizardFormActivity extends FamilyWizardFormActivity {
+    //Implementation that handles passing of large data between activities that sometimes caused TransactionTooLarge exceptions
+    public final int MAX_BUNDLE_SIZE = 300;
+
     @Override
     protected String getJsonForm() {
         // Retrieve the large JSONObject from JSONObjectHolder
@@ -30,9 +33,6 @@ public class HfJsonWizardFormActivity extends FamilyWizardFormActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(com.vijay.jsonwizard.R.id.container, formFragment).commitAllowingStateLoss();
     }
-
-    //Implementation that handles passing of large data between activities that sometimes caused TransactionTooLarge exceptions
-    public final int MAX_BUNDLE_SIZE = 300;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
